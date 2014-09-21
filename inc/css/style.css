@@ -255,3 +255,11 @@ form.generalForm #fileUpload input[type="file"] {
 	-khtml-opacity: 0;
 	opacity: 0;
 }
+
+
+/*------------------------------------------*\
+    MOBILE
+\*------------------------------------------*/
+#mobileContactContainer {
+	display: none;
+}
