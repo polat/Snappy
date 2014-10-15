@@ -37,3 +37,19 @@ $(document).ready(function () {
     $('input, textarea').placeholder();
 
 });
+
+function colorboxalert (message) {
+    $(function () {
+        if ($("#colx").html() != null) {
+            $(".colorboxalertMessage").html(message);
+            $(".inline").colorbox({inline: true, width: "auto", height: "auto"});
+            $("#cola").click();
+        } else {
+            $("#colx").remove();
+            var appendtext = '<div id="colx" style="display:none;"><a class="inline" href="#coldiv" id="cola"></a><div id="coldiv"><div style="padding:10px;font-size:18px;color:#333;text-align:center" class="colorboxalertMessage">' + message + '</div></div></div>';
+            $("body").append(appendtext);
+            $(".inline").colorbox({inline: true, width: "auto", height: "auto"});
+            $("#cola").click();
+        }
+    });
+}
