@@ -147,6 +147,7 @@ form.generalForm .capsulTitle {
 form.generalForm input[type="text"], form.generalForm textarea, form.generalForm select {
     width: 320px;
     height: 25px;
+    line-height: 25px;
     margin: 6px 0;
     padding: 5px 10px;
     display: inline-block; *display: inline; zoom: 1;
@@ -170,16 +171,16 @@ form.generalForm select {
     height: auto;
 }
 
-form.generalForm input[type="text"]:focus, form.generalForm textarea:focus {
+form.generalForm input:focus, form.generalForm textarea:focus {
     border-color: #888;
 }
 
-form.generalForm input.error, form.generalForm input.error:focus, form.generalForm textarea.error, form.generalForm textarea.error:focus, form.generalForm select.error, form.generalForm select.error:focus {
-    border-color: #C40F0F;
+form.generalForm .error, form.generalForm .error:focus, form.generalForm .error + .fileBorder {
+    border-color: #C40F0F !important;
 }
 
-form.generalForm input.valid, form.generalForm input.valid:focus, form.generalForm textarea.valid, form.generalForm textarea.valid:focus, form.generalForm select.valid, form.generalForm select.valid:focus {
-    border-color: #3c763d;
+form.generalForm .valid, form.generalForm .valid:focus, form.generalForm .valid + .fileBorder{
+    border-color: #3c763d !important;
 }
 
 form.generalForm input#captcha.valid, form.generalForm input#captcha.valid:focus, form.generalForm input#captcha.error, form.generalForm input#captcha.error:focus {
@@ -236,7 +237,7 @@ form.generalForm #fileUpload {
     position: relative;
 }
 
-form.generalForm #fileUpload input[type="text"], form.generalForm #fileUpload input[type="file"], form.generalForm #fileUpload input[type="file"] + .fileBorder {
+form.generalForm #fileUpload * {
     position: absolute;
     left: 0;
     top: 0;
@@ -259,28 +260,21 @@ form.generalForm #fileUpload input[type="file"] {
     opacity: 0;
 }
 
-
 form.generalForm #fileUpload input[type="file"] + .fileBorder {
     width: 320px;
     height: 25px;
     margin: 6px 0;
     padding: 5px 10px;
-    display: inline-block; *display: inline; zoom: 1;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
     border: 1px solid #D6D6D6;
     z-index: 2;
     display: none;
 }
 
-form.generalForm #fileUpload input[type="file"].error + .fileBorder, form.generalForm #fileUpload input[type="file"].valid + .fileBorder {
+form.generalForm #fileUpload .error + .fileBorder, form.generalForm #fileUpload .valid + .fileBorder {
     display: block;
-}
-
-form.generalForm #fileUpload input[type="file"].error + .fileBorder {
-    border-color: #C40F0F;
-}
-
-form.generalForm #fileUpload input[type="file"].valid + .fileBorder {
-    border-color: #3c763d;
 }
 
 
