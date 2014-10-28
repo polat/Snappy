@@ -63,14 +63,6 @@ a {
 /**
  ** CONTACT PAGE
 **/
-.contactTitle {
-	margin: 10px 0;
-	font-family: inherit;
-	font-size: 20px;
-	font-weight: 600;
-	color: #766C50;
-}
-
 #contactInformations {
 	margin: 0 0 15px 0;
 }
@@ -122,14 +114,22 @@ div#mapDiv iframe {
 	width: 100%;
 }
 
-div#contactFormContainer {
-	margin-bottom: 50px;
-}
-
 
 /*------------------------------------------*\
     FORMS
 \*------------------------------------------*/
+div#generalFormContainer {
+    margin-bottom: 50px;
+}
+
+.generalFormTitle {
+    margin: 10px 0;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 600;
+    color: #766C50;
+}
+
 form.generalForm {
     width: 342px;
     margin: 12px 0 0 0;
@@ -189,11 +189,10 @@ form.generalForm input#captcha.valid, form.generalForm input#captcha.valid:focus
 
 form.generalForm input[type="reset"], form.generalForm input[type="button"], form.generalForm input[type="submit"] {
     margin: 8px 10px 0 0;
-    padding: 5px 10px;
+    padding: 6px 10px;
     font-size: 18px;
     cursor: pointer;
     background-color: #55211A;
-    border: 1px solid #787878;
     color: #FFF;
     -webkit-transition: all 0.20s;
     -moz-transition: all 0.20s;

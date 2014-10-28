@@ -88,5 +88,72 @@
         font-size: 14px;
     }
 
+    /* Contact Page */
+    #contactForm {
+        margin: 0 auto;
+    }
+
+    #contactContainer {
+        display: none;
+    }
+
+    #generalFormContainer {
+        width: 90%;
+        margin: 20px auto 20px;
+    }
+
+    #mobileContactContainer {
+        display: block;
+        width: 90%;
+        margin: 20px auto 0;
+    }
+
+    #mobileContactContainer .generalFormTitle {
+        margin: 0 0 1px 0;
+    }
+
+    .mobileMapContainer {
+        width: 100%;
+        height: 175px;
+        position: relative;
+    }
+
+    .mobileMapContainer a.mobileMap {
+        width: 100%;
+        height: 175px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 9999;
+    }
+
+    .mobileMapContainer iframe {
+        width: 100%;
+        height: 175px;
+    }
+
+    /* General Form */
+    form.generalForm {
+        width: 100%;
+        margin: 0;
+    }
+
+    form.generalForm input[type="text"], form.generalForm textarea, form.generalForm select , #mapContainer form.generalForm input[type="text"] {
+        width: 90%;
+        padding: 6px 4%;
+        font-size: 14px;
+    }
+
+    form.generalForm input#captcha {
+        width: 90px;
+    }
+
+    form.generalForm div.captchaImgContainer {
+        width: 90px;
+        margin-left: 10px;
+        float: left;
+    }
+
 }
 
