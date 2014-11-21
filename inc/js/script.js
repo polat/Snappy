@@ -1,6 +1,9 @@
 $(document).ready(function () {
 
-    /* Colorbox  & Swipebox*/
+    /* Colorbox & Swipebox */
+    $(".video").colorbox({iframe: true, innerWidth: 800, innerHeight: 600});
+    $(".map").colorbox({iframe: true, width: "90%", height: "80%"});
+
     var windowWidth = $(window).width();
     var isTop = windowWidth > 800 ? 1 : 0;
     if(windowWidth < 800){
@@ -29,24 +32,21 @@ $(document).ready(function () {
         $.colorbox.remove();
         $("a.swipe[rel='image']").swipebox();
     }
-    
-    $(".video").colorbox({iframe: true, innerWidth: 800, innerHeight: 600});
-    $(".map").colorbox({iframe: true, width: "90%", height: "80%"});
 
     /* Placeholder */
     $('input, textarea').placeholder();
 
 });
 
-function colorboxalert (message) {
+function messageBox (message) {
     $(function () {
         if ($("#colx").html() != null) {
-            $(".colorboxalertMessage").html(message);
+            $(".messageBoxContainer").html(message);
             $(".inline").colorbox({inline: true, width: "auto", height: "auto"});
             $("#cola").click();
         } else {
             $("#colx").remove();
-            var appendtext = '<div id="colx" style="display:none;"><a class="inline" href="#coldiv" id="cola"></a><div id="coldiv"><div style="padding:10px;font-size:18px;color:#333;text-align:center" class="colorboxalertMessage">' + message + '</div></div></div>';
+            var appendtext = '<div id="colx" style="display:none;"><a class="inline" href="#coldiv" id="cola"></a><div id="coldiv"><div style="padding:10px; font-size:18px; color:#333; text-align:center" class="messageBoxContainer">' + message + '</div></div></div>';
             $("body").append(appendtext);
             $(".inline").colorbox({inline: true, width: "auto", height: "auto"});
             $("#cola").click();
