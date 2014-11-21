@@ -3,6 +3,7 @@ $(document).ready(function () {
     /* Colorbox & Swipebox */
     $(".video").colorbox({iframe: true, innerWidth: 800, innerHeight: 600});
     $(".map").colorbox({iframe: true, width: "90%", height: "80%"});
+    $(".popup").colorbox({inline:true});
 
     var windowWidth = $(window).width();
     var isTop = windowWidth > 800 ? 1 : 0;
