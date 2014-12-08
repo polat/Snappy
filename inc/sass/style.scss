@@ -2,16 +2,23 @@
     SKELETON
 \*------------------------------------------*/
 
+// Variables 
+
+$defaultColor: #333;
+$mainWidth: 1001px;
+$centerElement: 0 auto;
+$fontFamily: 'tahoma';
+
 /**
  ** GLOBAL
 **/
 body {
 	font: 12px tahoma;
-	color: #333;
+	color: $defaultColor;
 }
 
 a {
-	color: #333;
+	color: $defaultColor;
 }
 
 .clear {
@@ -19,24 +26,13 @@ a {
 	height: 0;
 }
 
-#popup_content {
-    position: relative;
-    height: 100%;
-}
-
-#popup_content img {
-    width:100% !important;
-    height: auto !important;
-    display:block;
-}
-
 
 /**
  ** HEADER
 **/
 #header {
-	width: 1001px;
-	margin: 0 auto;
+	width: $mainWidth;
+	margin: $centerElement;
 }
 
 
@@ -44,8 +40,8 @@ a {
  ** CONTENT
 **/
 #content {
-	width: 1001px;
-	margin: 0 auto;
+	width: $mainWidth;
+	margin: $centerElement;
 }
 
 
@@ -53,8 +49,8 @@ a {
  ** SUB CONTENT
 **/
 #subContent {
-	width: 1001px;
-	margin: 0 auto;
+	width: $mainWidth;
+	margin: $centerElement;
 }
 
 
@@ -62,8 +58,8 @@ a {
  ** FOOTER
 **/
 #footer {
-	width: 1001px;
-	margin: 0 auto;
+	width: $mainWidth;
+	margin: $centerElement;
 }
 
 
@@ -84,16 +80,21 @@ a {
 	margin: 0 0 0 0;
 	padding: 0 10% 0 0;
 	float: left;
-	font-family: inherit;
-	font-size: 15px;
-	font-weight: 400;
+    font: {
+        family: inherit;
+        size: 15px;
+        weight: 400;
+    }
 }
 
-table#contacts tr, table#contacts td {
-	padding: 6px 0 0 0;
+table#contacts {
+    tr,td {
+        padding: 6px 0 0 0;
+    }
+    
 }
 
-#mapContainer, a#mapLink, div#mapDiv, div#mapDiv iframe {
+#mapContainer, a#mapLink, div#mapDiv, div#mapDiv iframe{
 	height: 175px;
 }
 
@@ -119,12 +120,10 @@ a#mapLink {
 
 div#mapDiv {
 	z-index: 1;
+    iframe {
+        width: 100%;
+    }
 }
-
-div#mapDiv iframe {
-	width: 100%;
-}
-
 
 /*------------------------------------------*\
     FORMS
@@ -135,24 +134,24 @@ div#generalFormContainer {
 
 .generalFormTitle {
     margin: 10px 0;
-    font-family: inherit;
-    font-size: 20px;
-    font-weight: 600;
+    font: {
+    	family: inherit;
+    	size: 20px;
+    	weight: 600;
+    }
     color: #766C50;
 }
 
 form.generalForm {
     width: 342px;
     margin: 12px 0 0 0;
-}
-
-form.generalForm .formCapsul {
-    margin: 8px 0;
-}
-
-form.generalForm .capsulTitle {
-    margin-left: 3px;
-    font-size: 16px;
+    .formCapsul {
+    	margin: 8px 0;
+    }
+    .capsulTitle {
+    	margin-left: 3px;
+    	font-size: 16px;
+    }
 }
 
 form.generalForm input[type="text"], form.generalForm textarea, form.generalForm select {
@@ -171,19 +170,22 @@ form.generalForm input[type="text"], form.generalForm textarea, form.generalForm
     transition: all 0.20s;
 }
 
-form.generalForm textarea {
-    height: 110px;
-    resize: none;
-    overflow: auto;
+form.generalForm {
+	textarea {
+	    height: 110px;
+	    resize: none;
+	    overflow: auto;
+	}
+	select {
+		width: 342px;
+    	height: auto;
+	}
 }
 
-form.generalForm select {
-    width: 342px;
-    height: auto;
-}
-
-form.generalForm input:focus, form.generalForm textarea:focus {
-    border-color: #888;
+form.generalForm input, form.generalForm textarea {
+	&:focus {
+		border-color: #888;
+	}
 }
 
 form.generalForm .error, form.generalForm .error:focus, form.generalForm .error + .fileBorder {
@@ -209,19 +211,18 @@ form.generalForm input[type="reset"], form.generalForm input[type="button"], for
     -moz-transition: all 0.20s;
     -o-transition: all 0.20s;
     transition: all 0.20s;
+    &:hover {
+    	background-color: #FF8000;
+    }
 }
 
-form.generalForm input[type="reset"]:hover, form.generalForm input[type="button"]:hover, form.generalForm input[type="submit"]:hover {
-    background-color: #FF8000;
-}
-
-form.generalForm input#captcha {
+form.generalForm {
+  input#captcha {
     width: 100px;
     float: left;
     text-align: center;
-}
-
-form.generalForm div.captchaImgContainer {
+  }
+  div.captchaImgContainer {
     width: 100px;
     height: 25px;
     margin: 6px 0 6px 15px;
@@ -231,24 +232,21 @@ form.generalForm div.captchaImgContainer {
     vertical-align: middle;
     background-color: #F4F4F4;
     border: 1px solid #D6D6D6;
-}
-
-form.generalForm a#captchaReset {
-    width: 24px;
+  }
+  a#captchaReset {
+  	width: 24px;
     height: 35px;
     margin: 6px 0 6px 10px;
     float: left;
     background: url(../../images/iconRefresh.png) center center no-repeat;
-}
-
-form.generalForm #fileUpload {
-    height: 37px;
+  }
+  #fileUpload {
+  	height: 37px;
     margin-bottom: 12px;
     position: relative;
-}
-
-form.generalForm #fileUpload * {
-    position: absolute;
+  }
+  #fileUpload * {
+	position: absolute;
     left: 0;
     top: 0;
     z-index: 1;
@@ -256,6 +254,7 @@ form.generalForm #fileUpload * {
     background-image: url(../../images/iconUpload.png);
     background-position: 12px center;
     background-repeat: no-repeat;
+  }
 }
 
 form.generalForm #fileUpload input[type="file"] {
