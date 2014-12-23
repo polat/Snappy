@@ -145,15 +145,5 @@
         font-size: 14px;
     }
 
-    form.generalForm input#captcha {
-        width: 90px;
-    }
-
-    form.generalForm div.captchaImgContainer {
-        width: 90px;
-        margin-left: 10px;
-        float: left;
-    }
-
 }
 

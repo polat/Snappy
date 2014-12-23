@@ -144,6 +144,7 @@ div#generalFormContainer {
 form.generalForm {
     width: 342px;
     margin: 12px 0 0 0;
+    font-family: inherit;
 }
 
 form.generalForm .formCapsul {
@@ -163,8 +164,8 @@ form.generalForm input[type="text"], form.generalForm textarea, form.generalForm
     padding: 5px 10px;
     display: inline-block; *display: inline; zoom: 1;
     font-size: 15px;
-    background-color: #F4F4F4;
-    border: 1px solid #D6D6D6;
+    background-color: #F9F9F9;
+    border: 1px solid #D3D3D3;
     -webkit-transition: all 0.20s;
     -moz-transition: all 0.20s;
     -o-transition: all 0.20s;
@@ -194,10 +195,6 @@ form.generalForm .valid, form.generalForm .valid:focus, form.generalForm .valid 
     border-color: #3c763d !important;
 }
 
-form.generalForm input#captcha.valid, form.generalForm input#captcha.valid:focus, form.generalForm input#captcha.error, form.generalForm input#captcha.error:focus {
-    border-color: #D6D6D6;
-}
-
 form.generalForm input[type="reset"], form.generalForm input[type="button"], form.generalForm input[type="submit"] {
     margin: 8px 10px 0 0;
     padding: 6px 10px;
@@ -213,32 +210,6 @@ form.generalForm input[type="reset"], form.generalForm input[type="button"], for
 
 form.generalForm input[type="reset"]:hover, form.generalForm input[type="button"]:hover, form.generalForm input[type="submit"]:hover {
     background-color: #FF8000;
-}
-
-form.generalForm input#captcha {
-    width: 100px;
-    float: left;
-    text-align: center;
-}
-
-form.generalForm div.captchaImgContainer {
-    width: 100px;
-    height: 25px;
-    margin: 6px 0 6px 15px;
-    padding: 5px 10px;
-    float: left;
-    text-align: center;
-    vertical-align: middle;
-    background-color: #F4F4F4;
-    border: 1px solid #D6D6D6;
-}
-
-form.generalForm a#captchaReset {
-    width: 24px;
-    height: 35px;
-    margin: 6px 0 6px 10px;
-    float: left;
-    background: url(../../images/iconRefresh.png) center center no-repeat;
 }
 
 form.generalForm #fileUpload {
