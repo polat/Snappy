@@ -133,6 +133,10 @@
         height: 175px;
     }
 
+    table#contacts tr, table#contacts td {
+        line-height: 18px;
+    }
+
     /* General Form */
     form.generalForm {
         width: 100%;
