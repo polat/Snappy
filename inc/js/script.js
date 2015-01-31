@@ -5,12 +5,10 @@ $(document).ready(function () {
     $('.video').colorbox({iframe: true, innerWidth: 800, innerHeight: 600});
     $('.map').colorbox({iframe: true, width: '90%', height: '80%'});
     $('.popup').colorbox({inline:true, maxWidth: '90%', maxHeight: '80%'});
-    $(document.body)
-        .on('click touchend','#swipebox-slider .current img', function(e){
-            return false;
-        }).on('click touchend','#swipebox-slider .current', function(e){
-            $('#swipebox-close').trigger('click');
-        });
+    $(document.body).on('click touchend','#swipebox-slider .current img', function(e){
+        return false;
+    }).on('click touchend','#swipebox-slider .current', function(e){
+        $('#swipebox-close').trigger('click');
     });
 
     /* Placeholder */
