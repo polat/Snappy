@@ -267,6 +267,7 @@ form.generalForm #fileUpload input[type="file"] {
     -moz-opacity: 0;
     -khtml-opacity: 0;
     opacity: 0;
+    cursor: pointer;
 }
 
 form.generalForm #fileUpload input[type="file"] + .fileBorder {

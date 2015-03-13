@@ -135,6 +135,12 @@
         }
     }
 
+    table#contacts {
+        tr,td {
+            line-height: 18px;
+        }
+    }
+
     /* General Form */
     form.generalForm {
         width: 100%;
