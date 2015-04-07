@@ -30,6 +30,11 @@ a {
     display:block;
 }
 
+ul.bulletList {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
 
 /**
  ** HEADER
