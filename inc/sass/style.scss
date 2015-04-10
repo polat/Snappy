@@ -116,6 +116,7 @@ table#contacts {
 
 #mapContainer {
 	width: 39%;
+	margin-top: 15px;
 	float: right;
 	position: relative;
 	border: 1px solid #CCC;
@@ -146,6 +147,10 @@ div#mapDiv {
 \*------------------------------------------*/
 div#generalFormContainer {
     margin-bottom: 50px;
+}
+
+#contactContainer {
+	padding-top: 15px;
 }
 
 .generalFormTitle {
