@@ -11,9 +11,6 @@ $(document).ready(function () {
         $('#swipebox-close').trigger('click');
     });
 
-    /* Placeholder */
-    $('input, textarea').placeholder();
-
 });
 
 function messageBox (message) {
