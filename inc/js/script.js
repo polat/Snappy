@@ -11,6 +11,20 @@ $(document).ready(function () {
         $('#swipebox-close').trigger('click');
     });
 
+    /* Showcase Slider */
+    $('ul#showcaseSlider').bxSlider({
+        auto: true,
+        mode: 'fade',
+        pager: false,
+        speed: 1000,
+        touchEnabled: true,
+        pause: 44000,
+        prevText: '',
+        nextText: '',
+        prevSelector: '',
+        nextSelector: ''
+    });
+
 });
 
 function messageBox (message) {
