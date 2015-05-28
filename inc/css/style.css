@@ -5,6 +5,13 @@
 /**
  ** GLOBAL
 **/
+html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 body {
 	font: 12px tahoma;
 	color: #333;
@@ -24,10 +31,10 @@ a {
     height: 100%;
 }
 
-#popup_content img {
-    width:100% !important;
+#popup_content img, #popup_content iframe {
+    width: 100% !important;
     height: auto !important;
-    display:block;
+    display: block;
 }
 
 ul.bulletList {
