@@ -18,13 +18,13 @@ $(document).ready(function () {
         pager: false,
         speed: 1000,
         touchEnabled: true,
-        pause: 44000,
+        pause: 4000,
         prevText: '',
         nextText: '',
         prevSelector: '',
         nextSelector: ''
     });
-
+    
 });
 
 function messageBox (message) {
