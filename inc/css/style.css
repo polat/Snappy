@@ -27,7 +27,7 @@ a {
 }
 
 #popup_content {
-    position: absolute;
+    position: relative;
     height: 100%;
 }
 
