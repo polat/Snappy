@@ -32,17 +32,6 @@ a {
 	height: 0;
 }
 
-#popup_content {
-    position: relative;
-    height: 100%;
-}
-
-#popup_content img, #popup_content iframe {
-    width: 100% !important;
-    height: auto !important;
-    display: block;
-}
-
 ul.bulletList {
     margin-left: 20px;
     list-style-type: disc;
