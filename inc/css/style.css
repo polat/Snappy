@@ -40,10 +40,22 @@ ul.bulletList {
   list-style-type: disc;
 }
 
+ul.noListType {
+  list-style-type: none;
+}
+
 /**
  ** HEADER
 **/
 #header {
+  width: 1001px;
+  margin: 0 auto;
+}
+
+/**
+ ** SHOWCASE
+**/
+#showcase {
   width: 1001px;
   margin: 0 auto;
 }

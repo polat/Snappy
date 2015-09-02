@@ -1,21 +1,15 @@
-/**
-* Font_Family
-*/
 @font-face {
-    font-family: 'Font_Family';
-    src: url('../font/font_name.eot');
-    src: url('../font/font_name.eot?#iefix') format('embedded-opentype'),
-    	 url('../font/font_name.woff2') format('woff2'),
-         url('../font/font_name.woff') format('woff'),
-         url('../font/font_name.ttf') format('truetype'),
-         url('../font/font_name.svg#Font_Family') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "isim";
+  src: url("../font/("fontName").eot");
+  src: url("../font/("fontName").eot?#iefix") format("embedded-opentype"), url("../font/("fontName").woff2") format("woff2"), url("../font/("fontName").woff") format("woff"), url("../font/("fontName").ttf") format("truetype"), url("../font/("fontName").svg#isim") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: "isim";
+    src: url("../font/("fontName").svg") format("svg");
+  }
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    @font-face {
-        font-family: 'Font_Family';
-        src: url('../font/font_name.svg') format('svg');
-    }
-}
+/*# sourceMappingURL=font.css.map */
