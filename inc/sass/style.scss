@@ -34,7 +34,7 @@ $fontFamily: 'tahoma';
 
 // Transitions with 3 values
 @mixin ts3($second, $property, $type){
-    @include prefix(transition, all $second);
+    @include prefix(transition, $property $second $type);
 }
 
 // Opacity
