@@ -1,14 +1,14 @@
 @font-face {
-  font-family: "isim";
-  src: url("../font/("fontName").eot");
-  src: url("../font/("fontName").eot?#iefix") format("embedded-opentype"), url("../font/("fontName").woff2") format("woff2"), url("../font/("fontName").woff") format("woff"), url("../font/("fontName").ttf") format("truetype"), url("../font/("fontName").svg#isim") format("svg");
+  font-family: "FamilyName";
+  src: url("../font/FontFile.eot");
+  src: url("../font/FontFile.eot?#iefix") format("embedded-opentype"), url("../font/FontFile.woff2") format("woff2"), url("../font/FontFile.woff") format("woff"), url("../font/FontFile.ttf") format("truetype"), url("../font/FontFile.svg#FamilyName") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
-    font-family: "isim";
-    src: url("../font/("fontName").svg") format("svg");
+    font-family: "FamilyName";
+    src: url("../font/FontFile.svg") format("svg");
   }
 }
 
