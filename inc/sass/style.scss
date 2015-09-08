@@ -232,6 +232,99 @@ ul.noListType {
 \*------------------------------------------*/
 
 /**
+ ** NEWS PAGE
+**/
+ul#newsList {
+    list-style-type: none;
+    li {
+        margin-bottom: 25px;
+        img.newsImg {
+            width: 186px;
+            height: 136px;
+            float: left;
+            border: 1px solid #DDD;
+        }
+        .newsRight {
+            width: 600px;
+            float: right;
+        }
+        a.newsTitle {
+            margin-bottom: 14px;
+            display: block;
+            font-size: 20px;
+            color: #EA3F22;
+            @include ts(0.2s);
+            &:hover {
+                color: #192A49;
+            }
+        }
+        .newsSummary, .newsDate {
+            font-size: 15px;
+            color: #342D46;
+        }
+        .newsSummary {
+            line-height: 18px;
+            margin-bottom: 10px;
+            p {
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+/* News Inner */
+.newsContentTitle {
+    margin-bottom: 16px;
+    font-size: 20px;
+    color: #EA3F22;
+    span {
+        float: right;
+    }
+}
+
+.newsContent {
+    line-height: 22px;
+    font-size: 15px;
+    color: #342D46;
+}
+
+/* Other News List */
+.otherNewsTitle {
+    margin: 100px 0 20px 0;
+    padding: 0 0 20px 0;
+    font-size: 22px;
+    color: #EA3F22;
+    border-bottom: 1px solid #C9C9C9;
+}
+
+ul#otherNewsList {
+    list-style-type: none;
+    li {
+        margin: 0 0 20px 0;
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid #E9E9E9;
+        .newsDate {
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #342D46;
+        }
+        a.newsTitle {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #EA3F23;
+            @include ts(0.2s);
+            &:hover {
+                color: #192A49;
+            }
+        }
+        .newsSummary {
+            font-size: 13px;
+            color: #342D46;
+        }
+    }
+}
+
+/**
  ** CONTACT PAGE
 **/
 #contactInformations {

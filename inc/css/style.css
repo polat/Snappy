@@ -88,6 +88,109 @@ ul.noListType {
     PAGES
 \*------------------------------------------*/
 /**
+ ** NEWS PAGE
+**/
+ul#newsList {
+  list-style-type: none;
+}
+ul#newsList li {
+  margin-bottom: 25px;
+}
+ul#newsList li img.newsImg {
+  width: 186px;
+  height: 136px;
+  float: left;
+  border: 1px solid #DDD;
+}
+ul#newsList li .newsRight {
+  width: 600px;
+  float: right;
+}
+ul#newsList li a.newsTitle {
+  margin-bottom: 14px;
+  display: block;
+  font-size: 20px;
+  color: #EA3F22;
+  -webkit-transition: all 0.2s;
+  -khtml-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+ul#newsList li a.newsTitle:hover {
+  color: #192A49;
+}
+ul#newsList li .newsSummary, ul#newsList li .newsDate {
+  font-size: 15px;
+  color: #342D46;
+}
+ul#newsList li .newsSummary {
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+ul#newsList li .newsSummary p {
+  margin-bottom: 5px;
+}
+
+/* News Inner */
+.newsContentTitle {
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #EA3F22;
+}
+.newsContentTitle span {
+  float: right;
+}
+
+.newsContent {
+  line-height: 22px;
+  font-size: 15px;
+  color: #342D46;
+}
+
+/* Other News List */
+.otherNewsTitle {
+  margin: 100px 0 20px 0;
+  padding: 0 0 20px 0;
+  font-size: 22px;
+  color: #EA3F22;
+  border-bottom: 1px solid #C9C9C9;
+}
+
+ul#otherNewsList {
+  list-style-type: none;
+}
+ul#otherNewsList li {
+  margin: 0 0 20px 0;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid #E9E9E9;
+}
+ul#otherNewsList li .newsDate {
+  margin-bottom: 15px;
+  font-size: 13px;
+  color: #342D46;
+}
+ul#otherNewsList li a.newsTitle {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #EA3F23;
+  -webkit-transition: all 0.2s;
+  -khtml-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+ul#otherNewsList li a.newsTitle:hover {
+  color: #192A49;
+}
+ul#otherNewsList li .newsSummary {
+  font-size: 13px;
+  color: #342D46;
+}
+
+/**
  ** CONTACT PAGE
 **/
 #contactInformations {
