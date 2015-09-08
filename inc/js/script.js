@@ -14,17 +14,14 @@ $(document).ready(function () {
     $('body').addClass('active');
 
     /* Showcase Slider */
-    $('ul#showcaseSlider').bxSlider({
-        auto: true,
-        mode: 'fade',
-        pager: false,
+    $('#showcaseSlider').slick({
+        autoplay: true,
+        fade: true,
+        infinite: true,
+        dots: false,
+        arrows: false,
+        autoplaySpeed: 4000,
         speed: 1000,
-        touchEnabled: true,
-        pause: 4000,
-        prevText: '',
-        nextText: '',
-        prevSelector: '',
-        nextSelector: ''
     });
     
 });
