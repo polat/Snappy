@@ -13,15 +13,17 @@ $(document).ready(function () {
 
     $('body').addClass('active');
 
-    /* Showcase Slider */
-    $('#showcaseSlider').slick({
-        autoplay: true,
-        fade: true,
-        infinite: true,
-        dots: false,
-        arrows: false,
-        autoplaySpeed: 4000,
+    /* Main Slider */
+    $('ul.mainSlider').bxSlider({
+        auto: true,
+        pager: false,
         speed: 1000,
+        touchEnabled: true,
+        pause: 3000,
+        prevText: '',
+        nextText: '',
+        prevSelector: '',
+        nextSelector: ''
     });
     
 });
