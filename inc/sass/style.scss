@@ -25,7 +25,29 @@ $fontFamily: 'tahoma';
     display: -ms-flexbox;  
     display: -webkit-flex;    
     display: flex;
-} 
+    @include prefix(flex, none);
+}
+
+@mixin row {
+    @include prefix(flex-direction, row);
+}
+
+@mixin column {
+    @include prefix(flex-direction, column);
+}
+
+@mixin vCenter{
+    @include prefix(align-items, center);
+}
+
+@mixin hCenter {
+    @include prefix(justify-content, center);
+}
+
+@mixin center {
+    @include prefix(align-items, center);
+    @include prefix(justify-content, center);
+}
 
 // Transitions
 @mixin ts($second){
