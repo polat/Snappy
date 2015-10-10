@@ -173,16 +173,6 @@ html {
 body {
     font: 12px tahoma;
     color: $defaultColor;
-    opacity: 0.25;
-    -webkit-transition: opacity 1s;
-    -moz-transition: opacity 1s;
-    -ms-transition: opacity 1s;
-    -o-transition: opacity 1s;
-    transition: opacity 1s;
-}
-
-body.active {
-    opacity: 1;
 }
 
 a {

@@ -11,8 +11,6 @@ $(document).ready(function () {
         $('#swipebox-close').trigger('click');
     });
 
-    $('body').addClass('active');
-
     /* Main Slider */
     $('ul.mainSlider').bxSlider({
         auto: true,
