@@ -18,6 +18,10 @@ $fontFamily: 'tahoma';
            #{$property}: #{$value};
 }
 
+@mixin appearance {
+    @include prefix(appearance, none);
+}
+
 // Display Flex
 @mixin flex{
     display: -webkit-box;    
