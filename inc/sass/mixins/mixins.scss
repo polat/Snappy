@@ -1,0 +1,161 @@
+// VARIABLES
+$defaultColor: #333;
+$mainWidth: 1001px;
+$centerElement: 0 auto;
+$fontFamily: 'tahoma';
+
+// ADDS A BROWSER PREFIX TO THE PROPERTY
+@mixin prefix($property, $value){
+   -webkit-#{$property}: #{$value};
+    -khtml-#{$property}: #{$value};
+      -moz-#{$property}: #{$value};
+       -ms-#{$property}: #{$value};
+        -o-#{$property}: #{$value};
+           #{$property}: #{$value};
+}
+
+@mixin appearance {
+    @include prefix(appearance, none);
+}
+
+// Display Flex
+@mixin flex{
+    display: -webkit-box;    
+    display: -moz-box;      
+    display: -ms-flexbox;  
+    display: -webkit-flex;    
+    display: flex;
+    @include prefix(flex, none);
+}
+
+@mixin row {
+    @include prefix(flex-direction, row);
+}
+
+@mixin column {
+    @include prefix(flex-direction, column);
+}
+
+@mixin vCenter{
+    @include prefix(align-items, center);
+}
+
+@mixin hCenter {
+    @include prefix(justify-content, center);
+}
+
+@mixin center {
+    @include prefix(align-items, center);
+    @include prefix(justify-content, center);
+}
+
+// Transitions
+@mixin ts($second){
+    @include prefix(transition, all $second);
+}
+
+// Transitions with 3 values
+@mixin ts3($second, $property, $type){
+    @include prefix(transition, $property $second $type);
+}
+
+// Opacity
+@mixin opacity($value){
+    filter: alpha(opacity=($value * 100));
+    @include prefix(opacity, $value);
+}
+
+// Transform Rotate
+@mixin rotate($degree){
+    @include prefix(transform, rotate($degree));
+}
+
+// Transform Translate
+@mixin translate($value1, $value2){
+    @include prefix(transform, translate($value1, $value2));
+}
+
+// Transform Scale
+@mixin scale($value1, $value2){
+    @include prefix(transform, scale($value1, $value2));
+}
+
+// Transform SkewX
+@mixin skewX($degree){
+    @include prefix(transform, skewX($degree));
+}
+
+// Transform SkewY
+@mixin skewY($degree){
+    @include prefix(transform, skewY($degree));
+}
+
+// Border Radius
+@mixin radius($value){
+    @include prefix(border-radius, $value);
+}
+
+// Background-size: Cover
+@mixin cover($cover: cover){
+    @include prefix(background-size, $cover);
+}
+
+// Double Border
+@mixin doubleBorder($borderWidth, $firstColor, $secondColor){
+    border: $borderWidth solid $firstColor;
+    @include prefix('box-shadow', 0 0 0 $borderWidth $secondColor);
+}
+
+// Animation
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+    @include prefix(animation, $str);
+}
+
+// Box Shadow
+@mixin box-shadow($x, $y, $blur, $color, $inset){
+    @if ($inset != ""){
+        @include prefix('box-shadow', $inset $x $y $blur $color);
+    }
+    @else{
+        @include prefix('box-shadow', $x $y $blur $color);
+    }
+}
+
+// Hide & Show
+@mixin hide{
+    visibility: hidden;
+    @include opacity(0);
+}
+
+@mixin show{
+    visibility: visible;
+    @include opacity(1);
+}
+
+// Linear Gradient 
+@mixin linear($from, $to, $startColor, $endColor){
+    background-image: -webkit-gradient(linear, $from, $to, color-stop(0, $startColor), color-stop(1, $endColor));
+    background-image: -o-linear-gradient($to, $startColor 0%, $endColor 100%);
+    background-image: -moz-linear-gradient($to, $startColor 0%, $endColor 100%);
+    background-image: -webkit-linear-gradient($to, $startColor 0%, $endColor 100%);
+    background-image: -ms-linear-gradient($to, $startColor 0%, $endColor 100%);
+    background-image: linear-gradient(to $to, $startColor 0%, $endColor 100%);
+}
