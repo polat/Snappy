@@ -1,8 +1,6 @@
-// VARIABLES
-$defaultColor: #333;
-$mainWidth: 1001px;
-$centerElement: 0 auto;
-$fontFamily: 'tahoma';
+/*------------------------------------------*\
+    MIXINS
+\*------------------------------------------*/
 
 // ADDS A BROWSER PREFIX TO THE PROPERTY
 @mixin prefix($property, $value){
@@ -28,6 +26,7 @@ $fontFamily: 'tahoma';
     @include prefix(flex, none);
 }
 
+// Flex Direction
 @mixin row {
     @include prefix(flex-direction, row);
 }
@@ -36,17 +35,65 @@ $fontFamily: 'tahoma';
     @include prefix(flex-direction, column);
 }
 
+// Vertical Position of Flex Items
 @mixin vCenter{
     @include prefix(align-items, center);
 }
 
+@mixin vEnd{
+    @include prefix(align-items, flex-end);
+}
+
+@mixin vStretch {
+    @include prefix(align-items, stretch);
+}
+
+@mixin vBaseline{
+    @include prefix(align-items, baseline);
+}
+
+// Horizontal Position of Flex Items
 @mixin hCenter {
     @include prefix(justify-content, center);
 }
 
+@mixin hEnd {
+    @include prefix(justify-content, flex-end);
+}
+
+@mixin spaceB {
+    @include prefix(justify-content, space-between);
+}
+
+@mixin spaceA {
+    @include prefix(justify-content, space-around);
+}
+
+// Horizontally and Vertically Centered Element
 @mixin center {
     @include prefix(align-items, center);
     @include prefix(justify-content, center);
+}
+
+// Self Positioning of a Flex Item
+@mixin selfStart {
+    @include prefix(align-self, flex-start);
+}
+
+@mixin selfCenter {
+    @include prefix(align-self, center);
+}
+
+@mixin selfEnd {
+    @include prefix(align-self, flex-end);
+}
+
+@mixin selfBaseline {
+    @include prefix(align-self, baseline);
+}
+
+@mixin selfStretch {
+    @include prefix(align-self, stretch);
 }
 
 // Transitions
@@ -54,9 +101,9 @@ $fontFamily: 'tahoma';
     @include prefix(transition, all $second);
 }
 
-// Transitions with 3 values
-@mixin ts3($second, $property, $type){
-    @include prefix(transition, $property $second $type);
+// Transition With More Than 1 Property
+@mixin ts2($string...){
+    @include prefix(transition, $string);
 }
 
 // Opacity
@@ -70,14 +117,14 @@ $fontFamily: 'tahoma';
     @include prefix(transform, rotate($degree));
 }
 
-// Transform Translate
-@mixin translate($value1, $value2){
-    @include prefix(transform, translate($value1, $value2));
-}
-
 // Transform Scale
 @mixin scale($value1, $value2){
     @include prefix(transform, scale($value1, $value2));
+}
+
+// Transform Translate
+@mixin translate($value1, $value2){
+    @include prefix(transform, translate($value1, $value2));
 }
 
 // Transform SkewX
@@ -90,6 +137,11 @@ $fontFamily: 'tahoma';
     @include prefix(transform, skewY($degree));
 }
 
+// Transform With More Than 1 Property
+@mixin transform ($string...){
+    @include prefix(transform, $string);
+}
+
 // Border Radius
 @mixin radius($value){
     @include prefix(border-radius, $value);
@@ -98,12 +150,6 @@ $fontFamily: 'tahoma';
 // Background-size: Cover
 @mixin cover($cover: cover){
     @include prefix(background-size, $cover);
-}
-
-// Double Border
-@mixin doubleBorder($borderWidth, $firstColor, $secondColor){
-    border: $borderWidth solid $firstColor;
-    @include prefix('box-shadow', 0 0 0 $borderWidth $secondColor);
 }
 
 // Animation
@@ -127,16 +173,6 @@ $fontFamily: 'tahoma';
 
 @mixin animation($str) {
     @include prefix(animation, $str);
-}
-
-// Box Shadow
-@mixin box-shadow($x, $y, $blur, $color, $inset){
-    @if ($inset != ""){
-        @include prefix('box-shadow', $inset $x $y $blur $color);
-    }
-    @else{
-        @include prefix('box-shadow', $x $y $blur $color);
-    }
 }
 
 // Hide & Show

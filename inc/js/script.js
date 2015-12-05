@@ -4,7 +4,7 @@ $(document).ready(function () {
     $('a[rel="image"]').swipebox();
     $('.video').colorbox({iframe: true, innerWidth: 800, innerHeight: 600});
     $('.map').colorbox({iframe: true, width: '90%', height: '80%'});
-    $('.popup').colorbox({inline:true,  fastIframe: false, maxWidth: '90%', maxHeight: '80%'});
+    $('.popup').colorbox({inline:true,  fastIframe: false, maxWidth: '90%', maxHeight: '90%'});
     $(document.body).on('click touchend','#swipebox-slider .current img', function(e){
         return false;
     }).on('click touchend','#swipebox-slider .current', function(e){
@@ -22,6 +22,16 @@ $(document).ready(function () {
         nextText: '',
         prevSelector: '',
         nextSelector: ''
+        /* Adds Active Class To Current Slide
+        onSlideAfter: function (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
+            console.log(currentSlideHtmlObject);
+            $('.active-slide').removeClass('active-slide');
+            $('ul.mainSlider > li').eq(currentSlideHtmlObject).addClass('active-slide')
+        },
+        onSliderLoad: function () {
+            $('ul.mainSlider > li').eq(0).addClass('active-slide')
+        }
+         */
     });
     
 });
@@ -40,4 +50,15 @@ function messageBox (message) {
             $('#cola').click();
         }
     });
+}
+
+function openMobileMap (lat,long){
+    // Android
+    if((navigator.platform.indexOf("iPhone") != -1)
+        || (navigator.platform.indexOf("iPod") != -1)
+        || (navigator.platform.indexOf("iPad") != -1))
+        window.open('maps://maps.google.com/?q='+ lat +','+ long + '');
+    else
+    // IOS
+        window.open('http://maps.google.com/?q='+ lat +','+ long + '');
 }

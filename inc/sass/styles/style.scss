@@ -1,11 +1,11 @@
 /*------------------------------------------*\
     SKELETON
 \*------------------------------------------*/
-@import '../mixins/mixins';
 
-/**
- ** GLOBAL
-**/
+@import '../mixins';
+@import '../variables';
+@import '../functions';
+
 html {
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
@@ -14,17 +14,17 @@ html {
 }
 
 body {
-    font: 12px tahoma;
-    color: $defaultColor;
+    font: $baseFontSize $baseFontFamily;
+    color: $baseColor;
 }
 
 a {
-	color: $defaultColor;
+    color: $baseColor;
 }
 
 .clear {
-	clear: both;
-	height: 0;
+    clear: both;
+    height: 0;
 }
 
 ul.bulletList {
@@ -35,7 +35,6 @@ ul.bulletList {
 ul.noListType {
     list-style-type: none;
 }
-
 
 /**
  ** HEADER
@@ -93,35 +92,72 @@ ul#newsList {
     list-style-type: none;
     li {
         margin-bottom: 25px;
-        img.newsImg {
-            width: 186px;
-            height: 136px;
-            float: left;
-            border: 1px solid #DDD;
-        }
-        .newsRight {
-            width: 600px;
-            float: right;
-        }
-        a.newsTitle {
-            margin-bottom: 14px;
-            display: block;
-            font-size: 20px;
-            color: #EA3F22;
-            @include ts(0.2s);
-            &:hover {
-                color: #192A49;
+        &:last-child {
+            a {
+                border-bottom: none;
             }
         }
-        .newsSummary, .newsDate {
-            font-size: 15px;
-            color: #342D46;
+        a {
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(148,148,148,0.2);
+            display: block;
+            &:hover {
+                .newsImgContainer {
+                    &::after {
+                        padding: 175px;
+                        margin: -325px 0 0 -325px;
+                    }
+                }
+                .newsTitle, .newsDate, .newsSummary p {
+                    color: rgba(235,25,33,0.8);
+                }
+            }
+        }
+        .newsImgContainer {
+            float: left;
+            position: relative;
+            overflow: hidden;
+            img {
+                vertical-align: bottom;
+            }
+            &::after {
+                width: 0;
+                height: 0;
+                margin: -150px 0 0 -150px;
+                padding: 0;
+                border: 150px solid rgba(0,0,0,0.6);
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                @include ts(0.5s);
+                @include radius(100%);
+            }
+        }
+        .newsRight {
+            width: calc(100% - 265px);
+            float: right;
+        }
+        .newsTitle, .newsDate {
+            margin-bottom: 14px;
+            font-size: 22px;
+            line-height: 26px;
+            color: rgba(83,83,83,0.9);
+            float: left;
+            @include ts(0.5s);
+        }
+        .newsDate {
+            font-size: 18px;
+            float: right;
         }
         .newsSummary {
             line-height: 18px;
             margin-bottom: 10px;
             p {
-                margin-bottom: 5px;
+                margin-bottom: 10px;
+                font-size: 17px;
+                line-height: 23px;
+                @include ts(0.5s);
             }
         }
     }
@@ -130,109 +166,183 @@ ul#newsList {
 /* News Inner */
 .newsContentTitle {
     margin-bottom: 16px;
-    font-size: 20px;
-    color: #EA3F22;
+    font-size: 25px;
+    line-height: 31px;
+    color: rgba(83,83,83,0.9);
     span {
+        font-size: 21px;
         float: right;
     }
 }
 
 .newsContent {
-    line-height: 22px;
-    font-size: 15px;
-    color: #342D46;
+    p {
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 /* Other News List */
 .otherNewsTitle {
-    margin: 100px 0 20px 0;
+    margin: 100px 0 0 0;
     padding: 0 0 20px 0;
-    font-size: 22px;
-    color: #EA3F22;
+    font-size: 25px;
+    color: rgba(83,83,83,0.8);
+    line-height: 31px;
     border-bottom: 1px solid #C9C9C9;
 }
 
 ul#otherNewsList {
     list-style-type: none;
     li {
-        margin: 0 0 20px 0;
-        padding: 0 0 20px 0;
         border-bottom: 1px solid #E9E9E9;
-        .newsDate {
-            margin-bottom: 15px;
-            font-size: 13px;
-            color: #342D46;
+    }
+}
+
+a.otherTitle {
+    padding: 20px 0 20px 18px;
+    font-size: 17px;
+    color: rgba(83,83,83,0.8);
+    line-height: 21px;
+    display: block;
+    position: relative;
+    @include ts(0.2s);
+    &:hover {
+        color: $mainColor;
+        &::before {
+            color: $mainColor;
         }
-        a.newsTitle {
-            margin-bottom: 15px;
-            font-size: 18px;
-            color: #EA3F23;
-            @include ts(0.2s);
-            &:hover {
-                color: #192A49;
-            }
-        }
-        .newsSummary {
-            font-size: 13px;
-            color: #342D46;
-        }
+    }
+    &::before {
+        margin-top: -11px;
+        font-size: 17px;
+        color: rgba(83,83,83,0.8);
+        line-height: 21px;
+        content: "+";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        @include ts(0.2s);
     }
 }
 
 /**
+ ** CAREER PAGE
+**/
+form#careerForm {
+    .careerTop {
+        margin-bottom: $contactMargin;
+        position: relative;
+        input {
+            &[type="text"] {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        textarea {
+            &#address {
+                width: calc(50% - 6px);
+                height: calc(100% - 2px);
+                margin: 0;
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+    }
+}
+
+.careerLeft {
+    width: calc(50% - 6px);
+    float: left;
+}
+
+
+/**
  ** CONTACT PAGE
 **/
+.mainContactContainer {
+    margin: 0 auto;
+    position: relative;
+}
+
 #contactInformations {
-	margin: 0 0 15px 0;
+    width: 47.5%;
+    margin-bottom: 50px;
+    &.multiple {
+        width: 47.5%;
+        padding-right: 52.5%;
+        position: relative;
+    }
 }
 
 #contactInfo {
-	width: 50%;
-	line-height: 20px;
-	margin: 0 0 0 0;
-	padding: 0 10% 0 0;
-	float: left;
-    font: {
-        family: inherit;
-        size: 15px;
-        weight: 400;
+    width: 100%;
+    .generalFormTitle {
+        font-size: 35px;
+        line-height: 39px;
     }
 }
 
-table#contacts {
-    tr,td {
-        padding: 6px 0 0 0;
+/* Contact List */
+ul.contactList {
+    &.icon {
+        li {
+            padding: 7px 0 7px 28px;
+            background: url("../../images/contactSprite.png") no-repeat;
+            &:nth-child(1) {
+                background-position: 0 -116px;
+            }
+            &:nth-child(2), &:nth-child(3) {
+                background-position: 0 -152px;
+            }
+            &:nth-child(4) {
+                background-position: 0 -186.5px;
+            }
+            &:nth-child(5) {
+                background-position: 0 -220px;
+            }
+            span {
+                display: none !important;
+            }
+        }
     }
-    
+    li {
+        padding: 7px 0;
+        font-size: 16px;
+        color: #00173B;
+        line-height: 22px;
+        a {
+            color: #00173B;
+        }
+    }
 }
 
 #mapContainer, a#mapLink, div#mapDiv, div#mapDiv iframe{
-	height: 175px;
-}
-
-#mapContainer {
-	width: 39%;
-	margin-top: 15px;
-	float: right;
-	position: relative;
-	border: 1px solid #CCC;
+    width: 47.5%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 a#mapLink, div#mapDiv {
-	width: 100%;
-	display: block;
-	position: absolute;
-	right: 0;
-	top: 0;
-	overflow: hidden;
+    width: 100%;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
 }
 
 a#mapLink {
-	z-index: 2;
+    z-index: 2;
 }
 
 div#mapDiv {
-	z-index: 1;
+    z-index: 1;
     iframe {
         width: 100%;
     }
@@ -242,172 +352,358 @@ div#mapDiv {
     FORMS
 \*------------------------------------------*/
 div#generalFormContainer {
-    margin-bottom: 50px;
-}
-
-#contactContainer {
-	padding-top: 15px;
+    width: 47.5%;
+    margin: 50px 0 0;
+    font-size: 14px;
+    color: #777777;
+    &.multiple {
+        width: 100%;
+    }
 }
 
 .generalFormTitle {
-    margin: 10px 0;
-    font: {
-    	family: inherit;
-    	size: 20px;
-    	weight: 600;
+    margin-bottom: 20px;
+    font-size: 25px;
+    color: $mainColor;
+}
+
+.contactTop {
+    position: relative;
+    input {
+        background: url('../../images/contactSprite.png') no-repeat;
+        &#namesurname {
+            background-position: 10px 7px;
+        }
+        &#phone {
+            background-position: 10px -35.5px;
+        }
+        &#email {
+            background-position: 10px -76px;
+        }
     }
-    color: #766C50;
 }
 
 form.generalForm {
-    width: 342px;
-    margin: 12px 0 0 0;
     .formCapsul {
-    	margin: 8px 0;
+        margin: 8px 0;
     }
     .capsulTitle {
-    	margin-left: 3px;
-    	font-size: 16px;
+        margin-left: 3px;
+        font-size: 16px;
+    }
+    input {
+        &[type="text"] {
+            width: calc(100% - 2px);
+            height: 37px;
+            margin-bottom: $contactMargin;
+            border: 1px solid #D6D6D6;
+            line-height: 37px;
+            text-indent: 50px;
+            display: block; *display: inline; zoom: 1;
+            font-size: 15px;
+            @include ts(0.2s);
+        }
+        &[type="reset"], &[type="button"], &[type="submit"] {
+            width: 130px;
+            height: 37px;
+            margin-bottom: 5px;
+            padding: 0 10px;
+            border: 1px solid #D6D6D6;
+            background: transparent;
+            font-size: 20px;
+            line-height: 37px;
+            color: #D6D6D6;
+            cursor: pointer;
+            -webkit-transition: all 0.20s;
+            -moz-transition: all 0.20s;
+            -o-transition: all 0.20s;
+            transition: all 0.20s;
+            &:hover {
+                border-color: $mainColor;
+                background-color: $mainColor;
+                color: #fff;
+            }
+        }
+        &[type="submit"] {
+            margin-bottom: 0;
+        }
+        &#captcha {
+            width: 100px;
+            float: left;
+            text-align: center;
+            &.valid, &.valid:focus, &.error, &.error:focus {
+                border-color: #D6D6D6;
+            }
+        }
+    }
+    input, textarea {
+        &:focus {
+            border-color: #888;
+        }
+    }
+    textarea, select {
+        width: 400px;
+        height: 37px;
+        margin-bottom: $contactMargin;
+        border: 1px solid #D6D6D6;
+        line-height: 37px;
+        text-indent: 50px;
+        display: block; *display: inline; zoom: 1;
+        font-size: 15px;
+        @include ts(0.2s);
+    }
+    textarea {
+        width: calc(100% - 2px);
+        height: 198px;
+        text-indent: 10px;
+        resize: none;
+        overflow: auto;
+    }
+    select {
+        width: 342px;
+        height: auto;
+    }
+    .error, .error:focus, .error + .fileBorder {
+        border-color: #C40F0F !important;
+    }
+    .valid, .valid:focus, .valid + .fileBorder {
+        border-color: #3c763d !important;
+    }
+    .captchaImgContainer {
+        width: 100px;
+        height: 25px;
+        margin: 6px 0 6px 15px;
+        padding: 5px 10px;
+        float: left;
+        text-align: center;
+        vertical-align: middle;
+        background-color: #F4F4F4;
+        border: 1px solid #D6D6D6;
+    }
+    a#captchaReset {
+        width: 24px;
+        height: 35px;
+        margin: 6px 0 6px 10px;
+        float: left;
+        background: url(../../images/iconRefresh.png) center center no-repeat;
+    }
+    #fileUpload {
+        height: 37px;
+        margin-bottom: $contactMargin;
+        position: relative;
+        input {
+            width: calc(100% - 2px);
+            margin: 0;
+            &[type="file"] {
+                width: 100%;
+                height: 37px;
+                z-index: 3;
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+                filter: alpha(opacity=0);
+                -moz-opacity: 0;
+                -khtml-opacity: 0;
+                opacity: 0;
+                cursor: pointer;
+                + .fileBorder {
+                    width: 320px;
+                    height: 25px;
+                    margin: 6px 0;
+                    padding: 5px 10px;
+                    display: inline-block;
+                    *display: inline;
+                    zoom: 1;
+                    border: 1px solid #D6D6D6;
+                    z-index: 2;
+                    display: none;
+                }
+            }
+        }
+        * {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            text-indent: 36px;
+            background-image: url(../../images/iconUpload.png);
+            background-position: 12px center;
+            background-repeat: no-repeat;
+        }
+        .error + .fileBorder, .valid + .fileBorder {
+            display: block;
+        }
     }
 }
 
-form.generalForm input[type="text"], form.generalForm textarea, form.generalForm select {
-    width: 320px;
-    height: 25px;
-    line-height: 25px;
-    margin: 6px 0;
-    padding: 5px 10px;
-    display: inline-block; *display: inline; zoom: 1;
-    font-size: 15px;
-    background-color: #F4F4F4;
-    border: 1px solid #D6D6D6;
-    -webkit-transition: all 0.20s;
-    -moz-transition: all 0.20s;
-    -o-transition: all 0.20s;
-    transition: all 0.20s;
+.g-recaptcha {
+    float: left;
 }
 
-form.generalForm {
-	textarea {
-	    height: 110px;
-	    resize: none;
-	    overflow: auto;
-	}
-	select {
-		width: 342px;
-    	height: auto;
-	}
+.contactButtons {
+    float: right;
 }
 
-form.generalForm input, form.generalForm textarea {
-	&:focus {
-		border-color: #888;
-	}
-}
-
-form.generalForm .error, form.generalForm .error:focus, form.generalForm .error + .fileBorder {
-    border-color: #C40F0F !important;
-}
-
-form.generalForm .valid, form.generalForm .valid:focus, form.generalForm .valid + .fileBorder{
-    border-color: #3c763d !important;
-}
-
-form.generalForm input#captcha.valid, form.generalForm input#captcha.valid:focus, form.generalForm input#captcha.error, form.generalForm input#captcha.error:focus {
-    border-color: #D6D6D6;
-}
-
-form.generalForm input[type="reset"], form.generalForm input[type="button"], form.generalForm input[type="submit"] {
-    margin: 8px 10px 0 0;
-    padding: 6px 10px;
-    font-size: 18px;
-    cursor: pointer;
-    background-color: #55211A;
-    color: #FFF;
-    -webkit-transition: all 0.20s;
-    -moz-transition: all 0.20s;
-    -o-transition: all 0.20s;
-    transition: all 0.20s;
-    &:hover {
-    	background-color: #FF8000;
+// Checkbox and Radio Buttons
+.checkbox, .radio {
+    &.inline {
+        margin-right: 15px;
+        display: inline;
+    }
+    // Square Checkbox
+    &.square {
+        label {
+            &::after {
+                content: '✔';
+                position: absolute;
+                top: 0;
+                left: 3px;
+                font-size: 16px;
+                line-height: 24px;
+                color: #09ad7e;
+            }
+        }
+    }
+    // Rounded Checkbox
+    &.rounded {
+        label {
+            &::before {
+                @include radius(100%);
+            }
+            &::after {
+                width: 13px;
+                height: 13px;
+                margin: -7px 0 0 -7px;
+                background: #09ad7e;
+                top: 12px;
+                left: 10px;
+                @include radius(100%);
+            }
+        }
+    }
+    label {
+        padding-left: 25px;
+        font-size: 14px;
+        line-height: 24px;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        &::before, &::after {
+            content: '';
+            position: absolute;
+        }
+        &::before {
+            width: 17px;
+            height: 17px;
+            left:0;
+            top: 2px;
+            border: 1px solid #aaa;
+            background: #f8f8f8;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+            @include radius(3px);
+        }
+        &::after {
+            @include ts(0.2s);
+            @include opacity(0);
+            @include scale(0,0);
+        }
+    }
+    input {
+        display: none;
+        &:checked + label::after {
+            opacity: 1;
+            @include scale(1,1);
+        }
     }
 }
 
-form.generalForm {
-  input#captcha {
-    width: 100px;
-    float: left;
-    text-align: center;
-  }
-  div.captchaImgContainer {
-    width: 100px;
-    height: 25px;
-    margin: 6px 0 6px 15px;
-    padding: 5px 10px;
-    float: left;
-    text-align: center;
-    vertical-align: middle;
-    background-color: #F4F4F4;
-    border: 1px solid #D6D6D6;
-  }
-  a#captchaReset {
-  	width: 24px;
-    height: 35px;
-    margin: 6px 0 6px 10px;
-    float: left;
-    background: url(../../images/iconRefresh.png) center center no-repeat;
-  }
-  #fileUpload {
-  	height: 37px;
-    margin-bottom: 12px;
-    position: relative;
-  }
-  #fileUpload * {
-	position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    text-indent: 36px;
-    background-image: url(../../images/iconUpload.png);
-    background-position: 12px center;
-    background-repeat: no-repeat;
-  }
-}
-
-form.generalForm #fileUpload input[type="file"] {
-    width: 100%;
-    height: 37px;
-    margin: 6px 0;
-    z-index: 3;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    opacity: 0;
-    cursor: pointer;
-}
-
-form.generalForm #fileUpload input[type="file"] + .fileBorder {
-    width: 320px;
-    height: 25px;
-    margin: 6px 0;
-    padding: 5px 10px;
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    border: 1px solid #D6D6D6;
-    z-index: 2;
-    display: none;
-}
-
-form.generalForm #fileUpload .error + .fileBorder, form.generalForm #fileUpload .valid + .fileBorder {
-    display: block;
+// Select
+.selectContainer {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #fff;
+    select {
+        width: 130%;
+        padding: 5px 8px;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+        &:focus {
+            outline: none;
+        }
+    }
 }
 
 
 /*------------------------------------------*\
-    MOBILE
+    TABLES
 \*------------------------------------------*/
-#mobileContactContainer {
-	display: none;
+
+table.contentTable {
+    width: 100%;
+    // Hover Table
+    &.hover {
+        tr {
+            &:hover {
+                background-color: $hoverBackground;
+                td,th {
+                    color: $hoverColor;
+                }
+            }
+        }
+    }
+    // Items Centered Table
+    &.center {
+        tr {
+            td,th {
+                text-align: center;
+            }
+        }
+    }
+    // Zebra Table
+    &.zebra {
+        tr {
+            &:nth-child(even){
+                background-color: $zebraColor;
+            }
+        }
+    }
+    // First Line With Background-Color
+    &.head {
+        tr {
+            &:first-child {
+                td,th {
+                    background-color: $hoverColor;
+                    font-size: $headSize;
+                    color: $headColor;
+                }
+            }
+        }
+    }
+    // Table With Border
+    &.border {
+        border: 1px solid $tableBorderColor;
+    }
+    &.borderCell {
+        tr {
+            td,th {
+                border-right: 1px solid $tableBorderColor;
+            }
+        }
+    }
+    tr {
+        height: $rowHeight;
+        border-bottom: 1px solid $tableBorderColor;
+        td,th {
+            padding: $cellPadding;
+            font-size: $cellSize;
+            color: $cellColor;
+            vertical-align: middle;
+        }
+    }
+    p {
+        margin-bottom: 0;
+    }
 }
