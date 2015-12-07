@@ -58,8 +58,8 @@ ul.noListType {
  ** CONTENT
 **/
 #content {
-	width: $mainWidth;
-	margin: $centerElement;
+    width: $mainWidth;
+    margin: $centerElement;
 }
 
 
@@ -67,8 +67,8 @@ ul.noListType {
  ** SUB CONTENT
 **/
 #subContent {
-	width: $mainWidth;
-	margin: $centerElement;
+    width: $mainWidth;
+    margin: $centerElement;
 }
 
 
@@ -76,8 +76,8 @@ ul.noListType {
  ** FOOTER
 **/
 #footer {
-	width: $mainWidth;
-	margin: $centerElement;
+    width: $mainWidth;
+    margin: $centerElement;
 }
 
 
@@ -266,19 +266,24 @@ form#careerForm {
 .mainContactContainer {
     margin: 0 auto;
     position: relative;
-}
-
-#contactInformations {
-    width: 47.5%;
-    margin-bottom: 50px;
     &.multiple {
-        width: 47.5%;
-        padding-right: 52.5%;
-        position: relative;
+        .contactInformations {
+            width: 47.5%;
+            padding-right: 52.5%;
+            position: relative;
+        }
+        div#generalFormContainer {
+            width: 100%;
+        }
     }
 }
 
-#contactInfo {
+.contactInformations {
+    width: 47.5%;
+    margin-bottom: 50px;
+}
+
+.contactInfo {
     width: 100%;
     .generalFormTitle {
         font-size: 35px;
@@ -356,9 +361,6 @@ div#generalFormContainer {
     margin: 50px 0 0;
     font-size: 14px;
     color: #777777;
-    &.multiple {
-        width: 100%;
-    }
 }
 
 .generalFormTitle {
