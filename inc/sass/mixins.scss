@@ -149,6 +149,7 @@
 
 // Background-size: Cover
 @mixin cover($cover: cover){
+    background-position: center;
     @include prefix(background-size, $cover);
 }
 
