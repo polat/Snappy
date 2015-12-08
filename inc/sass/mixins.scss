@@ -112,6 +112,15 @@
     @include prefix(opacity, $value);
 }
 
+// Box & Text Shadow 
+@mixin box-shadow($string...){
+    @include prefix(box-shadow, $string);
+}
+
+@mixin text-shadow($string...){
+    @include prefix(text-shadow, $string);
+}
+
 // Transform Rotate
 @mixin rotate($degree){
     @include prefix(transform, rotate($degree));

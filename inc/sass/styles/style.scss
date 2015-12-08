@@ -229,12 +229,46 @@ a.otherTitle {
 /**
  ** CAREER PAGE
 **/
+#generalFormContainer.career {
+    width: 100%;
+    .g-recaptcha {
+        float: left;
+    }
+    .contactButtons {
+        margin: 0;
+        float: right;
+        input {
+            height: 37px;
+            margin: 0 0 4px 0;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
 form#careerForm {
     .careerTop {
         margin-bottom: $contactMargin;
         position: relative;
         input {
             &[type="text"] {
+                background: url('../../images/formSprite.png') no-repeat #fff;
+                &#namesurname {
+                    background-position: 10px 7px;
+                }
+                &#phone {
+                    background-position: 10px -35.5px;
+                }
+                &#email {
+                    background-position: 10px -76px;
+                }
+                &#department {
+                    background: #fff;
+                }
+                &#city {
+                    background: #fff;
+                }
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -285,29 +319,25 @@ form#careerForm {
 
 .contactInfo {
     width: 100%;
-    .generalFormTitle {
-        font-size: 35px;
-        line-height: 39px;
-    }
 }
 
 /* Contact List */
 ul.contactList {
     &.icon {
         li {
-            padding: 7px 0 7px 28px;
-            background: url("../../images/contactSprite.png") no-repeat;
+            padding: 0 0 14px 28px;
+            background: url("../../images/contactListSprite.png") no-repeat;
             &:nth-child(1) {
-                background-position: 0 -116px;
+                background-position: 0 3px;
             }
             &:nth-child(2), &:nth-child(3) {
-                background-position: 0 -152px;
+                background-position: 0 -139px;
             }
             &:nth-child(4) {
-                background-position: 0 -186.5px;
+                background-position: 0 -281px;
             }
             &:nth-child(5) {
-                background-position: 0 -220px;
+                background-position: 0 -436px;
             }
             span {
                 display: none !important;
@@ -316,8 +346,8 @@ ul.contactList {
     }
     li {
         padding: 7px 0;
-        font-size: 16px;
-        color: #00173B;
+        font-size: 14px;
+        color: #666666;
         line-height: 22px;
         a {
             color: #00173B;
@@ -325,7 +355,7 @@ ul.contactList {
     }
 }
 
-#mapContainer, a#mapLink, div#mapDiv, div#mapDiv iframe{
+.mapContainer, a.mapLink, div.mapDiv, div.mapDiv iframe{
     width: 47.5%;
     height: 100%;
     position: absolute;
@@ -333,7 +363,7 @@ ul.contactList {
     top: 0;
 }
 
-a#mapLink, div#mapDiv {
+a.mapLink, div.mapDiv {
     width: 100%;
     display: block;
     position: absolute;
@@ -342,11 +372,11 @@ a#mapLink, div#mapDiv {
     overflow: hidden;
 }
 
-a#mapLink {
+a.mapLink {
     z-index: 2;
 }
 
-div#mapDiv {
+div.mapDiv {
     z-index: 1;
     iframe {
         width: 100%;
@@ -372,7 +402,7 @@ div#generalFormContainer {
 .contactTop {
     position: relative;
     input {
-        background: url('../../images/contactSprite.png') no-repeat;
+        background: url('../../images/formSprite.png') no-repeat;
         &#namesurname {
             background-position: 10px 7px;
         }
@@ -411,7 +441,7 @@ form.generalForm {
             margin-bottom: 5px;
             padding: 0 10px;
             border: 1px solid #D6D6D6;
-            background: transparent;
+            background: #fff;
             font-size: 20px;
             line-height: 37px;
             color: #D6D6D6;
