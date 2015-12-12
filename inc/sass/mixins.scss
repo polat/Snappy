@@ -2,6 +2,8 @@
     MIXINS
 \*------------------------------------------*/
 
+@import 'variables';
+
 // ADDS A BROWSER PREFIX TO THE PROPERTY
 @mixin prefix($property, $value){
    -webkit-#{$property}: #{$value};
@@ -205,3 +207,4 @@
     background-image: -ms-linear-gradient($to, $startColor 0%, $endColor 100%);
     background-image: linear-gradient(to $to, $startColor 0%, $endColor 100%);
 }
+

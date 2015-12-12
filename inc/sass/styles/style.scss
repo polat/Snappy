@@ -7,14 +7,12 @@
 @import '../functions';
 
 html {
-    -webkit-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    text-size-adjust: 100%;
+    font-size: $baseFontSize * 1px;
+    @include prefix(text-size-adjust, 100%);
 }
 
 body {
-    font: $baseFontSize $baseFontFamily;
+    font-family: $baseFontFamily;
     color: $baseColor;
 }
 

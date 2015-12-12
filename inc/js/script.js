@@ -21,7 +21,7 @@ $(document).ready(function () {
         prevText: '',
         nextText: '',
         prevSelector: '',
-        nextSelector: ''
+        nextSelector: '',
         /* Adds Active Class To Current Slide
         onSlideAfter: function (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
             console.log(currentSlideHtmlObject);
@@ -32,6 +32,11 @@ $(document).ready(function () {
             $('ul.mainSlider > li').eq(0).addClass('active-slide')
         }
          */
+    });
+
+    $("#showcase .bx-controls a").click(function(){
+        mainSlider.stopAuto();
+        mainSlider.startAuto();
     });
     
 });

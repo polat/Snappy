@@ -1,3 +1,10 @@
 /*------------------------------------------*\
     FUNCTIONS
 \*------------------------------------------*/
+
+@import 'variables';
+
+// Px to Rem
+@function px-to-rem($px) {
+    @return ($px / $baseFontSize) * 1rem;
+}
