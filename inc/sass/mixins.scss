@@ -7,10 +7,8 @@
 // ADDS A BROWSER PREFIX TO THE PROPERTY
 @mixin prefix($property, $value){
    -webkit-#{$property}: #{$value};
-    -khtml-#{$property}: #{$value};
       -moz-#{$property}: #{$value};
        -ms-#{$property}: #{$value};
-        -o-#{$property}: #{$value};
            #{$property}: #{$value};
 }
 
@@ -33,7 +31,7 @@
     @include prefix(flex-direction, row);
 }
 
-@mixin column {
+@mixin flexColumn {
     @include prefix(flex-direction, column);
 }
 
@@ -162,6 +160,12 @@
 @mixin cover($cover: cover){
     background-position: center;
     @include prefix(background-size, $cover);
+}
+
+// Column
+@mixin keyframes($numberOfColumns, $columnMargin){
+    @include prefix(column-count, $numberOfColumns);
+    @include prefix(column-gap, $columnMargin);
 }
 
 // Animation

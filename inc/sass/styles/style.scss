@@ -40,6 +40,8 @@ ul.noListType {
 #header {
     width: $mainWidth;
     margin: $centerElement;
+    @include flex();
+    @include center();
 }
 
 
@@ -138,23 +140,23 @@ ul#newsList {
         }
         .newsTitle, .newsDate {
             margin-bottom: 14px;
-            font-size: 22px;
-            line-height: 26px;
+            font-size: px-to-rem(22);
+            line-height: px-to-rem(26);
             color: rgba(83,83,83,0.9);
             float: left;
             @include ts(0.5s);
         }
         .newsDate {
-            font-size: 18px;
+            font-size: px-to-rem(18);
             float: right;
         }
         .newsSummary {
-            line-height: 18px;
+            line-height: px-to-rem(18);
             margin-bottom: 10px;
             p {
                 margin-bottom: 10px;
-                font-size: 17px;
-                line-height: 23px;
+                font-size: px-to-rem(17);
+                line-height: px-to-rem(23);
                 @include ts(0.5s);
             }
         }
@@ -164,19 +166,19 @@ ul#newsList {
 /* News Inner */
 .newsContentTitle {
     margin-bottom: 16px;
-    font-size: 25px;
-    line-height: 31px;
+    font-size: px-to-rem(25);
+    line-height: px-to-rem(31);
     color: rgba(83,83,83,0.9);
     span {
-        font-size: 21px;
+        font-size: px-to-rem(21);
         float: right;
     }
 }
 
 .newsContent {
     p {
-        font-size: 16px;
-        line-height: 24px;
+        font-size: px-to-rem(16);
+        line-height: px-to-rem(24);
     }
 }
 
@@ -184,9 +186,9 @@ ul#newsList {
 .otherNewsTitle {
     margin: 100px 0 0 0;
     padding: 0 0 20px 0;
-    font-size: 25px;
+    font-size: px-to-rem(25);
+    line-height: px-to-rem(31);
     color: rgba(83,83,83,0.8);
-    line-height: 31px;
     border-bottom: 1px solid #C9C9C9;
 }
 
@@ -199,9 +201,9 @@ ul#otherNewsList {
 
 a.otherTitle {
     padding: 20px 0 20px 18px;
-    font-size: 17px;
+    font-size: px-to-rem(17);
+    line-height: px-to-rem(21);
     color: rgba(83,83,83,0.8);
-    line-height: 21px;
     display: block;
     position: relative;
     @include ts(0.2s);
@@ -213,9 +215,9 @@ a.otherTitle {
     }
     &::before {
         margin-top: -11px;
-        font-size: 17px;
+        font-size: px-to-rem(17);
+        line-height: px-to-rem(21);
         color: rgba(83,83,83,0.8);
-        line-height: 21px;
         content: "+";
         position: absolute;
         left: 0;
@@ -344,11 +346,11 @@ ul.contactList {
     }
     li {
         padding: 7px 0;
-        font-size: 14px;
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(22);
         color: #666666;
-        line-height: 22px;
         a {
-            color: #00173B;
+            color: #666666;
         }
     }
 }
@@ -387,13 +389,13 @@ div.mapDiv {
 div#generalFormContainer {
     width: 47.5%;
     margin: 50px 0 0;
-    font-size: 14px;
+    font-size: px-to-rem(14);
     color: #777777;
 }
 
 .generalFormTitle {
     margin-bottom: 20px;
-    font-size: 25px;
+    font-size: px-to-rem(25);
     color: $mainColor;
 }
 
@@ -419,7 +421,7 @@ form.generalForm {
     }
     .capsulTitle {
         margin-left: 3px;
-        font-size: 16px;
+        font-size: px-to-rem(16);
     }
     input {
         &[type="text"] {
@@ -427,10 +429,10 @@ form.generalForm {
             height: 37px;
             margin-bottom: $contactMargin;
             border: 1px solid #D6D6D6;
-            line-height: 37px;
+            font-size: px-to-rem(15);
+            line-height: px-to-rem(37);
             text-indent: 50px;
             display: block; *display: inline; zoom: 1;
-            font-size: 15px;
             @include ts(0.2s);
         }
         &[type="reset"], &[type="button"], &[type="submit"] {
@@ -438,11 +440,11 @@ form.generalForm {
             height: 37px;
             margin-bottom: 5px;
             padding: 0 10px;
-            border: 1px solid #D6D6D6;
-            background: #fff;
-            font-size: 20px;
-            line-height: 37px;
-            color: #D6D6D6;
+            border: 1px solid $secondColor;
+            background: $secondColor;
+            font-size: px-to-rem(20);
+            line-height: px-to-rem(37);
+            color: #fff;
             cursor: pointer;
             -webkit-transition: all 0.20s;
             -moz-transition: all 0.20s;
@@ -476,16 +478,16 @@ form.generalForm {
         height: 37px;
         margin-bottom: $contactMargin;
         border: 1px solid #D6D6D6;
-        line-height: 37px;
+        font-size: px-to-rem(15);
+        line-height: px-to-rem(37);
         text-indent: 50px;
         display: block; *display: inline; zoom: 1;
-        font-size: 15px;
         @include ts(0.2s);
     }
     textarea {
         width: calc(100% - 2px);
         height: 198px;
-        text-indent: 10px;
+        background: url('../../images/formSprite.png') no-repeat 10px -112px;
         resize: none;
         overflow: auto;
     }
@@ -586,8 +588,8 @@ form.generalForm {
                 position: absolute;
                 top: 0;
                 left: 3px;
-                font-size: 16px;
-                line-height: 24px;
+                font-size: px-to-rem(16);
+                line-height: px-to-rem(24);
                 color: #09ad7e;
             }
         }
@@ -611,8 +613,8 @@ form.generalForm {
     }
     label {
         padding-left: 25px;
-        font-size: 14px;
-        line-height: 24px;
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(24);
         position: relative;
         display: inline-block;
         cursor: pointer;
