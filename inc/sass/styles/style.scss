@@ -40,8 +40,6 @@ ul.noListType {
 #header {
     width: $mainWidth;
     margin: $centerElement;
-    @include flex();
-    @include center();
 }
 
 
@@ -253,7 +251,7 @@ form#careerForm {
         position: relative;
         input {
             &[type="text"] {
-                background: url('../../images/formSprite.png') no-repeat #fff;
+                background: url('../../images/mainSprite.fw.png') no-repeat;
                 &#namesurname {
                     background-position: 10px 7px;
                 }
@@ -263,12 +261,6 @@ form#careerForm {
                 &#email {
                     background-position: 10px -76px;
                 }
-                &#department {
-                    background: #fff;
-                }
-                &#city {
-                    background: #fff;
-                }
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -276,8 +268,8 @@ form#careerForm {
         }
         textarea {
             &#address {
-                width: calc(50% - 6px);
-                height: calc(100% - 2px);
+                width: calc(50% - 106px);
+                height: calc(100% - 22px);
                 margin: 0;
                 display: block;
                 position: absolute;
@@ -325,22 +317,22 @@ form#careerForm {
 ul.contactList {
     &.icon {
         li {
-            padding: 0 0 14px 28px;
-            background: url("../../images/contactListSprite.png") no-repeat;
+            padding: 0 0 15px 30px;
+            background: url('../../images/mainSprite.fw.png') no-repeat;
             &:nth-child(1) {
-                background-position: 0 3px;
+                background-position: 5px -202px;
             }
             &:nth-child(2), &:nth-child(3) {
-                background-position: 0 -139px;
+                background-position: 5px -343px;
             }
             &:nth-child(4) {
-                background-position: 0 -281px;
+                background-position: 5px -482px;
             }
             &:nth-child(5) {
-                background-position: 0 -436px;
+                background-position: 5px -639px;
             }
-            span {
-                display: none !important;
+            div {
+                display: none;
             }
         }
     }
@@ -349,6 +341,16 @@ ul.contactList {
         font-size: px-to-rem(14);
         line-height: px-to-rem(22);
         color: #666666;
+        div {
+            display: inline-block;
+            &:first-child {
+                width:60px;
+            }
+            &:last-child {
+                width:45px;
+                text-align:center;
+            }
+        }
         a {
             color: #666666;
         }
@@ -391,18 +393,22 @@ div#generalFormContainer {
     margin: 50px 0 0;
     font-size: px-to-rem(14);
     color: #777777;
-}
-
-.generalFormTitle {
-    margin-bottom: 20px;
-    font-size: px-to-rem(25);
-    color: $mainColor;
-}
-
-.contactTop {
-    position: relative;
+    input, textarea {
+        background: url('../../images/mainSprite.fw.png') no-repeat;
+        &:focus {
+            border-color: #888;
+        }
+    }
     input {
-        background: url('../../images/formSprite.png') no-repeat;
+        width: calc(100% - 102px);
+        height: 37px;
+        margin-bottom: $contactMargin;
+        padding: 0 50px;
+        border: 1px solid #D6D6D6;
+        font-size: px-to-rem(15);
+        line-height: px-to-rem(37);
+        display: block; *display: inline; zoom: 1;
+        @include ts(0.2s);
         &#namesurname {
             background-position: 10px 7px;
         }
@@ -412,52 +418,30 @@ div#generalFormContainer {
         &#email {
             background-position: 10px -76px;
         }
-    }
-}
-
-form.generalForm {
-    .formCapsul {
-        margin: 8px 0;
-    }
-    .capsulTitle {
-        margin-left: 3px;
-        font-size: px-to-rem(16);
-    }
-    input {
-        &[type="text"] {
-            width: calc(100% - 2px);
-            height: 37px;
-            margin-bottom: $contactMargin;
-            border: 1px solid #D6D6D6;
-            font-size: px-to-rem(15);
-            line-height: px-to-rem(37);
-            text-indent: 50px;
-            display: block; *display: inline; zoom: 1;
-            @include ts(0.2s);
+        &#city {
+            background-position: 13.5px -834px;
+        }
+        &#topic, &#department {
+            background-position: 10px -111px;
         }
         &[type="reset"], &[type="button"], &[type="submit"] {
             width: 130px;
             height: 37px;
             margin-bottom: 5px;
             padding: 0 10px;
-            border: 1px solid $secondColor;
             background: $secondColor;
+            border: 1px solid $secondColor;
+            background: $secondColor ;
             font-size: px-to-rem(20);
             line-height: px-to-rem(37);
             color: #fff;
             cursor: pointer;
-            -webkit-transition: all 0.20s;
-            -moz-transition: all 0.20s;
-            -o-transition: all 0.20s;
-            transition: all 0.20s;
+            @include ts(0.2s);
             &:hover {
                 border-color: $mainColor;
                 background-color: $mainColor;
                 color: #fff;
             }
-        }
-        &[type="submit"] {
-            margin-bottom: 0;
         }
         &#captcha {
             width: 100px;
@@ -468,28 +452,28 @@ form.generalForm {
             }
         }
     }
-    input, textarea {
-        &:focus {
-            border-color: #888;
-        }
-    }
     textarea, select {
         width: 400px;
         height: 37px;
         margin-bottom: $contactMargin;
         border: 1px solid #D6D6D6;
         font-size: px-to-rem(15);
-        line-height: px-to-rem(37);
-        text-indent: 50px;
+        line-height: px-to-rem(21);
         display: block; *display: inline; zoom: 1;
         @include ts(0.2s);
     }
     textarea {
-        width: calc(100% - 2px);
-        height: 198px;
-        background: url('../../images/formSprite.png') no-repeat 10px -112px;
+        width: calc(100% - 102px);
+        height: 178px;
+        padding: 10px 50px;
         resize: none;
         overflow: auto;
+        &#address {
+            background-position: 13.5px -834px;
+        }
+        &#message {
+            background-position: 12.5px -1202px;
+        }
     }
     select {
         width: 342px;
@@ -524,10 +508,10 @@ form.generalForm {
         margin-bottom: $contactMargin;
         position: relative;
         input {
-            width: calc(100% - 2px);
+            width: calc(100% - 102px);
             margin: 0;
             &[type="file"] {
-                width: 100%;
+                width: calc(100% - 102px);
                 height: 37px;
                 z-index: 3;
                 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -555,15 +539,22 @@ form.generalForm {
             left: 0;
             top: 0;
             z-index: 1;
-            text-indent: 36px;
-            background-image: url(../../images/iconUpload.png);
-            background-position: 12px center;
-            background-repeat: no-repeat;
+            background: url("../../images/mainSprite.fw.png") no-repeat 10px -156px;
         }
         .error + .fileBorder, .valid + .fileBorder {
             display: block;
         }
     }
+}
+
+.generalFormTitle {
+    margin-bottom: 20px;
+    font-size: px-to-rem(25);
+    color: $mainColor;
+}
+
+.contactTop {
+    position: relative;
 }
 
 .g-recaptcha {
@@ -664,6 +655,120 @@ form.generalForm {
         background-color: transparent;
         &:focus {
             outline: none;
+        }
+    }
+}
+
+/*------------------------------------------*\
+    GALLERY
+\*------------------------------------------*/
+
+ul.gallery {
+    li {
+        margin: $galleryMargin;
+        float: left;
+        &:nth-child(#{$imagesPerRow}n){
+            margin-right: 0;
+        }
+        a {
+            width: $galleryWidth;
+            height: $galleryHeight;
+            position: relative;
+            display: block;
+            &:hover {
+                &::before {
+                    border: solid rgba(0,0,0,0.7);
+                    border-width: ($galleryHeight / 2) ($galleryWidth / 2) ($galleryHeight / 2) ($galleryWidth / 2);
+                    @include opacity(1);
+                }
+                &::after {
+                    @include scale(1,1);
+                    @include opacity(1);
+                    @include prefix(transition-delay,0.3s);
+                }
+            }
+            &::before {
+                width: 100%;
+                height: 100%;
+                border: 0px solid rgba(0,0,0,0.7);
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                @include opacity(0);
+                @include prefix(box-sizing, border-box);
+                @include ts(0.4s ease-in-out);
+            }
+            &::after {
+                width:20px;
+                height:20px;
+                margin: -10px 0 0 -10px;
+                background: url('../../images/linkSuite.png') no-repeat center center;
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                @include opacity(0);
+                @include scale(0,0);
+                @include ts2(transform 0.2s 0.1s ease-in, opacity 0.1s ease-in-out);
+            }
+        }
+    }
+}
+
+/*------------------------------------------*\
+    GALLERY
+\*------------------------------------------*/
+
+ul.gallery {
+    li {
+        margin: $galleryMargin;
+        float: left;
+        &:nth-child(#{$imagesPerRow}n){
+            margin-right: 0;
+        }
+        a {
+            width: $galleryWidth;
+            height: $galleryHeight;
+            position: relative;
+            display: block;
+            &:hover {
+                &::before {
+                    border: solid rgba(0,0,0,0.7);
+                    border-width: ($galleryHeight / 2) ($galleryWidth / 2) ($galleryHeight / 2) ($galleryWidth / 2);
+                    @include opacity(1);
+                }
+                &::after {
+                    @include scale(1,1);
+                    @include opacity(1);
+                    @include prefix(transition-delay,0.3s);
+                }
+            }
+            &::before {
+                width: 100%;
+                height: 100%;
+                border: 0px solid rgba(0,0,0,0.7);
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                @include opacity(0);
+                @include prefix(box-sizing, border-box);
+                @include ts(0.4s ease-in-out);
+            }
+            &::after {
+                width:20px;
+                height:20px;
+                margin: -10px 0 0 -10px;
+                background: url('../../images/linkSuite.png') no-repeat center center;
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                @include opacity(0);
+                @include scale(0,0);
+                @include ts2(transform 0.2s 0.1s ease-in, opacity 0.1s ease-in-out);
+            }
         }
     }
 }

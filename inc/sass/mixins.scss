@@ -156,14 +156,14 @@
     @include prefix(border-radius, $value);
 }
 
-// Background-size: Cover
+// Covered Background
 @mixin cover($cover: cover){
     background-position: center;
     @include prefix(background-size, $cover);
 }
 
 // Column
-@mixin keyframes($numberOfColumns, $columnMargin){
+@mixin column($numberOfColumns, $columnMargin){
     @include prefix(column-count, $numberOfColumns);
     @include prefix(column-gap, $columnMargin);
 }
