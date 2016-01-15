@@ -320,16 +320,16 @@ ul.contactList {
             padding: 0 0 15px 30px;
             background: url('../../images/mainSprite.fw.png') no-repeat;
             &:nth-child(1) {
-                background-position: 5px -202px;
+                background-position: 0 -202px;
             }
             &:nth-child(2), &:nth-child(3) {
-                background-position: 5px -343px;
+                background-position: 0 -343px;
             }
             &:nth-child(4) {
-                background-position: 5px -482px;
+                background-position: 0 -482px;
             }
             &:nth-child(5) {
-                background-position: 5px -639px;
+                background-position: 0 -639px;
             }
             div {
                 display: none;
