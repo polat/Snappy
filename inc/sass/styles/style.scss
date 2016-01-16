@@ -320,16 +320,16 @@ ul.contactList {
             padding: 0 0 15px 30px;
             background: url('../../images/mainSprite.fw.png') no-repeat;
             &:nth-child(1) {
-                background-position: 0 -202px;
+                background-position: 5px -202px;
             }
             &:nth-child(2), &:nth-child(3) {
-                background-position: 0 -343px;
+                background-position: 5px -343px;
             }
             &:nth-child(4) {
-                background-position: 0 -482px;
+                background-position: 5px -482px;
             }
             &:nth-child(5) {
-                background-position: 0 -639px;
+                background-position: 5px -639px;
             }
             div {
                 display: none;
@@ -419,10 +419,10 @@ div#generalFormContainer {
             background-position: 10px -76px;
         }
         &#city {
-            background-position: 13.5px -834px;
+            background-position: 10px -206px;
         }
         &#topic, &#department {
-            background-position: 10px -111px;
+            background-position: 10px -156px;
         }
         &[type="reset"], &[type="button"], &[type="submit"] {
             width: 130px;
@@ -469,10 +469,10 @@ div#generalFormContainer {
         resize: none;
         overflow: auto;
         &#address {
-            background-position: 13.5px -834px;
+            background-position: 13.5px -934px;
         }
         &#message {
-            background-position: 12.5px -1202px;
+            background-position: 12.5px -1302px;
         }
     }
     select {
@@ -484,24 +484,6 @@ div#generalFormContainer {
     }
     .valid, .valid:focus, .valid + .fileBorder {
         border-color: #3c763d !important;
-    }
-    .captchaImgContainer {
-        width: 100px;
-        height: 25px;
-        margin: 6px 0 6px 15px;
-        padding: 5px 10px;
-        float: left;
-        text-align: center;
-        vertical-align: middle;
-        background-color: #F4F4F4;
-        border: 1px solid #D6D6D6;
-    }
-    a#captchaReset {
-        width: 24px;
-        height: 35px;
-        margin: 6px 0 6px 10px;
-        float: left;
-        background: url(../../images/iconRefresh.png) center center no-repeat;
     }
     #fileUpload {
         height: 37px;
@@ -539,7 +521,7 @@ div#generalFormContainer {
             left: 0;
             top: 0;
             z-index: 1;
-            background: url("../../images/mainSprite.fw.png") no-repeat 10px -156px;
+            background: url("../../images/mainSprite.fw.png") no-repeat 10px -256px;
         }
         .error + .fileBorder, .valid + .fileBorder {
             display: block;
@@ -703,7 +685,64 @@ ul.gallery {
                 width:20px;
                 height:20px;
                 margin: -10px 0 0 -10px;
-                background: url('../../images/mainSprite.fw.png') no-repeat 0 -796px;
+                background: url('../../images/linkSuite.png') no-repeat center center;
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                @include opacity(0);
+                @include scale(0,0);
+                @include ts2(transform 0.2s 0.1s ease-in, opacity 0.1s ease-in-out);
+            }
+        }
+    }
+}
+
+/*------------------------------------------*\
+    GALLERY
+\*------------------------------------------*/
+
+ul.gallery {
+    li {
+        margin: $galleryMargin;
+        float: left;
+        &:nth-child(#{$imagesPerRow}n){
+            margin-right: 0;
+        }
+        a {
+            width: $galleryWidth;
+            height: $galleryHeight;
+            position: relative;
+            display: block;
+            &:hover {
+                &::before {
+                    border: solid rgba(0,0,0,0.7);
+                    border-width: ($galleryHeight / 2) ($galleryWidth / 2) ($galleryHeight / 2) ($galleryWidth / 2);
+                    @include opacity(1);
+                }
+                &::after {
+                    @include scale(1,1);
+                    @include opacity(1);
+                    @include prefix(transition-delay,0.3s);
+                }
+            }
+            &::before {
+                width: 100%;
+                height: 100%;
+                border: 0px solid rgba(0,0,0,0.7);
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                @include opacity(0);
+                @include prefix(box-sizing, border-box);
+                @include ts(0.4s ease-in-out);
+            }
+            &::after {
+                width:20px;
+                height:20px;
+                margin: -10px 0 0 -10px;
+                background: url('../../images/linkSuite.png') no-repeat center center;
                 content: "";
                 position: absolute;
                 left: 50%;
