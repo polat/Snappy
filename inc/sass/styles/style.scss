@@ -320,16 +320,16 @@ ul.contactList {
             padding: 0 0 15px 30px;
             background: url('../../images/mainSprite.fw.png') no-repeat;
             &:nth-child(1) {
-                background-position: 5px -202px;
+                background-position: 5px -302px;
             }
             &:nth-child(2), &:nth-child(3) {
-                background-position: 5px -343px;
+                background-position: 5px -443px;
             }
             &:nth-child(4) {
-                background-position: 5px -482px;
+                background-position: 5px -582px;
             }
             &:nth-child(5) {
-                background-position: 5px -639px;
+                background-position: 5px -739px;
             }
             div {
                 display: none;
@@ -421,7 +421,10 @@ div#generalFormContainer {
         &#city {
             background-position: 10px -206px;
         }
-        &#topic, &#department {
+        &#topic {
+            background-position: 10px -113px;
+        }
+        &#department {
             background-position: 10px -156px;
         }
         &[type="reset"], &[type="button"], &[type="submit"] {
