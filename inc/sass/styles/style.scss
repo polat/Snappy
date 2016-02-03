@@ -229,6 +229,7 @@ a.otherTitle {
 **/
 #generalFormContainer.career {
     width: 100%;
+    margin-top: 0;
     .g-recaptcha {
         float: left;
     }
@@ -251,7 +252,7 @@ form#careerForm {
         position: relative;
         input {
             &[type="text"] {
-                background: url('../../images/mainSprite.fw.png') no-repeat;
+                background: url('../../images/mainSprite.png') no-repeat;
                 &#namesurname {
                     background-position: 10px 7px;
                 }
@@ -292,6 +293,20 @@ form#careerForm {
 .mainContactContainer {
     margin: 0 auto;
     position: relative;
+    &.full {
+        .mapContainer {
+            width: 100%;
+            height: 350px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .contactInformations {
+            width: 100%;
+        }
+        div#generalFormContainer {
+            width: 100%;
+        }
+    }
     &.multiple {
         .contactInformations {
             width: 47.5%;
@@ -318,18 +333,18 @@ ul.contactList {
     &.icon {
         li {
             padding: 0 0 15px 30px;
-            background: url('../../images/mainSprite.fw.png') no-repeat;
+            background: url('../../images/mainSprite.png') no-repeat;
             &:nth-child(1) {
-                background-position: 5px -302px;
+                background-position: 0px -302px;
             }
             &:nth-child(2), &:nth-child(3) {
-                background-position: 5px -443px;
+                background-position: 0px -443px;
             }
             &:nth-child(4) {
-                background-position: 5px -582px;
+                background-position: 0px -582px;
             }
             &:nth-child(5) {
-                background-position: 5px -739px;
+                background-position: 0px -739px;
             }
             div {
                 display: none;
@@ -341,12 +356,15 @@ ul.contactList {
         font-size: px-to-rem(14);
         line-height: px-to-rem(22);
         color: #666666;
+        &:first-of-type {
+            padding-top: 0;
+        }
         div {
             display: inline-block;
             &:first-child {
                 width:60px;
             }
-            &:last-child {
+            &:last-of-type {
                 width:45px;
                 text-align:center;
             }
@@ -394,7 +412,7 @@ div#generalFormContainer {
     font-size: px-to-rem(14);
     color: #777777;
     input, textarea {
-        background: url('../../images/mainSprite.fw.png') no-repeat;
+        background: url('../../images/mainSprite.png') no-repeat;
         &:focus {
             border-color: #888;
         }
@@ -435,7 +453,7 @@ div#generalFormContainer {
             background: $secondColor;
             border: 1px solid $secondColor;
             background: $secondColor ;
-            font-size: px-to-rem(20);
+            font-size: px-to-rem(18);
             line-height: px-to-rem(37);
             color: #fff;
             cursor: pointer;
@@ -524,7 +542,7 @@ div#generalFormContainer {
             left: 0;
             top: 0;
             z-index: 1;
-            background: url("../../images/mainSprite.fw.png") no-repeat 10px -256px;
+            background: url("../../images/mainSprite.png") no-repeat 10px -256px;
         }
         .error + .fileBorder, .valid + .fileBorder {
             display: block;
@@ -566,7 +584,7 @@ div#generalFormContainer {
                 left: 3px;
                 font-size: px-to-rem(16);
                 line-height: px-to-rem(24);
-                color: #09ad7e;
+                color: $mainColor;
             }
         }
     }
@@ -580,7 +598,7 @@ div#generalFormContainer {
                 width: 13px;
                 height: 13px;
                 margin: -7px 0 0 -7px;
-                background: #09ad7e;
+                background: $mainColor;
                 top: 12px;
                 left: 10px;
                 @include radius(100%);
@@ -688,7 +706,7 @@ ul.gallery {
                 width:20px;
                 height:20px;
                 margin: -10px 0 0 -10px;
-                background: url('../../images/mainSprite.fw.png') no-repeat 0 -896px;
+                background: url('../../images/mainSprite.png') no-repeat 0 -896px;
                 content: "";
                 position: absolute;
                 left: 50%;
