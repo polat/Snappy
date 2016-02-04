@@ -162,6 +162,16 @@
     @include prefix(background-size, $cover);
 }
 
+// Overlay
+@mixin overlay($opacity:0.5) {
+    width: 100%;
+    height: 100%;
+    background: rgba(black, $opacity);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 // Column
 @mixin column($numberOfColumns, $columnMargin){
     @include prefix(column-count, $numberOfColumns);

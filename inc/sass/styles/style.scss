@@ -250,32 +250,18 @@ form#careerForm {
     .careerTop {
         margin-bottom: $contactMargin;
         position: relative;
-        input {
-            &[type="text"] {
-                background: url('../../images/mainSprite.png') no-repeat;
-                &#namesurname {
-                    background-position: 10px 7px;
-                }
-                &#phone {
-                    background-position: 10px -35.5px;
-                }
-                &#email {
-                    background-position: 10px -76px;
-                }
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-        }
-        textarea {
+        .contactInputWrapper.contactText {
             &#address {
-                width: calc(50% - 106px);
-                height: calc(100% - 22px);
+                width: calc(50% - 6px);
+                height: calc(100% - 12px);
                 margin: 0;
                 display: block;
                 position: absolute;
                 right: 0;
                 top: 0;
+                textarea {
+                    height: calc(100% - 22px);
+                }
             }
         }
     }
@@ -330,21 +316,39 @@ form#careerForm {
 
 /* Contact List */
 ul.contactList {
+    @include prefix(transform,translate(0, -7.5px));
     &.icon {
         li {
-            padding: 0 0 15px 30px;
-            background: url('../../images/mainSprite.png') no-repeat;
+            padding: 15px 0 15px 30px;
+            &::before {
+                width: 20px;
+                height: 20px;
+                background: url('../../images/mainSprite.png') no-repeat;
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                @include prefix(transform,translate(0,-50%));
+            }
             &:nth-child(1) {
-                background-position: 0px -302px;
+                &::before {
+                    background-position: -2px -484px;
+                }
             }
             &:nth-child(2), &:nth-child(3) {
-                background-position: 0px -443px;
+                &::before {
+                    background-position: -2px -430px;
+                }
             }
             &:nth-child(4) {
-                background-position: 0px -582px;
+                &::before {
+                    background-position: -2px -457px;
+                }
             }
             &:nth-child(5) {
-                background-position: 0px -739px;
+                &::before {
+                    background-position: -2px -510px;
+                }
             }
             div {
                 display: none;
@@ -352,13 +356,12 @@ ul.contactList {
         }
     }
     li {
-        padding: 7px 0;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
         font-size: px-to-rem(14);
         line-height: px-to-rem(22);
         color: #666666;
-        &:first-of-type {
-            padding-top: 0;
-        }
+        position: relative;
         div {
             display: inline-block;
             &:first-child {
@@ -412,9 +415,82 @@ div#generalFormContainer {
     font-size: px-to-rem(14);
     color: #777777;
     input, textarea {
-        background: url('../../images/mainSprite.png') no-repeat;
         &:focus {
             border-color: #888;
+        }
+    }
+    .contactInputWrapper {
+        position: relative;
+        &.contactText {
+            &::before {
+                top: 7px;
+                @include prefix(transform, translate(0,0));
+            }
+        }
+        &#namesurname {
+            &::before {
+                background-position: 0px 0px;
+            }
+        }
+        &#phone {
+            &::before {
+                background-position: 1px -40px;
+            }
+        }
+        &#email {
+            &::before {
+                background-position: 1px -80px;
+            }
+        }
+        &#nationality {
+            &::before {
+                background-position: 1px -391px;
+            }
+        }
+        &#company, &#city {
+            &::before {
+                background-position: 0px -194px;
+            }
+        }
+        &#department {
+            &::before {
+                background-position: 0 -233px;
+            }
+        }
+        &#gsm {
+            &::before {
+                background-position: 1px -314px;
+            }
+        }
+        &#fax {
+            &::before {
+                background-position: 1px -353px;
+            }
+        }
+        &#address {
+            &::before {
+                background-position: 1px -157px;
+            }
+        }
+        &#topic {
+            &::before {
+                background-position: 0px -118px;
+            }
+        }
+        &#message {
+            &::before {
+                background-position: 1px -272px;
+            }
+        }
+        &::before {
+            width: 26px;
+            height: 27px;
+            background: url('../../images/mainSprite.png') no-repeat;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            content: "";
+            @include prefix(transform, translate(0, -50%));
         }
     }
     input {
@@ -427,9 +503,7 @@ div#generalFormContainer {
         line-height: px-to-rem(37);
         display: block; *display: inline; zoom: 1;
         @include ts(0.2s);
-        &#namesurname {
-            background-position: 10px 7px;
-        }
+
         &#phone {
             background-position: 10px -35.5px;
         }
@@ -542,7 +616,7 @@ div#generalFormContainer {
             left: 0;
             top: 0;
             z-index: 1;
-            background: url("../../images/mainSprite.png") no-repeat 10px -256px;
+            background: url("../../images/mainSprite.png") no-repeat 10px -528px;
         }
         .error + .fileBorder, .valid + .fileBorder {
             display: block;
@@ -706,7 +780,7 @@ ul.gallery {
                 width:20px;
                 height:20px;
                 margin: -10px 0 0 -10px;
-                background: url('../../images/mainSprite.png') no-repeat 0 -896px;
+                background: url('../../images/mainSprite.png') no-repeat -2px -569px;
                 content: "";
                 position: absolute;
                 left: 50%;
