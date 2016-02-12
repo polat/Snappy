@@ -630,6 +630,28 @@ div#generalFormContainer {
     color: $mainColor;
 }
 
+.contactFormContainer {
+    position: relative;
+    .contactTop {
+        width: calc(50% - 6px);
+    }
+
+    .contactRight {
+        width: calc(50% - 6px);
+        height: 100%;
+        float: right;
+        position: absolute;
+        right: 0;
+        top: 0;
+        #message {
+            height: 100%;
+            textarea {
+                height: calc(100% - 22px) !important;
+            }
+        }
+    }
+}
+
 .contactTop {
     position: relative;
 }
