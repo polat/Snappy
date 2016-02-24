@@ -39,10 +39,9 @@ $(document).ready(function () {
         mainSlider.startAuto();
     });
 
-    /* // Slidebars 
+    /*  Slidebars
     $.slidebars();
 
-    // Mobile Menu Button
     $('#mobileHomeBtn.c-hamburger').on('touchstart', function (e) {
         $(this).toggleClass('is-active');
         return false;
@@ -61,7 +60,11 @@ $(document).ready(function () {
             $(this).parent().siblings("li").children("ul").stop().slideUp();
             $(this).siblings("ul").stop().slideToggle();
         }
-    }); */
+    });
+    */
+
+    // Custom Select
+    $(".class").ddslick();
     
 });
 

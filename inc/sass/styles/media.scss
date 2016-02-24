@@ -2,8 +2,8 @@
 @import '../variables';
 @import '../functions';
 
-/***** MINIMUM 320PX && MAXIMUM 1174PX *****/
-@media screen and (min-width: 320px) and (max-width: 1174px) {
+/***** MINIMUM 320PX && MAXIMUM $mainWidth *****/
+@media screen and (min-width: 320px) and (max-width: $mainWidth) {
 
     /* Mobile Menu */
     div#mobileHomeBtn {
@@ -19,66 +19,53 @@
 
     ul#mobileMenuList {
         padding: 10px 0;
+
         li {
             padding: 0 20px;
             border-bottom: 1px solid #fff;
             display: block;
+
             &.active {
                 & > a {
-                    color: #A9C435;
+                    color: $baseColor;
                 }
             }
+
             a {
                 padding: 10px 0;
-                display: block;
-                position: relative;
-                font-family: 'proxima-semibold';
                 font-size: px-to-rem(15);
                 line-height: px-to-rem(19);
                 color: #fff;
+                display: block;
+                position: relative;
             }
+
             &.active {
                 & > ul {
                     display: block;
                 }
             }
         }
-    }
+        ul {
+            padding: 4px 0;
+            display: none;
 
-    ul#mobileMenuList li {
-        div.languages {
-            padding-top: 10px;
-            a {
-                padding: 0;
-                margin-bottom: 10px;
+            li {
+                padding: 0 0 0 5px;
+                border: none;
+
+                &:first-child {
+                    a {
+                        padding-top: 0;
+                    }
+                }
+
+                a {
+                    padding: 8px;
+                    font-size: px-to-rem(14);
+                    line-height: px-to-rem(18);
+                }
             }
-        }
-    }
-
-    ul#mobileMenuList ul {
-        padding: 4px 0;
-        display: none;
-    }
-
-    ul#mobileMenuList li.active ul {
-        display: block;
-    }
-
-    ul#mobileMenuList ul {
-        li {
-            padding: 0 0 0 5px;
-            border: none;
-            a {
-                padding: 8px;
-                font-size: px-to-rem(14);
-                line-height: px-to-rem(18);
-            }
-        }
-    }
-
-    ul#mobileMenuList ul li {
-        &:first-child a {
-            padding-top: 0;
         }
     }
 
@@ -87,51 +74,9 @@
         margin: 0 auto;
     }
 
-    #contactContainer {
-        display: none;
-    }
-
     #generalFormContainer {
-        width: 90%;
+        width: calc(100% - 40px);
         margin: 20px auto 20px;
-    }
-
-    #mobileContactContainer {
-        display: block;
-        width: 90%;
-        margin: 20px auto 0;
-    }
-
-    #mobileContactContainer .generalFormTitle {
-        margin: 0 0 1px 0;
-    }
-
-    .mobileMapContainer {
-        width: 100%;
-        height: 175px;
-        position: relative;
-    }
-
-    .mobileMapContainer {
-        a.mobileMap {
-            width: 100%;
-            height: 175px;
-            display: block;
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 9999;
-        }
-        iframe {
-            width: 100%;
-            height: 175px;
-        }
-    }
-
-    table#contacts {
-        tr,td {
-            line-height: 18px;
-        }
     }
 
     /* General Form */
@@ -144,10 +89,18 @@
         font-size: 14px;
     }
 
+    .desktopMapContainer {
+        display: none;
+    }
+
+    .mobileMapContainer {
+        display: block;
+    }
+
 
     // Slidebars
     .sb-slidebar {
-        @include linear(top,bottom,#265E29,#A9C435 %70);
+        @include linear(top,bottom,$mainColor,$secondColor %70);
     }
 
     /* Menu Button */
@@ -162,53 +115,60 @@
         height: 21px;
         font-size: 0;
         text-indent: -9999px;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
         box-shadow: none;
         border-radius: none;
         border: none;
         cursor: pointer;
-        float: left;
-        -webkit-transition: background 0.3s;
-        transition: background 0.3s;
-    }
+        @include appearance();
+        @include ts2(background, 0.3s);
 
-    .c-hamburger:focus {
-        outline: none;
-    }
+        &.is-active {
+            span {
+                background: none;
 
-    .c-hamburger span {
-        width: 27px;
-        height: 3px;
-        background: $mobileButtonColor;
-        display: block;
-        position: relative;
-        @include opacity(0.66);
-    }
+                &::before {
+                    top: 0;
+                    @include rotate(45deg);
+                }
 
-    .c-hamburger span::before,
-    .c-hamburger span::after {
-        position: absolute;
-        display: block;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background-color: $mobileButtonColor;
-        content: "";
-    }
+                &::after {
+                    bottom: 0;
+                    @include rotate(-45deg);
+                }
+            }
+        }
 
-    .c-hamburger span::before {
-        top: -8px;
-    }
+        &:focus {
+            outline: none;
+        }
 
-    .c-hamburger span::after {
-        bottom: -8px;
-    }
+        span {
+            width: 27px;
+            height: 3px;
+            background: $mobileButtonColor;
+            display: block;
+            position: relative;
+            @include opacity(0.66);
+            @include ts2(background, 0s 0.3s);
 
-    .c-hamburger--htx span {
-        -webkit-transition: background 0s 0.3s;
-        transition: background 0s 0.3s;
+            &::before, &::after {
+                position: absolute;
+                display: block;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background-color: $mobileButtonColor;
+                content: "";
+            }
+
+            &::before {
+                top: -8px;
+            }
+
+            &::after {
+                bottom: -8px;
+            }
+        }
     }
 
     .c-hamburger--htx span::before,
@@ -229,28 +189,90 @@
         transition-property: bottom, transform;
     }
 
-    .c-hamburger--htx.is-active span {
-        background: none;
-    }
-
-    .c-hamburger--htx.is-active span::before {
-        top: 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
-
-    .c-hamburger--htx.is-active span::after {
-        bottom: 0;
-        -webkit-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-    }
-
     .c-hamburger--htx.is-active span::before,
     .c-hamburger--htx.is-active span::after {
         -webkit-transition-delay: 0s, 0.3s;
         transition-delay: 0s, 0.3s;
     }
+}
 
+/***** MINIMUM 320PX && MAXIMUM 478PX *****/
+@media screen and (min-width: 320px) and (max-width: 478px) {
+    // Contact Page
+    #generalFormContainer {
+        .g-recaptcha {
+            position: absolute;
+            @include scale(0.921,0.921);
+            @include prefix(transform-origin,0 0);
+        }
+
+        .contactButtons {
+            margin-top: 82px;
+            float: none;
+
+            input {
+                &[type="reset"], &[type="submit"] {
+                    width: 133px;
+                    float: left;
+                    &#resetContact {
+                        margin-right: 12px;
+                    }
+                }
+            }
+
+            .clear {
+                display: none;
+            }
+        }
+
+        // Career Page
+        &.career {
+            .contactButtons {
+                margin-top: 94px;
+                float: none;
+            }
+        }
+    }
+}
+
+/***** MINIMUM 320PX && MAXIMUM 767PX *****/
+@media screen and (min-width: 320px) and (max-width: 767px){
+    // Contact Page
+    #generalFormContainer {
+        .contactFormContainer {
+            .contactTop {
+                width: 100%;
+            }
+
+            .contactRight {
+                width: 100%;
+                position: relative;
+            }
+        }
+
+        // Career Page
+        &.career {
+            .careerTop {
+                .careerLeft {
+                    width: 100%;
+                    float: none;
+                }
+
+                #address {
+                    &.contactInputWrapper.contactText {
+                        width: 100%;
+                        height: 120px;
+                        margin: 0 0 12px 0;
+                        position: relative;
+                    }
+                }
+            }
+
+            #message {
+                textarea {
+                    height: 98px;
+                }
+            }
+        }
+    }
 }

@@ -35,6 +35,11 @@
     @include prefix(flex-direction, column);
 }
 
+// Flex Wrap
+@mixin wrap($wrap: wrap) {
+    @include prefix(flex-wrap, $wrap);
+}
+
 // Vertical Position of Flex Items
 @mixin vCenter{
     @include prefix(align-items, center);
