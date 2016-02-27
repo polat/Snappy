@@ -38,7 +38,7 @@ ul.noListType {
  ** HEADER
 **/
 #header {
-    width: $mainWidth;
+    width: $mainWidth * 1px;
     margin: $centerElement;
 }
 
@@ -47,7 +47,7 @@ ul.noListType {
  ** SHOWCASE
 **/
 #showcase {
-    width: $mainWidth;
+    width: $mainWidth * 1px;
     margin: $centerElement;
 }
 
@@ -56,7 +56,7 @@ ul.noListType {
  ** CONTENT
 **/
 #content {
-    width: $mainWidth;
+    width: $mainWidth * 1px;
     margin: $centerElement;
 }
 
@@ -65,7 +65,7 @@ ul.noListType {
  ** SUB CONTENT
 **/
 #subContent {
-    width: $mainWidth;
+    width: $mainWidth * 1px;
     margin: $centerElement;
 }
 
@@ -74,7 +74,7 @@ ul.noListType {
  ** FOOTER
 **/
 #footer {
-    width: $mainWidth;
+    width: $mainWidth * 1px;
     margin: $centerElement;
 }
 
