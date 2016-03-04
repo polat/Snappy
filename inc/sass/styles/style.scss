@@ -34,12 +34,16 @@ ul.noListType {
     list-style-type: none;
 }
 
+.globalWidth {
+    width: $mainWidth * 1px;
+    margin: $centerElement;
+}
+
 /**
  ** HEADER
 **/
 #header {
-    width: $mainWidth * 1px;
-    margin: $centerElement;
+    
 }
 
 
@@ -47,8 +51,7 @@ ul.noListType {
  ** SHOWCASE
 **/
 #showcase {
-    width: $mainWidth * 1px;
-    margin: $centerElement;
+    
 }
 
 
@@ -56,8 +59,7 @@ ul.noListType {
  ** CONTENT
 **/
 #content {
-    width: $mainWidth * 1px;
-    margin: $centerElement;
+    
 }
 
 
@@ -65,8 +67,7 @@ ul.noListType {
  ** SUB CONTENT
 **/
 #subContent {
-    width: $mainWidth * 1px;
-    margin: $centerElement;
+    
 }
 
 
@@ -74,8 +75,7 @@ ul.noListType {
  ** FOOTER
 **/
 #footer {
-    width: $mainWidth * 1px;
-    margin: $centerElement;
+    
 }
 
 
@@ -362,13 +362,22 @@ ul.contactList {
         color: #666666;
         position: relative;
         div {
-            display: inline-block;
-            &:first-child {
+            display: block;
+            float: left;
+
+            &:first-of-type {
                 width:60px;
             }
-            &:last-of-type {
+            &:nth-of-type(2) {
                 width:45px;
                 text-align:center;
+            }
+            &:nth-child(3) {
+                width: calc(100% - 105px);
+            }
+
+            &.clear {
+                float: none;
             }
         }
         a {

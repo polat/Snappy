@@ -6,10 +6,10 @@
 
 // ADDS A BROWSER PREFIX TO THE PROPERTY
 @mixin prefix($property, $value){
-   -webkit-#{$property}: #{$value};
-      -moz-#{$property}: #{$value};
-       -ms-#{$property}: #{$value};
-           #{$property}: #{$value};
+    -webkit-#{$property}: #{$value};
+    -moz-#{$property}: #{$value};
+    -ms-#{$property}: #{$value};
+    #{$property}: #{$value};
 }
 
 @mixin appearance {
@@ -18,10 +18,10 @@
 
 // Display Flex
 @mixin flex{
-    display: -webkit-box;    
-    display: -moz-box;      
-    display: -ms-flexbox;  
-    display: -webkit-flex;    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     @include prefix(flex, none);
 }
@@ -41,6 +41,10 @@
 }
 
 // Vertical Position of Flex Items
+@mixin vStart{
+    @include prefix(align-items, flex-start);
+}
+
 @mixin vCenter{
     @include prefix(align-items, center);
 }
@@ -58,6 +62,10 @@
 }
 
 // Horizontal Position of Flex Items
+@mixin hStart {
+    @include prefix(justify-content, flex-start);
+}
+
 @mixin hCenter {
     @include prefix(justify-content, center);
 }
@@ -101,14 +109,30 @@
     @include prefix(align-self, stretch);
 }
 
+// Flex Order
+@mixin order($order) {
+    @include prefix(order, $order);
+}
+
 // Transitions
 @mixin ts($second){
     @include prefix(transition, all $second);
 }
 
-// Transition With More Than 1 Property
 @mixin ts2($string...){
     @include prefix(transition, $string);
+}
+
+@mixin tsDelay($string...){
+    @include prefix(transition-delay, $string);
+}
+
+@mixin tsDuration($string...) {
+    @include prefix(transition-duration, $string);
+}
+
+@mixin tsProperty($string...) {
+    @include prefix(transition-property, $string);
 }
 
 // Opacity
@@ -124,6 +148,28 @@
 
 @mixin text-shadow($string...){
     @include prefix(text-shadow, $string);
+}
+
+// Vertical Centering With Transform
+@mixin tvCenter {
+    position: absolute;
+    top: 50%;
+    @include translate(0,-50%);
+}
+
+// Horizontal Centering With Transform
+@mixin thCenter {
+    position: absolute;
+    left: 50%;
+    @include translate(-50%,0);
+}
+
+// Horizontally and Vertically Centered Element
+@mixin tCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include translate(-50%, -50%);
 }
 
 // Transform Rotate
@@ -190,13 +236,13 @@
     }
     @-moz-keyframes #{$animation-name} {
         @content;
-    }  
+    }
     @-ms-keyframes #{$animation-name} {
         @content;
     }
     @-o-keyframes #{$animation-name} {
         @content;
-    }  
+    }
     @keyframes #{$animation-name} {
         @content;
     }
