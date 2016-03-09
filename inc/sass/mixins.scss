@@ -26,13 +26,30 @@
     @include prefix(flex, none);
 }
 
+@mixin flexValue($fg: 1, $fs: null, $fb: null) {
+    -webkit-box-flex: $fg-boxflex;
+    -webkit-flex: $fg $fs $fb;
+    -moz-box-flex: $fg-boxflex;
+    -moz-flex: $fg $fs $fb;
+    -ms-flex: $fg $fs $fb;
+    flex: $fg $fs $fb;
+}
+
 // Flex Direction
 @mixin row {
-    @include prefix(flex-direction, row);
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
 }
 
 @mixin flexColumn {
-    @include prefix(flex-direction, column);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
 // Flex Wrap
@@ -42,76 +59,123 @@
 
 // Vertical Position of Flex Items
 @mixin vStart{
-    @include prefix(align-items, flex-start);
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    -ms-grid-row-align: flex-start;align-items: flex-start;
 }
 
 @mixin vCenter{
-    @include prefix(align-items, center);
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
 }
 
 @mixin vEnd{
-    @include prefix(align-items, flex-end);
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    -ms-grid-row-align: flex-end;
+    align-items: flex-end;
 }
 
 @mixin vStretch {
-    @include prefix(align-items, stretch);
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    -ms-grid-row-align: stretch;
+    align-items: stretch;
 }
 
 @mixin vBaseline{
-    @include prefix(align-items, baseline);
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    -ms-grid-row-align: baseline;
+    align-items: baseline;
 }
 
 // Horizontal Position of Flex Items
 @mixin hStart {
-    @include prefix(justify-content, flex-start);
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
 }
 
 @mixin hCenter {
-    @include prefix(justify-content, center);
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 @mixin hEnd {
-    @include prefix(justify-content, flex-end);
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
 }
 
 @mixin spaceB {
-    @include prefix(justify-content, space-between);
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
 @mixin spaceA {
-    @include prefix(justify-content, space-around);
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
 }
 
 // Horizontally and Vertically Centered Element
 @mixin center {
-    @include prefix(align-items, center);
-    @include prefix(justify-content, center);
+    @include vCenter();
+    @include hCenter();
 }
 
 // Self Positioning of a Flex Item
 @mixin selfStart {
-    @include prefix(align-self, flex-start);
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
 }
 
 @mixin selfCenter {
-    @include prefix(align-self, center);
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
 }
 
 @mixin selfEnd {
-    @include prefix(align-self, flex-end);
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
 }
 
 @mixin selfBaseline {
-    @include prefix(align-self, baseline);
+    -webkit-align-self: baseline;
+    -ms-flex-item-align: baseline;
+    align-self: baseline;
 }
 
 @mixin selfStretch {
-    @include prefix(align-self, stretch);
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
 }
 
 // Flex Order
-@mixin order($order) {
-    @include prefix(order, $order);
+@mixin order($int: 0) {
+    -webkit-box-ordinal-group: $int + 1;
+    -webkit-order: $int;
+    -moz-order: $int;
+    -ms-flex-order: $int;
+    order: $int;
 }
 
 // Transitions
@@ -133,21 +197,6 @@
 
 @mixin tsProperty($string...) {
     @include prefix(transition-property, $string);
-}
-
-// Opacity
-@mixin opacity($value){
-    filter: alpha(opacity=($value * 100));
-    @include prefix(opacity, $value);
-}
-
-// Box & Text Shadow 
-@mixin box-shadow($string...){
-    @include prefix(box-shadow, $string);
-}
-
-@mixin text-shadow($string...){
-    @include prefix(text-shadow, $string);
 }
 
 // Vertical Centering With Transform
@@ -202,15 +251,10 @@
     @include prefix(transform, $string);
 }
 
-// Border Radius
-@mixin radius($value){
-    @include prefix(border-radius, $value);
-}
-
 // Covered Background
 @mixin cover($cover: cover){
     background-position: center;
-    @include prefix(background-size, $cover);
+    background-size: $cover;
 }
 
 // Overlay
@@ -255,12 +299,12 @@
 // Hide & Show
 @mixin hide{
     visibility: hidden;
-    @include opacity(0);
+    opacity: 0;
 }
 
 @mixin show{
     visibility: visible;
-    @include opacity(1);
+    opacity: 1;
 }
 
 // Linear Gradient 

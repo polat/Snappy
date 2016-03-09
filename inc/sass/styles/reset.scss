@@ -77,7 +77,7 @@ img {
 
 input, select, textarea, button, label {
     @include appearance();
-    @include radius(0);
+    border-radius: 0;
 }
 
 /**
