@@ -684,34 +684,27 @@ div.mapDiv {
             width: calc(100% - 102px);
             margin: 0;
 
+            &.error {
+                & + .trickInput {
+                    border-color: #C40F0F !important;
+                }
+            }
+
             &[type="file"] {
                 width: calc(100% - 102px);
                 height: 37px;
                 z-index: 3;
                 opacity: 0;
                 cursor: pointer;
-
-                + .fileBorder {
-                    width: 320px;
-                    height: 25px;
-                    margin: 6px 0;
-                    padding: 5px 10px;
-                    display: inline-block;
-                    *display: inline;
-                    zoom: 1;
-                    border: 1px solid #D6D6D6;
-                    z-index: 2;
-                    display: none;
-                }
             }
-        }
 
-        * {
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 1;
-            background: url("../../images/mainSprite.png") no-repeat 10px -528px;
+            &[type="text"] {
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 1;
+                background: url("../../images/mainSprite.png") no-repeat 10px -528px;
+            }
         }
 
         .error + .fileBorder, .valid + .fileBorder {
