@@ -693,7 +693,6 @@ div.mapDiv {
             &[type="file"] {
                 width: calc(100% - 102px);
                 height: 37px;
-                z-index: 3;
                 opacity: 0;
                 cursor: pointer;
             }
@@ -702,7 +701,7 @@ div.mapDiv {
                 position: absolute;
                 left: 0;
                 top: 0;
-                z-index: 1;
+                z-index: -1;
                 background: url("../../images/mainSprite.png") no-repeat 10px -528px;
             }
         }
