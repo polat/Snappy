@@ -34,7 +34,7 @@ $(document).ready(function () {
          */
     });
 
-    $("#showcase .bx-controls a").click(function(){
+    $(".showcase .bx-controls a").click(function(){
         mainSlider.stopAuto();
         mainSlider.startAuto();
     });
@@ -42,20 +42,20 @@ $(document).ready(function () {
     /*  Slidebars
     $.slidebars();
 
-    $('#mobileHomeBtn.c-hamburger').on('touchstart', function (e) {
+    $('.mobileHomeBtn.c-hamburger').on('touchstart', function (e) {
         $(this).toggleClass('is-active');
         return false;
     });
 
     $("#sb-site").on('touchstart', function (e){
-        if($("#mobileHomeBtn.c-hamburger").hasClass('is-active')){
-            $("#mobileHomeBtn.c-hamburger").removeClass('is-active');
+        if($(".mobileHomeBtn.c-hamburger").hasClass('is-active')){
+            $(".mobileHomeBtn.c-hamburger").removeClass('is-active');
             return false;
         }
     });
 
     // Mobile Menu Toggle
-    $("ul#mobileMenuList li a").click(function(){
+    $("ul.mobileMenuList li a").click(function(){
         if($(this).parent().hasClass("parent")){
             $(this).parent().siblings("li").children("ul").stop().slideUp();
             $(this).siblings("ul").stop().slideToggle();
@@ -64,7 +64,9 @@ $(document).ready(function () {
     */
 
     // Custom Select
-    $(".class").ddslick();
+    $(".class").selectbox({
+
+    });
     
 });
 

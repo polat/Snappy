@@ -78,6 +78,10 @@ img {
 input, select, textarea, button, label {
     @include appearance();
     border-radius: 0;
+
+    &::-ms-clear {
+        display: none;
+    }
 }
 
 /**
