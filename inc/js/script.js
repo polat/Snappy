@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     /* Lightbox Settings */
     $('a[rel="image"]').swipebox();
-    $('.video').colorbox({iframe: true, innerWidth: 800, innerHeight: 600});
+    $('.video').swipebox();
     $('.map').colorbox({iframe: true, width: '90%', height: '80%'});
     $('.popup').colorbox({inline:true,  fastIframe: false, maxWidth: '90%', maxHeight: '90%'});
     $(document.body).on('click touchend','#swipebox-slider .current img', function(e){
@@ -42,14 +42,14 @@ $(document).ready(function () {
     /*  Slidebars
     $.slidebars();
 
-    $('.mobileHomeBtn.c-hamburger').on('touchstart', function (e) {
+    $('.mobileHomeBtn').on('touchstart', function (e) {
         $(this).toggleClass('is-active');
         return false;
     });
 
     $("#sb-site").on('touchstart', function (e){
-        if($(".mobileHomeBtn.c-hamburger").hasClass('is-active')){
-            $(".mobileHomeBtn.c-hamburger").removeClass('is-active');
+        if($(".mobileHomeBtn").hasClass('is-active')){
+            $(".mobileHomeBtn").removeClass('is-active');
             return false;
         }
     });
@@ -62,12 +62,6 @@ $(document).ready(function () {
         }
     });
     */
-
-    // Custom Select
-    $(".class").selectbox({
-
-    });
-    
 });
 
 function messageBox (message) {

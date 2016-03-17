@@ -19,65 +19,102 @@
         top: 15px;
         display: block;
         z-index: 9999;
+        cursor: pointer;
+        @include appearance();
+        @include ts2(background, 0.3s);
 
-        &.c-hamburger {
-            cursor: pointer;
-            @include appearance();
-            @include ts2(background, 0.3s);
-
-            &.is-active {
-                span {
-                    background: none;
-
-                    &::before, &::after {
-                        -webkit-transition-delay: 0s, 0.3s;
-                        transition-delay: 0s, 0.3s;
-                    }
-
-                    &::before {
-                        top: 0;
-                        @include rotate(45deg);
-                    }
-
-                    &::after {
-                        bottom: 0;
-                        @include rotate(-45deg);
-                    }
-                }
-            }
-
+        &.is-active {
             span {
-                width: 27px;
-                height: 3px;
-                background: $mobileButtonColor;
-                display: block;
-                position: relative;
-                @include ts2(background, 0s 0.3s);
+                background: none;
 
                 &::before, &::after {
-                    position: absolute;
-                    display: block;
-                    left: 0;
-                    width: 100%;
-                    height: 3px;
-                    background-color: $mobileButtonColor;
-                    content: "";
-                    -webkit-transition-duration: 0.3s, 0.3s;
-                    transition-duration: 0.3s, 0.3s;
-                    -webkit-transition-delay: 0.3s, 0s;
-                    transition-delay: 0.3s, 0s;
+                    -webkit-transition-delay: 0s, 0.3s;
+                    transition-delay: 0s, 0.3s;
                 }
 
                 &::before {
-                    top: -8px;
-                    -webkit-transition-property: top, -webkit-transform;
-                    transition-property: top, transform;
+                    top: 0;
+                    @include rotate(45deg);
                 }
 
                 &::after {
-                    bottom: -8px;
-                    -webkit-transition-property: bottom, -webkit-transform;
-                    transition-property: bottom, transform;
+                    bottom: 0;
+                    @include rotate(-45deg);
+                }
+            }
+        }
+
+        span {
+            width: 27px;
+            height: 3px;
+            background: $mobileButtonColor;
+            display: block;
+            position: relative;
+            @include ts2(background, 0s 0.3s);
+
+            &::before, &::after {
+                position: absolute;
+                display: block;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background-color: $mobileButtonColor;
+                content: "";
+                -webkit-transition-duration: 0.3s, 0.3s;
+                transition-duration: 0.3s, 0.3s;
+                -webkit-transition-delay: 0.3s, 0s;
+                transition-delay: 0.3s, 0s;
+            }
+
+            &::before {
+                top: -8px;
+                -webkit-transition-property: top, -webkit-transform;
+                transition-property: top, transform;
+            }
+
+            &::after {
+                bottom: -8px;
+                -webkit-transition-property: bottom, -webkit-transform;
+                transition-property: bottom, transform;
+            }
+        }
+    }
+    
+    // Mobile Home & Lang
+    ul.slidebarTop {
+        li {
+            width: calc(100% / 3);
+            border-right: 1px solid $mainColor;
+            float: left;
+            box-sizing: border-box;
+
+            &:last-of-type {
+                border-right: none;
+            }
+
+            a {
+                width: 100%;
+                height: 50px;
+                background: $lightBrown;
+                font-size: px-to-rem(15);
+                line-height: px-to-rem(19);
+                color: #fff;
+                display: block;
+                position: relative;
+                @include flex();
+                @include center();
+
+                &.slidebarHome {
+                    &::after {
+                        width: 21px;
+                        height: 19px;
+                        background: url("../../images/mainSprite.png") no-repeat -2px -621px;
+                        content: "";
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        @include translate(-50%, -50%);
+                    }
                 }
             }
         }

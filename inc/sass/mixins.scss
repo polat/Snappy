@@ -258,10 +258,10 @@
 }
 
 // Overlay
-@mixin overlay($opacity:0.5) {
+@mixin overlay($color:black, $opacity:0.5) {
     width: 100%;
     height: 100%;
-    background: rgba(black, $opacity);
+    background: rgba($color, $opacity);
     position: absolute;
     top: 0;
     left: 0;
