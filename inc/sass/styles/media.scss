@@ -2,7 +2,7 @@
 @import '../variables';
 @import '../functions';
 
-/***** MINIMUM 320PX && MAXIMUM $mainWidth *****/
+/***** MINIMUM 320PX && MAXIMUM MAINWIDTH *****/
 @media screen and (min-width: 320px) and (max-width: $mainWidth - 1 * 1px) {
     // Slidebars
     .sb-slidebar {
@@ -47,7 +47,7 @@
         span {
             width: 27px;
             height: 3px;
-            background: $mobileButtonColor;
+            background: $mainColor;
             display: block;
             position: relative;
             @include ts2(background, 0s 0.3s);
@@ -58,7 +58,7 @@
                 left: 0;
                 width: 100%;
                 height: 3px;
-                background-color: $mobileButtonColor;
+                background-color: $mainColor;
                 content: "";
                 -webkit-transition-duration: 0.3s, 0.3s;
                 transition-duration: 0.3s, 0.3s;
@@ -170,7 +170,25 @@
         }
     }
 
-    /* Contact Page */
+    // Gallery
+    ul.gallery {
+        li {
+            a {
+                width: 100%;
+                height: inherit;
+
+                img {
+                    width: 100%;
+                }
+
+                &::before, &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    // Contact Page
     .contactForm {
         margin: 0 auto;
     }
@@ -191,6 +209,30 @@
 
 /***** MINIMUM 320PX && MAXIMUM 478PX *****/
 @media screen and (min-width: 320px) and (max-width: 479px) {
+    // Gallery
+    ul.gallery {
+        li {
+            width: calc(50% - 10px);
+            margin: 0 20px 20px 0;
+
+            &:nth-child(2n){
+                margin-right: 0 !important;
+            }
+
+            &:nth-child(3n){
+                margin-right: 20px;
+            }
+        }
+    }
+
+    // FAQ
+    .faq {
+        &_trigger {
+            font-size: px-to-rem(15);
+            line-height: px-to-rem(21);
+        }
+    }
+
     // Contact Page
     .generalFormContainer {
         .g-recaptcha {
@@ -265,6 +307,44 @@
                 textarea {
                     height: 98px;
                 }
+            }
+        }
+    }
+}
+
+/***** MINIMUM 480PX && MAXIMUM 767PX *****/
+@media screen and (min-width: 480px) and (max-width: 767px){
+    // Gallery
+    ul.gallery {
+        li {
+            width: calc(100% / 3 - 10px);
+            margin: 0 15px 15px 0;
+        }
+    }
+
+    // FAQ
+    .faq {
+        &_trigger {
+            font-size: px-to-rem(18);
+            line-height: px-to-rem(22);
+        }
+    }
+}
+
+/***** MINIMUM 768PX && MAXIMUM MAINWIDTH *****/
+@media screen and (min-width: 768px) and (max-width: $mainWidth - 1 * 1px){
+    // Gallery
+    ul.gallery {
+        li {
+            width: calc(25% - 15px);
+            margin: 0 20px 20px 0;
+
+            &:nth-child(3n){
+                margin-right: 20px;
+            }
+
+            &:nth-child(4n){
+                margin-right: 0 !important;
             }
         }
     }

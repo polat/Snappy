@@ -39,6 +39,13 @@ $(document).ready(function () {
         mainSlider.startAuto();
     });
 
+    /* FAQ 
+    $(".faq > li > a.faq_trigger").click(function(){
+        $(this).parent().toggleClass("active");
+        $(this).siblings(".faq_content").stop().slideToggle(300).parent().siblings("li").children(".faq_content").stop().slideUp(300);
+    });
+    */
+
     /*  Slidebars
     $.slidebars();
 
