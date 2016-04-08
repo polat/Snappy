@@ -79,7 +79,7 @@
             }
         }
     }
-    
+
     // Mobile Home & Lang
     ul.slidebarTop {
         li {
@@ -249,7 +249,8 @@
                 &[type="reset"], &[type="submit"] {
                     width: 133px;
                     float: left;
-                    &.resetContact {
+
+                    &.resetContact, &.resetCareer {
                         margin-right: 12px;
                     }
                 }
@@ -351,8 +352,8 @@
 }
 
 /***** DISPLAY NONE ELEMENTS FOR DESKTOP *****/
-@media screen and (min-width: $mainWidth){
-    .class {
+@media screen and (min-width: $mainWidth * 1px){
+    .mobileMapContainer {
         display: none;
     }
 }
