@@ -189,21 +189,21 @@
     }
 
     // Contact Page
-    .contactForm {
-        margin: 0 auto;
-    }
+    .contact {
+        &_map {
+            &.desktop {
+                display: none;
+            }
 
-    .generalFormContainer {
-        width: 100%;
-        margin: 20px auto 20px;
-    }
+            &.mobile {
+                display: block;
+            }
+        }
 
-    .desktopMapContainer {
-        display: none;
-    }
-
-    .mobileMapContainer {
-        display: block;
+        &_form {
+            width: 100%;
+            margin: 20px auto 20px;
+        }
     }
 }
 
@@ -234,38 +234,76 @@
     }
 
     // Contact Page
-    .generalFormContainer {
-        .g-recaptcha {
-            position: absolute;
-            @include scale(0.921,0.921);
-            @include prefix(transform-origin,0 0);
-        }
+    .contact {
+        &_form {
+            &_recaptcha {
+                position: absolute;
+                @include scale(0.921,0.921);
+                @include prefix(transform-origin,0 0);
+            }
 
-        .contactButtons {
-            margin-top: 82px;
-            float: none;
+            &_buttons {
+                margin-top: 82px;
+                float: none;
 
-            input {
-                &[type="reset"], &[type="submit"] {
-                    width: 133px;
-                    float: left;
+                input {
+                    &[type="reset"], &[type="submit"] {
+                        width: 133px;
+                        float: left;
 
-                    &.resetContact, &.resetCareer {
-                        margin-right: 12px;
+                        &.resetContact, &.resetCareer {
+                            margin-right: 12px;
+                        }
                     }
+                }
+
+                .clear {
+                    display: none;
                 }
             }
 
-            .clear {
-                display: none;
+            // Career
+            &.career {
+                .contact_form_buttons {
+                    margin-top: 94px;
+                }
             }
         }
+    }
+}
 
-        // Career Page
-        &.career {
-            .contactButtons {
-                margin-top: 94px;
+/***** MINIMUM 320PX && MAXIMUM 567PX *****/
+@media screen and (min-width: 320px) and (max-width: 567px){
+    // News Page
+    .news {
+        &List {
+            &_img {
+                width: 225px;
+                height: 155px;
+                margin: 0 auto;
                 float: none;
+
+                &::after {
+                    display: none;
+                }
+            }
+
+            &_right {
+                width: 100%;
+                text-align: center;
+                float: none;
+            }
+
+            &_title, &_date {
+                float: none;
+            }
+
+            &_date {
+                margin-top: 14px;
+            }
+
+            &_title {
+                width: 100%;
             }
         }
     }
@@ -274,39 +312,30 @@
 /***** MINIMUM 320PX && MAXIMUM 767PX *****/
 @media screen and (min-width: 320px) and (max-width: 767px){
     // Contact Page
-    .generalFormContainer {
-        .contactFormContainer {
-            .contactTop {
-                width: 100%;
-            }
-
-            .contactRight {
+    .contact {
+        &_form {
+            &_top, &_right {
                 width: 100%;
                 position: relative;
             }
-        }
 
-        // Career Page
-        &.career {
-            .careerTop {
-                .careerLeft {
-                    width: 100%;
-                    float: none;
-                }
-
-                .address {
-                    &.contactInputWrapper.contactText {
-                        width: 100%;
-                        height: 120px;
-                        margin: 0 0 12px 0;
-                        position: relative;
+            &_field {
+                &.message {
+                    textarea {
+                        height: 98px;
                     }
                 }
             }
 
-            .message {
-                textarea {
-                    height: 98px;
+            // Career
+            &_careerTop {
+                .address {
+                    &.contact_form_field {
+                        width: 100%;
+                        height: 120px;
+                        margin: 0 0 $contactMargin 0;
+                        position: relative;
+                    }
                 }
             }
         }
@@ -353,7 +382,7 @@
 
 /***** DISPLAY NONE ELEMENTS FOR DESKTOP *****/
 @media screen and (min-width: $mainWidth * 1px){
-    .mobileMapContainer {
+    .contact_map.mobile {
         display: none;
     }
 }
