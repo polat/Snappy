@@ -26,6 +26,14 @@
     @include prefix(flex, none);
 }
 
+@mixin inlineFlex{
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    @include prefix(flex, none);
+}
+
 @mixin flexValue($fg: 1, $fs: null, $fb: null) {
     -webkit-box-flex: $fg-boxflex;
     -webkit-flex: $fg $fs $fb;

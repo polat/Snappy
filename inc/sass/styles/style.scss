@@ -12,7 +12,6 @@ html {
 }
 
 body {
-    padding: 0 20px;
     font-family: $baseFontFamily;
     color: $baseColor;
 }
@@ -333,7 +332,7 @@ a {
     }
 
     &_title {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         font-size: px-to-rem(24);
         line-height: px-to-rem(28);
         color: $mainColor;
@@ -349,6 +348,10 @@ a {
     }
 
     &_map {
+        &.mobile {
+            display: none;
+        }
+
         &_inner, &_link, &_iframe, &_iframe iframe {
             height: 100%;
             position: absolute;
@@ -423,6 +426,10 @@ a {
                     &:nth-child(1), &:nth-child(2){
                         display: none;
                     }
+
+                    &:nth-child(3){
+                        width: 100%;
+                    }
                 }
             }
         }
@@ -493,6 +500,7 @@ a {
 
         &_field {
             position: relative;
+            z-index: 2;
 
             &::before {
                 width: 26px;
