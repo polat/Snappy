@@ -21,8 +21,9 @@ a {
 }
 
 .clear {
-    clear: both;
     height: 0;
+    clear: both;
+    display: block;
 }
 
 .bulletList {
@@ -43,7 +44,7 @@ a {
  ** HEADER
 **/
 .header {
-
+    
 }
 
 
@@ -82,8 +83,6 @@ a {
 /*------------------------------------------*\
     PAGES
 \*------------------------------------------*/
-
-
 
 /*------------------------------------------*\
     NEWS
@@ -338,7 +337,7 @@ a {
         color: $mainColor;
 
         &.lessSpace {
-            margin-bottom: 25px;
+            margin-bottom: 5px;
         }
     }
 
@@ -718,85 +717,13 @@ a {
 
 
 /*------------------------------------------*\
-    CHECKBOX & RADIO & SELECT
-\*------------------------------------------*/
-
-// Checkbox and Radio Buttons
-.checkbox, .radio {
-    label {
-        padding-left: 25px;
-        font-size: px-to-rem(14);
-        line-height: px-to-rem(24);
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-
-        &::before, &::after {
-            content: '';
-            position: absolute;
-        }
-
-        &::before {
-            width: 17px;
-            height: 17px;
-            border: 1px solid #aaa;
-            background: #f8f8f8;
-            border-radius: 50%;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
-            left:0;
-            top: 2px;
-        }
-
-        &::after {
-            width: 13px;
-            height: 13px;
-            margin: -7px 0 0 -7px;
-            background: $mainColor;
-            border-radius: 50%;
-            top: 12px;
-            left: 10px;
-            opacity: 0;
-            @include ts(0.2s);
-            @include scale(0,0);
-        }
-    }
-
-    input {
-        display: none;
-
-        &:checked + label::after {
-            opacity: 1;
-            @include scale(1,1);
-        }
-    }
-}
-
-// Select
-.selectContainer {
-    width: 120px;
-    padding: 0;
-    margin: 0;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    overflow: hidden;
-
-    select {
-        width: 200%;
-        border: none;
-        box-shadow: none;
-        background-color: transparent;
-    }
-}
-
-
-/*------------------------------------------*\
     GALLERY
 \*------------------------------------------*/
 
-ul.gallery {
+.gallery {
     overflow: hidden;
     @include flex();
-    @include hCenter();
+    @include hStart();
     @include wrap();
 
     li {
@@ -922,6 +849,143 @@ ul.gallery {
 
         &.active {
             display: block;
+        }
+    }
+}
+
+
+/*------------------------------------------*\
+    CHECKBOX & RADIO & SELECT
+\*------------------------------------------*/
+
+.checkbox, .radio {
+    label {
+        padding-left: 25px;
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(24);
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+        }
+
+        &::before {
+            width: 17px;
+            height: 17px;
+            border: 1px solid #aaa;
+            background: #f8f8f8;
+            border-radius: 50%;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+            left:0;
+            top: 2px;
+        }
+
+        &::after {
+            width: 13px;
+            height: 13px;
+            margin: -7px 0 0 -7px;
+            background: $mainColor;
+            border-radius: 50%;
+            top: 12px;
+            left: 10px;
+            opacity: 0;
+            @include ts(0.2s);
+            @include scale(0,0);
+        }
+    }
+
+    input {
+        display: none;
+
+        &:checked + label::after {
+            opacity: 1;
+            @include scale(1,1);
+        }
+    }
+}
+
+.selectContainer {
+    width: 120px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow: hidden;
+
+    select {
+        width: 200%;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+    }
+}
+
+
+/*------------------------------------------*\
+    TABLE STYLES
+\*------------------------------------------*/
+
+.contentTable {
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    font-size: px-to-rem(14);
+    line-height: px-to-rem(22);
+    color: #666;
+    box-shadow: 0 1px 2px #d1d1d1;
+
+    &.head {
+        tr {
+            &:first-of-type {
+                background: lighten(#eee,2.5%);
+            }
+        }
+    }
+
+    &.zebra {
+        tr:not(:first-child):nth-child(2n+1){
+            background: lighten(#eee,5%);
+
+            &:hover {
+                background: lighten(#eee,2.5%);
+            }
+        }
+    }
+
+    &.hover {
+        tr {
+            &:hover {
+                background: lighten(#eee,2.5%);
+            }
+        }
+    }
+
+    th {
+        padding:21px 25px 22px 25px;
+        border-bottom:1px solid #e0e0e0;
+
+        &:first-child {
+            padding-left:20px;
+            text-align: left;
+        }
+    }
+
+    tr {
+        padding-left:20px;
+        text-align: center;
+    }
+
+    td {
+        padding:18px;
+        border-bottom:1px solid #e0e0e0;
+        border-left: 1px solid #e0e0e0;
+
+        &:first-child {
+            padding-left:20px;
+            text-align: left;
         }
     }
 }

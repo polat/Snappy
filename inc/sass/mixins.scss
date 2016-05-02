@@ -328,3 +328,23 @@
     background-image: linear-gradient(to $to, $startColor 0%, $endColor 100%);
 }
 
+@mixin stripes($direction, $stripeColors) {
+    $length: length($stripeColors);
+
+    @if $length > 1 {
+        $stripes: ();
+
+        @for $i from 1 through $length {
+            $stripe: (100% / $length) * ($i - 1);
+
+            @if $i > 1 {
+                $stripes: append($stripes, nth($stripeColors, $i - 1) $stripe, comma);
+            }
+
+            $stripes: append($stripes, nth($stripeColors, $i) $stripe, comma);
+        }
+
+        background-image: linear-gradient($direction, $stripes);
+    }
+}
+

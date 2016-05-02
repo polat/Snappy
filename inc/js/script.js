@@ -11,8 +11,7 @@ $(document).ready(function () {
         $('#swipebox-close').trigger('click');
     });
 
-    /* Main Slider */
-    var mainSlider = $('ul.mainSlider').bxSlider({
+    var basicFade = {
         auto: true,
         pager: false,
         speed: 1000,
@@ -22,17 +21,31 @@ $(document).ready(function () {
         nextText: '',
         prevSelector: '',
         nextSelector: '',
-        /* Adds Active Class To Current Slide
+    }
+
+    var basicFadeActive = {
+        auto: true,
+        pager: false,
+        speed: 1000,
+        touchEnabled: true,
+        pause: 3000,
+        prevText: '',
+        nextText: '',
+        prevSelector: '',
+        nextSelector: '',
+
         onSlideAfter: function (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
-            console.log(currentSlideHtmlObject);
             $('.active-slide').removeClass('active-slide');
             $('ul.mainSlider > li').eq(currentSlideHtmlObject).addClass('active-slide')
         },
+
         onSliderLoad: function () {
             $('ul.mainSlider > li').eq(0).addClass('active-slide')
         }
-         */
-    });
+    }
+
+    /* Main Slider */
+    var mainSlider = $('ul.mainSlider').bxSlider(basicFade);
 
     $(".showcase .bx-controls a").click(function(){
         mainSlider.stopAuto();

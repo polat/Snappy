@@ -9,169 +9,180 @@
         @include linear(top,bottom,$mainColor,$secondColor %70);
     }
 
-    // Mobile Menu Button
-    div.mobileHomeBtn {
-        width: 27px;
-        height: 12px;
-        padding-top: 8px;
-        position: absolute;
-        right: 25px;
-        top: 15px;
-        display: block;
-        z-index: 9999;
-        cursor: pointer;
-        @include appearance();
-        @include ts2(background, 0.3s);
+    // Mobile
+    .mobile {
+        &_btn {
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            padding: 10px;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
 
-        &.is-active {
+            &.is-active {
+                span {
+                    background: transparent;
+
+                    &:before {
+                        top: 0;
+                        @include rotate(225deg);
+                    }
+
+                    &:after {
+                        bottom: 0;
+                        @include rotate(-225deg);
+                    }
+                }
+            }
+
+            &.withBg {
+                &.is-active {
+                    &:before {
+                        width: 50px;
+                        height: 50px;
+                        background: #fff;
+                        opacity: 1;
+                    }
+                }
+
+                &:before {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                    border-radius: 50%;
+                    background: transparent;
+                    content: '';
+                    @include tCenter();
+                    @include ts(0.5s ease);
+                }
+            }
+
             span {
-                background: none;
-
-                &::before, &::after {
-                    -webkit-transition-delay: 0s, 0.3s;
-                    transition-delay: 0s, 0.3s;
-                }
-
-                &::before {
-                    top: 0;
-                    @include rotate(45deg);
-                }
-
-                &::after {
-                    bottom: 0;
-                    @include rotate(-45deg);
-                }
-            }
-        }
-
-        span {
-            width: 27px;
-            height: 3px;
-            background: $mainColor;
-            display: block;
-            position: relative;
-            @include ts2(background, 0s 0.3s);
-
-            &::before, &::after {
-                position: absolute;
-                display: block;
-                left: 0;
-                width: 100%;
-                height: 3px;
-                background-color: $mainColor;
-                content: "";
-                -webkit-transition-duration: 0.3s, 0.3s;
-                transition-duration: 0.3s, 0.3s;
-                -webkit-transition-delay: 0.3s, 0s;
-                transition-delay: 0.3s, 0s;
-            }
-
-            &::before {
-                top: -8px;
-                -webkit-transition-property: top, -webkit-transform;
-                transition-property: top, transform;
-            }
-
-            &::after {
-                bottom: -8px;
-                -webkit-transition-property: bottom, -webkit-transform;
-                transition-property: bottom, transform;
-            }
-        }
-    }
-
-    // Mobile Home & Lang
-    ul.slidebarTop {
-        li {
-            width: calc(100% / 3);
-            border-right: 1px solid $mainColor;
-            float: left;
-            box-sizing: border-box;
-
-            &:last-of-type {
-                border-right: none;
-            }
-
-            a {
-                width: 100%;
-                height: 50px;
-                background: $secondColor;
-                font-size: px-to-rem(15);
-                line-height: px-to-rem(19);
-                color: #fff;
                 display: block;
                 position: relative;
-                @include flex();
-                @include center();
 
-                &.slidebarHome {
-                    &::after {
-                        width: 21px;
-                        height: 19px;
-                        background: url("../../images/mainSprite.png") no-repeat -2px -601px;
-                        content: "";
-                        position: absolute;
-                        left: 50%;
-                        top: 50%;
-                        @include translate(-50%, -50%);
+                &:before,
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                }
+
+                &:before {
+                    top: -8px;
+                }
+
+                &:after {
+                    bottom: -8px;
+                }
+            }
+
+            span,
+            span:before,
+            span:after {
+                width: 100%;
+                height: 4px;
+                background: $mobileColor;
+                @include ts(0.5s ease);
+            }
+        }
+
+        &_top {
+            li {
+                width: calc(100% / 3);
+                border-right: 1px solid $mainColor;
+                float: left;
+                box-sizing: border-box;
+
+                &:last-of-type {
+                    border-right: none;
+                }
+
+                a {
+                    width: 100%;
+                    height: 50px;
+                    background: $secondColor;
+                    font-size: px-to-rem(15);
+                    line-height: px-to-rem(19);
+                    color: #fff;
+                    display: block;
+                    position: relative;
+                    @include flex();
+                    @include center();
+
+                    &.mobileHome {
+                        &::after {
+                            width: 21px;
+                            height: 19px;
+                            background: url("../../images/mainSprite.png") no-repeat -2px -601px;
+                            content: "";
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            @include translate(-50%, -50%);
+                        }
                     }
                 }
             }
         }
-    }
 
-    // Mobile Menu
-    ul.mobileMenuList {
-        li {
-            border-bottom: 1px solid #fff;
-            display: block;
-
-            &.active {
-                & > a {
-                    color: $baseColor;
-                }
-            }
-
-            a {
-                padding: 10px 20px;
-                font-size: px-to-rem(15);
-                line-height: px-to-rem(19);
-                color: #fff;
-                display: block;
-                position: relative;
-            }
-
-            &.active {
-                & > ul {
-                    display: block;
-                }
-            }
-        }
-        ul {
-            padding: 4px 0;
-            display: none;
-
+        &_list {
             li {
-                padding: 0 0 0 5px;
-                border: none;
+                border-bottom: 1px solid #fff;
+                display: block;
 
-                &:first-child {
-                    a {
-                        padding-top: 0;
+                &.active {
+                    & > a {
+                        color: $baseColor;
                     }
                 }
 
                 a {
-                    padding: 8px;
-                    font-size: px-to-rem(14);
-                    line-height: px-to-rem(18);
+                    padding: 10px 20px;
+                    font-size: px-to-rem(15);
+                    line-height: px-to-rem(19);
+                    color: #fff;
+                    display: block;
+                    position: relative;
+                }
+
+                &.active {
+                    & > ul {
+                        display: block;
+                    }
+                }
+            }
+
+            ul {
+                padding: 4px 0;
+                display: none;
+
+                li {
+                    padding: 0 0 0 5px;
+                    border: none;
+
+                    &:first-child {
+                        a {
+                            padding-top: 0;
+                        }
+                    }
+
+                    a {
+                        padding: 8px;
+                        font-size: px-to-rem(14);
+                        line-height: px-to-rem(18);
+                    }
                 }
             }
         }
     }
 
     // Gallery
-    ul.gallery {
+    .gallery {
+        @include hCenter();
+
         li {
             a {
                 width: 100%;
@@ -210,7 +221,7 @@
 /***** MINIMUM 320PX && MAXIMUM 478PX *****/
 @media screen and (min-width: 320px) and (max-width: 479px) {
     // Gallery
-    ul.gallery {
+    .gallery {
         li {
             width: calc(50% - 10px);
             margin: 0 20px 20px 0;
@@ -272,8 +283,8 @@
     }
 }
 
-/***** MINIMUM 320PX && MAXIMUM 567PX *****/
-@media screen and (min-width: 320px) and (max-width: 567px){
+/***** MINIMUM 320PX && MAXIMUM 568PX *****/
+@media screen and (min-width: 320px) and (max-width: 568px){
     // News Page
     .news {
         &List {
@@ -345,7 +356,7 @@
 /***** MINIMUM 480PX && MAXIMUM 767PX *****/
 @media screen and (min-width: 480px) and (max-width: 767px){
     // Gallery
-    ul.gallery {
+    .gallery {
         li {
             width: calc(100% / 3 - 10px);
             margin: 0 15px 15px 0;
@@ -364,7 +375,7 @@
 /***** MINIMUM 768PX && MAXIMUM MAINWIDTH *****/
 @media screen and (min-width: 768px) and (max-width: $mainWidth - 1 * 1px){
     // Gallery
-    ul.gallery {
+    .gallery {
         li {
             width: calc(25% - 15px);
             margin: 0 20px 20px 0;
