@@ -2,8 +2,6 @@
     MIXINS
 \*------------------------------------------*/
 
-@import 'variables';
-
 // ADDS A BROWSER PREFIX TO THE PROPERTY
 @mixin prefix($property, $value){
     -webkit-#{$property}: #{$value};
@@ -323,7 +321,7 @@
     opacity: 1;
 }
 
-// Linear Gradient 
+// Linear Gradient
 @mixin linear($from, $to, $startColor, $endColor){
     background-image: linear-gradient(to $to, $startColor 0%, $endColor 100%);
 }
@@ -348,3 +346,24 @@
     }
 }
 
+// Font Face
+@mixin fontFace($familyName, $fontName){
+    @font-face {
+        font-family: '#{$familyName}';
+        src: url('../font/#{$fontName}.eot');
+        src: url('../font/#{$fontName}.eot?#iefix') format('embedded-opentype'),
+             url('../font/#{$fontName}.woff2') format('woff2'),
+             url('../font/#{$fontName}.woff') format('woff'),
+             url('../font/#{$fontName}.ttf') format('truetype'),
+             url('../font/#{$fontName}.svg##{$familyName}') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        @font-face {
+            font-family: '#{$familyName}';
+            src: url('../font/#{$fontName}.svg') format('svg');
+        }
+    }
+}

@@ -1,0 +1,76 @@
+/*------------------------------------------*\
+    LAYOUTS
+\*------------------------------------------*/
+
+html {
+    font-size: $baseFontSize * 1px;
+    @include prefix(text-size-adjust, 100%);
+}
+
+body {
+    font-family: $baseFontFamily;
+    color: $baseColor;
+}
+
+a {
+    color: $baseColor;
+}
+
+.clear {
+    height: 0;
+    clear: both;
+    display: block;
+}
+
+.bulletList {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+.noListType {
+    list-style-type: none;
+}
+
+.globalWidth {
+    width: $mainWidth * 1px;
+    margin: $centerElement;
+}
+
+/**
+ ** HEADER
+**/
+.header {
+
+}
+
+
+/**
+ ** SHOWCASE
+**/
+.showcase {
+
+}
+
+
+/**
+ ** CONTENT
+**/
+.content {
+
+}
+
+
+/**
+ ** SUB CONTENT
+**/
+.subContent {
+
+}
+
+
+/**
+ ** FOOTER
+**/
+.footer {
+
+}

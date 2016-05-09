@@ -7,6 +7,13 @@ $mainWidth: 1200;
 $centerElement: 0 auto;
 $contactMargin: 12px;
 
+// Text
+$baseFontFamily: 'tahoma';
+$baseFontSize: 12;
+$baseColor: #333;
+$mainColor: #EC7B23;
+$secondColor: #D6D6D6;
+
 // Table
 $rowHeight: 50px;
 $hoverBackground: #EC7B23;
@@ -19,13 +26,6 @@ $headSize: 18px;
 $cellSize: 15px;
 $cellColor: #333;
 
-// Text
-$baseFontFamily: 'tahoma';
-$baseFontSize: 12;
-$baseColor: #333;
-$mainColor: #EC7B23;
-$secondColor: #D6D6D6;
-
 // Social Colors
 $facebook: #3b5998;
 $twitter: #00aced;
@@ -36,7 +36,7 @@ $instagram: #125688;
 $instagramBrown: #9b6954;
 $pinterest: #cb2027;
 
-// Gallery 
+// Gallery
 $galleryWidth: 304px;
 $galleryHeight: 200px;
 $galleryMargin: 0 25px 25px 0;

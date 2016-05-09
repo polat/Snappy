@@ -1,6 +1,6 @@
-@import '../mixins';
-@import '../variables';
-@import '../functions';
+/*------------------------------------------*\
+    MEDIA
+\*------------------------------------------*/
 
 /***** MINIMUM 320PX && MAXIMUM MAINWIDTH *****/
 @media screen and (min-width: 320px) and (max-width: $mainWidth - 1 * 1px) {

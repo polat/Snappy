@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AACI,UAUC,CATG,WAAW,CAAE,YAAgB,CAC7B,GAAG,CAAE,2BAA+B,CACpC,GAAG,CAAE,4PAAkE,CAKvE,WAAW,CAAE,MAAM,CACnB,UAAU,CAAE,MAAM,CAGtB,qDAAqD,CACjD,UAGC,CAFG,WAAW,CAAE,YAAgB,CAC7B,GAAG,CAAE,yCAA6C",
-"sources": ["../sass/styles/font.scss"],
-"names": [],
-"file": "font.css"
-}
