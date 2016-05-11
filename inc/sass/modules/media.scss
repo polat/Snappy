@@ -114,9 +114,9 @@
 
                     &.mobileHome {
                         &::after {
-                            width: 21px;
-                            height: 19px;
-                            background: url("../../images/mainSprite.png") no-repeat -2px -601px;
+                            width: 22px;
+                            height: 22px;
+                            background: url("../../images/icons/home.svg") no-repeat center / 22px 22px;
                             content: "";
                             position: absolute;
                             left: 50%;

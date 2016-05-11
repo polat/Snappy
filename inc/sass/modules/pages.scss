@@ -22,7 +22,24 @@
                         padding: 175px;
                     }
                 }
+
+                .newsList_more {
+                    &::after {
+                        bottom: -3px;
+                        @include show();
+                    }
+                }
             }
+        }
+
+        &_link {
+            position: absolute;
+            top: 0;
+            bottom: 25px;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            display: block;
         }
 
         &_img {
@@ -304,7 +321,7 @@
                 &::before {
                     width: 20px;
                     height: 20px;
-                    background: url('../../images/mainSprite.png') no-repeat;
+                    background: no-repeat center / 20px 20px;
                     content: "";
                     position: absolute;
                     left: 0;
@@ -314,25 +331,31 @@
 
                 &:nth-child(1) {
                     &::before {
-                        background-position: -2px -484px;
+                        background-image: url("../../images/location.svg");
                     }
                 }
 
-                &:nth-child(2), &:nth-child(3) {
+                &:nth-child(2) {
                     &::before {
-                        background-position: -2px -430px;
+                        background-image: url("../../images/cellphone.svg");
+                    }
+                }
+
+                &:nth-child(3) {
+                    &::before {
+                        background-image: url("../../images/phone.svg");
                     }
                 }
 
                 &:nth-child(4) {
                     &::before {
-                        background-position: -2px -457px;
+                        background-image: url("../../images/fax.svg");
                     }
                 }
 
                 &:nth-child(5) {
                     &::before {
-                        background-position: -2px -510px;
+                        background-image: url("../../images/mail.svg");
                     }
                 }
 
@@ -417,9 +440,9 @@
             z-index: 2;
 
             &::before {
-                width: 26px;
-                height: 27px;
-                background: url('../../images/mainSprite.png') no-repeat;
+                width: 22px;
+                height: 23px;
+                background: no-repeat center / 22px 23px;
                 position: absolute;
                 left: 10px;
                 top: 50%;
@@ -429,15 +452,18 @@
 
             input, textarea {
                 &:focus {
-                    border-color: #888 !important;
+                    border-color: #66afe9;
+                    box-shadow: 0 0 2px #66afe9;
                 }
 
                 &.error, &.error:focus, &.error + .fileBorder {
-                    border-color: #C40F0F !important;
+                    border-color: lighten(#C40F0F,20%);
+                    box-shadow: 0 0 2px lighten(#C40F0F,20%);
                 }
 
                 &.valid, &.valid:focus, &.valid + .fileBorder {
-                    border-color: #3c763d !important;
+                    border-color: lighten(#3c763d,30%);
+                    box-shadow: 0 0 2px lighten(#3c763d,30%);
                 }
             }
 
@@ -446,31 +472,12 @@
                 height: 37px;
                 margin-bottom: $contactMargin;
                 padding: 0 50px;
+                border-radius: 5px;
                 border: 1px solid #D6D6D6;
                 font-size: px-to-rem(15);
                 line-height: px-to-rem(37);
                 display: block;
                 @include ts(0.2s);
-
-                &.phone {
-                    background-position: 10px -35.5px;
-                }
-
-                &.email {
-                    background-position: 10px -76px;
-                }
-
-                &.city {
-                    background-position: 10px -206px;
-                }
-
-                &.topic {
-                    background-position: 10px -113px;
-                }
-
-                &.department {
-                    background-position: 10px -156px;
-                }
             }
 
             textarea {
@@ -479,6 +486,7 @@
                 margin-bottom: $contactMargin;
                 padding: 10px 50px;
                 border: 1px solid #D6D6D6;
+                border-radius: 5px;
                 font-size: px-to-rem(15);
                 line-height: px-to-rem(21);
                 display: block;
@@ -504,79 +512,80 @@
 
             &.namesurname {
                 &::before {
-                    background-position: 0px 0px;
+                    background-image: url("../../images/icons/user.svg");
                 }
             }
 
             &.phone {
                 &::before {
-                    background-position: 1px -40px;
+                    background-image: url("../../images/icons/landPhone.svg");
                 }
             }
 
             &.email {
                 &::before {
-                    background-position: 1px -80px;
+                    background-image: url("../../images/icons/mail.svg");
                 }
             }
 
             &.nationality {
                 &::before {
-                    background-position: 1px -391px;
+                    background-image: url("../../images/icons/flag.svg");
                 }
             }
 
             &.company, &.city {
                 &::before {
-                    background-position: 0px -194px;
+                    background-image: url("../../images/icons/city.svg");
                 }
             }
 
             &.department {
                 &::before {
-                    background-position: 0 -233px;
+                    background-image: url("../../images/icons/department.svg");
                 }
             }
 
             &.gsm {
                 &::before {
-                    background-position: 1px -314px;
+                    background-image: url("../../images/icons/cellphone.svg");
                 }
             }
 
             &.fax {
                 &::before {
-                    background-position: 1px -353px;
+                    background-image: url("../../images/icons/fax.svg");
                 }
             }
 
             &.address {
                 &::before {
-                    background-position: 1px -157px;
+                    background-image: url("../../images/location.svg");
                 }
             }
 
             &.topic {
                 &::before {
-                    background-position: 0px -118px;
+                    background-image: url("../../images/icons/topic.svg");
                 }
             }
 
             &.message {
                 &::before {
-                    background-position: 1px -272px;
+                    background-image: url("../../images/icons/message.svg");
                 }
             }
 
             &.fileUpload {
                 &::before {
-                    background-position: 1px -532px;
+                    background-image: url("../../images/icons/upload.svg");
                 }
 
                 input {
                     &.error {
                         & + .trickInput {
-                            border-color: #C40F0F !important;
+                            border-color: lighten(#C40F0F,20%);
+                            box-shadow: 0 0 2px lighten(#C40F0F,20%);
                         }
                     }
 
@@ -614,6 +623,7 @@
                 padding: 0 10px;
                 background: $secondColor;
                 border: 1px solid $secondColor;
+                border-radius: 5px;
                 font-size: px-to-rem(18);
                 line-height: px-to-rem(37);
                 color: #fff;
@@ -686,7 +696,7 @@
                 width:22px;
                 height:22px;
                 margin: -11px 0 0 -11px;
-                background: url('../../images/mainSprite.png') no-repeat -2px -569px;
+                background: url("../../images/icons/search.svg") no-repeat center / 22px 22px;
                 content: "";
                 position: absolute;
                 left: 50%;

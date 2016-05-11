@@ -54,7 +54,7 @@ $(document).ready(function () {
 
     /* FAQ 
     $(".faq > li > a.faq_trigger").click(function(){
-        $(this).parent().toggleClass("active");
+        $(this).parent().toggleClass("active").siblings("li").removeClass("active");
         $(this).siblings(".faq_content").stop().slideToggle(300).parent().siblings("li").children(".faq_content").stop().slideUp(300);
     });
     */
@@ -88,7 +88,7 @@ function messageBox (message) {
     $(function () {
         if ($('#colx').html() != null) {
             $('.messageBoxContainer').html(message);
-            $('.inline').colorbox({inline: true, width: 'auto', height: 'auto'});
+            $('.inline').colorbox({inline: true, maxWidth: '90%', height: 'auto'});
             $('#cola').click();
         } else {
             $('#colx').remove();
