@@ -329,33 +329,35 @@
                     @include prefix(transform,translate(0,-50%));
                 }
 
-                &:nth-child(1) {
-                    &::before {
-                        background-image: url("../../images/location.svg");
+                &.contact_list {
+                    &_address {
+                        &::before {
+                            background-image: url("../../images/icons/location.svg");
+                        }
                     }
-                }
 
-                &:nth-child(2) {
-                    &::before {
-                        background-image: url("../../images/cellphone.svg");
+                    &_gsm {
+                        &::before {
+                            background-image: url("../../images/icons/cellphone.svg");
+                        }
                     }
-                }
 
-                &:nth-child(3) {
-                    &::before {
-                        background-image: url("../../images/phone.svg");
+                    &_phone {
+                        &::before {
+                            background-image: url("../../images/icons/phone.svg");
+                        }
                     }
-                }
 
-                &:nth-child(4) {
-                    &::before {
-                        background-image: url("../../images/fax.svg");
+                    &_fax {
+                        &::before {
+                            background-image: url("../../images/icons/fax.svg");
+                        }
                     }
-                }
 
-                &:nth-child(5) {
-                    &::before {
-                        background-image: url("../../images/mail.svg");
+                    &_mail {
+                        &::before {
+                            background-image: url("../../images/icons/mail.svg");
+                        }
                     }
                 }
 
