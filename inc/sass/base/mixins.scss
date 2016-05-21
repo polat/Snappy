@@ -184,6 +184,13 @@
     order: $int;
 }
 
+// Flex Grow
+@mixin grow($int: 1) {
+    -webkit-box-flex: $int;
+    -ms-flex-positive: $int;
+    flex-grow: $int;
+}
+
 // Transitions
 @mixin ts($second){
     @include prefix(transition, all $second);
@@ -259,8 +266,7 @@
 
 // Covered Background
 @mixin cover($cover: cover){
-    background-position: center;
-    background-size: $cover;
+    background: no-repeat center / $cover;
 }
 
 // Overlay

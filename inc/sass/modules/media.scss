@@ -393,7 +393,8 @@
 
 /***** DISPLAY NONE ELEMENTS FOR DESKTOP *****/
 @media screen and (min-width: $mainWidth * 1px){
-    .contact_map.mobile {
+    .contact_map.mobile,
+    .mobile_btn {
         display: none;
     }
 }
