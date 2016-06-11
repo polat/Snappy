@@ -46,6 +46,8 @@ table {
 
 a {
     text-decoration: none;
+    color: $baseColor;
+    
     &.active {
         background: none;
     }
@@ -76,8 +78,8 @@ img {
 }
 
 input, select, textarea, button, label {
-    @include appearance();
     border-radius: 0;
+    @include appearance();
 
     &::-ms-clear {
         display: none;

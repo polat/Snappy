@@ -11,6 +11,7 @@
             margin-bottom: 25px;
             padding-bottom: 25px;
             border-bottom: 1px solid rgba(148,148,148,0.2);
+            position: relative;
 
             &:last-child {
                 border-bottom: none;
@@ -676,7 +677,7 @@
 
                 &::after {
                     opacity: 1;
-                    @include scale(1,1);
+                    @include scale(1);
                     @include prefix(transition-delay,0.3s);
                 }
             }
@@ -704,7 +705,7 @@
                 left: 50%;
                 top: 50%;
                 opacity: 0;
-                @include scale(0,0);
+                @include scale(0);
                 @include ts2(transform 0.2s 0.1s ease-in, opacity 0.1s ease-in-out);
             }
         }

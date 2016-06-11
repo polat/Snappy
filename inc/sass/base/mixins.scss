@@ -11,7 +11,9 @@
 }
 
 @mixin appearance {
-    @include prefix(appearance, none);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 // Display Flex
@@ -21,7 +23,9 @@
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    @include prefix(flex, none);
+    -webkit-box-flex: 0;
+    -ms-flex: none;
+    flex: none;
 }
 
 @mixin inlineFlex{
@@ -29,7 +33,9 @@
     display: -webkit-inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
-    @include prefix(flex, none);
+    -webkit-box-flex: 0;
+    -ms-flex: none;
+    flex: none;
 }
 
 @mixin flexValue($fg: 1, $fs: null, $fb: null) {
@@ -60,7 +66,8 @@
 
 // Flex Wrap
 @mixin wrap($wrap: wrap) {
-    @include prefix(flex-wrap, $wrap);
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 // Vertical Position of Flex Items
@@ -193,23 +200,33 @@
 
 // Transitions
 @mixin ts($second){
-    @include prefix(transition, all $second);
+    -webkit-transition: all $second;
+    transition: all $second;
 }
 
 @mixin ts2($string...){
-    @include prefix(transition, $string);
+    -webkit-transition: $string;
+    transition: $string;
 }
 
-@mixin tsDelay($string...){
-    @include prefix(transition-delay, $string);
+@mixin delay($string...){
+    -webkit-transition-delay: $string;
+    transition-delay: $string;
 }
 
 @mixin tsDuration($string...) {
-    @include prefix(transition-duration, $string);
+    -webkit-transition-duration: $string;
+    transition-duration: $string;
 }
 
 @mixin tsProperty($string...) {
-    @include prefix(transition-property, $string);
+    -webkit-transition-property: $string;
+    transition-property: $string;
+}
+
+@mixin origin($val1, $val2){
+    -webkit-transform-origin: $val1 $val2;
+    transform-origin: $val1 $val2;
 }
 
 // Vertical Centering With Transform
@@ -236,32 +253,43 @@
 
 // Transform Rotate
 @mixin rotate($degree){
-    @include prefix(transform, rotate($degree));
+    -webkit-transform: rotate($degree);
+    transform: rotate($degree);
 }
 
 // Transform Scale
-@mixin scale($value1, $value2){
-    @include prefix(transform, scale($value1, $value2));
+@mixin scale($int){
+    -webkit-transform: scale($int);
+    transform: scale($int);
+}
+
+@mixin scale2($value1, $value2){
+    -webkit-transform: scale($value1, $value2);
+    transform: scale($value1, $value2);
 }
 
 // Transform Translate
 @mixin translate($value1, $value2){
-    @include prefix(transform, translate($value1, $value2));
+    -webkit-transform: translate($value1,$value2);
+        transform: translate($value1,$value2);
 }
 
 // Transform SkewX
 @mixin skewX($degree){
-    @include prefix(transform, skewX($degree));
+    -webkit-transform: skewX($degree);
+    transform: skewX($degree);
 }
 
 // Transform SkewY
 @mixin skewY($degree){
-    @include prefix(transform, skewY($degree));
+    -webkit-transform: skewY($degree);
+    transform: skewY($degree);
 }
 
 // Transform With More Than 1 Property
 @mixin transform ($string...){
-    @include prefix(transform, $string);
+    -webkit-transform: $string;
+    transform: $string;
 }
 
 // Covered Background
@@ -289,8 +317,12 @@
 
 // Column
 @mixin column($numberOfColumns, $columnMargin){
-    @include prefix(column-count, $numberOfColumns);
-    @include prefix(column-gap, $columnMargin);
+    -webkit-column-count: $numberOfColumns;
+    -moz-column-count: $numberOfColumns;
+    column-count: $numberOfColumns;
+    -webkit-column-gap: $columnMargin;
+    -moz-column-gap: $columnMargin;
+    column-gap: $columnMargin;
 }
 
 // Animation
@@ -298,22 +330,15 @@
     @-webkit-keyframes #{$animation-name} {
         @content;
     }
-    @-moz-keyframes #{$animation-name} {
-        @content;
-    }
-    @-ms-keyframes #{$animation-name} {
-        @content;
-    }
-    @-o-keyframes #{$animation-name} {
-        @content;
-    }
+
     @keyframes #{$animation-name} {
         @content;
     }
 }
 
 @mixin animation($str) {
-    @include prefix(animation, $str);
+    -webkit-animation: $str;
+     animation: $str;
 }
 
 // Hide & Show

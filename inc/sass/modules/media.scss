@@ -249,7 +249,7 @@
         &_form {
             &_recaptcha {
                 position: absolute;
-                @include scale(0.921,0.921);
+                @include scale(0.921);
                 @include prefix(transform-origin,0 0);
             }
 

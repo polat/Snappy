@@ -13,6 +13,7 @@ $(document).ready(function () {
 
     var basicFade = {
         auto: true,
+        mode: "fade",
         pager: false,
         speed: 1000,
         touchEnabled: true,
@@ -25,6 +26,7 @@ $(document).ready(function () {
 
     var basicFadeActive = {
         auto: true,
+        mode: "fade",
         pager: false,
         speed: 1000,
         touchEnabled: true,
@@ -36,20 +38,54 @@ $(document).ready(function () {
 
         onSlideAfter: function (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
             $('.active-slide').removeClass('active-slide');
-            $('ul.mainSlider > li').eq(currentSlideHtmlObject).addClass('active-slide')
+            $('.mainSlider > li').eq(currentSlideHtmlObject).addClass('active-slide')
         },
 
         onSliderLoad: function () {
-            $('ul.mainSlider > li').eq(0).addClass('active-slide')
+            $('.mainSlider > li').eq(0).addClass('active-slide')
         }
     }
 
     /* Main Slider */
-    var mainSlider = $('ul.mainSlider').bxSlider(basicFade);
+    var mainSlider = $('.mainSlider').bxSlider(basicFade);
 
     $(".showcase .bx-controls a").click(function(){
         mainSlider.stopAuto();
         mainSlider.startAuto();
+    });
+
+    // Scroll Top Button
+    var scroll = $(window).scrollTop();
+
+    if(scroll > 500){
+        $(".scrollTop").addClass("visible");
+    }else {
+        $(".scrollTop").removeClass("visible");
+    }
+
+    $(window).scroll(function(){
+        scroll = $(window).scrollTop();
+
+        if(scroll > 500){
+            $(".scrollTop").addClass("visible");
+        }else {
+            $(".scrollTop").removeClass("visible");
+        }
+    });
+
+    $(function() {
+        $('a.scrollTop').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
     });
 
     /* FAQ 
@@ -62,20 +98,20 @@ $(document).ready(function () {
     /*  Slidebars
     $.slidebars();
 
-    $('.mobileHomeBtn').on('touchstart', function (e) {
+    $('.mobile_btn').on('touchstart', function (e) {
         $(this).toggleClass('is-active');
         return false;
     });
 
     $("#sb-site").on('touchstart', function (e){
-        if($(".mobileHomeBtn").hasClass('is-active')){
-            $(".mobileHomeBtn").removeClass('is-active');
+        if($(".mobile_btn").hasClass('is-active')){
+            $(".mobile_btn").removeClass('is-active');
             return false;
         }
     });
 
     // Mobile Menu Toggle
-    $("ul.mobileMenuList li a").click(function(){
+    $(".mobile_list li a").click(function(){
         if($(this).parent().hasClass("parent")){
             $(this).parent().siblings("li").children("ul").stop().slideUp();
             $(this).siblings("ul").stop().slideToggle();
