@@ -657,8 +657,14 @@
         margin: $galleryMargin;
         float: left;
 
-        &:nth-child(#{$imagesPerRow}n){
-            margin-right: 0;
+        @media screen and (min-width: $mainWidth * 1px){
+            &:nth-child(-n + #{$imagesPerRow}){
+                margin-top: 0;
+            }
+
+            &:nth-child(#{$imagesPerRow}n){
+                margin-right: 0;
+            }
         }
 
         a {
@@ -667,6 +673,7 @@
             position: relative;
             display: block;
             overflow: hidden;
+            @include cover();
 
             &:hover {
                 &::before {
