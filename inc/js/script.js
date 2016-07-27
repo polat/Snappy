@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     /* Lightbox Settings */
     $('a[rel="image"]').swipebox();
     $('.video').swipebox();
@@ -11,48 +10,20 @@ $(document).ready(function () {
         $('#swipebox-close').trigger('click');
     });
 
+    // Slider Options
     var basicFade = {
-        auto: true,
-        mode: "fade",
-        pager: false,
-        speed: 1000,
-        touchEnabled: true,
-        pause: 3000,
-        prevText: '',
-        nextText: '',
-        prevSelector: '',
-        nextSelector: '',
+      loop:true,
+      margin:10,
+      items: 1,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      autoplayHoverPause: true,
+      autoplaySpeed: 2000,
+      dragEndSpeed: 1000,
+      animateOut: 'fadeOut'
     }
 
-    var basicFadeActive = {
-        auto: true,
-        mode: "fade",
-        pager: false,
-        speed: 1000,
-        touchEnabled: true,
-        pause: 3000,
-        prevText: '',
-        nextText: '',
-        prevSelector: '',
-        nextSelector: '',
-
-        onSlideAfter: function (currentSlideNumber, totalSlideQty, currentSlideHtmlObject) {
-            $('.active-slide').removeClass('active-slide');
-            $('.mainSlider > li').eq(currentSlideHtmlObject).addClass('active-slide')
-        },
-
-        onSliderLoad: function () {
-            $('.mainSlider > li').eq(0).addClass('active-slide')
-        }
-    }
-
-    /* Main Slider */
-    var mainSlider = $('.mainSlider').bxSlider(basicFade);
-
-    $(".showcase .bx-controls a").click(function(){
-        mainSlider.stopAuto();
-        mainSlider.startAuto();
-    });
+    $('.mainSlider').owlCarousel(basicFade);
 
     // Scroll Top Button
     var scroll = $(window).scrollTop();
@@ -88,7 +59,7 @@ $(document).ready(function () {
         });
     });
 
-    /* FAQ 
+    /* FAQ
     $(".faq > li > a.faq_trigger").click(function(){
         $(this).parent().toggleClass("active").siblings("li").removeClass("active");
         $(this).siblings(".faq_content").stop().slideToggle(300).parent().siblings("li").children(".faq_content").stop().slideUp(300);

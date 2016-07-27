@@ -4,9 +4,10 @@
 @import 'base/reset';
 @import 'base/font';
 
+@import 'vendors/aos';
+@import 'vendors/owl.carousel';
 @import 'vendors/colorbox';
 @import 'vendors/swipebox';
-@import 'vendors/aos';
 // @import 'vendors/slidebars';
 
 @import 'modules/layouts';
