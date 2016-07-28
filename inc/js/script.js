@@ -12,15 +12,16 @@ $(document).ready(function () {
 
     // Slider Options
     var basicFade = {
-      loop:true,
-      margin:10,
-      items: 1,
-      autoplay: true,
-      autoplayTimeout: 4000,
-      autoplayHoverPause: true,
-      autoplaySpeed: 2000,
-      dragEndSpeed: 1000,
-      animateOut: 'fadeOut'
+        loop:true,
+        margin:10,
+        items: 1,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: true,
+        autoplaySpeed: 2000,
+        dragEndSpeed: 1000,
+        animateIn: 'fadeIn',
+        animateOut: 'fadeOut'
     }
 
     $('.mainSlider').owlCarousel(basicFade);
