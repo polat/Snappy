@@ -38,7 +38,7 @@ body {
     background: $mainColor;
     position: fixed;
     bottom: -50px;
-    right: calc(50% - #{($mainWidth / 2 + 100) * 1px});
+    right: calc((100% - #{$mainWidth * 1px}) / 2 - 60px);
     z-index: 999;
     opacity: 0;
     @include ts2(background-color 0.25s, opacity 0.5s, bottom 0.5s);
