@@ -378,23 +378,11 @@
 }
 
 // Font Face
-@mixin fontFace($familyName, $fontName){
+@mixin fontFace($font){
     @font-face {
-        font-family: '#{$familyName}';
-        src: url('../font/#{$fontName}.eot');
-        src: url('../font/#{$fontName}.eot?#iefix') format('embedded-opentype'),
-             url('../font/#{$fontName}.woff2') format('woff2'),
-             url('../font/#{$fontName}.woff') format('woff'),
-             url('../font/#{$fontName}.ttf') format('truetype'),
-             url('../font/#{$fontName}.svg##{$familyName}') format('svg');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @media screen and (-webkit-min-device-pixel-ratio:0) {
-        @font-face {
-            font-family: '#{$familyName}';
-            src: url('../font/#{$fontName}.svg') format('svg');
-        }
+        font-family: '#{$font}';
+        src: url('../font/#{$font}.woff2') format('woff2'),
+             url('../font/#{$font}.woff') format('woff'),
+             url('../font/#{$font}.ttf') format('truetype')
     }
 }

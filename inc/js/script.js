@@ -12,19 +12,49 @@ $(document).ready(function () {
 
     // Slider Options
     var basicFade = {
-        loop:true,
-        margin:10,
-        items: 1,
-        autoplay: true,
-        autoplayTimeout: 4000,
-        autoplayHoverPause: true,
-        autoplaySpeed: 2000,
-        dragEndSpeed: 1000,
-        animateIn: 'fadeIn',
-        animateOut: 'fadeOut'
+        auto: true,
+        mode: "fade",
+        pager: true,
+        speed: 1000,
+        touchEnabled: true,
+        pause: 5000,
+        prevText: '',
+        nextText: '',
+        prevSelector: '',
+        nextSelector: '',
     }
 
-    $('.mainSlider').owlCarousel(basicFade);
+    var basicFadeActive = {
+        auto: true,
+        mode: "fade",
+        pager: true,
+        speed: 1000,
+        touchEnabled: true,
+        pause: 5000,
+        prevText: '',
+        nextText: '',
+        prevSelector: '',
+        nextSelector: '',
+
+        onSlideBefore: function () {
+            var current = showcaseSlider.getCurrentSlide();
+
+            setTimeout(function () {
+                $('.showcase_slider > li').removeClass('active').eq(current).addClass('active');
+            }, 1);
+        },
+
+        onSliderLoad: function () {
+            $('.showcase_slider > li').eq(0).addClass('active')
+        }
+    }
+
+    var showcaseSlider = $('.showcase_slider').bxSlider(basicFade);
+
+    $(".showcase .bx-controls a").click(function(){
+        showcaseSlider.stopAuto();
+        showcaseSlider.startAuto();
+    });
 
     // Scroll Top Button
     var scroll = $(window).scrollTop();
