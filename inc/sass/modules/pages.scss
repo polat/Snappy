@@ -657,7 +657,6 @@
 
     li {
         margin: $galleryMargin;
-        float: left;
 
         @media screen and (min-width: $mainWidth * 1px){
             &:nth-child(-n + #{$imagesPerRow}){
