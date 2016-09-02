@@ -299,8 +299,27 @@
     }
 }
 
-/***** MINIMUM 320PX && MAXIMUM 568PX *****/
-@media screen and (min-width: 320px) and (max-width: 568px){
+/***** MINIMUM 320PX && MAXIMUM 567PX *****/
+@media screen and (min-width: 320px) and (max-width: 567px){
+    // Contact
+    .contact {
+        &.multiple {
+            .contact {
+                &_informations {
+                    width: 100%;
+                }
+
+                &_map {
+                    &_inner {
+                        width: 100%;
+                        height: 250px;
+                        position: relative;
+                    }
+                }
+            }
+        }
+    }
+    
     // News Page
     .news {
         &List {
