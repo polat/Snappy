@@ -8,6 +8,7 @@ html {
 }
 
 body {
+    padding-bottom: 2000px;
     font-family: $baseFontFamily;
     color: $baseColor;
 }
@@ -52,26 +53,17 @@ body {
         background: $secondColor;
     }
 
-    &::before,
-    &::after {
-        width: 15px;
-        height: 5px;
-        margin-top: -2.5px;
-        background: #fff;
+    &::before {
+        width: 10px;
+        height: 10px;
+        margin-top: 5px;
+        border: 2px solid;
+        border-color: #fff #fff transparent transparent;
         content: "";
         position: absolute;
-        left: 50%;
         top: 50%;
-    }
-
-    &::before {
-        margin-left: -11.5px;
-        @include rotate(-45deg);
-    }
-
-    &::after {
-        margin-left: -4px;
-        @include rotate(45deg);
+        left: 50%;
+        @include transform(translate(-50%,-50%) rotate(-45deg));
     }
 }
 

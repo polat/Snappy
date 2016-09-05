@@ -1,4 +1,5 @@
 @import '../base/variables'; 
+@import '../base/mixins';
 
 @media screen and (min-width: $mainWidth * 1px){
 	/*
@@ -14,12 +15,13 @@
 	 */
 
 	[data-aos] {
-	  @for $i from 1 through 60 {
-	    body[data-aos-duration='#{$i*50}'] &,
-	    &[data-aos][data-aos-duration='#{$i*50}'] {
-	      transition-duration: #{$i*50}ms;
-	    }
-	  }
+		@for $i from 1 through 60 {
+			body[data-aos-duration='#{$i*50}'] &,
+			&[data-aos][data-aos-duration='#{$i*50}'] {
+				-webkit-transition-duration: #{$i*50}ms;
+				transition-duration: #{$i*50}ms;
+			}
+		}
 	}
 
 	/**
@@ -27,20 +29,19 @@
 	 */
 
 	[data-aos] {
-	  @for $i from 1 through 60 {
-	    body[data-aos-delay='#{$i*50}'] &,
-	    &[data-aos][data-aos-delay='#{$i*50}'] {
-	      transition-delay: 0;
+		@for $i from 1 through 60 {
+			body[data-aos-delay='#{$i*50}'] &,
+			&[data-aos][data-aos-delay='#{$i*50}'] {
+				-webkit-transition-delay: 0;
+				transition-delay: 0;
 
-	      &.aos-animate{
-	        transition-delay: #{$i*50}ms;
-	      }
-	    }
-	  }
+				&.aos-animate{
+					-webkit-transition-delay: #{$i*50}ms;
+					transition-delay: #{$i*50}ms;
+				}
+			}
+		}
 	}
-
-
-
 
 	/**
 	 * Fade animations:
@@ -50,45 +51,55 @@
 	 */
 
 	[data-aos^='fade'][data-aos^='fade'] {
-	  opacity: 0;
-	  transition-property: opacity, transform;
+		opacity: 0;
+		-webkit-transition-property: opacity, transform;
+		transition-property: opacity, transform;
 
-	  &.aos-animate {
-	    opacity: 1;
-	    transform: translate(0, 0);
-	  }
+		&.aos-animate {
+			opacity: 1;
+			-webkit-transform: translate(0, 0);
+			transform: translate(0, 0);
+		}
 	}
 
 	[data-aos='fade-up'] {
-	  transform: translate(0, $val-sm);
+		-webkit-transform: translate(0, $val-sm);
+	    transform: translate(0, $val-sm);
 	}
 
 	[data-aos='fade-down'] {
-	  transform: translate(0, -$val-sm);
+		-webkit-transform: translate(0, -$val-sm);
+	    transform: translate(0, -$val-sm);
 	}
 
 	[data-aos='fade-right'] {
-	  transform: translate(-$val-sm, 0);
+		-webkit-transform: translate(-$val-sm, 0);
+	    transform: translate(-$val-sm, 0);
 	}
 
 	[data-aos='fade-left'] {
-	  transform: translate($val-sm, 0);
+		-webkit-transform: translate($val-sm, 0);
+	    transform: translate($val-sm, 0);
 	}
 
 	[data-aos='fade-up-right'] {
-	  transform: translate(-$val-sm, $val-sm);
+		-webkit-transform: translate(-$val-sm, $val-sm);
+	    transform: translate(-$val-sm, $val-sm);
 	}
 
 	[data-aos='fade-up-left'] {
-	  transform: translate($val-sm, $val-sm);
+		-webkit-transform: translate($val-sm, $val-sm);
+	    transform: translate($val-sm, $val-sm);
 	}
 
 	[data-aos='fade-down-right'] {
-	  transform: translate(-$val-sm, -$val-sm);
+		-webkit-transform: translate(-$val-sm, -$val-sm);
+	    transform: translate(-$val-sm, -$val-sm);
 	}
 
 	[data-aos='fade-down-left'] {
-	  transform: translate($val-sm, -$val-sm);
+		-webkit-transform: translate($val-sm, -$val-sm);
+	    transform: translate($val-sm, -$val-sm);
 	}
 
 	/**
@@ -98,88 +109,100 @@
 	 */
 
 	[data-aos^='zoom'][data-aos^='zoom'] {
-	  opacity: 0;
-	  transition-property: opacity, transform;
+		opacity: 0;
+		-webkit-transition-property: opacity, transform;
+		transition-property: opacity, transform;
 
-	  &.aos-animate {
-	    opacity: 1;
-	    transform: translate(0, 0) scale(1);
-	  }
+		&.aos-animate {
+			opacity: 1;
+			-webkit-transform: translate(0, 0) scale(1);
+			transform: translate(0, 0) scale(1);
+		}
 	}
 
 	[data-aos='zoom-in'] {
-	  transform: scale(.6);
+		-webkit-transform: scale(.6);
+	    transform: scale(.6);
 	}
 
 	[data-aos='zoom-in-up'] {
-	  transform: translate(0, $val-sm) scale(.6);
+		-webkit-transform: translate(0, $val-sm) scale(.6);
+	    transform: translate(0, $val-sm) scale(.6);
 	}
 
 	[data-aos='zoom-in-down'] {
-	  transform: translate(0, -$val-sm) scale(.6);
+		-webkit-transform: translate(0, -$val-sm) scale(.6);
+	    transform: translate(0, -$val-sm) scale(.6);
 	}
 
 	[data-aos='zoom-in-right'] {
-	  transform: translate(-$val-sm, 0) scale(.6);
+		-webkit-transform: translate(-$val-sm, 0) scale(.6);
+	    transform: translate(-$val-sm, 0) scale(.6);
 	}
 
 	[data-aos='zoom-in-left'] {
-	  transform: translate($val-sm, 0) scale(.6);
+		-webkit-transform: translate($val-sm, 0) scale(.6);
+	    transform: translate($val-sm, 0) scale(.6);
 	}
 
 	[data-aos='zoom-out'] {
-	  transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+	    transform: scale(1.2);
 	}
 
 	[data-aos='zoom-out-up'] {
-	  transform: translate(0, $val-sm) scale(1.2);
+		-webkit-transform: translate(0, $val-sm) scale(1.2);
+	    transform: translate(0, $val-sm) scale(1.2);
 	}
 
 	[data-aos='zoom-out-down'] {
-	  transform: translate(0, -$val-sm) scale(1.2);
+		-webkit-transform: translate(0, -$val-sm) scale(1.2);
+	    transform: translate(0, -$val-sm) scale(1.2);
 	}
 
 	[data-aos='zoom-out-right'] {
-	  transform: translate(-$val-sm, 0) scale(1.2);
+		-webkit-transform: translate(-$val-sm, 0) scale(1.2);
+	    transform: translate(-$val-sm, 0) scale(1.2);
 	}
 
 	[data-aos='zoom-out-left'] {
-	  transform: translate($val-sm, 0) scale(1.2);
+		-webkit-transform: translate($val-sm, 0) scale(1.2);
+	    transform: translate($val-sm, 0) scale(1.2);
 	}
-
-
-
 
 	/**
 	 * Slide animations
 	 */
 
 	[data-aos^='slide'][data-aos^='slide'] {
-	  transition-property: transform;
+		-webkit-transition-property: transform;
+		transition-property: transform;
 
-	  &.aos-animate {
-	    transform: translate(0, 0);
-	  }
+		&.aos-animate {
+			-webkit-transform: translate(0, 0);
+			transform: translate(0, 0);
+		}
 	}
 
 	[data-aos='slide-up'] {
-	  transform: translateY(100%);
+		-webkit-transform: translateY(100%);
+		transform: translateY(100%);
 	}
 
 	[data-aos='slide-down'] {
-	  transform: translateY(-100%);
+		-webkit-transform: translateY(-100%);
+		transform: translateY(-100%);
 	}
 
 	[data-aos='slide-right'] {
-	  transform: translateX(-100%);
+		-webkit-transform: translateX(-100%);
+		transform: translateX(-100%);
 	}
 
 	[data-aos='slide-left'] {
-	  transform: translateX(100%);
+		-webkit-transform: translateX(100%);
+		transform: translateX(100%);
 	}
-
-
-
 
 	/**
 	 * Flip animations:
@@ -187,34 +210,57 @@
 	 */
 
 	[data-aos^='flip'][data-aos^='flip'] {
-	  backface-visibility: hidden;
-	  transition-property: transform;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-webkit-transition-property: transform;
+		transition-property: transform;
 	}
 
 	[data-aos='flip-left'] {
-	  transform: perspective(2500px) rotateY(-100deg);
-	  &.aos-animate {transform: perspective(2500px) rotateY(0);}
+		-webkit-transform: perspective(2500px) rotateY(-100deg);
+		transform: perspective(2500px) rotateY(-100deg);
+
+		&.aos-animate {
+			-webkit-transform: perspective(2500px) rotateY(0);
+			transform: perspective(2500px) rotateY(0);
+		}
 	}
 
 	[data-aos='flip-right'] {
-	  transform: perspective(2500px) rotateY(100deg);
-	  &.aos-animate {transform: perspective(2500px) rotateY(0);}
+		-webkit-transform: perspective(2500px) rotateY(100deg);
+		transform: perspective(2500px) rotateY(100deg);
+
+		&.aos-animate {
+			-webkit-transform: perspective(2500px) rotateY(0);
+			transform: perspective(2500px) rotateY(0);
+		}
 	}
 
 	[data-aos='flip-up'] {
-	  transform: perspective(2500px) rotateX(-100deg);
-	  &.aos-animate {transform: perspective(2500px) rotateX(0);}
+		-webkit-transform: perspective(2500px) rotateX(-100deg);
+		transform: perspective(2500px) rotateX(-100deg);
+
+		&.aos-animate {
+			-webkit-transform: perspective(2500px) rotateX(0);
+			transform: perspective(2500px) rotateX(0);
+		}
 	}
 
 	[data-aos='flip-down'] {
-	  transform: perspective(2500px) rotateX(100deg);
-	  &.aos-animate {transform: perspective(2500px) rotateX(0);}
+		-webkit-transform: perspective(2500px) rotateX(100deg);
+		transform: perspective(2500px) rotateX(100deg);
+
+		&.aos-animate {
+			-webkit-transform: perspective(2500px) rotateX(0);
+			transform: perspective(2500px) rotateX(0);
+		}
 	}
 	
 	[data-aos] {
 	  @each $key, $val in $easing {
 	    body[data-aos-easing="#{$key}"] &, &[data-aos][data-aos-easing="#{$key}"]{
-	      transition-timing-function: $val;
+    		-webkit-transition-timing-function: $val;
+			transition-timing-function: $val;
 	    }
 	  }
 	}
