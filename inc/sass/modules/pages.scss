@@ -68,10 +68,9 @@
 
         &_title, &_date {
             margin-bottom: 14px;
-            font-size: px-to-rem(18);
-            line-height: px-to-rem(24);
             color: $mainColor;
             float: left;
+            @include font(18,24);
         }
 
         &_title {
@@ -85,17 +84,15 @@
         &_summary {
             p {
                 margin-bottom: 10px;
-                font-size: px-to-rem(17);
-                line-height: px-to-rem(23);
+                @include font(17,23);
             }
         }
 
         &_more {
-            font-size: px-to-rem(17);
-            line-height: px-to-rem(23);
             color: $mainColor;
             display: inline-block;
             position: relative;
+            @include font(17,23);
 
             &::after {
                 width: 100%;
@@ -121,9 +118,8 @@
     &_inner {
         &_title, &_date {
             margin-bottom: 16px;
-            font-size: px-to-rem(18);
-            line-height: px-to-rem(24);
             color: $mainColor;
+            @include font(18,24);
         }
 
         &_title {
@@ -137,8 +133,7 @@
 
         &_content {
             p {
-                font-size: px-to-rem(16);
-                line-height: px-to-rem(24);
+                @include font(16,24);
             }
         }
     }
@@ -148,9 +143,8 @@
             margin: 100px 0 0 0;
             padding: 0 0 20px 0;
             border-bottom: 1px solid #E9E9E9;
-            font-size: px-to-rem(22);
-            line-height: px-to-rem(26);
             color: $mainColor;
+            @include font(22,26);
         }
 
         &_list {
@@ -159,21 +153,19 @@
 
                 & > a {
                     padding: 20px 0 20px 18px;
-                    font-size: px-to-rem(17);
-                    line-height: px-to-rem(21);
                     color: $secondColor;
                     display: block;
                     position: relative;
+                    @include font(17,21);
                     @include ts(0.2s);
 
                     &::before {
-                        font-size: px-to-rem(17);
-                        line-height: px-to-rem(21);
                         color: $secondColor;
                         content: "+";
                         left: 0;
                         @include tvCenter();
                         @include ts(0.2s);
+                        @include font(17,21);
                     }
 
                     &:hover {
@@ -213,7 +205,7 @@
                     top: 0;
 
                     textarea {
-                        height: calc(100% - 22px);
+                        height: 100%;
                     }
                 }
             }
@@ -265,9 +257,8 @@
 
     &_title {
         margin-bottom: 20px;
-        font-size: px-to-rem(24);
-        line-height: px-to-rem(28);
         color: $mainColor;
+        @include font(24,28);
 
         &.lessSpace {
             margin-bottom: 5px;
@@ -319,7 +310,7 @@
             li {
                 padding: 15px 0 15px 30px;
 
-                &::before {
+                svg {
                     width: 20px;
                     height: 20px;
                     background: no-repeat center / contain;
@@ -327,47 +318,21 @@
                     position: absolute;
                     left: 0;
                     top: 50%;
+                    display: block;
                     @include prefix(transform,translate(0,-50%));
-                }
 
-                &.contact_list {
-                    &_address {
-                        &::before {
-                            background-image: url("../../images/icons/location.svg");
-                        }
-                    }
-
-                    &_gsm {
-                        &::before {
-                            background-image: url("../../images/icons/cellphone.svg");
-                        }
-                    }
-
-                    &_phone {
-                        &::before {
-                            background-image: url("../../images/icons/phone.svg");
-                        }
-                    }
-
-                    &_fax {
-                        &::before {
-                            background-image: url("../../images/icons/fax.svg");
-                        }
-                    }
-
-                    &_mail {
-                        &::before {
-                            background-image: url("../../images/icons/mail.svg");
-                        }
+                    path,
+                    rect {
+                        fill: $mainColor;
                     }
                 }
 
                 div {
-                    &:nth-child(1), &:nth-child(2){
+                    &:nth-of-type(1), &:nth-of-type(2){
                         display: none;
                     }
 
-                    &:nth-child(3){
+                    &:nth-of-type(3){
                         width: 100%;
                     }
                 }
@@ -377,10 +342,13 @@
         li {
             padding: 15px 0;
             border-bottom: 1px solid #eee;
-            font-size: px-to-rem(14);
-            line-height: px-to-rem(22);
             color: $baseColor;
             position: relative;
+            @include font(15,23);
+
+            svg {
+                display: none;
+            }
 
             div {
                 display: block;
@@ -432,8 +400,9 @@
 
             .message {
                 height: 100%;
+
                 textarea {
-                    height: calc(100% - 22px) !important;
+                    height: 100%;
                 }
             }
         }
@@ -442,7 +411,7 @@
             position: relative;
             z-index: 2;
 
-            &::before {
+            svg {
                 width: 22px;
                 height: 23px;
                 background: no-repeat center / contain;
@@ -451,9 +420,15 @@
                 top: 50%;
                 content: "";
                 @include prefix(transform, translate(0, -50%));
+
+                path,
+                rect {
+                    fill: $mainColor;
+                }
             }
 
             input, textarea {
+                box-sizing: border-box;
                 overflow: hidden;
                 
                 &:focus {
@@ -473,111 +448,35 @@
             }
 
             input {
-                width: calc(100% - 102px);
+                width: 100%;
                 height: 37px;
                 margin-bottom: $contactMargin;
                 padding: 0 50px;
                 border-radius: 5px;
                 border: 1px solid #D6D6D6;
-                font-size: px-to-rem(15);
-                line-height: px-to-rem(37);
                 display: block;
+                @include font(15,37);
                 @include ts(0.2s);
             }
 
             textarea {
-                width: calc(100% - 102px);
+                width: 100%;
                 height: 178px;
                 margin-bottom: $contactMargin;
                 padding: 10px 50px;
                 border: 1px solid #D6D6D6;
                 border-radius: 5px;
-                font-size: px-to-rem(15);
-                line-height: px-to-rem(21);
                 display: block;
                 resize: none;
                 overflow: auto;
+                @include font(15,21);
                 @include ts(0.2s);
-
-                &.address {
-                    background-position: 13.5px -934px;
-                }
-
-                &.message {
-                    background-position: 12.5px -1302px;
-                }
             }
 
             &.contactText {
-                &::before {
+                svg {
                     top: 7px;
                     @include prefix(transform, translate(0,0));
-                }
-            }
-
-            &.namesurname {
-                &::before {
-                    background-image: url("../../images/icons/user.svg");
-                }
-            }
-
-            &.phone {
-                &::before {
-                    background-image: url("../../images/icons/landPhone.svg");
-                }
-            }
-
-            &.email {
-                &::before {
-                    background-image: url("../../images/icons/mail.svg");
-                }
-            }
-
-            &.nationality {
-                &::before {
-                    background-image: url("../../images/icons/flag.svg");
-                }
-            }
-
-            &.company, &.city {
-                &::before {
-                    background-image: url("../../images/icons/city.svg");
-                }
-            }
-
-            &.department {
-                &::before {
-                    background-image: url("../../images/icons/department.svg");
-                }
-            }
-
-            &.gsm {
-                &::before {
-                    background-image: url("../../images/icons/cellphone.svg");
-                }
-            }
-
-            &.fax {
-                &::before {
-                    background-image: url("../../images/icons/fax.svg");
-                }
-            }
-
-            &.address {
-                &::before {
-                    background-image: url("../../images/icons/location.svg");
-                }
-            }
-
-            &.topic {
-                &::before {
-                    background-image: url("../../images/icons/topic.svg");
-                }
-            }
-
-            &.message {
-                &::before {
-                    background-image: url("../../images/icons/message.svg");
                 }
             }
 
@@ -629,10 +528,9 @@
                 background: $secondColor;
                 border: 1px solid $secondColor;
                 border-radius: 5px;
-                font-size: px-to-rem(18);
-                line-height: px-to-rem(37);
                 color: #fff;
                 cursor: pointer;
+                @include font(18,37);
                 @include ts(0.2s);
 
                 &:hover {
@@ -725,8 +623,7 @@
  ** FAQ
 **/
 .faq {
-    li {
-        margin-bottom: 10px;
+    & > li {
         background: #fff;
         box-shadow: 0 0px 2px rgba(0, 0, 0, 0.15);
         @include ts2(box-shadow, 0.2s);
@@ -742,15 +639,18 @@
                 }
             }
         }
+
+        &:not(:first-child){
+            margin-top: 10px;
+        }
     }
 
     &_trigger {
         padding: 24px 72px 24px 24px;
         position: relative;
         display: block;
-        font-size: px-to-rem(20);
-        line-height: px-to-rem(26);
         color: $mainColor;
+        @include font(20,26);
 
         &::before, &::after {
             width: 13px;
@@ -776,10 +676,9 @@
 
     &_content {
         padding: 0 24px 30px;
-        font-size: px-to-rem(14);
-        line-height: px-to-rem(22);
-        color: #6c7d8e;
+        color: $baseColor;
         display: none;
+        @include font(14,22);
 
         &.active {
             display: block;

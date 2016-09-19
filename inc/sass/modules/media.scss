@@ -12,10 +12,11 @@
     // Mobile
     .mobile {
         &_btn {
-            width: 50px;
-            height: 50px;
-            background: transparent;
+            width: 1em;
+            height: 1em;
             padding: 10px;
+            background: transparent;
+            font-size: px-to-rem(50);
             cursor: pointer;
             position: absolute;
             right: 20px;
@@ -49,9 +50,10 @@
             &.withBg {
                 &.is-active {
                     &:before {
-                        width: 50px;
-                        height: 50px;
+                        width: 1em;
+                        height: 1em;
                         background: #fff;
+                        font-size: px-to-rem(50);
                         opacity: 1;
                     }
                 }
@@ -106,8 +108,8 @@
 
             li {
                 border-right: 1px solid #fff;
-                float: left;
                 box-sizing: border-box;
+                float: left;
                 @include grow(1);
 
                 &:last-of-type {
@@ -118,11 +120,10 @@
                     width: 100%;
                     height: 50px;
                     background: $secondColor;
-                    font-size: px-to-rem(15);
-                    line-height: px-to-rem(19);
                     color: #fff;
                     display: block;
                     position: relative;
+                    @include font(15,19);
                     @include flex();
                     @include center();
 
@@ -156,13 +157,11 @@
 
                 a {
                     padding: 13px 20px;
-                    font-family: $baseFontFamily;
-                    font-size: px-to-rem(15);
-                    line-height: px-to-rem(19);
                     text-align: center;
                     color: #fff;
                     display: block;
                     position: relative;
+                    @include font(15,19,$baseFontFamily);
                 }
 
                 &.active {
@@ -188,8 +187,7 @@
 
                     a {
                         padding: 8px;
-                        font-size: px-to-rem(14);
-                        line-height: px-to-rem(18);
+                        @include font(14,18);
                     }
                 }
             }
@@ -251,8 +249,7 @@
     // FAQ
     .faq {
         &_trigger {
-            font-size: px-to-rem(15);
-            line-height: px-to-rem(21);
+            @include font(15,21);
         }
     }
 
@@ -413,8 +410,7 @@
     // FAQ
     .faq {
         &_trigger {
-            font-size: px-to-rem(18);
-            line-height: px-to-rem(22);
+            @include font(18,22);
         }
     }
 }

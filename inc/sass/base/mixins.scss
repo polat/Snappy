@@ -377,6 +377,22 @@
     }
 }
 
+// Placeholder
+@mixin placeholder($color) {
+    input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+        color: $color;
+    }
+    input:-moz-placeholder, textarea:-moz-placeholder {
+        color: $color;
+    }
+    input::-moz-placeholder, textarea::-moz-placeholder {
+        color: $color;
+    }
+    input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+        color: $color;
+    }
+}
+
 // Font Face
 @mixin fontFace($font){
     @font-face {
@@ -384,5 +400,17 @@
         src: url('../font/#{$font}.woff2') format('woff2'),
              url('../font/#{$font}.woff') format('woff'),
              url('../font/#{$font}.ttf') format('truetype')
+    }
+}
+
+// Font
+@mixin font($size,$lineHeight,$family:"") {
+    @if $family == "" {
+        font-size: ($size / $baseFontSize) * 1rem;
+        line-height: ($lineHeight / $baseFontSize) * 1rem;
+    } @else {
+        font-family: "#{$family}";
+        font-size: ($size / $baseFontSize) * 1rem;
+        line-height: ($lineHeight / $baseFontSize) * 1rem;
     }
 }

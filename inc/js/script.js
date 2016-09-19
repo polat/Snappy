@@ -14,7 +14,7 @@ $(document).ready(function () {
     var basicFade = {
         auto: true,
         mode: "fade",
-        pager: true,
+        pager: false,
         speed: 1000,
         touchEnabled: true,
         pause: 5000,
@@ -27,7 +27,7 @@ $(document).ready(function () {
     var basicFadeActive = {
         auto: true,
         mode: "fade",
-        pager: true,
+        pager: false,
         speed: 1000,
         touchEnabled: true,
         pause: 5000,

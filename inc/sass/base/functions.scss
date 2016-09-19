@@ -7,7 +7,7 @@
     @return ($px / $baseFontSize) * 1rem;
 }
 
-// SASS Maps 
+// SASS Maps
 @function easing($key){
 	@if map-has-key($easing,$key){
 		@return map-get($easing,$key);
