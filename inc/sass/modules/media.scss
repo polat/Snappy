@@ -2,11 +2,36 @@
     MEDIA
 \*------------------------------------------*/
 
-/***** MINIMUM 320PX && MAXIMUM MAINWIDTH *****/
-@media screen and (min-width: 320px) and (max-width: $mainWidth - 1 * 1px) {
+$phone-small: 320;
+$phone-medium: 375;
+$phone-large: 425;
+$phone-side-small: 480;
+$phone-side-large: 568;
+$tablet: 768;
+$desktop: 1024;
+
+@include media(($phone-small * 1px), ($mainWidth - 1 * 1px)) {
+    // Display None Elements
+    .class {
+        display: none;
+    }
+
+    // Full Width Elements
+    .class {
+        width: 100%;
+    }
+
+    // Full Width Elements With Padding 20
+    .globalWidth {
+        width: 100%;
+        padding-right: 20px;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+
     // Slidebars
     .sb-slidebar {
-        @include linear(top,bottom,$mainColor,$secondColor %70);
+        background: $mainColor;
     }
 
     // Mobile
@@ -16,11 +41,11 @@
             height: 1em;
             padding: 10px;
             background: transparent;
-            font-size: px-to-rem(50);
             cursor: pointer;
             position: absolute;
             right: 20px;
             top: 20px;
+            @include font(50);
 
             &.is-active {
                 span {
@@ -43,7 +68,7 @@
                 }
 
                 &::before {
-                    background: $mainColor;
+                    background: $mobileColor;
                 }
             }
 
@@ -52,9 +77,16 @@
                     &:before {
                         width: 1em;
                         height: 1em;
-                        background: #fff;
-                        font-size: px-to-rem(50);
+                        background: $mobileColor;
                         opacity: 1;
+                        @include font(50);
+                    }
+
+                    span {
+                        &::before,
+                        &::after {
+                            background: #fff;
+                        }
                     }
                 }
 
@@ -65,8 +97,8 @@
                     border-radius: 50%;
                     background: transparent;
                     content: '';
-                    @include tCenter();
-                    @include ts(0.5s ease);
+                    @include centerer(center);
+                    @include transition(0.5s ease);
                 }
             }
 
@@ -97,35 +129,33 @@
                 height: 4px;
                 background: $mobileColor;
                 border-radius: 5px;
-                @include ts(0.5s ease);
+                @include transition(0.5s ease);
             }
         }
 
         &_top {
-            border-bottom: 1px solid #fff;
-            @include flex();
-            @include wrap();
+            @include flex(flex);
 
             li {
-                border-right: 1px solid #fff;
+                width: 100%;
+                border-bottom: 1px solid #fff;
                 box-sizing: border-box;
-                float: left;
-                @include grow(1);
+                @include flex-grow(1);
 
-                &:last-of-type {
-                    border-right: none;
+                &:not(:last-of-type){
+                    border-right: 1px solid #fff;
                 }
 
                 a {
                     width: 100%;
                     height: 50px;
                     background: $secondColor;
-                    color: #fff;
                     display: block;
                     position: relative;
-                    @include font(15,19);
-                    @include flex();
-                    @include center();
+                    @include font(15,19,null,#fff);
+                    @include flex(flex);
+                    @include justify-content(center);
+                    @include align-items(center);
 
                     &.mobileHome {
                         &::after {
@@ -149,19 +179,18 @@
                 display: block;
 
                 &.active {
+                    background: $secondColor;
+
                     & > a {
-                        background: $secondColor;
                         color: #fff;
                     }
                 }
 
                 a {
-                    padding: 13px 20px;
-                    text-align: center;
-                    color: #fff;
+                    padding: 13px 10px;
                     display: block;
                     position: relative;
-                    @include font(15,19,$baseFontFamily);
+                    @include font(15,19,$baseFontFamily,#fff,center);
                 }
 
                 &.active {
@@ -176,8 +205,13 @@
                 display: none;
 
                 li {
-                    padding: 0 0 0 5px;
                     border: none;
+
+                    &.active {
+                        a {
+                            background: $mainColor;
+                        }
+                    }
 
                     &:first-child {
                         a {
@@ -186,7 +220,7 @@
                     }
 
                     a {
-                        padding: 8px;
+                        padding: 10px;
                         @include font(14,18);
                     }
                 }
@@ -244,8 +278,7 @@
     }
 }
 
-/***** MINIMUM 320PX && MAXIMUM 478PX *****/
-@media screen and (min-width: 320px) and (max-width: 479px) {
+@include media(($phone-small * 1px), ($phone-side-small - 1 * 1px)) {
     // FAQ
     .faq {
         &_trigger {
@@ -292,8 +325,7 @@
     }
 }
 
-/***** MINIMUM 320PX && MAXIMUM 567PX *****/
-@media screen and (min-width: 320px) and (max-width: 567px){
+@include media(($phone-small * 1px), ($phone-side-large - 1 * 1px)) {
     // Gallery
     .gallery {
         li {
@@ -364,8 +396,7 @@
     }
 }
 
-/***** MINIMUM 320PX && MAXIMUM 767PX *****/
-@media screen and (min-width: 320px) and (max-width: 767px){
+@include media(($phone-small * 1px), ($tablet - 1 * 1px)) {
     // Contact Page
     .contact {
         &_form {
@@ -397,8 +428,7 @@
     }
 }
 
-/***** MINIMUM 480PX && MAXIMUM 767PX *****/
-@media screen and (min-width: 480px) and (max-width: 767px){
+@include media(($phone-side-small * 1px), ($tablet - 1 * 1px)) {
     // Gallery
     .gallery {
         li {
@@ -415,8 +445,7 @@
     }
 }
 
-/***** MINIMUM 568PX && MAXIMUM 767PX *****/
-@media screen and (min-width: 568px) and (max-width: 767px){
+@include media(($phone-side-large * 1px), ($tablet - 1 * 1px)) {
     // Gallery
     .gallery {
         li {
@@ -434,8 +463,7 @@
     }
 }
 
-/***** MINIMUM 768PX && MAXIMUM MAINWIDTH *****/
-@media screen and (min-width: 768px) and (max-width: $mainWidth - 1 * 1px){
+@include media(($tablet * 1px), ($mainWidth - 1 * 1px)){
     // Gallery
     .gallery {
         li {
@@ -453,8 +481,7 @@
     }
 }
 
-/***** DISPLAY NONE ELEMENTS FOR DESKTOP *****/
-@media screen and (min-width: $mainWidth * 1px){
+@include media-min(($mainWidth * 1px)){
     .contact_map.mobile,
     .mobile_btn {
         display: none;

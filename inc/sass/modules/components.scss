@@ -38,7 +38,7 @@
             font-size: px-to-rem(12);
             top: 50%;
             opacity: 0;
-            @include ts(.25s);
+            @include transition(.25s);
             @include transform(translate(0,-50%) scale(0));
         }
     }
