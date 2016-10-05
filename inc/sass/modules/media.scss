@@ -4,13 +4,12 @@
 
 $phone-small: 320;
 $phone-medium: 375;
-$phone-large: 425;
 $phone-side-small: 480;
 $phone-side-large: 568;
 $tablet: 768;
-$desktop: 1024;
 
-@include media(($phone-small * 1px), ($mainWidth - 1 * 1px)) {
+// Phone - Desktop (320 - Main Width)
+@include media($phone-small, $mainWidth) {
     // Display None Elements
     .class {
         display: none;
@@ -278,7 +277,8 @@ $desktop: 1024;
     }
 }
 
-@include media(($phone-small * 1px), ($phone-side-small - 1 * 1px)) {
+// Phone Small - Phone Side Small (320-479)
+@include media($phone-small, $phone-side-small) {
     // FAQ
     .faq {
         &_trigger {
@@ -325,7 +325,8 @@ $desktop: 1024;
     }
 }
 
-@include media(($phone-small * 1px), ($phone-side-large - 1 * 1px)) {
+// Phone Small - Phone Side Large (320 - 567)
+@include media($phone-small, $phone-side-large) {
     // Gallery
     .gallery {
         li {
@@ -396,7 +397,8 @@ $desktop: 1024;
     }
 }
 
-@include media(($phone-small * 1px), ($tablet - 1 * 1px)) {
+// Phone Small - Tablet (320 - 767)
+@include media($phone-small, $tablet) {
     // Contact Page
     .contact {
         &_form {
@@ -428,7 +430,8 @@ $desktop: 1024;
     }
 }
 
-@include media(($phone-side-small * 1px), ($tablet - 1 * 1px)) {
+// Phone Side Small - Tablet (480 - 767)
+@include media($phone-side-small, $tablet) {
     // Gallery
     .gallery {
         li {
@@ -445,7 +448,8 @@ $desktop: 1024;
     }
 }
 
-@include media(($phone-side-large * 1px), ($tablet - 1 * 1px)) {
+// Phone Side Small - Tablet (568 - 767)
+@include media($phone-side-large, $tablet) {
     // Gallery
     .gallery {
         li {
@@ -463,7 +467,8 @@ $desktop: 1024;
     }
 }
 
-@include media(($tablet * 1px), ($mainWidth - 1 * 1px)){
+// Tablet - Phone Side Large (320 - 767)
+@include media($tablet, $mainWidth) {
     // Gallery
     .gallery {
         li {
@@ -481,7 +486,8 @@ $desktop: 1024;
     }
 }
 
-@include media-min(($mainWidth * 1px)){
+// Styles For Desktop (Wider Than Main Width)
+@include media-min($mainWidth) {
     .contact_map.mobile,
     .mobile_btn {
         display: none;

@@ -513,19 +513,19 @@
 
 // Media Queries
 @mixin media($min, $max, $type:screen){
-    @media #{$type} and (min-width: $min) and (max-width: $max){
+    @media #{$type} and (min-width: $min + px) and (max-width: $max - 1 + px){
         @content
     }
 }
 
 @mixin media-min($min, $type:screen){
-    @media #{$type} and (min-width: $min){
+    @media #{$type} and (min-width: $min + px){
         @content
     }
 }
 
 @mixin media-max($max, $type:screen){
-    @media #{$type} and (max-width: $max){
+    @media #{$type} and (max-width: $max + px){
         @content
     }
 }

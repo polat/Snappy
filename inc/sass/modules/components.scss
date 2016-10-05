@@ -75,55 +75,136 @@
 /**
  ** TABLE
 **/
-.contentTable {
+.table {
     width: 100%;
-    margin: 20px 0;
-    border: 1px solid #ccc;
-    color: #666;
-    box-shadow: 0 1px 2px #d1d1d1;
-    @include font(14,22);
+    border: 1px solid $table-border-color;
+    border-collapse: collapse;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+    @include font(14,22,null,$baseColor);
 
     &.head {
-        tr {
-            &:first-of-type {
-                background: lighten(#eee,2.5%);
+        thead {
+            tr {
+                background: $table-head;
+            }
+        }
+
+        &.zebra {
+            &.hover {
+                tr {
+                    &:hover {
+                        background: $table-hover;
+                    }
+                }
+            }
+
+            tr {
+                &:nth-child(2n){
+                    background: $table-row-background;
+                }
             }
         }
     }
 
     &.zebra {
-        tr:not(:first-child):nth-child(2n+1){
-            background: lighten(#eee,5%);
-
-            &:hover {
-                background: lighten(#eee,2.5%);
+        &:not(.head){
+            tbody {
+                tr {
+                    &:nth-child(2n-1){
+                        background: $table-row-background;
+                    }
+                }
             }
+        }
+    }
+
+    &.center {
+        tr {
+            td,
+            th {
+                text-align: center;
+            }
+        }
+    }
+
+    &.border {
+        td,
+        th {
+            border: 1px solid $table-border-color;
         }
     }
 
     &.hover {
-        tr {
-            &:hover {
-                background: lighten(#eee,2.5%);
+        tbody {
+            tr {
+                &:hover {
+                    background: $table-hover;
+                }
             }
         }
     }
 
-    tr,
-    td,
-    th {
-        text-align: center;
-        vertical-align: middle;
+    tr {
+        border-bottom: 1px solid $table-border-color;
+        @include transition(.25s);
     }
 
-    th {
-        padding: 10px;
-        border-bottom:1px solid #e0e0e0;
-    }
-
+    th,
     td {
         padding: 10px;
-        border-bottom:1px solid #e0e0e0;
-        border-left: 1px solid #e0e0e0;
+        text-align: left;
+        vertical-align: middle;
+    }
+}
+
+@include media-max($table-breakpoint){
+    .table {
+        border: none;
+        box-shadow: none;
+
+        &.zebra {
+            &.hover.head tr,
+            &.head tr,
+            tr {
+                &:nth-child(2n - 1),
+                &:nth-child(2n) {
+                    background: $table-background;
+                }
+            }
+        }
+
+        thead {
+            display: none;
+        }
+
+        tr {
+            box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.24);
+            display: block;
+
+            &:not(:first-child){
+                margin-top: 20px;
+            }
+
+            td {
+                border: none;
+                display: block;
+                text-align: right;
+
+                &:not(:first-child){
+                    border-top: none;
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                &::before {
+                    content: attr(data-title);
+                    margin-right: 10px;
+                    float: left;
+                    @include font(14,22,null,$baseColor);
+                }
+            }
+        }
     }
 }
