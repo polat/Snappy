@@ -56,18 +56,14 @@
 }
 
 .selectContainer {
-    width: 120px;
-    border: 1px solid #ccc;
     background-color: #fff;
     overflow: hidden;
 
     select {
-        width: calc(100% + 30px);
-        height: 20px;
+        width: calc(100% + 40px);
         border: none;
         box-shadow: none;
         background-color: transparent;
-        line-height: px-to-rem(20);
     }
 }
 
@@ -154,55 +150,66 @@
         padding: 10px;
         text-align: left;
         vertical-align: middle;
+        white-space: normal;
     }
 }
 
 @include media-max($table-breakpoint){
     .table {
-        border: none;
-        box-shadow: none;
+        &.responsive {
+            border: none;
+            box-shadow: none;
 
-        &.zebra {
-            &.hover.head tr,
-            &.head tr,
-            tr {
-                &:nth-child(2n - 1),
-                &:nth-child(2n) {
-                    background: $table-background;
+            &.responsive-left {
+                tr {
+                    td {
+                        text-align: left;
+                    }
                 }
             }
-        }
 
-        thead {
-            display: none;
-        }
-
-        tr {
-            box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.24);
-            display: block;
-
-            &:not(:first-child){
-                margin-top: 20px;
+            &.zebra {
+                &.hover.head tr,
+                &.head tr,
+                tr {
+                    &:nth-child(2n - 1),
+                    &:nth-child(2n) {
+                        background: $table-background;
+                    }
+                }
             }
 
-            td {
-                border: none;
+            thead {
+                display: none;
+            }
+
+            tr {
+                box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.24);
                 display: block;
-                text-align: right;
 
                 &:not(:first-child){
-                    border-top: none;
+                    margin-top: 20px;
                 }
 
-                &:last-child {
-                    border-bottom: none;
-                }
+                td {
+                    border: none;
+                    display: block;
+                    text-align: right;
 
-                &::before {
-                    content: attr(data-title);
-                    margin-right: 10px;
-                    float: left;
-                    @include font(14,22,null,$baseColor);
+                    &:not(:first-child){
+                        border-top: none;
+                    }
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+
+                    &::before {
+                        content: attr(data-title);
+                        margin-right: 10px;
+                        float: left;
+                        @include font(14,22,null,$baseColor);
+                    }
                 }
             }
         }

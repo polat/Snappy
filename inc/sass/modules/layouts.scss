@@ -36,12 +36,12 @@ body {
     width: 1em;
     height: 1em;
     background: $mainColor;
-    font-size: px-to-rem(50);
     position: fixed;
     bottom: -50px;
     right: calc((100% - #{$mainWidth * 1px}) / 2 - 60px);
     z-index: 999;
     opacity: 0;
+    @include font(50);
     @include transition(background-color 0.25s, opacity 0.5s, bottom 0.5s);
 
     &.visible {

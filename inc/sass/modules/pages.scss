@@ -10,20 +10,13 @@
         & > li {
             margin-bottom: 25px;
             padding-bottom: 25px;
-            border-bottom: 1px solid rgba(148,148,148,0.2);
             position: relative;
 
-            &:last-child {
-                border-bottom: none;
+            &:not(:last-of-type){
+                border-bottom: 1px solid rgba(148,148,148,0.2);
             }
 
             &:hover {
-                .newsList_img {
-                    &::after {
-                        padding: 175px;
-                    }
-                }
-
                 .newsList_more {
                     &::after {
                         bottom: -3px;
@@ -36,7 +29,7 @@
         &_link {
             position: absolute;
             top: 0;
-            bottom: 25px;
+            bottom: 0;
             left: 0;
             right: 0;
             z-index: 2;
@@ -44,6 +37,8 @@
         }
 
         &_img {
+            width: $news-img-width + px;
+            height: $news-img-height + px;
             position: relative;
             overflow: hidden;
             float: left;
@@ -51,26 +46,16 @@
             img {
                 display: block;
             }
-
-            &::after {
-                border: 150px solid rgba(0,0,0,0.6);
-                content: "";
-                border-radius: 50%;
-                @include centerer(center);
-                @include transition(0.5s);
-            }
         }
 
         &_right {
-            width: calc(100% - 265px);
+            width: calc(100% - #{$news-img-width + 30}px);
             float: right;
         }
 
         &_title, &_date {
-            margin-bottom: 14px;
-            color: $mainColor;
             float: left;
-            @include font(18,24);
+            @include font($baseFontSize + 2,$baseFontSize + 8,null,$mainColor);
         }
 
         &_title {
@@ -82,17 +67,19 @@
         }
 
         &_summary {
-            p {
-                margin-bottom: 10px;
-                @include font(17,23);
-            }
+            margin-top: 15px;
+        }
+
+        &_summary,
+        &_summary p {
+            margin-bottom: 10px;
+            @include font($baseFontSize, $baseFontSize + 6);
         }
 
         &_more {
-            color: $mainColor;
             display: inline-block;
             position: relative;
-            @include font(17,23);
+            @include font($baseFontSize + 1,$baseFontSize + 7,null,$mainColor);
 
             &::after {
                 width: 100%;
@@ -117,13 +104,11 @@
 
     &_inner {
         &_title, &_date {
-            margin-bottom: 16px;
-            color: $mainColor;
-            @include font(18,24);
+            @include font($baseFontSize + 2,$baseFontSize + 8,null,$mainColor);
         }
 
         &_title {
-            width: calc(100% - 120px);
+            width: calc(100% - 110px);
             float: left;
         }
 
@@ -132,8 +117,10 @@
         }
 
         &_content {
+            margin-top: 15px;
+
             p {
-                @include font(16,24);
+                @include font($baseFontSize,$baseFontSize + 6);
             }
         }
     }
@@ -143,8 +130,7 @@
             margin: 100px 0 0 0;
             padding: 0 0 20px 0;
             border-bottom: 1px solid #E9E9E9;
-            color: $mainColor;
-            @include font(22,26);
+            @include font($baseFontSize + 5,$baseFontSize + 11,null,$mainColor);
         }
 
         &_list {
@@ -153,26 +139,24 @@
 
                 & > a {
                     padding: 20px 0 20px 18px;
-                    color: $secondColor;
                     display: block;
                     position: relative;
-                    @include font(17,21);
+                    @include font($baseFontSize + 2,$baseFontSize + 8,null,$mainColor);
                     @include transition(0.2s);
 
                     &::before {
-                        color: $secondColor;
                         content: "+";
                         left: 0;
                         @include centerer(vertical);
                         @include transition(0.2s);
-                        @include font(17,21);
+                        @include font($baseFontSize + 2,$baseFontSize + 8,null,$mainColor);
                     }
 
                     &:hover {
-                        color: $mainColor;
+                        color: $secondColor;
 
                         &::before {
-                            color: $mainColor;
+                            color: $secondColor;
                         }
                     }
                 }
@@ -625,11 +609,11 @@
 .faq {
     & > li {
         background: #fff;
-        box-shadow: 0 0px 2px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
         @include transition(box-shadow, 0.2s);
 
         &.active {
-            .faq_trigger {
+            > a {
                 &::before {
                     @include rotate(-45deg);
                 }
@@ -643,42 +627,40 @@
         &:not(:first-child){
             margin-top: 10px;
         }
-    }
 
-    &_trigger {
-        padding: 24px 72px 24px 24px;
-        position: relative;
-        display: block;
-        color: $mainColor;
-        @include font(20,26);
+        > a  {
+            padding: 24px 72px 24px 24px;
+            position: relative;
+            display: block;
+            @include font($baseFontSize + 4,$baseFontSize + 10,null,$mainColor);
 
-        &::before, &::after {
-            width: 13px;
-            height: 2px;
-            background: $mainColor;
-            content: "";
-            box-sizing: border-box;
-            position: absolute;
-            right: 24px;
-            top: 50%;
-            @include transition(transform,0.3s);
-        }
+            &::before, &::after {
+                width: 13px;
+                height: 2px;
+                background: $mainColor;
+                content: "";
+                box-sizing: border-box;
+                position: absolute;
+                top: 50%;
+                @include transition(transform,0.3s);
+            }
 
-        &::before {
-            right: 32px;
-            @include rotate(45deg);
-        }
+            &::before {
+                right: 32px;
+                @include rotate(45deg);
+            }
 
-        &::after {
-            @include rotate(-45deg);
+            &::after {
+                right: 24px;
+                @include rotate(-45deg);
+            }
         }
     }
 
     &_content {
         padding: 0 24px 30px;
-        color: $baseColor;
         display: none;
-        @include font(14,22);
+        @include font($baseFontSize,$baseFontSize + 6,null,$baseColor);
 
         &.active {
             display: block;

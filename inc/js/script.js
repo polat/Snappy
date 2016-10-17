@@ -76,7 +76,7 @@ $(document).ready(function () {
     });
 
     $(function() {
-        $('a.scrollTop').click(function() {
+        $('a[href*="#"]:not([href="#"])').click(function() {
             if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
                 var target = $(this.hash);
                 target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -90,12 +90,18 @@ $(document).ready(function () {
         });
     });
 
-    /* FAQ
-    $(".faq > li > a.faq_trigger").click(function(){
+    // FAQ
+    // FAQ
+    $(".faq > li > a").click(function(){
         $(this).parent().toggleClass("active").siblings("li").removeClass("active");
-        $(this).siblings(".faq_content").stop().slideToggle(300).parent().siblings("li").children(".faq_content").stop().slideUp(300);
+        $(this).siblings(".faq_content").stop().slideToggle(300).parent().siblings("li").children(".faq_content").stop().slideUp(300).promise().done(function(){
+            var clicked = $(".faq > li.active");
+
+            $("html,body").animate({
+                scrollTop : clicked.offset().top - 30
+            }, 1000);
+        });
     });
-    */
 
     /*  Slidebars
     $.slidebars();
