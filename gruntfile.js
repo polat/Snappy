@@ -38,14 +38,14 @@ module.exports = function(grunt) {
           spawn: false,
         },
         files: 'src/sass/**/*.scss',
-        tasks: ['newer:sass']
+        tasks: ['sass']
       },
       js: {
         options: {
           spawn: false,
         },
         files: '<%= concat.dist.src %>',
-        tasks: ['newer:concat', 'newer:uglify']
+        tasks: ['concat', 'uglify']
       }
     }
   });
@@ -55,7 +55,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-newer');
 
   // Register tasks
   grunt.registerTask('default', ['watch']);
