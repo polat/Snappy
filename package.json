@@ -1,6 +1,6 @@
 {
   "name": "Html",
-  "version": "3.0",
+  "version": "3.0.0",
   "description": "",
   "main": "index.html",
   "scripts": {
@@ -21,6 +21,7 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
-    "grunt-contrib-watch": "^1.0.0"
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-newer": "^1.2.0"
   }
 }

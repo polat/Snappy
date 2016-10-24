@@ -34,12 +34,18 @@ module.exports = function(grunt) {
     },
     watch: {
       css: {
+        options: {
+          spawn: false,
+        },
         files: 'src/sass/**/*.scss',
-        tasks: ['sass']
+        tasks: ['newer:sass']
       },
       js: {
+        options: {
+          spawn: false,
+        },
         files: '<%= concat.dist.src %>',
-        tasks: ['concat', 'uglify']
+        tasks: ['newer:concat', 'newer:uglify']
       }
     }
   });
@@ -49,6 +55,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-newer');
 
   // Register tasks
   grunt.registerTask('default', ['watch']);
