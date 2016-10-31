@@ -439,7 +439,7 @@
                 border-radius: 5px;
                 border: 1px solid #D6D6D6;
                 display: block;
-                @include font(15,37);
+                @include font(15);
                 @include transition(0.2s);
             }
 
@@ -515,7 +515,7 @@
                 border-radius: 5px;
                 color: #fff;
                 cursor: pointer;
-                @include font(18,37);
+                @include font(18);
                 @include transition(0.2s);
 
                 &:hover {
@@ -567,7 +567,7 @@
 
                 &::after {
                     opacity: 1;
-                    @include scale(1);
+                    @include transform(translate(-50%,-50%) scale(1));
                     @include prefix(transition-delay,0.3s);
                 }
             }
@@ -588,14 +588,13 @@
             &::after {
                 width:22px;
                 height:22px;
-                margin: -11px 0 0 -11px;
                 background: url("../../images/icons/search.svg") no-repeat center / contain;
                 content: "";
                 position: absolute;
                 left: 50%;
                 top: 50%;
                 opacity: 0;
-                @include scale(0);
+                @include transform(translate(-50%,-50%) scale(0));
                 @include transition(transform 0.2s 0.1s ease-in, opacity 0.1s ease-in-out);
             }
         }

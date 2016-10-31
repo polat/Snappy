@@ -8,7 +8,7 @@ html {
 }
 
 body {
-    padding-bottom: 500px;
+    padding-bottom: 2500px;
     @include font(null,null,$baseFontFamily,$baseColor,null);
 }
 
@@ -37,6 +37,8 @@ body {
     height: 1em;
     background: $mainColor;
     position: fixed;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(#666,.5);
     bottom: -50px;
     right: calc((100% - #{$mainWidth * 1px}) / 2 - 60px);
     z-index: 999;
@@ -45,7 +47,7 @@ body {
     @include transition(background-color 0.25s, opacity 0.5s, bottom 0.5s);
 
     &.visible {
-        bottom: 0;
+        bottom: 20px;
         @include show();
     }
 
@@ -72,7 +74,7 @@ body {
  ** HEADER
 **/
 .header {
-
+    
 }
 
 
@@ -80,7 +82,7 @@ body {
  ** SHOWCASE
 **/
 .showcase {
-
+    
 }
 
 

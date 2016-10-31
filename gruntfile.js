@@ -47,6 +47,21 @@ module.exports = function(grunt) {
         files: '<%= concat.dist.src %>',
         tasks: ['concat', 'uglify']
       }
+    },
+    browserSync: {
+      files: {
+        src : [
+          'inc/css/*.css',
+          'inc/js/*.js',
+          '*.html'
+        ]
+      },
+      options: {
+        watchTask: true,
+        server: {
+          baseDir: "./"
+        }
+      }
     }
   });
 
@@ -55,9 +70,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-browser-sync');
 
   // Register tasks
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['browserSync','watch']);
   grunt.registerTask('css', ['sass']);
   grunt.registerTask('js', ['concat', 'uglify']);
 };
