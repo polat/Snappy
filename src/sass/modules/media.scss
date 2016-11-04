@@ -40,11 +40,11 @@ $tablet: 768;
             height: 1em;
             padding: 10px;
             background: transparent;
+            font-size: 50px;
             cursor: pointer;
             position: absolute;
             right: 20px;
             top: 20px;
-            @include font(50);
 
             &.is-active {
                 span {
@@ -77,8 +77,8 @@ $tablet: 768;
                         width: 1em;
                         height: 1em;
                         background: $mobileColor;
+                        font-size: 50px;
                         opacity: 1;
-                        @include font(50);
                     }
 
                     span {

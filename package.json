@@ -1,11 +1,8 @@
 {
   "name": "Html",
-  "version": "3.0.7",
+  "version": "3.0.9",
   "description": "",
   "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/polatinceler/Html.git"
@@ -18,10 +15,10 @@
   "homepage": "https://github.com/polatinceler/Html#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-newer": "^1.2.0"
+    "grunt-contrib-watch": "^1.0.0"
   }
 }

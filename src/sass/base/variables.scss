@@ -38,8 +38,7 @@ $imagesPerRow: 3;
 $table-background: transparent;
 $table-border-color: #f0f0f0;
 $table-row-background: #e1f5fe;
-$table-head: darken($table-row-background, 7.5);
-$table-hover: darken($table-row-background,7.5%);
+$table-zebra: darken($table-row-background, 7.5%);
 $table-breakpoint: 768;
 
 // Mobile

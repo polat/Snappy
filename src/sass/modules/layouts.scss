@@ -8,7 +8,7 @@ html {
 }
 
 body {
-    padding-bottom: 2500px;
+    padding-bottom: 500px;
     @include font(null,null,$baseFontFamily,$baseColor,null);
 }
 
@@ -39,11 +39,11 @@ body {
     position: fixed;
     border-radius: 50%;
     box-shadow: 0 0 8px rgba(#666,.5);
+    font-size: 50px;
     bottom: -50px;
     right: calc((100% - #{$mainWidth * 1px}) / 2 - 60px);
     z-index: 999;
     opacity: 0;
-    @include font(50);
     @include transition(background-color 0.25s, opacity 0.5s, bottom 0.5s);
 
     &.visible {
@@ -61,11 +61,11 @@ body {
         margin-top: 5px;
         border: 2px solid;
         border-color: #fff #fff transparent transparent;
+        font-size: 10px;
         content: "";
         position: absolute;
         top: 50%;
         left: 50%;
-        @include font(10);
         @include transform(translate(-50%,-50%) rotate(-45deg));
     }
 }
@@ -74,7 +74,7 @@ body {
  ** HEADER
 **/
 .header {
-    
+
 }
 
 
