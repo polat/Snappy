@@ -305,9 +305,8 @@
                     display: block;
                     @include prefix(transform,translate(0,-50%));
 
-                    path,
-                    rect {
-                        fill: $mainColor;
+                    * {
+                        fill: $contactColor;
                     }
                 }
 
@@ -405,9 +404,8 @@
                 content: "";
                 @include prefix(transform, translate(0, -50%));
 
-                path,
-                rect {
-                    fill: $mainColor;
+                * {
+                    fill: $contactColor;
                 }
             }
 
