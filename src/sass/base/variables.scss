@@ -4,15 +4,50 @@
 
 // Main
 $mainWidth: 1200;
+$gutter: 15px;
 $contactMargin: 12px;
 
 // Text
 $baseFontFamily: 'tahoma';
+$titleFontFamily: 'tahoma-medium';
 $baseFontSize: 15;
 $baseColor: #333;
-$mainColor: #D30F8B;
-$secondColor: #00A7B9;
-$contactColor: $mainColor;
+$mainColor: #555;
+$secondColor: #333;
+$borderColor: #d6d6d6;
+
+// List
+$list-font-size: $baseFontSize;
+$list-zebra-color: #f0f0f0;
+$list-border-color: #d6d6d6;
+$list-padding-vertical: 7.5px;
+$list-heading-bg: $mainColor;
+$list-heading-color: #fff;
+
+// Images
+$image-border-color: #d6d6d6;
+
+// Tabs
+$tab-margin: 2px;
+$tab-vertical-padding: 10px;
+$tab-horizontal-padding: 10px;
+$tab-bg: #fff;
+$tab-radius: 5px;
+$tab-border-color: #eee;
+$tab-border-width: 1px;
+
+// Accordion
+$accordion-vertical-padding: 15px;
+$accordion-horizontal-padding: 15px;
+$accordion-border-color: #d6d6d6;
+
+// Tooltip
+$tooltip-width: 120px;
+$tooltip-vertical-padding: 5px;
+$tooltip-horizontal-padding: 10px;
+$tooltip-radius: 6px;
+$tooltip-bg: #333;
+$tooltip-color: #fff;
 
 // Social Colors
 $facebook: #3b5998;
@@ -37,8 +72,8 @@ $imagesPerRow: 3;
 
 // Table
 $table-background: transparent;
-$table-border-color: #f0f0f0;
-$table-row-background: #e1f5fe;
+$table-border-color: #ddd;
+$table-row-background: #f2f2f2;
 $table-zebra: darken($table-row-background, 7.5%);
 $table-breakpoint: 768;
 
@@ -47,31 +82,43 @@ $mobileColor: #967ADC;
 
 // Easing Functions
 $easing: (
-  linear: cubic-bezier(0.250, 0.250, 0.750, 0.750),
+    linear: cubic-bezier(0.250, 0.250, 0.750, 0.750),
 
-  ease: cubic-bezier(0.250, 0.100, 0.250, 1.000),
-  ease-in: cubic-bezier(0.420, 0.000, 1.000, 1.000),
-  ease-out: cubic-bezier(0.000, 0.000, 0.580, 1.000),
-  ease-in-out: cubic-bezier(0.420, 0.000, 0.580, 1.000),
+    ease: cubic-bezier(0.250, 0.100, 0.250, 1.000),
+    ease-in: cubic-bezier(0.420, 0.000, 1.000, 1.000),
+    ease-out: cubic-bezier(0.000, 0.000, 0.580, 1.000),
+    ease-in-out: cubic-bezier(0.420, 0.000, 0.580, 1.000),
 
-  ease-in-back: cubic-bezier(0.6, -0.28, 0.735, 0.045),
-  ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275),
-  ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    ease-in-quint: cubic-bezier(0.755, 0.050, 0.855, 0.060),
+    ease-out-quint: cubic-bezier(0.230, 1.000, 0.320, 1.000),
+    ease-in-out-quint: cubic-bezier(0.860, 0.000, 0.070, 1.000),
 
-  ease-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715),
-  ease-out-sine: cubic-bezier(0.39, 0.575, 0.565, 1),
-  ease-in-out-sine: cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    ease-in-expo: cubic-bezier(0.950, 0.050, 0.795, 0.035),
+    ease-out-expo: cubic-bezier(0.190, 1.000, 0.220, 1.000),
+    ease-in-out-expo: cubic-bezier(1.000, 0.000, 0.000, 1.000),
 
-  ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53),
-  ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94),
-  ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955),
+    ease-in-circ: cubic-bezier(0.600, 0.040, 0.980, 0.335),
+    ease-out-circ: cubic-bezier(0.075, 0.820, 0.165, 1.000),
+    ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.150, 0.860),
 
-  ease-in-cubic: cubic-bezier(0.55, 0.085, 0.68, 0.53),
-  ease-out-cubic: cubic-bezier(0.25, 0.46, 0.45, 0.94),
-  ease-in-out-cubic: cubic-bezier(0.455, 0.03, 0.515, 0.955),
+    ease-in-back: cubic-bezier(0.6, -0.28, 0.735, 0.045),
+    ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55),
 
-  ease-in-quart: cubic-bezier(0.55, 0.085, 0.68, 0.53),
-  ease-out-quart: cubic-bezier(0.25, 0.46, 0.45, 0.94),
-  ease-in-out-quart: cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    ease-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715),
+    ease-out-sine: cubic-bezier(0.39, 0.575, 0.565, 1),
+    ease-in-out-sine: cubic-bezier(0.445, 0.05, 0.55, 0.95),
+
+    ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53),
+    ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955),
+
+    ease-in-cubic: cubic-bezier(0.55, 0.085, 0.68, 0.53),
+    ease-out-cubic: cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    ease-in-out-cubic: cubic-bezier(0.455, 0.03, 0.515, 0.955),
+
+    ease-in-quart: cubic-bezier(0.55, 0.085, 0.68, 0.53),
+    ease-out-quart: cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    ease-in-out-quart: cubic-bezier(0.455, 0.03, 0.515, 0.955)
 );
 

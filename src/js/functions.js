@@ -1,3 +1,4 @@
+// <---- MESSAGE BOX ----
 function messageBox (message) {
   if ($('#colx').html() != null) {
       $('.messageBoxContainer').html(message);
@@ -11,7 +12,10 @@ function messageBox (message) {
       $('#cola').click();
   }
 }
+// ---- MESSAGE BOX ---->
 
+
+// <---- OPEN MOBILE MAP ----
 function openMobileMap (lat,long) {
     if((navigator.platform.indexOf("iPhone") != -1) || (navigator.platform.indexOf("iPod") != -1) || (navigator.platform.indexOf("iPad") != -1)) {
       // Android
@@ -21,3 +25,22 @@ function openMobileMap (lat,long) {
       window.open('http://maps.google.com/?q='+ lat +','+ long + '');
     }
 }
+// ---- OPEN MOBILE MAP ---->
+
+
+// <---- SCROLL TO ----
+$(function() {
+    $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
+});
+// ---- SCROLL TO ---->

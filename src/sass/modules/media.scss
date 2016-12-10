@@ -11,7 +11,9 @@ $tablet: 768;
 // Phone - Desktop (320 - Main Width)
 @include media($phone-small, $mainWidth) {
     // Display None Elements
-    .contact_map_link:not(.mobile) {
+    .contact_map_link:not(.mobile),
+    .header_menu,
+    .desktop-view {
         display: none;
     }
 
@@ -262,24 +264,52 @@ $tablet: 768;
         &_form {
             width: 100%;
             margin: 20px auto 20px;
+
+            &_buttons {
+                input {
+                    width: 130px;
+                    height: 37px;
+                }
+            }
         }
     }
 }
 
 // Phone Small - Phone Side Small (320-479)
 @include media($phone-small, $phone-side-small) {
-    // FAQ
-    .faq {
-        > li {
-            > a {
-                @include font(15,21);
-            }
-        }
+    // Resize Fonts
+    html {
+        font-size: px-to-rem($baseFontSize - 2);
     }
 
     // Contact Page
     .contact {
         &_form {
+            &_field {
+                &.message {
+                    textarea {
+                        padding-right: 15px;
+                        padding-left: 65px;
+                    }
+                }
+
+                &.contactText {
+                    svg {
+                        padding-right: 20px;
+                    }
+                }
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    left: 10px;
+                }
+
+                input {
+                    padding-left: 65px;
+                }
+            }
+
             &_recaptcha {
                 position: absolute;
                 @include scale(0.921);
@@ -340,6 +370,7 @@ $tablet: 768;
             .contact {
                 &_informations {
                     width: 100%;
+                    padding-right: 0;
                 }
 
                 &_map {
@@ -402,23 +433,6 @@ $tablet: 768;
             }
         }
     }
-
-    // FAQ
-    .faq {
-        > li {
-            > a {
-                padding: 15px 40px 15px 15px;
-
-                &::before{
-                    right: 22px;
-                }
-
-                &::after {
-                    right: 14px;
-                }
-            }
-        }
-    }
 }
 
 // Phone Small - Tablet (320 - 767)
@@ -426,12 +440,12 @@ $tablet: 768;
     // Contact Page
     .contact {
         &_title {
-            @include font($baseFontSize + 3, $baseFontSize + 11);
+            @include font($baseFontSize + 5, $baseFontSize + 11);
         }
 
         &_list {
             li {
-                @include font($baseFontSize - 2, $baseFontSize + 4);
+                @include font($baseFontSize, $baseFontSize + 6);
             }
         }
 
@@ -442,7 +456,18 @@ $tablet: 768;
             }
 
             &_field {
-                &.message {
+                &.message,
+                &.address {
+                    textarea {
+                        padding: 10px 50px 10px 65px;
+                    }
+
+                    svg {
+                        top: 10px;
+                        border-right: 1px solid $borderColor;
+                    }
+                }
+                &.message  {
                     textarea {
                         height: 98px !important;
                     }
@@ -466,6 +491,11 @@ $tablet: 768;
 
 // Phone Side Small - Tablet (480 - 767)
 @include media($phone-side-small, $tablet) {
+    // Resize Fonts
+    html {
+        font-size: px-to-rem($baseFontSize - 1);
+    }
+
     // Gallery
     .gallery {
         li {
@@ -474,11 +504,27 @@ $tablet: 768;
         }
     }
 
-    // FAQ
-    .faq {
-        > li {
-            > a {
-                @include font(17,23);
+    // Contact
+    .contact {
+        &_form {
+            &_field {
+                &.message,
+                &.address {
+                    svg {
+                        padding-right: 20px;
+                    }
+
+                    textarea {
+                        padding-left: 80px;
+                    }
+                }
+            }
+
+            &_buttons {
+                input {
+                    clear: both;
+                    float: left;
+                }
             }
         }
     }
@@ -538,7 +584,8 @@ $tablet: 768;
 // Styles For Desktop (Wider Than Main Width)
 @include media-min($mainWidth) {
     .contact_map_link.mobile,
-    .mobile_btn {
+    .mobile_btn,
+    .mobile_view {
         display: none;
     }
 }
