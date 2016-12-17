@@ -185,10 +185,7 @@
 
 // Flex Value
 @mixin flex-value($flex-grow: 1, $flex-shrink: null, $flex-basis: null) {
-    -webkit-box-flex: $flex-grow-boxflex;
-    -webkit-flex: $flex-grow $flex-shrink $flex-basis;
-    -moz-box-flex: $flex-grow-boxflex;
-    -moz-flex: $flex-grow $flex-shrink $flex-basis;
+    -webkit-box-flex: $flex-grow;
     -ms-flex: $flex-grow $flex-shrink $flex-basis;
     flex: $flex-grow $flex-shrink $flex-basis;
 }

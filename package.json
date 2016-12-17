@@ -1,18 +1,18 @@
 {
-  "name": "Html",
-  "version": "3.1.0",
+  "name": "Snappy",
+  "version": "1.0.0",
   "description": "",
   "main": "index.html",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/polatinceler/Html.git"
+    "url": "git+https://github.com/polat/Snappy.git"
   },
   "author": "Infomedya Bilişim Teknolojileri",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/polatinceler/Html/issues"
+    "url": "https://github.com/polat/Snappy/issues"
   },
-  "homepage": "https://github.com/polatinceler/Html#readme",
+  "homepage": "https://github.com/polat/Snappy#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-browser-sync": "^2.2.0",
