@@ -59,6 +59,14 @@
     }
 
     &-circle {
+        &.list-link {
+            > li {
+                a {
+                    padding-left: 17.5px !important;
+                }
+            }
+        }
+
         > li {
             &::before {
                 border-radius: 50%;
@@ -107,6 +115,12 @@
     &-link {
         > li {
             padding: 0 !important;
+
+            a {
+                padding: $list-padding-vertical ($gutter / 2);
+                cursor: pointer;
+                display: block;
+            }
         }
     }
 
@@ -122,12 +136,6 @@
         > li {
             &:hover {
                 background: $list-zebra-color;
-            }
-
-            a {
-                padding: $list-padding-vertical ($gutter / 2);
-                cursor: pointer;
-                display: block;
             }
         }
     }
@@ -362,7 +370,7 @@
             }
 
             & + div {
-                padding: $gutter;
+                padding: $accordion-vertical-padding;
                 border-top: 1px solid $accordion-border-color;
                 display: none;
             }
@@ -468,7 +476,7 @@
     @include font(14,22,$baseFontFamily,$baseColor);
     
     caption {
-        padding: 10px 0;
+        padding: $table-vertical-padding 0;
         background-color: $mainColor;
         @include font($baseFontSize + 5,$baseFontSize + 11,$titleFontFamily,#fff);
     }
@@ -536,26 +544,22 @@
         }
     }
 
-    &-success {
-        th,td {
+    tr,
+    th,
+    td {
+        &.success {
             background-color: #BFFFDF;
         }
-    }
 
-    &-info {
-        th,td {
+        &.info {
             background-color: #d9edf7;
         }
-    }
 
-    &-warning {
-        th,td {
+        &.warning {
             background-color: #fcf8e3;
         }
-    }
 
-    &-danger {
-        th,td {
+        &.danger {
             background-color: #f2dede;
         }
     }
@@ -567,7 +571,12 @@
 
     th,
     td {
-        padding: 10px;
+        @if $table-vertical-padding == $table-horizontal-padding {
+            padding: $table-vertical-padding;
+        }@else {
+            padding: $table-vertical-padding $table-horizontal-padding;
+        }
+
         text-align: left;
         vertical-align: middle;
         white-space: normal;

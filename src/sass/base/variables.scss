@@ -20,7 +20,7 @@ $borderColor: #d6d6d6;
 $list-font-size: $baseFontSize;
 $list-zebra-color: #f0f0f0;
 $list-border-color: #d6d6d6;
-$list-padding-vertical: 7.5px;
+$list-padding-vertical: 5px;
 $list-heading-bg: $mainColor;
 $list-heading-color: #fff;
 
@@ -41,14 +41,6 @@ $accordion-vertical-padding: 15px;
 $accordion-horizontal-padding: 15px;
 $accordion-border-color: #d6d6d6;
 
-// Tooltip
-$tooltip-width: 120px;
-$tooltip-vertical-padding: 5px;
-$tooltip-horizontal-padding: 10px;
-$tooltip-radius: 6px;
-$tooltip-bg: #333;
-$tooltip-color: #fff;
-
 // Social Colors
 $facebook: #3b5998;
 $twitter: #00aced;
@@ -58,7 +50,7 @@ $youtube: #bb0000;
 $pinterest: #cb2027;
 $instagram: #125688;
 $instagramBrown: #9b6954;
-$instagramNew: linear-gradient( #400080, transparent), linear-gradient(200deg, #d047d1, #ff0000, #ffff00);
+$instagramNew: linear-gradient(#400080, transparent), linear-gradient(200deg, #d047d1, #ff0000, #ffff00);
 
 // Search Page
 $search-border-color: #d6d6d6;
@@ -75,6 +67,8 @@ $galleryMargin: 25px 25px 0 0;
 $imagesPerRow: 3;
 
 // Table
+$table-vertical-padding: 5px;
+$table-horizontal-padding: 5px;
 $table-background: transparent;
 $table-border-color: #ddd;
 $table-row-background: #f2f2f2;

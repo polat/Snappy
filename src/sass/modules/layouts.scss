@@ -91,7 +91,6 @@ body {
 **/
 .subContent {
     .list,
-    h1,
     h2,
     h3,
     h4,
@@ -102,7 +101,6 @@ body {
         color: $baseColor;
     }
 
-    h1,
     h2,
     h3,
     h4,
@@ -111,7 +109,7 @@ body {
         font-family: $titleFontFamily;
     }
 
-    @for $i from 1 through 6 {
+    @for $i from 2 through 6 {
         h#{$i}{
             @include font($baseFontSize + 14 - ($i * 2),$baseFontSize + 20 - ($i * 2));
         }
