@@ -1,18 +1,4 @@
 $(document).ready(function () {
-
-    // <---- SWIPEBOX & COLORBOX ----
-    $('a[rel="image"]').swipebox();
-    $('.video').swipebox();
-    $('.map').colorbox({iframe: true, width: '90%', height: '80%'});
-    $('.popup').colorbox({inline: true, fastIframe: false, maxWidth: '90%', maxHeight: '90%'});
-    $(document.body).on('click touchend', '#swipebox-slider .current img', function (e) {
-        return false;
-    }).on('click touchend', '#swipebox-slider .current', function (e) {
-        $('#swipebox-close').trigger('click');
-    });
-    // ---- SWIPEBOX & COLORBOX ---->
-
-
     // <---- SCROLL TOP BUTTON ----
     var scroll = $(window).scrollTop();
 
@@ -39,6 +25,20 @@ $(document).ready(function () {
     svg4everybody();
     // ---- SVG ELEMENTS FOR IE ---->
 
+
+    // Basic Popup
+    $(".modal").magnificPopup();
+
+    // Gallery Popup
+    $('.modal-gallery').each(function(){
+        $(this).magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            gallery: {
+                enabled: true
+            }
+        });
+    });
 
     /*/ <---- SLIDEBARS ----
     $.slidebars();
