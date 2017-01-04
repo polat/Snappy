@@ -90,35 +90,7 @@ body {
  ** SUB CONTENT
 **/
 .subContent {
-    .list,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p {
-        margin-bottom: $gutter;
-        color: $baseColor;
-    }
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: $titleFontFamily;
-    }
-
-    @for $i from 2 through 6 {
-        h#{$i}{
-            @include font($baseFontSize + 14 - ($i * 2),$baseFontSize + 20 - ($i * 2));
-        }
-    }
-
-    .list li,
-     p {
-         @include font($baseFontSize, $baseFontSize + 6);
-     }
+    
 }
 
 

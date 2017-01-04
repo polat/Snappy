@@ -585,7 +585,7 @@ $tablet: 768;
 @include media-min($mainWidth) {
     .contact_map_link.mobile,
     .mobile_btn,
-    .mobile_view {
+    .mobile-view {
         display: none;
     }
 }

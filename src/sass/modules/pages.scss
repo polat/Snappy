@@ -7,39 +7,36 @@
 **/
 .search {
     &_list {
-        &-zebra {
-            > li {
-                &:nth-child(2n - 1){
-                    background-color: $search-zebra-color;
-                }
-
-                &:hover {
-                    background-color: darken($search-zebra-color,5%) !important;
-                }
-
-                a {
-                    padding-left: 10px;
-                    padding-right: 10px;
-                }
-            }
-        }
-
         > li {
             @include transition(.15s);
+
+            &:nth-child(2n - 1){
+                background-color: $search-zebra-color;
+            }
+
+            &:hover {
+                background-color: darken($search-zebra-color,5%) !important;
+            }
 
             &:not(:first-of-type){
                 border-top: 1px solid $search-border-color;
             }
 
-            &:hover {
-                background-color: $search-zebra-color;
-            }
-
             a {
-                padding-top: 10px;
-                padding-bottom: 10px;
+                padding: 10px 15px;
+                position: relative;
                 display: block;
                 @include font($baseFontSize,$baseFontSize + 6,$baseFontFamily,$baseColor);
+
+                &::before {
+                    width: 4px;
+                    height: 4px;
+                    background: $baseColor;
+                    border-radius: 50%;
+                    content: "";
+                    left: 5px;
+                    @include centerer(vertical);
+                }
             }
         }
     }

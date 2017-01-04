@@ -139,12 +139,14 @@ button::-moz-focus-inner {
 .mfp-close {
   width: 30px;
   height: 30px;
-  background: #000 url('../../images/icons/close.svg') no-repeat center / 60%;
+  background: url('../../images/icons/close.svg') no-repeat center / 50%;
+  background-color: #000 !important;
   text-indent: -9999px;
   position: fixed;
-  right: 0;
-  top: 0;
-  opacity: 0.65; }
+  right: 20px;
+  top: 20px;
+  opacity: 0.65;
+}
 
   .mfp-close:hover,
   .mfp-close:focus {
@@ -301,6 +303,38 @@ img.mfp-img {
     position: fixed;
     text-align: center;
     padding: 0; } }
+
+    /* overlay at start */
+.mfp-fade.mfp-bg {
+    opacity: 0;
+    @include transition(.35s);
+}
+
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+    opacity: 0.8;
+}
+
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing {
+    opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+    opacity: 0;
+    @include transition(.35s);
+}
+
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+    opacity: 1;
+}
+
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+    opacity: 0;
+}
 
 @media all and (max-width: 900px) {
   .mfp-arrow {

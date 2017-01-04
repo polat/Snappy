@@ -34,7 +34,7 @@ Toast.prototype._createElements = function () {
 
         setTimeout(function () {
             return resolve();
-        }, 500);
+        }, 50); // First slide-in
     });
 };
 
@@ -70,7 +70,7 @@ Toast.prototype._close = function () {
             }
 
             resolve();
-        }, 1000);
+        }, 150);
     });
 };
 

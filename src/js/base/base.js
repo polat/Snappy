@@ -27,7 +27,10 @@ $(document).ready(function () {
 
 
     // Basic Popup
-    $(".modal").magnificPopup();
+    $(".modal").magnificPopup({
+        type: 'image',
+        mainClass: 'mfp-fade'
+    });
 
     // Gallery Popup
     $('.modal-gallery').each(function(){
@@ -36,7 +39,8 @@ $(document).ready(function () {
             type: 'image',
             gallery: {
                 enabled: true
-            }
+            },
+            mainClass: 'mfp-fade'
         });
     });
 

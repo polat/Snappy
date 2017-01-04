@@ -3,6 +3,122 @@
 \*------------------------------------------*/
 
 /**
+ ** INFO
+**/
+.info {
+    margin-bottom: $gutter;
+    padding: 15px 10px;
+    border: 1px solid $info-border-color;
+    border-left-width: 5px;
+
+    &-success {
+        border-left-color: #0B9444;
+    }
+
+    &-danger {
+        border-left-color: #F04124;
+    }
+
+    &-main {
+        border-left-color: $mainColor;
+    }
+}
+
+/**
+ ** TITLE
+**/
+.title {
+    &-right {
+        text-align: right;
+    }
+
+    &-center {
+        text-align: center;
+    }
+
+    &[class^="title-underline"],
+    &[class*="title-underline"]{
+        padding-bottom: 10px;
+    }
+
+    &-underline {
+        @for $i from 1 through 5 {
+            &-#{$i}{
+                border-bottom: #{$i}px solid $h-title-border-color;
+            }
+        }
+    }
+
+    &[class^="title-overline"],
+    &[class*="title-overline"]{
+        position: relative;
+
+        &::before {
+            background: $h-title-border-color;
+            content: "";
+            left: 0;
+            right: 0;
+            @include centerer(vertical);
+        }
+
+        span {
+            padding: 0 20px;
+            background: $h-title-bg;
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+            color: $baseColor;
+        }
+    }
+
+    &-overline {
+        @for $i from 1 through 5 {
+            &-#{$i}{
+                &::before {
+                    height: #{$i}px;
+                }
+            }
+        }
+    }
+}
+
+
+/**
+ ** CONTENT STYLES
+**/
+.list,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-bottom: $gutter;
+    color: $baseColor;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $titleFontFamily;
+}
+
+@for $i from 1 through 6 {
+    h#{$i}{
+        @include font($baseFontSize + 14 - ($i * 2),$baseFontSize + 20 - ($i * 2));
+    }
+}
+
+.list li,
+p {
+    @include font($baseFontSize, $baseFontSize + 6);
+}
+
+/**
  ** LIST
 **/
 .list {
@@ -357,6 +473,7 @@
             padding: $accordion-vertical-padding 40px $accordion-vertical-padding $accordion-horizontal-padding;
             position: relative;
             display: block;
+            cursor: pointer;
             @include font($baseFontSize + 2, $baseFontSize + 8, $titleFontFamily);
 
             &.active {
@@ -461,6 +578,7 @@
         border: none;
         box-shadow: none;
         background-color: transparent;
+        cursor: pointer;
     }
 }
 
@@ -490,7 +608,7 @@
         }
 
         &.table-zebra {
-            &.hover {
+            &.table-hover {
                 tr {
                     &:hover {
                         background: $table-zebra;
@@ -501,18 +619,6 @@
             tr {
                 &:nth-child(2n){
                     background: $table-row-background;
-                }
-            }
-        }
-    }
-
-    &-zebra {
-        &:not(.head){
-            tbody {
-                tr {
-                    &:nth-child(2n-1){
-                        background: $table-row-background;
-                    }
                 }
             }
         }
@@ -535,7 +641,17 @@
     }
 
     &-hover {
-        tbody {
+        &.table-head {
+            tbody {
+                tr {
+                    &:hover {
+                        background: $table-zebra !important;
+                    }
+                }
+            }
+        }
+
+        &:not(.table-head){
             tr {
                 &:hover {
                     background: $table-zebra !important;
