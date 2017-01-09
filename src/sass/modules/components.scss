@@ -6,10 +6,12 @@
  ** INFO
 **/
 .info {
-    margin-bottom: $gutter;
-    padding: 15px 10px;
-    border: 1px solid $info-border-color;
-    border-left-width: 5px;
+    &:not(tr.info){
+        margin-bottom: $gutter;
+        padding: 15px 10px;
+        border: 1px solid $info-border-color;
+        border-left-width: 5px;
+    }
 
     &-success {
         border-left-color: #0B9444;
@@ -599,6 +601,16 @@ p {
         @include font($baseFontSize + 5,$baseFontSize + 11,$titleFontFamily,#fff);
     }
 
+    &-zebra {
+        tbody {
+            tr {
+                &:nth-child(2n - 1){
+                    background: $table-row-background;
+                }
+            }
+        }
+    }
+
     &-head {
         thead {
             tr {
@@ -616,9 +628,15 @@ p {
                 }
             }
 
-            tr {
-                &:nth-child(2n){
-                    background: $table-row-background;
+            tbody {
+                tr {
+                    &:nth-child(2n - 1){
+                        background: initial;
+                    }
+
+                    &:nth-child(2n){
+                        background: $table-row-background;
+                    }
                 }
             }
         }
