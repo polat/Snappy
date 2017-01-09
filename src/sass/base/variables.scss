@@ -10,10 +10,6 @@ $contactMargin: 12px;
 // Info
 $info-border-color: #d6d6d6;
 
-// Title
-$h-title-bg: #fff;
-$h-title-border-color: $mainColor;
-
 // Text
 $baseFontFamily: 'tahoma-regular';
 $titleFontFamily: 'tahoma-medium';
@@ -81,6 +77,10 @@ $table-border-color: #ddd;
 $table-row-background: #f2f2f2;
 $table-zebra: darken($table-row-background, 7.5%);
 $table-breakpoint: 768;
+
+// Title
+$h-title-bg: #fff;
+$h-title-border-color: $mainColor;
 
 // Mobile
 $mobileColor: #967ADC;
