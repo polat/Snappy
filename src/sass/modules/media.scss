@@ -2,12 +2,6 @@
     MEDIA
 \*------------------------------------------*/
 
-$phone-small: 320;
-$phone-medium: 375;
-$phone-side-small: 480;
-$phone-side-large: 568;
-$tablet: 768;
-
 // Phone - Desktop (320 - Main Width)
 @include media($phone-small, $mainWidth) {
     // Display None Elements
@@ -51,11 +45,6 @@ $tablet: 768;
             &.is-active {
                 span {
                     background: transparent;
-
-                    &::before,
-                    &::after {
-                        background: #fff;
-                    }                    
 
                     &:before {
                         top: 0;
@@ -210,12 +199,6 @@ $tablet: 768;
                     &.active {
                         a {
                             background: $mainColor;
-                        }
-                    }
-
-                    &:first-child {
-                        a {
-                            padding-top: 0;
                         }
                     }
 

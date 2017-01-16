@@ -72,9 +72,11 @@ $(document).ready(function(){
             var gutter = parseInt($(this).css("padding"));
             clicked_offset = clicked.offset().top;
 
-            $("html,body").animate({
-                scrollTop: clicked_offset - gutter
-            },500);
+            if($(clicked).parents(".accordion").hasClass("accordion-autoscroll")){
+                $("html,body").animate({
+                    scrollTop: clicked_offset - gutter
+                },500);
+            }
         });
     });
     // ---- ACCORDION  ---->

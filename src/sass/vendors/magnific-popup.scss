@@ -216,8 +216,9 @@ img.mfp-img {
   height: auto;
   display: block;
   line-height: 0;
+  border: 2px solid #fff;
+  border-radius: 5px;
   box-sizing: border-box;
-  padding: 40px 0 40px;
   margin: 0 auto; }
 
 /* The shadow behind the image */
@@ -349,3 +350,9 @@ img.mfp-img {
   .mfp-container {
     padding-left: 6px;
     padding-right: 6px; } }
+
+@include media-max($mainWidth){
+    img.mfp-img {
+        border-width: 1px;
+    }
+}

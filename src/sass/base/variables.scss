@@ -10,13 +10,29 @@ $contactMargin: 12px;
 // Info
 $info-border-color: #d6d6d6;
 
+// Title
+$h-title-bg: #fff;
+$h-title-border-color: #f0f0f0;
+
+// Colors
+$success: #5cb85c;
+$danger: #d43f3a;
+$warning: #f0ad4e;
+$info: #337ab7;
+
+$success-transparent: #dff0d8;
+$danger-transparent: #f2dede;
+$warning-transparent: #fcf8e3;
+$info-transparent: #d9edf7;
+
+
 // Text
 $baseFontFamily: 'tahoma-regular';
 $titleFontFamily: 'tahoma-medium';
 $baseFontSize: 15;
 $baseColor: #333;
-$mainColor: #555;
-$secondColor: #333;
+$mainColor: #359ebd;
+$secondColor: #758695;
 $borderColor: #d6d6d6;
 
 // List
@@ -78,12 +94,15 @@ $table-row-background: #f2f2f2;
 $table-zebra: darken($table-row-background, 7.5%);
 $table-breakpoint: 768;
 
-// Title
-$h-title-bg: #fff;
-$h-title-border-color: $mainColor;
-
 // Mobile
 $mobileColor: #967ADC;
+
+// Resolutions
+$phone-small: 320;
+$phone-medium: 375;
+$phone-side-small: 480;
+$phone-side-large: 568;
+$tablet: 768;
 
 // Easing Functions
 $easing: (

@@ -2247,9 +2247,11 @@ $(document).ready(function(){
             var gutter = parseInt($(this).css("padding"));
             clicked_offset = clicked.offset().top;
 
-            $("html,body").animate({
-                scrollTop: clicked_offset - gutter
-            },500);
+            if($(clicked).parents(".accordion").hasClass("accordion-autoscroll")){
+                $("html,body").animate({
+                    scrollTop: clicked_offset - gutter
+                },500);
+            }
         });
     });
     // ---- ACCORDION  ---->
@@ -2276,7 +2278,7 @@ $(function() {
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
             if (target.length) {
                 $('html, body').animate({
-                    scrollTop: target.offset().top
+                    scrollTop: target.offset().top - 40
                 }, 1000);
                 return false;
             }
@@ -2286,7 +2288,7 @@ $(function() {
 // ---- SCROLL TO ---->
 ;
 $(document).ready(function () {
-	
+
 });
 ;
 $(document).ready(function(){

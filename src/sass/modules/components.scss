@@ -3,35 +3,128 @@
 \*------------------------------------------*/
 
 /**
+ ** VISIBILITY
+**/
+.visible {
+    &-xs,
+    &-sm,
+    &-md,
+    &-lg {
+        display: none;
+    }
+
+    &-xs {
+        @include media-max(480){
+            display: block;
+        }
+    }
+
+    &-sm {
+        @include media(480,768){
+            display: block;
+        }
+    }
+
+    &-md {
+        @include media(768,1024){
+            display: block;
+        }
+    }
+
+    &-lg {
+        @include media-min(1024){
+            display: block;
+        }
+    }
+}
+
+.hidden {
+    &-xs {
+        @include media-max(480){
+            display: none;
+        }
+    }
+
+    &-sm {
+        @include media(480,768){
+            display: none;
+        }
+    }
+
+    &-md {
+        @include media(768,1024){
+            display: none;
+        }
+    }
+
+    &-lg {
+        @include media-min(1024){
+            display: none;
+        }
+    }
+}
+
+/**
  ** INFO
 **/
 .info {
     &:not(tr){
-        margin-bottom: $gutter;
-        padding: 15px 10px;
-        border: 1px solid $info-border-color;
-        border-left-width: 5px;
+        &:not(td){
+            margin-bottom: $gutter;
+            padding: 15px 10px;
+            border: 1px solid $info-border-color;
 
-        &.info {
-            &-success {
-                border-left-color: #0B9444;
-            }
+            &.info {
+                &:not(.info-bg){
+                    border-left-width: 5px;
+                }
 
-            &-danger {
-                border-left-color: #F04124;
-            }
+                &-bg {
+                    color: #fff;
 
-            &-main {
-                border-left-color: $mainColor;
+                    &.info {
+                        &-success {
+                            background: $success;
+                        }
+
+                        &-danger {
+                            background: $danger;
+                        }
+
+                        &-main {
+                            background: $mainColor;
+                        }
+
+                        &-warning {
+                            background: $warning;
+                        }
+                    }
+                }
+
+                &-success {
+                    border-left-color: $success;
+                }
+
+                &-danger {
+                    border-left-color: $danger;
+                }
+
+                &-main {
+                    border-left-color: $mainColor;
+                }
+
+                &-warning {
+                    border-left-color: $warning;
+                }
             }
         }
     }
 }
 
 /**
- ** TITLE
+ ** ALIGNMENT
 **/
-.title {
+.align {
     &-right {
         text-align: right;
     }
@@ -40,49 +133,33 @@
         text-align: center;
     }
 
-    &[class^="title-underline"],
-    &[class*="title-underline"]{
-        padding-bottom: 10px;
+    &-justify {
+        text-align: justify;
+    }
+}
+
+.pull {
+    &-left,
+    &-right {
+        margin-bottom: $gutter;
     }
 
-    &-underline {
-        @for $i from 1 through 5 {
-            &-#{$i}{
-                border-bottom: #{$i}px solid $h-title-border-color;
-            }
-        }
+    &-left {
+        margin-right: $gutter;
+        float: left;
     }
 
-    &[class^="title-overline"],
-    &[class*="title-overline"]{
-        position: relative;
-
-        &::before {
-            background: $h-title-border-color;
-            content: "";
-            left: 0;
-            right: 0;
-            @include centerer(vertical);
-        }
-
-        span {
-            padding: 0 20px;
-            background: $h-title-bg;
-            display: inline-block;
-            position: relative;
-            z-index: 2;
-            color: $baseColor;
-        }
+    &-right {
+        margin-left: $gutter;
+        float: right;
     }
+}
 
-    &-overline {
-        @for $i from 1 through 5 {
-            &-#{$i}{
-                &::before {
-                    height: #{$i}px;
-                }
-            }
-        }
+.clearfix {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
     }
 }
 
@@ -321,21 +398,6 @@ p {
         padding: 5px;
         border: 1px solid $image-border-color;
     }
-
-    &-pullLeft,
-    &-pullRight {
-        margin-bottom: $gutter;
-    }
-
-    &-pullLeft {
-        margin-right: $gutter;
-        float: left;
-    }
-
-    &-pullRight {
-        margin-left: $gutter;
-        float: right;
-    }
 }
 
 
@@ -520,7 +582,6 @@ p {
     }
 }
 
-
 /**
  ** CHECKBOX & RADIO & SELECT
 **/
@@ -601,6 +662,10 @@ p {
         padding: $table-vertical-padding 0;
         background-color: $mainColor;
         @include font($baseFontSize + 5,$baseFontSize + 11,$titleFontFamily,#fff);
+    }
+
+    &-equal {
+        table-layout: fixed;
     }
 
     &-zebra {
@@ -684,19 +749,24 @@ p {
     th,
     td {
         &.success {
-            background-color: #BFFFDF;
+            background-color: darken($success-transparent,7.5%);
         }
 
         &.info {
-            background-color: #d9edf7;
+            background-color: darken($info-transparent,7.5%);
         }
 
         &.warning {
-            background-color: #fcf8e3;
+            background-color: darken($warning-transparent,7.5%);
         }
 
         &.danger {
-            background-color: #f2dede;
+            background-color: darken($danger-transparent,7.5%);
+        }
+
+        &.disabled {
+            color: #ccc;
+            background-color: #f9f9f9;
         }
     }
 
@@ -793,7 +863,7 @@ p {
                         content: attr(data-title);
                         margin-right: 10px;
                         float: left;
-                        @include font($baseFontSize - 1,$baseFontSize + 5,null,$baseColor);
+                        @include font($baseFontSize - 1,$baseFontSize + 5,null,currentColor);
                     }
                 }
             }
