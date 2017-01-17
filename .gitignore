@@ -1,1 +1,9 @@
-.DS_Store
+# OS Generated
+.DS_Store*
+Icon?
+
+# Sass
+.sass-cache
+
+# phpstorm
+.idea/*
