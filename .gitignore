@@ -1,6 +1,7 @@
 # OS Generated
 .DS_Store*
 Icon?
+node_modules
 
 # Sass
 .sass-cache

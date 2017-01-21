@@ -6,30 +6,30 @@
     &-sm,
     &-md,
     &-lg {
-        display: none;
+        display: none !important;
     }
 
     &-xs {
         @include media-max(480){
-            display: block;
+            display: block !important;
         }
     }
 
     &-sm {
         @include media(480,768){
-            display: block;
+            display: block !important;
         }
     }
 
     &-md {
         @include media(768,1024){
-            display: block;
+            display: block !important;
         }
     }
 
     &-lg {
         @include media-min(1024){
-            display: block;
+            display: block !important;
         }
     }
 }
@@ -37,37 +37,37 @@
 .hidden {
     &-xs {
         @include media-max(480){
-            display: none;
+            display: none !important;
         }
     }
 
     &-sm {
         @include media(480,768){
-            display: none;
+            display: none !important;
         }
     }
 
     &-md {
         @include media(768,1024){
-            display: none;
+            display: none !important;
         }
     }
 
     &-lg {
         @include media-min(1024){
-            display: none;
+            display: none !important;
         }
     }
 }
 
 .mobile-view {
     @include media-min($mainWidth){
-        display: none;
+        display: none !important;
     }
 }
 
 .desktop-view {
     @include media-max($mainWidth){
-        display: none;
+        display: none !important;
     }
 }
