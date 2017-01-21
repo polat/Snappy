@@ -1,0 +1,73 @@
+/**
+ ** VISIBILITY
+**/
+.visible {
+    &-xs,
+    &-sm,
+    &-md,
+    &-lg {
+        display: none;
+    }
+
+    &-xs {
+        @include media-max(480){
+            display: block;
+        }
+    }
+
+    &-sm {
+        @include media(480,768){
+            display: block;
+        }
+    }
+
+    &-md {
+        @include media(768,1024){
+            display: block;
+        }
+    }
+
+    &-lg {
+        @include media-min(1024){
+            display: block;
+        }
+    }
+}
+
+.hidden {
+    &-xs {
+        @include media-max(480){
+            display: none;
+        }
+    }
+
+    &-sm {
+        @include media(480,768){
+            display: none;
+        }
+    }
+
+    &-md {
+        @include media(768,1024){
+            display: none;
+        }
+    }
+
+    &-lg {
+        @include media-min(1024){
+            display: none;
+        }
+    }
+}
+
+.mobile-view {
+    @include media-min($mainWidth){
+        display: none;
+    }
+}
+
+.desktop-view {
+    @include media-max($mainWidth){
+        display: none;
+    }
+}

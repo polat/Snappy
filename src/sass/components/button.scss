@@ -1,0 +1,70 @@
+// Button Variables
+$size: (
+    xs : 3px 5px,
+    sm : 6px 12px,
+    md : 9px 15px,
+    lg : 12px 18px,
+    full: 15px 10px,
+);
+
+$size-length: length($size);
+
+$colors: (
+    default : #fff,
+    success : $success,
+    danger : $danger,
+    warning : $warning,
+    info : $info,
+    main : $mainColor,
+    secondary : $secondColor,
+);
+
+.s-btn {
+    margin-top: $gutter / 2;
+    margin-bottom: $gutter / 2;
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    @include transition(.15s);
+
+    $font-counter: 12;
+
+    @each $size-key, $size-val in $size {
+        &-#{$size-key}{
+            padding: $size-val;
+
+            // Inc Font Size
+            $font-counter: $font-counter + 1;
+            @include font($font-counter,($font-counter + 4));
+        }
+
+        @if $size-key == 'full' {
+            &-#{$size-key}{
+                display: block;
+            }
+        } @else {
+            &-#{$size-key}{
+                margin-right: #{$gutter - 4px};
+            }
+        }
+    }
+
+    @each $colors-key, $colors-val in $colors{
+        @if $colors-key != 'default' {
+            &-#{$colors-key}{
+                color: #fff;
+            }
+        }
+
+        &-#{$colors-key}{
+            border-color: darken($colors-val,12.5%);
+            background: $colors-val;
+
+            &:hover {
+                background: darken($colors-val,7.5%);
+            }
+        }
+    }
+}

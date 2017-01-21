@@ -139,7 +139,8 @@ button::-moz-focus-inner {
 .mfp-close {
   width: 30px;
   height: 30px;
-  background: url('../../images/icons/close.svg') no-repeat center / 50%;
+  background: no-repeat center / auto 50%;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDIzLjMzMSAyMy4zMzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDIzLjMzMSAyMy4zMzE7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPjxnPjxwYXRoIGQ9Ik0xNi4wNDMsMTEuNjY3TDIyLjYwOSw1LjFjMC45NjMtMC45NjMsMC45NjMtMi41MzksMC0zLjUwMmwtMC44NzUtMC44NzUgICBjLTAuOTYzLTAuOTY0LTIuNTM5LTAuOTY0LTMuNTAyLDBMMTEuNjY2LDcuMjlMNS4wOTksMC43MjNjLTAuOTYyLTAuOTYzLTIuNTM4LTAuOTYzLTMuNTAxLDBMMC43MjIsMS41OTggICBjLTAuOTYyLDAuOTYzLTAuOTYyLDIuNTM5LDAsMy41MDJsNi41NjYsNi41NjZsLTYuNTY2LDYuNTY3Yy0wLjk2MiwwLjk2My0wLjk2MiwyLjUzOSwwLDMuNTAxbDAuODc2LDAuODc1ICAgYzAuOTYzLDAuOTYzLDIuNTM5LDAuOTYzLDMuNTAxLDBsNi41NjctNi41NjVsNi41NjYsNi41NjVjMC45NjMsMC45NjMsMi41MzksMC45NjMsMy41MDIsMGwwLjg3NS0wLjg3NSAgIGMwLjk2My0wLjk2MywwLjk2My0yLjUzOSwwLTMuNTAxTDE2LjA0MywxMS42Njd6IiBmaWxsPSIjRkZGRkZGIi8+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjwvc3ZnPg==);
   background-color: #000 !important;
   text-indent: -9999px;
   position: fixed;
@@ -181,13 +182,20 @@ button::-moz-focus-inner {
   .mfp-arrow:hover {
     opacity: 1; }
 
+.mfp-arrow-left,
+.mfp-arrow-right {
+  background: no-repeat center / contain;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI5MS44NThweCIgaGVpZ2h0PSI1MTIuMDAxcHgiIHZpZXdCb3g9IjExMC4wNzEgMCAyOTEuODU4IDUxMi4wMDEiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMTEwLjA3MSAwIDI5MS44NTggNTEyLjAwMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTEyMC41NzIsMjMwLjY1NEwzNDAuNzI0LDEwLjUwOWMxNC4wMDUtMTQuMDEyLDM2LjcxLTE0LjAxMiw1MC43MDgsMGMxMy45OTgsMTMuOTk4LDEzLjk5OCwzNi43MDMsMCw1MC43TDE5Ni42MzEsMjU2LjAwNGwxOTQuNzk1LDE5NC43ODhjMTMuOTk4LDE0LjAwNSwxMy45OTgsMzYuNzA2LDAsNTAuNzA1Yy0xMy45OTksMTQuMDA1LTM2LjcwMywxNC4wMDUtNTAuNzA3LDBMMTIwLjU2NiwyODEuMzQ5Yy02Ljk5OS03LjAwMy0xMC40OTUtMTYuMTcxLTEwLjQ5NS0yNS4zNDRDMTEwLjA3MSwyNDYuODI4LDExMy41NzMsMjM3LjY1MiwxMjAuNTcyLDIzMC42NTR6Ii8+PC9nPjwvc3ZnPg==);
+}
+
 .mfp-arrow-left {
-    background: url('../../images/icons/swipe-left.svg') no-repeat center / contain;
-  left: 20px; }
+  left: 20px;
+}
 
 .mfp-arrow-right {
-    background: url('../../images/icons/swipe-right.svg') no-repeat center / contain;
-  right: 20px; }
+  right: 20px;
+  @include transform(translate(0,-50%) scaleX(-1));
+}
 
   .mfp-iframe-holder .mfp-content {
     line-height: 0;
@@ -214,6 +222,7 @@ img.mfp-img {
   width: auto;
   max-width: 100%;
   height: auto;
+  max-height: calc(100vh - 50px) !important;
   display: block;
   line-height: 0;
   border: 2px solid #fff;
@@ -246,10 +255,9 @@ img.mfp-img {
     margin: 0; }
 
 .mfp-bottom-bar {
-  margin-top: -36px;
-  position: absolute;
+  margin-top: 5px;
+  position: relative;
   top: 100%;
-  left: 0;
   width: 100%;
   cursor: auto; }
 
@@ -339,14 +347,14 @@ img.mfp-img {
 
 @media all and (max-width: 900px) {
   .mfp-arrow {
-    -webkit-transform: scale(0.75);
-    transform: scale(0.75); }
+
+  }
   .mfp-arrow-left {
-    -webkit-transform-origin: 0;
-    transform-origin: 0; }
+    @include transform(scale(.75) translate(0, -50%));
+  }
   .mfp-arrow-right {
-    -webkit-transform-origin: 100%;
-    transform-origin: 100%; }
+    @include transform(scale(.75) translate(0, -50%) scaleX(-1));
+  }
   .mfp-container {
     padding-left: 6px;
     padding-right: 6px; } }

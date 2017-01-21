@@ -22,7 +22,7 @@ $(document).ready(function(){
         auto: true,
         mode: "fade",
         pager: false,
-        speed: 1000,
+        speed: 5000,
         touchEnabled: true,
         pause: 1000,
         prevText: '',
@@ -49,5 +49,5 @@ $(document).ready(function(){
     }
 
     // Showcase Slider
-    var showcaseSlider = $('.showcase_slider').bxSlider(showcase_options_active);
+    var showcaseSlider = $('.showcase_slider').bxSlider(showcase_options);
 });

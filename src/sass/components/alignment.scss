@@ -1,0 +1,41 @@
+/**
+ ** ALIGNMENT
+**/
+.s-align {
+    &-right {
+        text-align: right;
+    }
+
+    &-center {
+        text-align: center;
+    }
+
+    &-justify {
+        text-align: justify;
+    }
+}
+
+.s-pull {
+    &-left,
+    &-right {
+        margin-bottom: $gutter;
+    }
+
+    &-left {
+        margin-right: $gutter;
+        float: left;
+    }
+
+    &-right {
+        margin-left: $gutter;
+        float: right;
+    }
+}
+
+.clearfix {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}

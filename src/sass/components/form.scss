@@ -1,0 +1,128 @@
+/**
+ ** CHECKBOX & RADIO & SELECT
+**/
+
+.s-checkbox, .s-radio {
+    &:not(.s-checkbox-inline){
+        > li {
+            &:not(:first-of-type){
+                margin-top: 1em;
+            }
+        }
+    }
+
+    &-inline {
+        > li {
+            margin-right: 1em;
+            float: left;
+        }
+    }
+
+    &-rounded {
+        label {
+            &::before {
+                border-radius: 50%;
+            }
+        }
+    }
+
+    &-bg {
+        label {
+            &::before {
+                background: currentColor;
+            }
+
+            svg {
+                * {
+                    stroke: #fff;
+                }
+            }
+        }
+    }
+
+    > li {
+        label {
+            padding-left: 2em;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            line-height: 1.75em;
+            @include font(14);
+
+            &::before {
+                width: 1.75em;
+                height: 1.75em;
+                border: 1px solid currentColor;
+                box-sizing: border-box;
+                content: '';
+                left: 0;
+                @include centerer(vertical);
+            }
+
+            svg {
+                width: 1.15em;
+                height: 1.15em;
+                left: .3em;
+                @include centerer(vertical);
+
+                * {
+                    @include transition(stroke-dashoffset .4s);
+                }
+            }
+        }
+
+        input {
+            width: 0;
+            height: 0;
+            @include hide();
+
+            &:checked + label svg * {
+                stroke-dashoffset: 0;
+            }
+        }
+    }
+}
+
+.s-select {
+    border: 1px solid #d6d6d6;
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+
+    select {
+        width: calc(100% + 40px);
+        padding: 10px 20px 10px 10px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &::after {
+        margin-top: 1px;
+        z-index: -1;
+        right: 10px;
+    }
+
+    &-triangle {
+        &::after {
+            @include centerer(vertical);
+            @include triangle(bottom,10px,5px,currentColor);
+        }
+    }
+
+    &-arrow {
+        &::after {
+            width: .4em;
+            height: .4em;
+            margin-top: -1px;
+            border-width: 0 1px 1px 0;
+            border-style: solid;
+            border-color: currentColor;
+            position: absolute;
+            top: 50%;
+            content: '';
+            @include transform(translate(0,-50%) rotate(45deg));
+        }
+    }
+}
+

@@ -1,0 +1,120 @@
+/**
+ ** TAB
+**/
+
+// Tab Variables
+$tab-margin: 2px;
+$tab-vertical-padding: 10px;
+$tab-horizontal-padding: 10px;
+$tab-bg: #fff;
+$tab-radius: 5px;
+$tab-border-color: #eee;
+$tab-border-width: 1px;
+
+.s-tab {
+    margin-bottom: $gutter;
+
+    &_select {
+        margin-bottom: $gutter;
+        border: 1px solid $tab-border-color;
+        position: relative;
+        overflow: hidden;
+
+        select {
+            width: calc(100% + 40px);
+            background: transparent;
+
+            @if ($tab-vertical-padding == $tab-horizontal-padding) {
+                padding: $tab-vertical-padding;
+            } @else {
+                padding: $tab-vertical-padding $tab-horizontal-padding;
+            }
+
+            @include font($baseFontSize + 2, $baseFontSize + 8);
+        }
+
+        &::after {
+            margin-top: 1px;
+            right: 10px;
+            @include centerer(vertical);
+            @include triangle(bottom,14px,7px,$baseColor);
+        }
+    }
+
+    &_list {
+        margin-bottom: $gutter;
+        border-bottom: 1px solid $tab-border-color;
+        @include flex(flex);
+
+        &:not(&-fill){
+            @include flex-wrap(wrap);
+        }
+
+        &-fill {
+            @include flex-wrap(nowrap);
+
+            > li {
+                @include flex-grow(1);
+            }
+        }
+
+        &-spaceBetween {
+            @include justify-content(space-between);
+        }
+
+        &-spaceAround {
+            @include justify-content(space-around);
+        }
+
+        &-center {
+            @include justify-content(center);
+        }
+
+        &-right {
+            @include justify-content(flex-end);
+        }
+
+        > li {
+            &.active {
+                a {
+                    background: $tab-bg;
+                }
+            }
+
+            &:not(.active){
+                &:hover {
+                    a {
+                        background: $tab-border-color;
+                    }
+                }
+            }
+
+            &:not(:last-of-type){
+                margin-right: $tab-margin;
+            }
+
+            a {
+                @if ($tab-vertical-padding == $tab-horizontal-padding) {
+                    padding: $tab-vertical-padding;
+                } @else {
+                    padding: $tab-vertical-padding $tab-horizontal-padding;
+                }
+
+                margin-bottom: -$tab-border-width;
+                border-top-left-radius: $tab-radius;
+                border-top-right-radius: $tab-radius;
+                border-width: $tab-border-width $tab-border-width 0 $tab-border-width;
+                border-style: solid;
+                border-color: $tab-border-color;
+                display: block;
+                @include font($baseFontSize + 2, $baseFontSize + 8,null,null,center);
+            }
+        }
+    }
+
+    &_content {
+        &:not(.active){
+            display: none;
+        }
+    }
+}

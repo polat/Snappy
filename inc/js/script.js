@@ -2130,13 +2130,19 @@ $(document).ready(function () {
 
 
     // Basic Popup
-    $(".modal").magnificPopup({
+    $(".s-popup").magnificPopup({
         type: 'image',
         mainClass: 'mfp-fade'
     });
 
+    // Inline Popup
+    $(".s-popup-inline").magnificPopup({
+        type: 'inline',
+        mainClass: 'mfp-fade'
+    });
+
     // Gallery Popup
-    $('.modal-gallery').each(function(){
+    $('.s-popup-gallery').each(function(){
         $(this).magnificPopup({
             delegate: 'a',
             type: 'image',
@@ -2177,18 +2183,18 @@ $(document).ready(function(){
     var ww = $(window).width();
 
     // <---- TABS  ----
-    $(".tab_list").each(function(){
+    $(".s-tab_list").each(function(){
         var tab = $(this).parents(".tab");
         var tab_breakpoint = 768;
         var tab_check_breakpoint = $(this).parent().attr("tab-breakpoint");
 
-        // Check if there is tab-breakpoint attribute on "tab" element.
+        // Check if there is s-tab-breakpoint attribute on "s-tab" element.
         // If not, default  value is 768
         if (typeof tab_check_breakpoint !== typeof undefined && tab_check_breakpoint !== false) {
-            tab_breakpoint = $(this).parent().attr("tab-breakpoint");
+            tab_breakpoint = $(this).parent().attr("s-tab-breakpoint");
         }
 
-        var tab_select = $("<div class='tab_select'><select></select></div>");
+        var tab_select = $("<div class='s-tab_select'><select></select></div>");
         var current = $(this);
 
         $(this).children("li").each(function(){
@@ -2201,10 +2207,10 @@ $(document).ready(function(){
 
         if(ww < tab_breakpoint){
             current.hide();
-            current.siblings(".tab_select").show();
+            current.siblings(".s-tab_select").show();
         } else {
             current.show();
-            current.siblings(".tab_select").hide();
+            current.siblings(".s-tab_select").hide();
         }
 
         $(window).resize(function(){
@@ -2212,32 +2218,39 @@ $(document).ready(function(){
 
             if(ww < tab_breakpoint){
                 current.hide();
-                current.siblings(".tab_select").show();
+                current.siblings(".s-tab_select").show();
             } else {
                 current.show();
-                current.siblings(".tab_select").hide();
+                current.siblings(".s-tab_select").hide();
             }
         });
     });
 
-    // TAB Click & Select
-    $(".tab_list > li").click(function(){
-        var tab_index = $(this).index();
+    // Add "active" class to "s-tab-content" which has equal index with "li.active"
+    $(".s-tab").each(function(){
+        var active_tab = $(this).find(".s-tab_list > li.active");
+        var active_tab_index = active_tab.index();
 
-        $(this).addClass("active").siblings("li").removeClass("active");
-        $(this).parent().siblings(".tab_content").removeClass("active").eq(tab_index).addClass("active");
+        active_tab.parent().siblings(".s-tab_content").eq(active_tab_index).addClass("active");
     });
 
-    $(".tab_select select").change(function(){
+    $(".s-tab_list > li").click(function(){
+        active_tab_index = $(this).index();
+
+        $(this).addClass("active").siblings("li").removeClass("active");
+        $(this).parent().siblings(".s-tab_content").removeClass("active").eq(active_tab_index).addClass("active");
+    });
+
+    $(".s-tab_select select").change(function(){
         var select_index = $(this).children("option:selected").index();
 
-        $(this).parents(".tab_select").siblings(".tab_content").removeClass("active").eq(select_index).addClass("active");
+        $(this).parents(".s-tab_select").siblings(".s-tab_content").removeClass("active").eq(select_index).addClass("active");
     });
     // ---- TABS  ---->
 
 
     // <---- ACCORDION  ----
-    $(".accordion li > a").click(function(){
+    $(".s-accordion li > a").click(function(){
         var clicked = $(this);
         var clicked_offset;
 
@@ -2247,7 +2260,7 @@ $(document).ready(function(){
             var gutter = parseInt($(this).css("padding"));
             clicked_offset = clicked.offset().top;
 
-            if($(clicked).parents(".accordion").hasClass("accordion-autoscroll")){
+            if(clicked.parents(".s-accordion").hasClass("s-accordion-autoscroll")){
                 $("html,body").animate({
                     scrollTop: clicked_offset - gutter
                 },500);
@@ -2257,6 +2270,80 @@ $(document).ready(function(){
     // ---- ACCORDION  ---->
 });
 ;
+$(document).ready(function(){
+    $(document).on("scroll", onScroll);
+
+    var scroll = $(window).scrollTop();
+
+    // Doc menu toggle "active" class
+    function onScroll(event){
+        scroll = $(window).scrollTop();
+
+        // Doc menu calc index
+        var counter_li = 0;
+
+        $(".doc_left_list > li > ul li").each(function(){
+            var curr_li = $(this);
+            var curr_li_index = curr_li.index();
+
+            counter_li += 1;
+            curr_li_index = counter_li;
+
+            var refElement = $(".doc_right_counter").eq(curr_li_index);
+
+            if (refElement.position().top -200 <= scroll && refElement.position().top + refElement.height()  > scroll) {
+                $(this).siblings("li").removeClass("active");
+                curr_li.addClass("active");
+            } else {
+                curr_li.removeClass("active");
+            }
+        });
+    }
+
+    // Scroll to selected section
+    var section_count = $(".doc_left_list > li a").size();
+    i = 0;
+
+    $(".doc_left_list > li a, .mobile_list > li a").each(function(){
+        i++;
+        $(this).attr("href", "#doc_index" + (i % section_count));
+    });
+
+    $(".doc_right_counter").each(function(){
+        i++;
+        $(this).attr("id", "doc_index" + (i % section_count));
+    });
+
+    Prism.plugins.NormalizeWhitespace.setDefaults({
+        'remove-trailing': true,
+        'remove-indent': true,
+        'left-trim': true,
+        'right-trim': true
+    });
+
+    // Slidebars
+    $.slidebars();
+
+    $('.mobile_btn').on('touchstart', function (e) {
+        $(this).toggleClass('is-active');
+        return false;
+    });
+
+    $("#sb-site").on('touchstart', function (e){
+        if($(".mobile_btn").hasClass('is-active')){
+            $(".mobile_btn").removeClass('is-active');
+            return false;
+        }
+    });
+
+    // Mobile Menu Toggle
+    $(".mobile_list li a").click(function(){
+        if($(this).parent().hasClass("parent")){
+            $(this).parent().siblings("li").children("ul").stop().slideUp();
+            $(this).siblings("ul").stop().slideToggle();
+        }
+    });
+});;
 // <---- OPEN MOBILE MAP ----
 function openMobileMap (lat,long) {
     if((navigator.platform.indexOf("iPhone") != -1) || (navigator.platform.indexOf("iPod") != -1) || (navigator.platform.indexOf("iPad") != -1)) {
@@ -2272,7 +2359,7 @@ function openMobileMap (lat,long) {
 
 // <---- SCROLL TO ----
 $(function() {
-    $('a[href*="#"]:not([href="#"])').click(function() {
+    $('a[href*="#"]:not([href="#"]):not(".s-popup-inline")').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -2315,7 +2402,7 @@ $(document).ready(function(){
         auto: true,
         mode: "fade",
         pager: false,
-        speed: 1000,
+        speed: 5000,
         touchEnabled: true,
         pause: 1000,
         prevText: '',
@@ -2342,5 +2429,5 @@ $(document).ready(function(){
     }
 
     // Showcase Slider
-    var showcaseSlider = $('.showcase_slider').bxSlider(showcase_options_active);
+    var showcaseSlider = $('.showcase_slider').bxSlider(showcase_options);
 });

@@ -160,20 +160,22 @@ html.sb-static .sb-slidebar {
     }
 }
 
-#sb-site,
-.sb-site-container,
-.sb-slide,
-.sb-slidebar {
-    -webkit-transform: translate(0px);
-    -moz-transform: translate(0px);
-    -o-transform: translate(0px);
-    transform: translate(0px);
-    -webkit-transition: -webkit-transform 400ms ease;
-    -moz-transition: -moz-transform 400ms ease;
-    -o-transition: -o-transform 400ms ease;
-    transition: transform 400ms ease;
-    -webkit-transition-property: -webkit-transform, left, right;
-    -webkit-backface-visibility: hidden
+@include media-max($mainWidth){
+    #sb-site,
+    .sb-site-container,
+    .sb-slide,
+    .sb-slidebar {
+        -webkit-transform: translate(0px);
+        -moz-transform: translate(0px);
+        -o-transform: translate(0px);
+        transform: translate(0px);
+        -webkit-transition: -webkit-transform 400ms ease;
+        -moz-transition: -moz-transform 400ms ease;
+        -o-transition: -o-transform 400ms ease;
+        transition: transform 400ms ease;
+        -webkit-transition-property: -webkit-transform, left, right;
+        -webkit-backface-visibility: hidden
+    }
 }
 
 .sb-hide {

@@ -1,0 +1,165 @@
+// News Variables
+$news-img-width: 230;
+$news-img-height: 160;
+
+.news {
+    &List {
+        & > li {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            position: relative;
+
+            &:not(:last-of-type){
+                border-bottom: 1px solid rgba(148,148,148,0.2);
+            }
+
+            &:hover {
+                .newsList_more {
+                    &::after {
+                        bottom: -3px;
+                        @include show();
+                    }
+                }
+            }
+        }
+
+        &_link {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            display: block;
+        }
+
+        &_img {
+            width: $news-img-width + px;
+            height: $news-img-height + px;
+            position: relative;
+            overflow: hidden;
+            float: left;
+
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+
+        &_right {
+            width: calc(100% - #{$news-img-width + 30}px);
+            float: right;
+        }
+
+        &_title, &_date {
+            float: left;
+            @include font($baseFontSize + 2,$baseFontSize + 8,null,$mainColor);
+        }
+
+        &_title {
+            width: calc(100% - 120px);
+        }
+
+        &_date {
+            float: right;
+        }
+
+        &_summary {
+            margin-top: 15px;
+        }
+
+        &_summary,
+        &_summary p {
+            margin-bottom: 10px;
+            @include font($baseFontSize, $baseFontSize + 6);
+        }
+
+        &_more {
+            display: inline-block;
+            position: relative;
+            @include font($baseFontSize + 1,$baseFontSize + 7,null,$mainColor);
+
+            &::after {
+                width: 100%;
+                height: 2px;
+                background: $mainColor;
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                @include hide();
+                @include transition(0.25s);
+            }
+
+            &:hover {
+                &::after {
+                    bottom: -3px;
+                    @include show();
+                }
+            }
+        }
+    }
+
+    &_inner {
+        &_title, &_date {
+            @include font($baseFontSize + 2,$baseFontSize + 8,null,$mainColor);
+        }
+
+        &_title {
+            width: calc(100% - 110px);
+            float: left;
+        }
+
+        &_date {
+            float: right;
+        }
+
+        &_content {
+            margin-top: 15px;
+
+            p {
+                @include font($baseFontSize,$baseFontSize + 6);
+            }
+        }
+    }
+
+    &_other {
+        &_title {
+            margin: 100px 0 0 0;
+            padding: 0 0 20px 0;
+            border-bottom: 1px solid #E9E9E9;
+            @include font($baseFontSize + 5,$baseFontSize + 11,null,$mainColor);
+        }
+
+        &_list {
+            & > li {
+                border-bottom: 1px solid #E9E9E9;
+
+                & > a {
+                    padding: 20px 0 20px 18px;
+                    display: block;
+                    position: relative;
+                    @include font($baseFontSize + 2,$baseFontSize + 8,null,$mainColor);
+                    @include transition(0.2s);
+
+                    &::before {
+                        content: "+";
+                        left: 0;
+                        @include centerer(vertical);
+                        @include transition(0.2s);
+                        @include font($baseFontSize + 2,$baseFontSize + 8,null,$mainColor);
+                    }
+
+                    &:hover {
+                        color: $secondColor;
+
+                        &::before {
+                            color: $secondColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

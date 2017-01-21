@@ -1,0 +1,25 @@
+/**
+ ** IMAGES
+**/
+
+// Variables Images
+$image-border-color: #d6d6d6;
+
+.s-img {
+    &-radius {
+        @for $i from 1 through 20 {
+            &-#{$i}{
+                border-radius: $i + px;
+            }
+        }
+    }
+
+    &-circle {
+        border-radius: 50%;
+    }
+
+    &-border {
+        padding: 5px;
+        border: 1px solid $image-border-color;
+    }
+}

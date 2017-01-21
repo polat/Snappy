@@ -2,66 +2,6 @@
     LAYOUTS
 \*------------------------------------------*/
 
-html {
-    font-size: $baseFontSize * 1px;
-    @include prefix(text-size-adjust, 100%);
-}
-
-body {
-    padding-bottom: 200px;
-    @include font(null,null,$baseFontFamily,$baseColor,null);
-}
-
-.clear {
-    height: 0;
-    clear: both;
-    display: block;
-}
-
-.globalWidth {
-    width: $mainWidth * 1px;
-    margin: 0 auto;
-}
-
-.scrollTop {
-    width: 1em;
-    height: 1em;
-    background: $mainColor;
-    position: fixed;
-    border-radius: 50%;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-    font-size: 50px;
-    bottom: -50px;
-    right: calc((100% - #{$mainWidth * 1px}) / 2 - 60px);
-    z-index: 999;
-    opacity: 0;
-    @include transition(background-color 0.25s, opacity 0.5s, bottom 0.5s, box-shadow .3s);
-
-    &.visible {
-        bottom: 20px;
-        @include show();
-    }
-
-    &:hover {
-        background: $secondColor;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,.4);
-    }
-
-    &::before {
-        width: 1em;
-        height: 1em;
-        margin-top: 5px;
-        border: 2px solid;
-        border-color: #fff #fff transparent transparent;
-        font-size: 10px;
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%,-50%) rotate(-45deg));
-    }
-}
-
 /**
  ** HEADER
 **/

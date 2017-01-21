@@ -1,0 +1,74 @@
+// Gallery Variables
+$galleryWidth: 304px;
+$galleryHeight: 200px;
+$galleryMargin: 25px 25px 0 0;
+$imagesPerRow: 3;
+
+.gallery {
+    overflow: hidden;
+    @include flex(flex);
+    @include flex-wrap(wrap);
+
+    li {
+        margin: $galleryMargin;
+
+        @media screen and (min-width: $mainWidth * 1px){
+            &:nth-child(-n + #{$imagesPerRow}){
+                margin-top: 0;
+            }
+
+            &:nth-child(#{$imagesPerRow}n){
+                margin-right: 0;
+            }
+        }
+
+        a {
+            width: $galleryWidth;
+            height: $galleryHeight;
+            position: relative;
+            display: block;
+            overflow: hidden;
+            @include cover();
+
+            &:hover {
+                &::before {
+                    border: solid rgba(0,0,0,0.7);
+                    border-width: ($galleryHeight / 2 + 1) ($galleryWidth / 2 + 1) ($galleryHeight / 2 + 1) ($galleryWidth / 2 + 1);
+                    opacity: 1;
+                }
+
+                &::after {
+                    opacity: 1;
+                    @include transform(translate(-50%,-50%) scale(1));
+                    @include prefix(transition-delay,0.3s);
+                }
+            }
+
+            &::before {
+                width: 100%;
+                height: 100%;
+                border: 0px solid rgba(0,0,0,0.7);
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+                @include prefix(box-sizing, border-box);
+                @include transition(0.4s ease-in-out);
+            }
+
+            &::after {
+                width:22px;
+                height:22px;
+                background: url("../../images/icons/search.svg") no-repeat center / contain;
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                opacity: 0;
+                @include transform(translate(-50%,-50%) scale(0));
+                @include transition(transform 0.2s 0.1s ease-in, opacity 0.1s ease-in-out);
+            }
+        }
+    }
+}

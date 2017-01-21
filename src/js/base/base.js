@@ -27,13 +27,19 @@ $(document).ready(function () {
 
 
     // Basic Popup
-    $(".modal").magnificPopup({
+    $(".s-popup").magnificPopup({
         type: 'image',
         mainClass: 'mfp-fade'
     });
 
+    // Inline Popup
+    $(".s-popup-inline").magnificPopup({
+        type: 'inline',
+        mainClass: 'mfp-fade'
+    });
+
     // Gallery Popup
-    $('.modal-gallery').each(function(){
+    $('.s-popup-gallery').each(function(){
         $(this).magnificPopup({
             delegate: 'a',
             type: 'image',

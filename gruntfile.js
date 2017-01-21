@@ -1,80 +1,176 @@
 module.exports = function(grunt) {
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-    concat: {
-      options: {
-        separator: ';\n'
-      },
-      dist: {
-        src: ['src/js/vendor/*.js', 'src/js/base/*.js'],
-        dest: 'inc/js/script.js'
-      }
-    },
-    uglify: {
-      options: {
-        mangle: false,
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-      },
-      dist: {
-        files: {
-          'inc/js/script.min.js': ['<%= concat.dist.dest %>']
-        }
-      }
-    },
-    sass: {
-      dist: {
-        options: {
-          sourcemap: 'none',
-          style: 'compressed'
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+        svgmin: {
+            options: {
+                plugins: [
+                    {removeViewBox: true},
+                    {removeTitle: true},
+                    {removeDesc: true},
+                    {removeUselessStrokeAndFill: false},
+                    {removeXMLNS: true}
+                ]
+            },
+            dist: {
+                expand: true,
+                cwd: 'images/icons',
+                src: ['*.svg'],
+                dest: 'images/inline-svg',
+                ext: '.svg'
+            }
         },
-        files: {
-          'inc/css/style.min.css': 'src/sass/style.scss'
-        }
-      }
-    },
-    watch: {
-      css: {
-        options: {
-          spawn: false,
-        },
-        files: 'src/sass/**/*.scss',
-        tasks: ['sass']
-      },
-      js: {
-        options: {
-          spawn: false,
-        },
-        files: '<%= concat.dist.src %>',
-        tasks: ['concat', 'uglify']
-      }
-    },
-    browserSync: {
-      files: {
-        src : [
-          'inc/css/*.css',
-          'inc/js/*.js',
-          '*.html'
-        ]
-      },
-      options: {
-        watchTask: true,
-        server: {
-          baseDir: "./",
-          directory: true
-        }
-      }
-    }
-  });
 
-  // Load the plugins
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-browser-sync');
+        concat: {
+            options: {
+                separator: ';\n'
+            },
+            dist: {
+                src: ['src/js/vendor/*.js', 'src/js/base/*.js'],
+                dest: 'inc/js/script.js'
+            }
+        },
 
-  // Register tasks
-  grunt.registerTask('default', ['browserSync','watch']);
-  grunt.registerTask('css', ['sass']);
-  grunt.registerTask('js', ['concat', 'uglify']);
+        imagemin: {
+            png: {
+                options: {
+                    optimizationLevel: 7
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'images',
+                        src: ['*.png'],
+                        dest: 'images',
+                        ext: '.png'
+                    }
+                ]
+            },
+            jpg: {
+                options: {
+                    progressive: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'images',
+                        src: ['*.jpg'],
+                        dest: 'images',
+                        ext: '.jpg'
+                    }
+                ]
+            }
+        },
+
+        imageminUploads: {
+            png: {
+                options: {
+                    optimizationLevel: 7
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: '../../uploads',
+                        src: ['*.png'],
+                        dest: '../../uploads',
+                        ext: '.png'
+                    }
+                ]
+            },
+            jpg: {
+                options: {
+                    progressive: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: '../../uploads',
+                        src: ['*.jpg'],
+                        dest: '../../uploads',
+                        ext: '.jpg'
+                    }
+                ]
+            }
+        },
+
+        uglify: {
+            options: {
+                mangle: false,
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+            },
+            dist: {
+                files: {
+                    'inc/js/script.min.js': ['<%= concat.dist.dest %>']
+                }
+            }
+        },
+
+        sass: {
+            dist: {
+                options: {
+                    sourcemap: 'none',
+                    style: 'compressed'
+                },
+                files: {
+                    'inc/css/style.min.css': 'src/sass/style.scss'
+                }
+            }
+        },
+
+        watch: {
+            css: {
+                options: {
+                    spawn: false,
+                },
+                files: 'src/sass/**/*.scss',
+                tasks: ['sass']
+            },
+            js: {
+                options: {
+                    spawn: false,
+                },
+                files: '<%= concat.dist.src %>',
+                tasks: ['concat', 'uglify']
+            },
+            img: {
+                files: ["images/icons/*.svg"],
+                tasks: ['svgmin']
+            }
+        },
+
+        browserSync: {
+            files: {
+                src : [
+                    'inc/css/*.css',
+                    'inc/js/*.js',
+                    '*.html'
+                ]
+            },
+            options: {
+                watchTask: true,
+                server: {
+                    baseDir: "./",
+                    directory: true
+                }
+            }
+        }
+    });
+
+
+    // Load the plugins
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-svgmin');
+
+
+    // Register tasks
+    grunt.registerTask('default', ['svgmin','browserSync','watch']);
+    grunt.registerTask('css', ['sass']);
+    grunt.registerTask('js', ['concat', 'uglify']);
+    grunt.registerTask('svg', ['svgmin']);
+    grunt.registerTask('img', ['imagemin']);
+    grunt.registerTask('imgUploads', ['imageminUploads']);
 };

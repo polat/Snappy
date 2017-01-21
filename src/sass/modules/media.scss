@@ -2,15 +2,11 @@
     MEDIA
 \*------------------------------------------*/
 
-// Phone - Desktop (320 - Main Width)
-@include media($phone-small, $mainWidth) {
-    // Display None Elements
-    .contact_map_link:not(.mobile),
-    .header_menu,
-    .desktop-view {
-        display: none;
-    }
+// Mobile Variables
+$mobileColor: $mainColor;
 
+// 320 - Main Width
+@include media(320, $mainWidth) {
     // Full Width Elements
     .class {
         width: 100%;
@@ -258,8 +254,8 @@
     }
 }
 
-// Phone Small - Phone Side Small (320-479)
-@include media($phone-small, $phone-side-small) {
+// 320-479
+@include media(320,479) {
     // Resize Fonts
     html {
         font-size: px-to-rem($baseFontSize - 2);
@@ -329,8 +325,8 @@
     }
 }
 
-// Phone Small - Phone Side Large (320 - 567)
-@include media($phone-small, $phone-side-large) {
+// 320 - 567
+@include media(320,567) {
     // Gallery
     .gallery {
         li {
@@ -418,8 +414,8 @@
     }
 }
 
-// Phone Small - Tablet (320 - 767)
-@include media($phone-small, $tablet) {
+// 320 - 767
+@include media(320,767) {
     // Contact Page
     .contact {
         &_title {
@@ -472,8 +468,8 @@
     }
 }
 
-// Phone Side Small - Tablet (480 - 767)
-@include media($phone-side-small, $tablet) {
+// 480 - 767
+@include media(480, 767) {
     // Resize Fonts
     html {
         font-size: px-to-rem($baseFontSize - 1);
@@ -513,8 +509,8 @@
     }
 }
 
-// Phone Side Large - Tablet (568 - 767)
-@include media($phone-side-large, $tablet) {
+// 568 - 767
+@include media(568,767) {
     // Gallery
     .gallery {
         li {
@@ -532,8 +528,8 @@
     }
 }
 
-// Tablet - Main Width (768 - Main Width)
-@include media($tablet, $mainWidth) {
+// 768 - Main Width
+@include media(768, $mainWidth) {
     // Gallery
     .gallery {
         li {
@@ -561,14 +557,5 @@
                 @include font($baseFontSize, $baseFontSize + 6);
             }
         }
-    }
-}
-
-// Styles For Desktop (Wider Than Main Width)
-@include media-min($mainWidth) {
-    .contact_map_link.mobile,
-    .mobile_btn,
-    .mobile-view {
-        display: none;
     }
 }

@@ -1,0 +1,74 @@
+/**
+ ** ACCORDION
+**/
+
+// Accordion Variables
+$accordion-vertical-padding: 15px;
+$accordion-horizontal-padding: 15px;
+$accordion-border-color: #d6d6d6;
+
+.s-accordion {
+    > li {
+        border: 1px solid $accordion-border-color;
+        @include transition(box-shadow .25s);
+
+        &.active {
+            > div {
+                display: block;
+            }
+        }
+
+        &:hover {
+            box-shadow: 0 0 8px 1px rgba($accordion-border-color,.5);
+        }
+
+        &:not(:first-of-type){
+            margin-top: $gutter;
+        }
+
+        > a {
+            padding: $accordion-vertical-padding 40px $accordion-vertical-padding $accordion-horizontal-padding;
+            position: relative;
+            display: block;
+            cursor: pointer;
+            @include font($baseFontSize + 2, $baseFontSize + 8, $titleFontFamily);
+
+            &.active {
+                &::before {
+                    @include rotate(-45deg);
+                }
+
+                &::after {
+                    @include rotate(45deg);
+                }
+            }
+
+            & + div {
+                padding: $accordion-vertical-padding;
+                border-top: 1px solid $accordion-border-color;
+                display: none;
+            }
+
+            &::before, &::after {
+                width: 10px;
+                height: 2px;
+                background: $baseColor;
+                content: "";
+                box-sizing: border-box;
+                position: absolute;
+                top: 50%;
+                @include transition(transform,0.3s);
+            }
+
+            &::before {
+                right: 21px;
+                @include rotate(45deg);
+            }
+
+            &::after {
+                right: 15px;
+                @include rotate(-45deg);
+            }
+        }
+    }
+}
