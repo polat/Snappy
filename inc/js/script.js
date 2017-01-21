@@ -2184,7 +2184,7 @@ $(document).ready(function(){
 
     // <---- TABS  ----
     $(".s-tab_list").each(function(){
-        var tab = $(this).parents(".tab");
+        var tab = $(this).parents(".s-tab");
         var tab_breakpoint = 768;
         var tab_check_breakpoint = $(this).parent().attr("tab-breakpoint");
 
