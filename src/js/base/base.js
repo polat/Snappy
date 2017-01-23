@@ -51,14 +51,19 @@ $(document).ready(function () {
     });
 
     /*/ <---- SLIDEBARS ----
-    $.slidebars();
+    var controller = new slidebars();
+    controller.init();
 
-    $('.mobile_btn').on('touchstart', function (e) {
+    $('.mobile_btn').on('click, touchstart', function (e) {
+        controller.toggle( 'id-1' );
+
         $(this).toggleClass('is-active');
         return false;
     });
 
-    $("#sb-site").on('touchstart', function (e){
+    $("div[canvas='container']").on('click, touchstart', function (e){
+        controller.close( 'id-1' );
+
         if($(".mobile_btn").hasClass('is-active')){
             $(".mobile_btn").removeClass('is-active');
             return false;

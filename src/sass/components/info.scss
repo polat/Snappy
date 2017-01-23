@@ -4,80 +4,81 @@
 
 // Info Variables
 $info-border-color: #d6d6d6;
+$lighten-percent: 32%;
+$darken-percent: 20%;
+$border-percent: 25%;
 
 .s-info {
-    &:not(tr){
-        &:not(td){
-            margin-bottom: $gutter;
-            padding: 15px 10px;
-            border: 1px solid $info-border-color;
-            border-radius: 5px;
-            @include font($baseFontSize,$baseFontSize + 8);
+    margin-bottom: $gutter;
+    padding: 15px 10px;
+    @include font($baseFontSize,$baseFontSize + 8);
 
-            &:not(.s-info-full){
-                margin-right: $gutter - 4px;
-                display: inline-block;
+    &:not(.s-info-full){
+        margin-right: $gutter - 4px;
+        display: inline-block;
+    }
+
+    &:not(.s-info-bg){
+        border-left-width: 5px;
+        border-style: solid;
+    }
+
+    &-border {
+        border: 1px solid $info-border-color;
+        border-radius: 5px;
+    }
+
+    &-bg {
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 5px;
+
+        &.s-info {
+            &-success {
+                border-color: lighten($success, $border-percent);
+                background: lighten($success,$lighten-percent);
+                color: darken($success,$darken-percent);
             }
 
-            &.s-info {
-                &:not(.s-info-bg){
-                    border-left-width: 5px;
-                }
+            &-danger {
+                border-color: darken(#f2dede,5%);
+                background: #f2dede;
+                color: #A94449;
+            }
 
-                &-bg {
-                    $lighten-percent: 32%;
-                    $darken-percent: 20%;
-                    $border-percent: 25%;
+            &-warning {
+                border-color: lighten($warning, $border-percent);
+                background: lighten($warning,$lighten-percent);
+                color: darken($warning,$darken-percent);
+            }
 
-                    &.s-info {
-                        &-success {
-                            border-color: lighten($success, $border-percent);
-                            background: lighten($success,$lighten-percent);
-                            color: darken($success,$darken-percent);
-                        }
+            &-main {
+                border-color: lighten($mainColor, $border-percent);
+                background: lighten($mainColor,$lighten-percent);
+                color: darken($mainColor,$darken-percent);
+            }
 
-                        &-danger {
-                            border-color: darken(#f2dede,5%);
-                            background: #f2dede;
-                            color: #A94449;
-                        }
-
-                        &-warning {
-                            border-color: lighten($warning, $border-percent);
-                            background: lighten($warning,$lighten-percent);
-                            color: darken($warning,$darken-percent);
-                        }
-
-                        &-main {
-                            border-color: lighten($mainColor, $border-percent);
-                            background: lighten($mainColor,$lighten-percent);
-                            color: darken($mainColor,$darken-percent);
-                        }
-
-                        &-secondary {
-                            border-color: lighten($secondColor, $border-percent);
-                            background: lighten($secondColor,$lighten-percent);
-                            color: darken($secondColor,$darken-percent);
-                        }
-                    }
-                }
-
-                &-success {
-                    border-left-color: $success;
-                }
-
-                &-danger {
-                    border-left-color: $danger;
-                }
-
-                &-main {
-                    border-left-color: $mainColor;
-                }
-
-                &-warning {
-                    border-left-color: $warning;
-                }
+            &-secondary {
+                border-color: lighten($secondColor, $border-percent);
+                background: lighten($secondColor,$lighten-percent);
+                color: darken($secondColor,$darken-percent);
             }
         }
+    }
+
+    &-success {
+        border-left-color: $success;
+    }
+
+    &-danger {
+        border-left-color: $danger;
+    }
+
+    &-main {
+        border-left-color: $mainColor;
+    }
+
+    &-warning {
+        border-left-color: $warning;
     }
 }

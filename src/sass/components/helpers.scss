@@ -1,11 +1,11 @@
 /**
- ** IMAGES
+ ** HELPERS
 **/
 
 // Variables Images
-$image-border-color: #d6d6d6;
+$s-border-color: #d6d6d6;
 
-.s-img {
+.s {
     &-radius {
         @for $i from 1 through 20 {
             &-#{$i}{
@@ -20,6 +20,6 @@ $image-border-color: #d6d6d6;
 
     &-border {
         padding: 5px;
-        border: 1px solid $image-border-color;
+        border: 1px solid $s-border-color;
     }
 }

@@ -1,183 +1,141 @@
-#sb-site,
-.sb-site-container,
-.sb-slidebar,
-body,
-html {
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box
+html, body, [canvas=container], [off-canvas] {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 
-body,
-html {
-    width: 100%;
-    overflow-x: hidden
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
-html {
-    height: 100%
+/**
+ * Canvas
+ */
+
+[canvas] {
+	z-index: 1;
 }
 
-body {
-    min-height: 100%;
-    height: auto;
-    position: relative
+[canvas=container] {
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	position: relative;
+	background-color: white; /* Basic background color, overwrite this in your own css. */
+	-webkit-overflow-scrolling: touch; /* Enables momentum scrolling on iOS devices, may be removed by setting to 'auto' in your own CSS. */
 }
 
-html.sb-scroll-lock.sb-active:not(.sb-static) {
-    overflow: hidden
+[canvas=container]:before, [canvas=container]:after {
+	clear: both;
+	content: '';
+	display: table;
 }
 
-#sb-site,
-.sb-site-container {
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
-    z-index: 1;
-    background-color: #fff
+/**
+ * Off-Canavs
+ */
+
+[off-canvas] {
+	display: none;
+	position: fixed;
+	overflow: hidden;
+	overflow-y: auto;
+	background-color: black; /* Basic background color, overwrite this in your own css. */
+	color: white; /* Basic colors, overwrite this in your own css. */
+	-webkit-overflow-scrolling: touch; /* Enables momentum scrolling on iOS devices, may be removed by setting to 'auto' in your own CSS. */
 }
 
-#sb-site:after,
-#sb-site:before,
-.sb-site-container:after,
-.sb-site-container:before {
-    content: ' ';
-    display: table;
-    clear: both
+[off-canvas*=top] {
+	width: 100%;
+	height: 255px;
+	top: 0;
 }
 
-.sb-slidebar {
-    height: 100%;
-    overflow-y: auto;
-    position: fixed;
-    top: 0;
-    z-index: 0;
-    display: none;
-    background-color: #222
+[off-canvas*=right] {
+	width: 255px;
+	height: 100%;
+	top: 0;
+	right: 0;
 }
 
-.sb-slidebar,
-.sb-slidebar * {
-    -webkit-transform: translateZ(0px)
+[off-canvas*=bottom] {
+	width: 100%;
+	height: 255px;
+	bottom: 0;
 }
 
-.sb-left {
-    left: 0
+[off-canvas*=left] {
+	width: 255px;
+	height: 100%;
+	top: 0;
+	left: 0;
 }
 
-.sb-right {
-    right: 0
+[off-canvas*=reveal] {
+	z-index: 0;
 }
 
-.sb-slidebar.sb-static,
-html.sb-static .sb-slidebar {
-    position: absolute
+[off-canvas*=push] {
+	z-index: 1;
 }
 
-.sb-slidebar.sb-active {
-    display: block
+[off-canvas*=overlay] {
+	z-index: 9999;
 }
 
-.sb-style-overlay {
-    z-index: 9999
+[off-canvas*=shift] {
+	z-index: 0;
 }
 
-.sb-momentum-scrolling {
-    -webkit-overflow-scrolling: touch
+/**
+ * Animation
+ */
+
+[canvas], [off-canvas] {
+	-webkit-transform: translate( 0px, 0px );
+	    -ms-transform: translate( 0px, 0px );
+	        transform: translate( 0px, 0px );
+	-webkit-transition: -webkit-transform 500ms;
+	        transition:         transform 500ms;
+	-webkit-backface-visibility: hidden; /* Prevents flickering, may be removed if experiencing problems with fixed background images in Chrome. */
 }
 
-.sb-slidebar {
-    width: 30%
+[off-canvas*=shift][off-canvas*=top] {
+	-webkit-transform: translate( 0px, 50% );
+	        transform: translate( 0px, 50% );
 }
 
-.sb-width-thin {
-    width: 15%
+[off-canvas*=shift][off-canvas*=right] {
+	-webkit-transform: translate( -50%, 0px );
+	        transform: translate( -50%, 0px );
 }
 
-.sb-width-wide {
-    width: 45%
+[off-canvas*=shift][off-canvas*=bottom] {
+	-webkit-transform: translate( 0px, -50% );
+	        transform: translate( 0px, -50% );
 }
 
-@media (max-width:480px) {
-    .sb-slidebar {
-        width: 70%
-    }
-    .sb-width-thin {
-        width: 55%
-    }
-    .sb-width-wide {
-        width: 85%
-    }
+[off-canvas*=shift][off-canvas*=left] {
+	-webkit-transform: translate( 50%, 0px );
+	        transform: translate( 50%, 0px );
 }
 
-@media (min-width:481px) {
-    .sb-slidebar {
-        width: 55%
-    }
-    .sb-width-thin {
-        width: 40%
-    }
-    .sb-width-wide {
-        width: 70%
-    }
-}
+/**
+ * Print
+ */
 
-@media (min-width:768px) {
-    .sb-slidebar {
-        width: 40%
-    }
-    .sb-width-thin {
-        width: 25%
-    }
-    .sb-width-wide {
-        width: 55%
-    }
-}
+@media print {
+	[canvas] {
+		-webkit-transform: translate( 0px, 0px ) !important;
+		    -ms-transform: translate( 0px, 0px ) !important;
+		        transform: translate( 0px, 0px ) !important;
+	}
 
-@media (min-width:992px) {
-    .sb-slidebar {
-        width: 30%
-    }
-    .sb-width-thin {
-        width: 15%
-    }
-    .sb-width-wide {
-        width: 45%
-    }
-}
-
-@media (min-width:1200px) {
-    .sb-slidebar {
-        width: 20%
-    }
-    .sb-width-thin {
-        width: 5%
-    }
-    .sb-width-wide {
-        width: 35%
-    }
-}
-
-@include media-max($mainWidth){
-    #sb-site,
-    .sb-site-container,
-    .sb-slide,
-    .sb-slidebar {
-        -webkit-transform: translate(0px);
-        -moz-transform: translate(0px);
-        -o-transform: translate(0px);
-        transform: translate(0px);
-        -webkit-transition: -webkit-transform 400ms ease;
-        -moz-transition: -moz-transform 400ms ease;
-        -o-transition: -o-transform 400ms ease;
-        transition: transform 400ms ease;
-        -webkit-transition-property: -webkit-transform, left, right;
-        -webkit-backface-visibility: hidden
-    }
-}
-
-.sb-hide {
-    display: none
+	[off-canvas] {
+		display: none !important;
+	}
 }

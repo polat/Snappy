@@ -8,8 +8,8 @@
 // Vendors
 @import 'vendors/aos';
 @import 'vendors/magnific-popup';
-@import 'vendors/slidebars';
 @import 'vendors/toast';
+// @import 'vendors/slidebars';
 
 // Modules
 @import 'modules/layouts';
@@ -20,13 +20,14 @@
 @import 'components/alignment';
 @import 'components/button';
 @import 'components/form';
-@import 'components/images';
+@import 'components/helpers';
 @import 'components/info';
 @import 'components/content';
 @import 'components/list';
 @import 'components/tab';
 @import 'components/table';
 @import 'components/visibility';
+@import 'components/custom';
 
 // Pages
 @import 'pages/career';

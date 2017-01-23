@@ -21,7 +21,7 @@ $mobileColor: $mainColor;
     }
 
     // Slidebars
-    .sb-slidebar {
+    [off-canvas] {
         background: $mainColor;
     }
 
