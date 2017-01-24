@@ -1,0 +1,21 @@
+/**
+ ** POPUP
+**/
+
+.s-popup {
+	&-content {
+		max-width: 90%;
+		max-height: 90vh;
+		box-sizing: border-box;
+		padding: 10px;
+		background: #fff;
+		border-radius: 5px;
+		display: inline-block;
+		overflow: scroll;
+		text-align: left;
+
+		* {
+			max-width: 100%;
+		}
+	}
+}

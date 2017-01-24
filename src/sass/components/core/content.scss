@@ -55,7 +55,7 @@ body {
     }
 }
 
-.list,
+.s-list,
 h1,
 h2,
 h3,
@@ -82,7 +82,7 @@ h6 {
     }
 }
 
-.list li,
+.s-list li,
 p {
     @include font($baseFontSize, $baseFontSize + 6);
 }

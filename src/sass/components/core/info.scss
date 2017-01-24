@@ -10,10 +10,10 @@ $border-percent: 25%;
 
 .s-info {
     margin-bottom: $gutter;
-    padding: 15px 10px;
+    padding: 10px;
     @include font($baseFontSize,$baseFontSize + 8);
 
-    &:not(.s-info-full){
+    &:not(.s-full){
         margin-right: $gutter - 4px;
         display: inline-block;
     }

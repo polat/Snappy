@@ -22,4 +22,8 @@ $s-border-color: #d6d6d6;
         padding: 5px;
         border: 1px solid $s-border-color;
     }
+
+    &-full {
+        display: block;
+    }
 }

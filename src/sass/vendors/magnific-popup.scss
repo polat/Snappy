@@ -1,211 +1,241 @@
 /* Magnific Popup CSS */
 .popup {
-  &_content {
-    max-width: 90%;
-    max-height: 90vh;
-    box-sizing: border-box;
-    display: inline-block;
-    overflow: scroll;
-    padding: 4px;
-    background-color: #fff;
-    box-shadow: 0 0 2px #fff;
-    margin: 0 auto;
-    border-radius: 4px;
-    text-align: left;
+    &_content {
+        max-width: 90%;
+        max-height: 90vh;
+        box-sizing: border-box;
+        display: inline-block;
+        overflow: scroll;
+        padding: 4px;
+        background-color: #fff;
+        box-shadow: 0 0 2px #fff;
+        margin: 0 auto;
+        border-radius: 4px;
+        text-align: left;
 
-    img {
-      max-width: 100%;
-      max-height: calc(90vh - 20px);
-      margin: 0 auto;
-      display: block;
+        img {
+            max-width: 100%;
+            max-height: calc(90vh - 20px);
+            margin: 0 auto;
+            display: block;
+        }
     }
-  }
 }
 
 .mfp-bg {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1042;
-  overflow: hidden;
-  position: fixed;
-  background: #0b0b0b;
-  opacity: 0.8; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1042;
+    overflow: hidden;
+    position: fixed;
+    background: #0b0b0b;
+    opacity: 0.8;
 }
 
 .mfp-wrap {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1043;
-  position: fixed;
-  outline: none !important;
-  -webkit-backface-visibility: hidden; }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1043;
+    position: fixed;
+    outline: none !important;
+    -webkit-backface-visibility: hidden;
+}
 
 .mfp-container {
-  text-align: center;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  box-sizing: border-box; }
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+}
 
 .mfp-container:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle; }
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
 
 .mfp-align-top .mfp-container:before {
-  display: none; }
+    display: none;
+}
 
 .mfp-content {
-  max-height: 90%;
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
-  margin: 0 auto;
-  z-index: 1045; }
+    max-height: 90%;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 1045;
+}
 
 .mfp-inline-holder .mfp-content,
 .mfp-ajax-holder .mfp-content {
-  width: 100%;
-  cursor: auto; }
+    width: 100%;
+    cursor: auto;
+}
 
 .mfp-ajax-cur {
-  cursor: progress; }
+    cursor: progress;
+}
 
 .mfp-auto-cursor .mfp-content {
-  cursor: auto; }
+    cursor: auto;
+}
 
 .mfp-close,
 .mfp-arrow,
 .mfp-preloader,
 .mfp-counter {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none; }
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
 
 .mfp-loading.mfp-figure {
-  display: none; }
+    display: none;
+}
 
 .mfp-hide {
-  display: none !important; }
+    display: none !important;
+}
 
 .mfp-preloader {
-  color: #CCC;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  text-align: center;
-  margin-top: -0.8em;
-  left: 8px;
-  right: 8px;
-  z-index: 1044; }
-  .mfp-preloader a {
-    color: #CCC; }
-    .mfp-preloader a:hover {
-      color: #FFF; }
+    color: #CCC;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    text-align: center;
+    margin-top: -0.8em;
+    left: 8px;
+    right: 8px;
+    z-index: 1044;
+}
+
+.mfp-preloader a {
+    color: #CCC;
+}
+
+.mfp-preloader a:hover {
+    color: #FFF;
+}
 
 .mfp-s-ready .mfp-preloader {
-  display: none; }
+    display: none;
+}
 
 .mfp-s-error .mfp-content {
-  display: none; }
+    display: none;
+}
 
 button.mfp-close,
 button.mfp-arrow {
-  overflow: visible;
-  background-color: transparent;
-  cursor: pointer;
-  border: 0;
-  -webkit-appearance: none;
-  display: block;
-  outline: none;
-  padding: 0;
-  z-index: 1046;
-  box-shadow: none;
-  @include transition(.15s);
-  touch-action: manipulation; }
-
-button::-moz-focus-inner {
-  padding: 0;
-  border: 0; }
-
-.mfp-close {
-  width: 30px;
-  height: 30px;
-  background: no-repeat center / auto 50%;
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDIzLjMzMSAyMy4zMzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDIzLjMzMSAyMy4zMzE7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPjxnPjxwYXRoIGQ9Ik0xNi4wNDMsMTEuNjY3TDIyLjYwOSw1LjFjMC45NjMtMC45NjMsMC45NjMtMi41MzksMC0zLjUwMmwtMC44NzUtMC44NzUgICBjLTAuOTYzLTAuOTY0LTIuNTM5LTAuOTY0LTMuNTAyLDBMMTEuNjY2LDcuMjlMNS4wOTksMC43MjNjLTAuOTYyLTAuOTYzLTIuNTM4LTAuOTYzLTMuNTAxLDBMMC43MjIsMS41OTggICBjLTAuOTYyLDAuOTYzLTAuOTYyLDIuNTM5LDAsMy41MDJsNi41NjYsNi41NjZsLTYuNTY2LDYuNTY3Yy0wLjk2MiwwLjk2My0wLjk2MiwyLjUzOSwwLDMuNTAxbDAuODc2LDAuODc1ICAgYzAuOTYzLDAuOTYzLDIuNTM5LDAuOTYzLDMuNTAxLDBsNi41NjctNi41NjVsNi41NjYsNi41NjVjMC45NjMsMC45NjMsMi41MzksMC45NjMsMy41MDIsMGwwLjg3NS0wLjg3NSAgIGMwLjk2My0wLjk2MywwLjk2My0yLjUzOSwwLTMuNTAxTDE2LjA0MywxMS42Njd6IiBmaWxsPSIjRkZGRkZGIi8+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjwvc3ZnPg==);
-  background-color: #000 !important;
-  text-indent: -9999px;
-  position: fixed;
-  right: 20px;
-  top: 20px;
-  opacity: 0.65;
+    overflow: visible;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    -webkit-appearance: none;
+    display: block;
+    outline: none;
+    padding: 0;
+    z-index: 1046;
+    box-shadow: none;
+    @include transition(.15s);
+    touch-action: manipulation;
 }
 
-  .mfp-close:hover,
-  .mfp-close:focus {
-    opacity: 1; }
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+.mfp-close {
+    width: 30px;
+    height: 30px;
+    background: no-repeat center / auto 50%;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDIzLjMzMSAyMy4zMzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDIzLjMzMSAyMy4zMzE7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPjxnPjxwYXRoIGQ9Ik0xNi4wNDMsMTEuNjY3TDIyLjYwOSw1LjFjMC45NjMtMC45NjMsMC45NjMtMi41MzksMC0zLjUwMmwtMC44NzUtMC44NzUgICBjLTAuOTYzLTAuOTY0LTIuNTM5LTAuOTY0LTMuNTAyLDBMMTEuNjY2LDcuMjlMNS4wOTksMC43MjNjLTAuOTYyLTAuOTYzLTIuNTM4LTAuOTYzLTMuNTAxLDBMMC43MjIsMS41OTggICBjLTAuOTYyLDAuOTYzLTAuOTYyLDIuNTM5LDAsMy41MDJsNi41NjYsNi41NjZsLTYuNTY2LDYuNTY3Yy0wLjk2MiwwLjk2My0wLjk2MiwyLjUzOSwwLDMuNTAxbDAuODc2LDAuODc1ICAgYzAuOTYzLDAuOTYzLDIuNTM5LDAuOTYzLDMuNTAxLDBsNi41NjctNi41NjVsNi41NjYsNi41NjVjMC45NjMsMC45NjMsMi41MzksMC45NjMsMy41MDIsMGwwLjg3NS0wLjg3NSAgIGMwLjk2My0wLjk2MywwLjk2My0yLjUzOSwwLTMuNTAxTDE2LjA0MywxMS42Njd6IiBmaWxsPSIjRkZGRkZGIi8+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjwvc3ZnPg==);
+    background-color: #000 !important;
+    text-indent: -9999px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    opacity: 0.65;
+}
+
+.mfp-close:hover,
+.mfp-close:focus {
+    opacity: 1;
+}
 
 .mfp-close-btn-in .mfp-close {
-  color: #fff; }
+    color: #fff;
+}
 
 .mfp-image-holder .mfp-close,
 .mfp-iframe-holder .mfp-close {
-  color: #FFF; }
+    color: #FFF;
+}
 
 .mfp-counter {
-  position: absolute;
-  top: 0;
-  right: 0;
-  color: #CCC;
-  font-size: 12px;
-  line-height: 18px;
-  white-space: nowrap; }
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #CCC;
+    font-size: 12px;
+    line-height: 18px;
+    white-space: nowrap;
+}
 
 .mfp-arrow {
-  width: 20px;
-  height: 40px;
-  opacity: 0.65;
-  margin: 0;
-  padding: 0;
-  @include centerer(vertical);
-  -webkit-tap-highlight-color: transparent; }
-  .mfp-arrow:hover {
-    opacity: 1; }
+    width: 20px;
+    height: 40px;
+    opacity: 0.65;
+    margin: 0;
+    padding: 0;
+    @include centerer(vertical);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mfp-arrow:hover {
+    opacity: 1;
+}
 
 .mfp-arrow-left,
 .mfp-arrow-right {
-  background: no-repeat center / contain;
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI5MS44NThweCIgaGVpZ2h0PSI1MTIuMDAxcHgiIHZpZXdCb3g9IjExMC4wNzEgMCAyOTEuODU4IDUxMi4wMDEiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMTEwLjA3MSAwIDI5MS44NTggNTEyLjAwMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTEyMC41NzIsMjMwLjY1NEwzNDAuNzI0LDEwLjUwOWMxNC4wMDUtMTQuMDEyLDM2LjcxLTE0LjAxMiw1MC43MDgsMGMxMy45OTgsMTMuOTk4LDEzLjk5OCwzNi43MDMsMCw1MC43TDE5Ni42MzEsMjU2LjAwNGwxOTQuNzk1LDE5NC43ODhjMTMuOTk4LDE0LjAwNSwxMy45OTgsMzYuNzA2LDAsNTAuNzA1Yy0xMy45OTksMTQuMDA1LTM2LjcwMywxNC4wMDUtNTAuNzA3LDBMMTIwLjU2NiwyODEuMzQ5Yy02Ljk5OS03LjAwMy0xMC40OTUtMTYuMTcxLTEwLjQ5NS0yNS4zNDRDMTEwLjA3MSwyNDYuODI4LDExMy41NzMsMjM3LjY1MiwxMjAuNTcyLDIzMC42NTR6Ii8+PC9nPjwvc3ZnPg==);
+    background: no-repeat center / contain;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI5MS44NThweCIgaGVpZ2h0PSI1MTIuMDAxcHgiIHZpZXdCb3g9IjExMC4wNzEgMCAyOTEuODU4IDUxMi4wMDEiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMTEwLjA3MSAwIDI5MS44NTggNTEyLjAwMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTEyMC41NzIsMjMwLjY1NEwzNDAuNzI0LDEwLjUwOWMxNC4wMDUtMTQuMDEyLDM2LjcxLTE0LjAxMiw1MC43MDgsMGMxMy45OTgsMTMuOTk4LDEzLjk5OCwzNi43MDMsMCw1MC43TDE5Ni42MzEsMjU2LjAwNGwxOTQuNzk1LDE5NC43ODhjMTMuOTk4LDE0LjAwNSwxMy45OTgsMzYuNzA2LDAsNTAuNzA1Yy0xMy45OTksMTQuMDA1LTM2LjcwMywxNC4wMDUtNTAuNzA3LDBMMTIwLjU2NiwyODEuMzQ5Yy02Ljk5OS03LjAwMy0xMC40OTUtMTYuMTcxLTEwLjQ5NS0yNS4zNDRDMTEwLjA3MSwyNDYuODI4LDExMy41NzMsMjM3LjY1MiwxMjAuNTcyLDIzMC42NTR6Ii8+PC9nPjwvc3ZnPg==);
 }
 
 .mfp-arrow-left {
-  left: 20px;
+    left: 20px;
 }
 
 .mfp-arrow-right {
-  right: 20px;
-  @include transform(translate(0,-50%) scaleX(-1));
+    right: 20px;
+    @include transform(translate(0, -50%) scaleX(-1));
 }
 
-  .mfp-iframe-holder .mfp-content {
+.mfp-iframe-holder .mfp-content {
     line-height: 0;
     width: 100%;
-    max-width: 900px; }
+    max-width: 900px;
+}
 
 .mfp-iframe-scaler {
-  width: 100%;
-  height: 0;
-  overflow: hidden;
-  padding-top: 56.25%; }
-  .mfp-iframe-scaler iframe {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+
+.mfp-iframe-scaler iframe {
     position: absolute;
     display: block;
     top: 0;
@@ -213,25 +243,29 @@ button::-moz-focus-inner {
     width: 100%;
     height: 100%;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    background: #000; }
+    background: #000;
+}
 
 /* Main image in popup */
 img.mfp-img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: calc(100vh - 50px) !important;
-  display: block;
-  line-height: 0;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  box-sizing: border-box;
-  margin: 0 auto; }
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: calc(100vh - 50px) !important;
+    display: block;
+    line-height: 0;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
 
 /* The shadow behind the image */
 .mfp-figure {
-  line-height: 0; }
-  .mfp-figure:after {
+    line-height: 0;
+}
+
+.mfp-figure:after {
     content: '';
     position: absolute;
     left: 0;
@@ -243,75 +277,93 @@ img.mfp-img {
     height: auto;
     z-index: -1;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    background: #444; }
-  .mfp-figure small {
+    background: #444;
+}
+
+.mfp-figure small {
     color: #BDBDBD;
     display: block;
     font-size: 12px;
-    line-height: 14px; }
-  .mfp-figure figure {
-    margin: 0; }
+    line-height: 14px;
+}
+
+.mfp-figure figure {
+    margin: 0;
+}
 
 .mfp-bottom-bar {
-  margin-top: 5px;
-  position: relative;
-  top: 100%;
-  width: 100%;
-  cursor: auto; }
+    margin-top: 5px;
+    position: relative;
+    top: 100%;
+    width: 100%;
+    cursor: auto;
+}
 
 .mfp-title {
-  text-align: left;
-  line-height: 18px;
-  color: #F3F3F3;
-  word-wrap: break-word;
-  padding-right: 36px; }
+    text-align: left;
+    line-height: 18px;
+    color: #F3F3F3;
+    word-wrap: break-word;
+    padding-right: 36px;
+}
 
 .mfp-image-holder .mfp-content {
-  max-width: 100%; }
+    max-width: 100%;
+}
 
 .mfp-gallery .mfp-image-holder .mfp-figure {
-  cursor: pointer; }
+    cursor: pointer;
+}
 
 @media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
-  /**
-       * Remove all paddings around the image on small screen
-       */
-  .mfp-img-mobile .mfp-image-holder {
-    padding-left: 0;
-    padding-right: 0; }
-  .mfp-img-mobile img.mfp-img {
-    padding: 0; }
-  .mfp-img-mobile .mfp-figure:after {
-    top: 0;
-    bottom: 0; }
-  .mfp-img-mobile .mfp-figure small {
-    display: inline;
-    margin-left: 5px; }
-  .mfp-img-mobile .mfp-bottom-bar {
-    background: rgba(0, 0, 0, 0.6);
-    bottom: 0;
-    margin: 0;
-    top: auto;
-    padding: 3px 5px;
-    position: fixed;
-    box-sizing: border-box; }
+    /**
+         * Remove all paddings around the image on small screen
+         */
+    .mfp-img-mobile .mfp-image-holder {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .mfp-img-mobile img.mfp-img {
+        padding: 0;
+    }
+    .mfp-img-mobile .mfp-figure:after {
+        top: 0;
+        bottom: 0;
+    }
+    .mfp-img-mobile .mfp-figure small {
+        display: inline;
+        margin-left: 5px;
+    }
+    .mfp-img-mobile .mfp-bottom-bar {
+        background: rgba(0, 0, 0, 0.6);
+        bottom: 0;
+        margin: 0;
+        top: auto;
+        padding: 3px 5px;
+        position: fixed;
+        box-sizing: border-box;
+    }
     .mfp-img-mobile .mfp-bottom-bar:empty {
-      padding: 0; }
-  .mfp-img-mobile .mfp-counter {
-    right: 5px;
-    top: 3px; }
-  .mfp-img-mobile .mfp-close {
-    top: 0;
-    right: 0;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    background: rgba(0, 0, 0, 0.6);
-    position: fixed;
-    text-align: center;
-    padding: 0; } }
+        padding: 0;
+    }
+    .mfp-img-mobile .mfp-counter {
+        right: 5px;
+        top: 3px;
+    }
+    .mfp-img-mobile .mfp-close {
+        top: 0;
+        right: 0;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        background: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        text-align: center;
+        padding: 0;
+    }
+}
 
-    /* overlay at start */
+/* overlay at start */
 .mfp-fade.mfp-bg {
     opacity: 0;
     @include transition(.35s);
@@ -344,20 +396,22 @@ img.mfp-img {
 }
 
 @media all and (max-width: 900px) {
-  .mfp-arrow {
+    .mfp-arrow {
 
-  }
-  .mfp-arrow-left {
-    @include transform(scale(.75) translate(0, -50%));
-  }
-  .mfp-arrow-right {
-    @include transform(scale(.75) translate(0, -50%) scaleX(-1));
-  }
-  .mfp-container {
-    padding-left: 6px;
-    padding-right: 6px; } }
+    }
+    .mfp-arrow-left {
+        @include transform(scale(.75) translate(0, -50%));
+    }
+    .mfp-arrow-right {
+        @include transform(scale(.75) translate(0, -50%) scaleX(-1));
+    }
+    .mfp-container {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+}
 
-@include media-max($mainWidth){
+@include media-max($mainWidth) {
     img.mfp-img {
         border-width: 1px;
     }

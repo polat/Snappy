@@ -24,7 +24,7 @@ $list-heading-color: #fff;
     }
 
     &:not([class*="s-list-col-"]){
-        &:not(.s-list-full){
+        &:not(.s-full){
             display: inline-block;
         }
     }

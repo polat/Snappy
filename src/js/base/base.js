@@ -54,14 +54,14 @@ $(document).ready(function () {
     var controller = new slidebars();
     controller.init();
 
-    $('.mobile_btn').on('click, touchstart', function (e) {
+    $('.mobile_btn').on('click', function (e) {
         controller.toggle( 'id-1' );
 
         $(this).toggleClass('is-active');
         return false;
     });
 
-    $("div[canvas='container']").on('click, touchstart', function (e){
+    $("div[canvas='container']").on('click', function (e){
         controller.close( 'id-1' );
 
         if($(".mobile_btn").hasClass('is-active')){
