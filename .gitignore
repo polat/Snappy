@@ -2,12 +2,6 @@
 .DS_Store*
 Icon?
 node_modules
-images/favicon.ico
-images/logo.png
-src/js/base/doc.js
-src/js/vendor/prism.js
-src/sass/modules/doc.scss
-src/sass/vendors/prism.scss
 
 
 # Sass
