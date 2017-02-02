@@ -31,7 +31,7 @@ module.exports = function(grunt) {
         },
 
         imagemin: {
-            png: {
+            images_png: {
                 options: {
                     optimizationLevel: 7
                 },
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
                     }
                 ]
             },
-            jpg: {
+            images_jpg: {
                 options: {
                     progressive: true
                 },
@@ -58,38 +58,7 @@ module.exports = function(grunt) {
                         ext: '.jpg'
                     }
                 ]
-            }
-        },
-
-        imageminUploads: {
-            png: {
-                options: {
-                    optimizationLevel: 7
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: '../../uploads',
-                        src: ['*.png'],
-                        dest: '../../uploads',
-                        ext: '.png'
-                    }
-                ]
             },
-            jpg: {
-                options: {
-                    progressive: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: '../../uploads',
-                        src: ['*.jpg'],
-                        dest: '../../uploads',
-                        ext: '.jpg'
-                    }
-                ]
-            }
         },
 
         uglify: {
@@ -101,6 +70,27 @@ module.exports = function(grunt) {
                 files: {
                     'inc/js/script.min.js': ['<%= concat.dist.dest %>']
                 }
+            }
+        },
+
+        combine_mq: {
+            default_options: {
+                expand: true,
+                cwd: 'inc/css',
+                src: '*.css',
+                dest: 'inc/css'
+            }
+        },
+
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'inc/css',
+                    src: ['*.css'],
+                    dest: 'inc/css',
+                    ext: '.min.css'
+                }]
             }
         },
 
@@ -119,15 +109,17 @@ module.exports = function(grunt) {
         watch: {
             css: {
                 options: {
-                    spawn: false,
+                    spawn: false
                 },
+
                 files: 'src/sass/**/*.scss',
                 tasks: ['sass']
             },
             js: {
                 options: {
-                    spawn: false,
+                    spawn: false
                 },
+
                 files: '<%= concat.dist.src %>',
                 tasks: ['concat', 'uglify']
             },
@@ -164,6 +156,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-svgmin');
+    grunt.loadNpmTasks('grunt-combine-mq');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
 
     // Register tasks
@@ -171,6 +165,5 @@ module.exports = function(grunt) {
     grunt.registerTask('css', ['sass']);
     grunt.registerTask('js', ['concat', 'uglify']);
     grunt.registerTask('svg', ['svgmin']);
-    grunt.registerTask('img', ['imagemin']);
-    grunt.registerTask('imgUploads', ['imageminUploads']);
+    grunt.registerTask('production', ['imagemin', 'combine_mq', 'cssmin']);
 };

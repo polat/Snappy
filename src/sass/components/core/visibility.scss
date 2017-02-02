@@ -22,13 +22,13 @@
     }
 
     &-md {
-        @include media(768,1024){
+        @include media(768,$mainWidth){
             display: block !important;
         }
     }
 
     &-lg {
-        @include media-min(1024){
+        @include media-min($mainWidth){
             display: block !important;
         }
     }
@@ -48,13 +48,13 @@
     }
 
     &-md {
-        @include media(768,1024){
+        @include media(768,$mainWidth){
             display: none !important;
         }
     }
 
     &-lg {
-        @include media-min(1024){
+        @include media-min($mainWidth){
             display: none !important;
         }
     }

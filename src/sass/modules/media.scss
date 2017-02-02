@@ -254,8 +254,8 @@ $mobileColor: $mainColor;
     }
 }
 
-// 320-479
-@include media(320,479) {
+// 320-480
+@include media(320,480) {
     // Resize Fonts
     html {
         font-size: px-to-rem($baseFontSize - 2);
@@ -325,8 +325,8 @@ $mobileColor: $mainColor;
     }
 }
 
-// 320 - 567
-@include media(320,567) {
+// 320 - 568
+@include media(320,568) {
     // Gallery
     .gallery {
         li {
@@ -414,8 +414,8 @@ $mobileColor: $mainColor;
     }
 }
 
-// 320 - 767
-@include media(320,767) {
+// 320 - 768
+@include media(320,768) {
     // Contact Page
     .contact {
         &_title {
@@ -468,8 +468,8 @@ $mobileColor: $mainColor;
     }
 }
 
-// 480 - 767
-@include media(480, 767) {
+// 480 - 768
+@include media(480, 768) {
     // Resize Fonts
     html {
         font-size: px-to-rem($baseFontSize - 1);
@@ -509,8 +509,8 @@ $mobileColor: $mainColor;
     }
 }
 
-// 568 - 767
-@include media(568,767) {
+// 568 - 768
+@include media(568,768) {
     // Gallery
     .gallery {
         li {

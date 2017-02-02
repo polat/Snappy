@@ -40,6 +40,8 @@ $table-breakpoint: 768;
 
     &-head {
         thead {
+            font-family: $titleFontFamily;
+
             tr {
                 border-bottom-width: 2px;
                 background: $table-zebra;

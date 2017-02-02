@@ -5,7 +5,7 @@ $(document).ready(function(){
     $(".s-tab_list").each(function(){
         var tab = $(this).parents(".s-tab");
         var tab_breakpoint = 768;
-        var tab_check_breakpoint = $(this).parent().attr("tab-breakpoint");
+        var tab_check_breakpoint = $(this).parent().attr("s-tab-breakpoint");
 
         // Check if there is s-tab-breakpoint attribute on "s-tab" element.
         // If not, default  value is 768

@@ -1,6 +1,6 @@
 {
   "name": "Snappy",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "description": "",
   "main": "index.html",
   "repository": {
@@ -17,6 +17,7 @@
     "grunt": "^1.0.1",
     "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.2",
     "grunt-contrib-imagemin": "^1.0.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",

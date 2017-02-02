@@ -11,10 +11,6 @@
 @import 'vendors/toast';
 // @import 'vendors/slidebars';
 
-// Modules
-@import 'modules/layouts';
-@import 'modules/media';
-
 // Components
 @import 'components/core/accordion';
 @import 'components/core/alignment';
@@ -36,4 +32,9 @@
 @import 'pages/gallery';
 @import 'pages/news';
 @import 'pages/search';
+
+// Modules
+@import 'modules/grid';
+@import 'modules/layouts';
+@import 'modules/media';
 

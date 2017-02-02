@@ -55,6 +55,7 @@ $tab-border-width: 1px;
 
             > li {
                 @include flex-grow(1);
+                @include flex-basis(0);
             }
         }
 

@@ -1,0 +1,217 @@
+// Grid Variables
+$grid-wrap-width: 100%;
+$grid-wrap-name: 'wrap';
+$grid-row-name: 'row';
+$grid-col-name: 'col';
+$grid-col-number: 12;
+$grid-gutter: 20px;
+$grid-gutter-decreaser: 5px; // Shrink gutter on each breakpoint by this value
+
+// Grid Breakpoints
+$grid-breakpoints : (
+    xs: null,
+    sm: 480,
+    md: 768,
+    lg: $mainWidth
+);
+
+// Grid horizontal alignment
+$grid-horizontal-align: (
+    start: "flex-start",
+    center: "center",
+    end: "flex-end",
+    between: "space-between",
+    around: "space-around"
+);
+
+// Grid vertical alignment
+$grid-vertical-align: (
+    top: "flex-start",
+    mid: "center",
+    bot: "flex-end"
+);
+
+// Grid Listing Style
+$grid-direction: (
+    normal: 'row',
+    reverse: 'row-reverse'
+);
+
+// Wrap
+.#{$grid-wrap-name} {
+    width: $grid-wrap-width;
+    margin: -1em auto 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+
+    @include media-max($mainWidth){
+        width: 100%;
+    }
+
+    // Resize grid gutter
+    $grid-breakpoints-length: length($grid-breakpoints);
+    $grid-gutter-counter: $grid-breakpoints-length - 1;
+
+    @each $key,$val in $grid-breakpoints {
+        @if $val == null {
+            font-size: $grid-gutter - ($grid-gutter-counter * $grid-gutter-decreaser);
+        } @else {
+            @include media-min($val){
+                font-size: $grid-gutter - ($grid-gutter-counter * $grid-gutter-decreaser);
+            }
+        }
+
+        $grid-gutter-counter: $grid-gutter-counter - 1;
+    }
+}
+
+// Row
+.#{$grid-row-name} {
+    margin: 0 -.5em;
+    box-sizing: border-box;
+    @include flex(flex);
+    @include flex-wrap(wrap);
+
+    [class*="#{$grid-col-name}-"] {
+        padding-top: 1em;
+        padding-right: .5em;
+        padding-left: .5em;
+        box-sizing: border-box;
+    }
+}
+
+@each $key, $value in $grid-breakpoints {
+    // Is value = 0 ? If so, dont cover these styles with mq
+    @if $value == map_get($grid-breakpoints,1) {
+        // Columns from 1 to Column Number
+        .#{$grid-col-name}-#{$key} {
+            @for $i from 1 through $grid-col-number {
+                &-#{$i}{
+                    max-width: 100% / $grid-col-number * $i;
+                    @include flex-basis(100% / $grid-col-number * $i);
+                }
+            }
+
+            // Pull Columns to Left
+            &-pull {
+                margin-right: auto;
+            }
+
+            // Push Columns to Right
+            &-push {
+                margin-left: auto;
+            }
+
+            // Put column to start
+            &-first {
+                @include flex-order(-1);
+            }
+
+            // Put column to end
+            &-last {
+                @include flex-order(2);
+            }
+
+            // These columns share the available width between them.
+            &-auto {
+                max-width: 100%;
+                @include flex-value(1);
+                @include flex-grow(1);
+                @include flex-basis(0);
+            }
+        }
+
+        // Alignment of Columns
+        .#{$grid-row-name} {
+            &-#{$key}{
+                // Grid Listing Style
+                @each $key, $value in $grid-direction {
+                    &-#{$key}{
+                        @include flex-direction($value);
+                    }
+                }
+
+                // Horizontal Alignment
+                @each $key, $value in $grid-horizontal-align {
+                    &-#{$key}{
+                        @include justify-content($value);
+                    }
+                }
+
+                // Vertical Alignment
+                @each $key, $value in $grid-vertical-align {
+                    &-#{$key}{
+                        @include align-items($value);
+                    }
+                }
+            }
+        }
+    } @else {
+        // These styles are covered by a min-mq
+        @include media-min($value){
+            // Columns from 1 to Column Number
+            .#{$grid-col-name}-#{$key} {
+                @for $i from 1 through $grid-col-number {
+                    &-#{$i}{
+                        max-width: 100% / $grid-col-number * $i;
+                        @include flex-basis(100% / $grid-col-number * $i);
+                    }
+                }
+
+                // Pull Columns to Left
+                &-pull {
+                    margin-right: auto;
+                }
+
+                // Push Columns to Right
+                &-push {
+                    margin-left: auto;
+                }
+
+                // Put column to start
+                &-first {
+                    @include flex-order(-1);
+                }
+
+                // Put column to end
+                &-last {
+                    @include flex-order(2);
+                }
+
+                // These columns share the available width between them.
+                &-auto {
+                    max-width: 100%;
+                    @include flex-value(1);
+                    @include flex-grow(1);
+                    @include flex-basis(0);
+                }
+            }
+
+            // Alignment of Columns
+            .#{$grid-row-name} {
+                &-#{$key}{
+                    // Grid Listing Style
+                    @each $key, $value in $grid-direction {
+                        &-#{$key}{
+                            @include flex-direction($value);
+                        }
+                    }
+
+                    // Horizontal Alignment
+                    @each $key, $value in $grid-horizontal-align {
+                        &-#{$key}{
+                            @include justify-content($value);
+                        }
+                    }
+
+                    // Vertical Alignment
+                    @each $key, $value in $grid-vertical-align {
+                        &-#{$key}{
+                            @include align-items($value);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
