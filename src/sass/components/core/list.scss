@@ -23,7 +23,7 @@ $list-heading-color: #fff;
         }
     }
 
-    &:not([class*="s-list-col-"]){
+    &:not([class*="s-list-column-"]){
         &:not(.s-full){
             display: inline-block;
         }
@@ -103,8 +103,8 @@ $list-heading-color: #fff;
     &-zebra {
         border: 1px solid $list-border-color;
 
-        &:not([class^="s-list-col"]){
-            &:not([class*="s-list-col"]){
+        &:not([class^="s-list-column"]){
+            &:not([class*="s-list-column"]){
                 > li {
                     padding-left: $gutter / 2;
                     padding-right: $gutter / 2;
@@ -145,8 +145,8 @@ $list-heading-color: #fff;
         }
     }
 
-    &[class^="s-list-col"],
-    &[class*="s-list-col"] {
+    &[class^="s-list-column"],
+    &[class*="s-list-column"] {
         @include flex(flex);
         @include flex-wrap(wrap);
 
@@ -157,7 +157,7 @@ $list-heading-color: #fff;
     }
 
     @for $i from 2 through 5 {
-        &-col {
+        &-column {
             &-#{$i}{
                 &.s-list-border {
                     > li {

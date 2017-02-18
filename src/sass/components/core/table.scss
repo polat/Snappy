@@ -17,7 +17,7 @@ $table-breakpoint: 768;
     border: 1px solid $table-border-color;
     border-collapse: collapse;
     @include font(14,22,$baseFontFamily,$baseColor);
-    
+
     caption {
         padding: $table-vertical-padding 0;
         background-color: $mainColor;
@@ -209,7 +209,6 @@ $table-breakpoint: 768;
                 }
 
                 td {
-                    border: none;
                     display: block;
                     text-align: right;
 

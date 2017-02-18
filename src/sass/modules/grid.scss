@@ -9,32 +9,32 @@ $grid-gutter-decreaser: 5px; // Shrink gutter on each breakpoint by this value
 
 // Grid Breakpoints
 $grid-breakpoints : (
-    xs: null,
-    sm: 480,
-    md: 768,
-    lg: $mainWidth
+        xs: null,
+        sm: 480,
+        md: 768,
+        lg: $mainWidth
 );
 
 // Grid horizontal alignment
 $grid-horizontal-align: (
-    start: "flex-start",
-    center: "center",
-    end: "flex-end",
-    between: "space-between",
-    around: "space-around"
+        start: "flex-start",
+        center: "center",
+        end: "flex-end",
+        between: "space-between",
+        around: "space-around"
 );
 
 // Grid vertical alignment
 $grid-vertical-align: (
-    top: "flex-start",
-    mid: "center",
-    bot: "flex-end"
+        top: "flex-start",
+        mid: "center",
+        bot: "flex-end"
 );
 
 // Grid Listing Style
 $grid-direction: (
-    normal: 'row',
-    reverse: 'row-reverse'
+        normal: 'row',
+        reverse: 'row-reverse'
 );
 
 // Wrap
@@ -42,7 +42,7 @@ $grid-direction: (
     width: $grid-wrap-width;
     margin: -1em auto 0;
     box-sizing: border-box;
-    overflow-x: hidden;
+    // overflow-x: hidden;
 
     @include media-max($mainWidth){
         width: 100%;
@@ -73,10 +73,12 @@ $grid-direction: (
     @include flex-wrap(wrap);
 
     [class*="#{$grid-col-name}-"] {
-        padding-top: 1em;
-        padding-right: .5em;
-        padding-left: .5em;
-        box-sizing: border-box;
+        &:not([class*="s-list-col"]){
+            padding-top: 1em;
+            padding-right: .5em;
+            padding-left: .5em;
+            box-sizing: border-box;
+        }
     }
 }
 
