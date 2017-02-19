@@ -30,37 +30,6 @@ module.exports = function(grunt) {
             }
         },
 
-        imagemin: {
-            images_png: {
-                options: {
-                    optimizationLevel: 7
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'images',
-                        src: ['*.png'],
-                        dest: 'images',
-                        ext: '.png'
-                    }
-                ]
-            },
-            images_jpg: {
-                options: {
-                    progressive: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'images',
-                        src: ['*.jpg'],
-                        dest: 'images',
-                        ext: '.jpg'
-                    }
-                ]
-            },
-        },
-
         uglify: {
             options: {
                 mangle: false,
@@ -154,7 +123,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browser-sync');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-svgmin');
     grunt.loadNpmTasks('grunt-combine-mq');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -165,5 +133,5 @@ module.exports = function(grunt) {
     grunt.registerTask('css', ['sass']);
     grunt.registerTask('js', ['concat', 'uglify']);
     grunt.registerTask('svg', ['svgmin']);
-    grunt.registerTask('production', ['imagemin', 'combine_mq', 'cssmin']);
+    grunt.registerTask('production', ['combine_mq', 'cssmin']);
 };

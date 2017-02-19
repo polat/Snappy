@@ -73,12 +73,10 @@ $grid-direction: (
     @include flex-wrap(wrap);
 
     [class*="#{$grid-col-name}-"] {
-        &:not([class*="s-list-col"]){
-            padding-top: 1em;
-            padding-right: .5em;
-            padding-left: .5em;
-            box-sizing: border-box;
-        }
+        padding-top: 1em;
+        padding-right: .5em;
+        padding-left: .5em;
+        box-sizing: border-box;
     }
 }
 
