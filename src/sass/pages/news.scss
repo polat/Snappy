@@ -5,11 +5,11 @@ $news-img-height: 160;
 .news {
     &List {
         & > li {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
             position: relative;
 
             &:not(:last-of-type){
+                margin-bottom: 25px;
+                padding-bottom: 25px;
                 border-bottom: 1px solid rgba(148,148,148,0.2);
             }
 

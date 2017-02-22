@@ -29,7 +29,8 @@ $(document).ready(function () {
     // Basic Popup
     $(".s-popup").magnificPopup({
         type: 'image',
-        mainClass: 'mfp-fade'
+        mainClass: 'mfp-fade',
+        titleSrc: 'title'
     });
 
     // Inline Popup
@@ -46,7 +47,8 @@ $(document).ready(function () {
             gallery: {
                 enabled: true
             },
-            mainClass: 'mfp-fade'
+            mainClass: 'mfp-fade',
+            titleSrc: 'title'
         });
     });
 

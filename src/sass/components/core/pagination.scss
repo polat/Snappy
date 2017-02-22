@@ -1,0 +1,25 @@
+.s-pagination {
+    margin-top: 20px;
+    @include flex(flex);
+    @include justify-content(center);
+
+    > li {
+        &:not(:last-child){
+            margin-right: 5px;
+        }
+
+        a {
+            width: 30px;
+            height: 30px;
+            border: 1px solid $mainColor;
+            border-radius: 5px;
+            display: block;
+            @include font(14,30,$titleFontFamily,$mainColor,center);
+
+            &.active {
+                background: $mainColor;
+                color: #fff;
+            }
+        }
+    }
+}

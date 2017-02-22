@@ -2590,7 +2590,8 @@ $(document).ready(function () {
     // Basic Popup
     $(".s-popup").magnificPopup({
         type: 'image',
-        mainClass: 'mfp-fade'
+        mainClass: 'mfp-fade',
+        titleSrc: 'title'
     });
 
     // Inline Popup
@@ -2607,7 +2608,8 @@ $(document).ready(function () {
             gallery: {
                 enabled: true
             },
-            mainClass: 'mfp-fade'
+            mainClass: 'mfp-fade',
+            titleSrc: 'title'
         });
     });
 
@@ -2759,7 +2761,7 @@ $(document).ready(function(){
 
     // <---- TABS  ----
     $(".s-tab_list").each(function(){
-        var tab = $(this).parents(".s-tab");
+        var tab = $(this).parent(".s-tab");
         var tab_breakpoint = 768;
         var tab_check_breakpoint = $(this).parent().attr("s-tab-breakpoint");
 

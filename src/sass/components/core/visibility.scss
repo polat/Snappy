@@ -1,74 +1,29 @@
 /**
  ** VISIBILITY
 **/
-.visible {
-    &-xs,
-    &-sm,
-    &-md,
-    &-lg {
-        display: none !important;
-    }
 
-    &-xs {
-        @include media-max(480){
-            display: block !important;
-        }
-    }
+// Grid Breakpoints
+$visibility-breakpoints : (
+    xs: 480,
+    sm: 568,
+    md: 768,
+    lg: 1024,
+    xl: $mainWidth
+);
 
-    &-sm {
-        @include media(480,768){
-            display: block !important;
-        }
-    }
-
-    &-md {
-        @include media(768,$mainWidth){
-            display: block !important;
-        }
-    }
-
-    &-lg {
-        @include media-min($mainWidth){
-            display: block !important;
-        }
-    }
-}
-
-.hidden {
-    &-xs {
-        @include media-max(480){
+@each $key, $val in $visibility-breakpoints {
+    // Hide elements on screen > $value
+    .hidden-#{$key}-up {
+        @include media-min($val){
             display: none !important;
         }
     }
 
-    &-sm {
-        @include media(480,768){
+    // Hide elements on screen < $value
+    .hidden-#{$key}-down {
+        @include media-max($val - 1){
             display: none !important;
         }
-    }
-
-    &-md {
-        @include media(768,$mainWidth){
-            display: none !important;
-        }
-    }
-
-    &-lg {
-        @include media-min($mainWidth){
-            display: none !important;
-        }
-    }
-}
-
-.mobile-view {
-    @include media-min($mainWidth){
-        display: none !important;
-    }
-}
-
-.desktop-view {
-    @include media-max($mainWidth){
-        display: none !important;
     }
 }
 

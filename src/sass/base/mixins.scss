@@ -26,17 +26,11 @@
         display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
-        -webkit-box-flex: 0;
-        -ms-flex: none;
-        flex: none;
     } @else if $display == inline-flex {
         display: -webkit-inline-box;
         display: -webkit-inline-flex;
         display: -ms-inline-flexbox;
         display: inline-flex;
-        -webkit-box-flex: 0;
-        -ms-flex: none;
-        flex: none;
     }
 }
 
