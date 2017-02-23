@@ -135,7 +135,10 @@
 
             div {
                 display: block;
-                float: left;
+
+                &:not(.clearfix){
+                    float: left;
+                }
 
                 &:first-of-type {
                     width:60px;
@@ -148,10 +151,6 @@
 
                 &:nth-of-type(3) {
                     width: calc(100% - 105px);
-                }
-
-                &.clear {
-                    float: none;
                 }
             }
 
