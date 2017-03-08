@@ -10,9 +10,9 @@ $imagesPerRow: 3;
     @include flex-wrap(wrap);
 
     li {
-        margin: $galleryMargin;
-
         @media screen and (min-width: $mainWidth * 1px){
+            margin: $galleryMargin;
+            
             &:nth-child(-n + #{$imagesPerRow}){
                 margin-top: 0;
             }

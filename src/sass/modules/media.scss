@@ -149,10 +149,7 @@ $mobileColor: $mainColor;
                             height: 22px;
                             background: url("../../images/icons/home.svg") no-repeat center / 22px 22px;
                             content: "";
-                            position: absolute;
-                            left: 50%;
-                            top: 50%;
-                            @include translate(-50%, -50%);
+                            @include centerer(center);
                         }
                     }
                 }
@@ -261,6 +258,21 @@ $mobileColor: $mainColor;
         font-size: px-to-rem($baseFontSize - 2);
     }
 
+    // Gallery
+    .gallery {
+        li {
+            width: calc(50% - 7.5px);
+
+            &:not(:nth-child(2n)){
+                margin-right: 15px;
+            }
+
+            &:not(:nth-child(-n + 2)){
+                margin-top: 15px;
+            }
+        }
+    }
+
     // Contact Page
     .contact {
         &_form {
@@ -327,22 +339,6 @@ $mobileColor: $mainColor;
 
 // 320 - 568
 @include media(320,568) {
-    // Gallery
-    .gallery {
-        li {
-            width: calc(50% - 7.5px);
-            margin: 15px 15px 0 0;
-
-            &:nth-child(2n){
-                margin-right: 0;
-            }
-
-            &:nth-child(-n + 2){
-                margin-top: 0;
-            }
-        }
-    }
-
     // Contact
     .contact {
         &.multiple {
@@ -478,8 +474,15 @@ $mobileColor: $mainColor;
     // Gallery
     .gallery {
         li {
-            width: calc(100% / 3 - 10px);
-            margin: 0 15px 15px 0;
+            width: calc(33.3333% - 10px);
+
+            &:not(:nth-child(3n)){
+                margin-right: 15px;
+            }
+
+            &:not(:nth-child(-n + 3)){
+                margin-top: 15px;
+            }
         }
     }
 
@@ -533,15 +536,14 @@ $mobileColor: $mainColor;
     // Gallery
     .gallery {
         li {
-            width: calc(25% - 15px);
-            margin: 20px 20px 0 0;
+            width: calc(25% - 9px);
 
-            &:nth-child(4n){
-                margin-right: 0;
+            &:not(:nth-child(4n)){
+                margin-right: 12px;
             }
 
-            &:nth-child(-n + 4){
-                margin-top: 0;
+            &:not(:nth-child(-n + 4)){
+                margin-top: 12px;
             }
         }
     }

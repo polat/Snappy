@@ -1,4 +1,10 @@
 /**
+ ** FORM FIELDS
+**/
+
+
+
+/**
  ** CHECKBOX & RADIO & SELECT
 **/
 
@@ -42,12 +48,12 @@
 
     > li {
         label {
-            padding-left: 2em;
+            padding-left: 2.25em;
             position: relative;
             display: inline-block;
             cursor: pointer;
             line-height: 1.75em;
-            @include font(14);
+            @include font(13);
 
             &::before {
                 width: 1.75em;
@@ -74,6 +80,7 @@
         input {
             width: 0;
             height: 0;
+            position: absolute;
             @include hide();
 
             &:checked + label svg * {

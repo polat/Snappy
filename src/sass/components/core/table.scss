@@ -148,12 +148,14 @@ $table-breakpoint: 768;
         text-align: left;
         vertical-align: middle;
         white-space: normal;
+        overflow: hidden;
     }
 }
 
-@include media-max($table-breakpoint){
+@include media-max($table-breakpoint - 1){
     .s-table {
         &-responsive {
+            width: 100%;
             border: none;
             box-shadow: none;
 
@@ -224,7 +226,7 @@ $table-breakpoint: 768;
                         content: attr(data-title);
                         margin-right: 10px;
                         float: left;
-                        @include font($baseFontSize - 1,$baseFontSize + 5,null,currentColor);
+                        @include font($baseFontSize - 1,$baseFontSize + 5,$titleFontFamily,currentColor);
                     }
                 }
             }
