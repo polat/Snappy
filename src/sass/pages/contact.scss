@@ -303,10 +303,10 @@
 
         &_buttons {
             float: right;
-            @include flex(flex);
-            @include flex-direction(column);
+            display: block;
 
-            input {
+            input,
+            #recaptcha-submit {
                 height: 47px;
                 margin-bottom: 4px;
                 padding: 0 15px;
@@ -323,7 +323,19 @@
                     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
                     color: #fff;
                 }
+
+                &.sendContact {
+                    display: none;
+                }
             }
+
+            #recaptcha-submit {
+                margin-left: 10px;
+            }
+        }
+
+        .grecaptcha-badge {
+            display: none;
         }
     }
 }

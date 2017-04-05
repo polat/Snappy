@@ -242,8 +242,10 @@ $mobileColor: $mainColor;
             margin: 20px auto 20px;
 
             &_buttons {
-                input {
-                    width: 130px;
+                input,
+                #recaptcha-submit {
+                    min-width: 90px;
+                    padding: 0 15px;
                     height: 37px;
                 }
             }
@@ -308,29 +310,16 @@ $mobileColor: $mainColor;
             }
 
             &_buttons {
-                margin-top: 82px;
                 float: none;
 
                 input {
                     &[type="reset"], &[type="submit"] {
-                        width: 133px;
                         float: left;
-
-                        &.resetContact, &.resetCareer {
-                            margin-right: 12px;
-                        }
                     }
                 }
 
                 .clear {
                     display: none;
-                }
-            }
-
-            // Career
-            &.career {
-                .contact_form_buttons {
-                    margin-top: 94px;
                 }
             }
         }
