@@ -54,7 +54,7 @@ $news-img-height: 160;
 
         &_title, &_date {
             float: left;
-            @include font($baseFontSize + 2,$baseFontSize + 8,null,$mainColor);
+            @include font($baseFontSize + 2,$baseFontSize + 8,$titleFontFamily,$mainColor);
         }
 
         &_title {
@@ -78,7 +78,7 @@ $news-img-height: 160;
         &_more {
             display: inline-block;
             position: relative;
-            @include font($baseFontSize + 1,$baseFontSize + 7,null,$mainColor);
+            @include font($baseFontSize + 1,$baseFontSize + 7,$baseFontFamily,$mainColor);
 
             &::after {
                 width: 100%;
@@ -103,7 +103,7 @@ $news-img-height: 160;
 
     &_inner {
         &_title, &_date {
-            @include font($baseFontSize + 2,$baseFontSize + 8,null,$mainColor);
+            @include font($baseFontSize + 2,$baseFontSize + 8,$titleFontFamily,$mainColor);
         }
 
         &_title {
@@ -129,7 +129,7 @@ $news-img-height: 160;
             margin: 100px 0 0 0;
             padding: 0 0 20px 0;
             border-bottom: 1px solid #E9E9E9;
-            @include font($baseFontSize + 5,$baseFontSize + 11,null,$mainColor);
+            @include font($baseFontSize + 5,$baseFontSize + 11,$titleFontFamily,$mainColor);
         }
 
         &_list {
@@ -140,7 +140,7 @@ $news-img-height: 160;
                     padding: 20px 0 20px 18px;
                     display: block;
                     position: relative;
-                    @include font($baseFontSize + 2,$baseFontSize + 8,null,$mainColor);
+                    @include font($baseFontSize + 2,$baseFontSize + 8,$baseFontFamily,$mainColor);
                     @include transition(0.2s);
 
                     &::before {
@@ -148,7 +148,7 @@ $news-img-height: 160;
                         left: 0;
                         @include centerer(vertical);
                         @include transition(0.2s);
-                        @include font($baseFontSize + 2,$baseFontSize + 8,null,$mainColor);
+                        @include font($baseFontSize + 2,$baseFontSize + 8,$baseFontFamily,$mainColor);
                     }
 
                     &:hover {

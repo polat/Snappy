@@ -303,12 +303,6 @@ $mobileColor: $mainColor;
                 }
             }
 
-            &_recaptcha {
-                position: absolute;
-                @include scale(0.921);
-                @include prefix(transform-origin,0 0);
-            }
-
             &_buttons {
                 float: none;
 
@@ -316,10 +310,6 @@ $mobileColor: $mainColor;
                     &[type="reset"], &[type="submit"] {
                         float: left;
                     }
-                }
-
-                .clear {
-                    display: none;
                 }
             }
         }

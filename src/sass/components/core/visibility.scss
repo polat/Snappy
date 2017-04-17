@@ -28,5 +28,5 @@ $visibility-breakpoints : (
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }

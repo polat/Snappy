@@ -78,7 +78,7 @@ h6 {
 
 @for $i from 1 through 6 {
     h#{$i}{
-        @include font($baseFontSize + 14 - ($i * 2),$baseFontSize + 20 - ($i * 2));
+        @include font($baseFontSize + 12 - ($i * 2),$baseFontSize + 18 - ($i * 2));
     }
 }
 
