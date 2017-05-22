@@ -22,7 +22,7 @@ $tab-border-width: 1px;
 
         select {
             width: calc(100% + 40px);
-            background: transparent;
+            background-color: transparent;
 
             @if ($tab-vertical-padding == $tab-horizontal-padding) {
                 padding: $tab-vertical-padding;
@@ -78,14 +78,14 @@ $tab-border-width: 1px;
         > li {
             &.active {
                 a {
-                    background: $tab-bg;
+                    background-color: $tab-bg;
                 }
             }
 
             &:not(.active){
                 &:hover {
                     a {
-                        background: $tab-border-color;
+                        background-color: $tab-border-color;
                     }
                 }
             }

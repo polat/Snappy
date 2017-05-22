@@ -1,12 +1,11 @@
 .s-pagination {
-    margin-top: 20px;
+    margin-top: 15px;
     @include flex(flex);
     @include justify-content(center);
+    @include flex-wrap(wrap);
 
     > li {
-        &:not(:last-child){
-            margin-right: 5px;
-        }
+        margin: 5px 2.5px 0 2.5px;
 
         a {
             width: 30px;
