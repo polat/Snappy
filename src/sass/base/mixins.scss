@@ -265,6 +265,18 @@
     transform: rotate($degree);
 }
 
+// Transform Rotate X
+@mixin rotateX($degree){
+    -webkit-transform: rotateX($degree);
+    transform: rotateX($degree);
+}
+
+// Transform Rotate Y
+@mixin rotateY($degree){
+    -webkit-transform: rotateY($degree);
+    transform: rotateY($degree);
+}
+
 // Transform Scale
 @mixin scale($string...){
     -webkit-transform: scale($string);

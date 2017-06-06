@@ -1,13 +1,12 @@
 {
   "name": "Snappy",
-  "version": "1.7.0",
-  "description": "",
+  "version": "1.8.0",
   "main": "index.html",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/polat/Snappy.git"
   },
-  "author": "Infomedya Bilişim Teknolojileri",
+  "author": "Polat İnceler",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/polat/Snappy/issues"
@@ -16,12 +15,21 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-browser-sync": "^2.2.0",
+    "grunt-combine-mq": "^0.9.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-cssmin": "^1.0.2",
-    "grunt-combine-mq": "^0.9.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-mjml": "^1.0.1",
     "grunt-svgmin": "^4.0.0"
-  }
+  },
+  "dependencies": {
+    "mjml": "^3.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "description": ""
 }

@@ -54,6 +54,7 @@ $list-heading-color: #fff;
             &::before {
                 width: 5px;
                 height: 5px;
+                border-radius: 50%;
                 background: currentColor;
                 content: "";
                 position: absolute;
@@ -61,20 +62,12 @@ $list-heading-color: #fff;
                 top: #{($baseFontSize / 2) + $list-padding-vertical + 0.5};
             }
         }
-    }
 
-    &-circle {
         &.s-list-link {
             > li {
                 a {
                     padding-left: 17.5px !important;
                 }
-            }
-        }
-
-        > li {
-            &::before {
-                border-radius: 50%;
             }
         }
     }

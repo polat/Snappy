@@ -19,7 +19,6 @@ module.exports = function(grunt) {
                 ext: '.svg'
             }
         },
-
         concat: {
             options: {
                 separator: ';\n'
@@ -29,7 +28,6 @@ module.exports = function(grunt) {
                 dest: 'inc/js/script.js'
             }
         },
-
         uglify: {
             options: {
                 mangle: false,
@@ -50,7 +48,6 @@ module.exports = function(grunt) {
                 dest: 'inc/css'
             }
         },
-
         cssmin: {
             target: {
                 files: [{
@@ -62,7 +59,6 @@ module.exports = function(grunt) {
                 }]
             }
         },
-
         sass: {
             dist: {
                 options: {
@@ -74,7 +70,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-
         watch: {
             css: {
                 options: {
@@ -97,7 +92,6 @@ module.exports = function(grunt) {
                 tasks: ['svgmin']
             }
         },
-
         browserSync: {
             files: {
                 src : [
@@ -113,19 +107,31 @@ module.exports = function(grunt) {
                     directory: true
                 }
             }
-        }
+        },
+        mjml: {
+            email:{
+                files: [{
+                    expand: true,
+                    cwd: 'src/email', 
+                    dest: 'src/email',
+                    ext: '.html',
+                    extDot: 'first'
+                }]
+            }
+        },
     });
 
 
     // Load the plugins
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browser-sync');
-    grunt.loadNpmTasks('grunt-svgmin');
-    grunt.loadNpmTasks('grunt-combine-mq');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-combine-mq');
+    grunt.loadNpmTasks('grunt-svgmin');
+    grunt.loadNpmTasks('grunt-mjml');
 
 
     // Register tasks
@@ -133,5 +139,6 @@ module.exports = function(grunt) {
     grunt.registerTask('css', ['sass']);
     grunt.registerTask('js', ['concat', 'uglify']);
     grunt.registerTask('svg', ['svgmin']);
+    grunt.registerTask('email', ['mjml']);
     grunt.registerTask('production', ['combine_mq', 'cssmin']);
 };

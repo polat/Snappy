@@ -81,7 +81,10 @@
             width: 0;
             height: 0;
             position: absolute;
-            @include hide();
+            -webkit-appearance: checkbox;
+            -moz-appearance:    checkbox;
+            appearance:         checkbox;
+            @include hide();    
 
             &:checked + label svg * {
                 stroke-dashoffset: 0;
