@@ -39,7 +39,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-
         combine_mq: {
             default_options: {
                 expand: true,
@@ -113,6 +112,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'src/email', 
+                    src: ['**/*.mjml'], 
                     dest: 'src/email',
                     ext: '.html',
                     extDot: 'first'
