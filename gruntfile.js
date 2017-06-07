@@ -89,6 +89,10 @@ module.exports = function(grunt) {
             img: {
                 files: ["images/icons/*.svg"],
                 tasks: ['svgmin']
+            },
+            mjml: {
+                files: ["src/email/**/*.mjml"],
+                tasks: ['mjml']
             }
         },
         browserSync: {
@@ -139,6 +143,5 @@ module.exports = function(grunt) {
     grunt.registerTask('css', ['sass']);
     grunt.registerTask('js', ['concat', 'uglify']);
     grunt.registerTask('svg', ['svgmin']);
-    grunt.registerTask('email', ['mjml']);
     grunt.registerTask('production', ['combine_mq', 'cssmin']);
 };
