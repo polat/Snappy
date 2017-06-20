@@ -1,6 +1,6 @@
 {
   "name": "Snappy",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "main": "index.html",
   "repository": {
     "type": "git",
@@ -21,11 +21,7 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-mjml": "^1.0.1",
     "grunt-svgmin": "^4.0.0"
-  },
-  "dependencies": {
-    "mjml": "^3.3.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

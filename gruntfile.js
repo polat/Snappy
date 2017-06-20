@@ -89,10 +89,6 @@ module.exports = function(grunt) {
             img: {
                 files: ["images/icons/*.svg"],
                 tasks: ['svgmin']
-            },
-            mjml: {
-                files: ["src/email/**/*.mjml"],
-                tasks: ['mjml']
             }
         },
         browserSync: {
@@ -111,18 +107,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        mjml: {
-            email:{
-                files: [{
-                    expand: true,
-                    cwd: 'src/email', 
-                    src: ['**/*.mjml'], 
-                    dest: 'src/email',
-                    ext: '.html',
-                    extDot: 'first'
-                }]
-            }
-        },
     });
 
 
@@ -135,7 +119,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-combine-mq');
     grunt.loadNpmTasks('grunt-svgmin');
-    grunt.loadNpmTasks('grunt-mjml');
 
 
     // Register tasks
