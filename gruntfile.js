@@ -13,9 +13,9 @@ module.exports = function(grunt) {
             },
             dist: {
                 expand: true,
-                cwd: 'images/icons',
+                cwd: 'dist/images/icons',
                 src: ['*.svg'],
-                dest: 'images/inline-svg',
+                dest: 'dist/images/inline-svg',
                 ext: '.svg'
             }
         },
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 src: ['src/js/vendor/*.js', 'src/js/base/*.js', 'src/js/components/*.js'],
-                dest: 'inc/js/script.js'
+                dest: 'dist/js/script.js'
             }
         },
         uglify: {
@@ -35,25 +35,25 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'inc/js/script.min.js': ['<%= concat.dist.dest %>']
+                    'dist/js/script.min.js': ['<%= concat.dist.dest %>']
                 }
             }
         },
         combine_mq: {
             default_options: {
                 expand: true,
-                cwd: 'inc/css',
+                cwd: 'dist/css',
                 src: '*.css',
-                dest: 'inc/css'
+                dest: 'dist/css'
             }
         },
         cssmin: {
             target: {
                 files: [{
                     expand: true,
-                    cwd: 'inc/css',
+                    cwd: 'dist/css',
                     src: ['*.css'],
-                    dest: 'inc/css',
+                    dest: 'dist/css',
                     ext: '.min.css'
                 }]
             }
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'inc/css/style.min.css': 'src/sass/style.scss'
+                    'dist/css/style.min.css': 'src/sass/style.scss'
                 }
             }
         },
@@ -87,15 +87,15 @@ module.exports = function(grunt) {
                 tasks: ['concat', 'uglify']
             },
             img: {
-                files: ["images/icons/*.svg"],
+                files: ["dist/images/icons/*.svg"],
                 tasks: ['svgmin']
             }
         },
         browserSync: {
             files: {
                 src : [
-                    'inc/css/*.css',
-                    'inc/js/*.js',
+                    'dist/css/*.css',
+                    'dist/js/*.js',
                     '*.html'
                 ]
             },
@@ -120,11 +120,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-combine-mq');
     grunt.loadNpmTasks('grunt-svgmin');
 
-
     // Register tasks
     grunt.registerTask('default', ['svgmin','browserSync','watch']);
     grunt.registerTask('css', ['sass']);
     grunt.registerTask('js', ['concat', 'uglify']);
     grunt.registerTask('svg', ['svgmin']);
-    grunt.registerTask('production', ['combine_mq', 'cssmin']);
+    grunt.registerTask('build', ['combine_mq', 'cssmin']);
 };
