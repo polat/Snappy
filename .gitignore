@@ -1,6 +1,5 @@
 # OS Generated
 .DS_Store*
-Icon?
 node_modules
 
 # Sass
@@ -8,3 +7,6 @@ node_modules
 
 # phpstorm
 .idea/*
+dist/images/inline-svg/.gitkeep
+
+dist/images/icons/.gitkeep
