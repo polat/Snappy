@@ -49,5 +49,7 @@ $(document).ready(function(){
     }
 
     // Showcase Slider
-    var showcaseSlider = $('.showcase_slider').bxSlider(showcase_options);
+    if ($('.showcase_slider li').length > 1) {
+        var showcaseSlider = $('.showcase_slider').bxSlider(showcase_options);
+    }
 });

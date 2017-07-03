@@ -22,7 +22,7 @@ $mobileColor: $mainColor;
 
     // Slidebars
     [off-canvas] {
-        background: $mainColor;
+        background-color: $mainColor;
     }
 
     // Mobile
@@ -31,7 +31,7 @@ $mobileColor: $mainColor;
             width: 1em;
             height: 1em;
             padding: 10px;
-            background: transparent;
+            background-color: transparent;
             font-size: 50px;
             cursor: pointer;
             position: absolute;
@@ -40,7 +40,7 @@ $mobileColor: $mainColor;
 
             &.is-active {
                 span {
-                    background: transparent;
+                    background-color: transparent;
 
                     &:before {
                         top: 0;
@@ -54,7 +54,7 @@ $mobileColor: $mainColor;
                 }
 
                 &::before {
-                    background: $mobileColor;
+                    background-color: $mobileColor;
                 }
             }
 
@@ -71,7 +71,7 @@ $mobileColor: $mainColor;
                     span {
                         &::before,
                         &::after {
-                            background: #fff;
+                            background-color: #fff;
                         }
                     }
                 }
@@ -81,7 +81,7 @@ $mobileColor: $mainColor;
                     width: 0;
                     height: 0;
                     border-radius: 50%;
-                    background: transparent;
+                    background-color: transparent;
                     content: '';
                     @include centerer(center);
                     @include transition(0.5s ease);
@@ -113,7 +113,7 @@ $mobileColor: $mainColor;
             span:after {
                 width: 100%;
                 height: 4px;
-                background: $mobileColor;
+                background-color: $mobileColor;
                 border-radius: 5px;
                 @include transition(0.5s ease);
             }
@@ -135,7 +135,7 @@ $mobileColor: $mainColor;
                 a {
                     width: 100%;
                     height: 50px;
-                    background: $secondColor;
+                    background-color: $secondColor;
                     display: block;
                     position: relative;
                     @include font(15,19,null,#fff);
@@ -147,7 +147,7 @@ $mobileColor: $mainColor;
                         &::after {
                             width: 22px;
                             height: 22px;
-                            background: url("../../images/icons/home.svg") no-repeat center / 22px 22px;
+                            background: url("../../dist/images/icons/home.svg") no-repeat center / 22px 22px;
                             content: "";
                             @include centerer(center);
                         }
@@ -162,7 +162,7 @@ $mobileColor: $mainColor;
                 display: block;
 
                 &.active {
-                    background: $secondColor;
+                    background-color: $secondColor;
 
                     & > a {
                         color: #fff;
@@ -191,7 +191,7 @@ $mobileColor: $mainColor;
 
                     &.active {
                         a {
-                            background: $mainColor;
+                            background-color: $mainColor;
                         }
                     }
 

@@ -2,10 +2,9 @@
 .popup {
     &_content {
         max-width: 90%;
-        max-height: 90vh;
+        max-height: 100%;
         box-sizing: border-box;
         display: inline-block;
-        overflow: scroll;
         padding: 4px;
         background-color: #fff;
         box-shadow: 0 0 2px #fff;
