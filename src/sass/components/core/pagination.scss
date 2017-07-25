@@ -16,7 +16,7 @@
             @include font(14,30,$titleFontFamily,$mainColor,center);
 
             &.active {
-                background: $mainColor;
+                background-color: $mainColor;
                 color: #fff;
             }
         }

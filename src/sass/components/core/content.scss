@@ -19,7 +19,7 @@ body {
 .scrollTop {
     width: 1em;
     height: 1em;
-    background: $mainColor;
+    background-color: $mainColor;
     position: fixed;
     border-radius: 50%;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
@@ -36,7 +36,7 @@ body {
     }
 
     &:hover {
-        background: $secondColor;
+        background-color: $secondColor;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,.4);
     }
 
@@ -88,5 +88,5 @@ h6 {
 
 .s-list li,
 p {
-    @include font($baseFontSize, $baseFontSize + 6);
+    @include font($baseFontSize, $baseFontSize + 8);
 }

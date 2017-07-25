@@ -83,7 +83,7 @@ $news-img-height: 160;
             &::after {
                 width: 100%;
                 height: 2px;
-                background: $mainColor;
+                background-color: $mainColor;
                 content: '';
                 position: absolute;
                 bottom: -10px;

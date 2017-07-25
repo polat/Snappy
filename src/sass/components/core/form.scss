@@ -1,10 +1,4 @@
 /**
- ** FORM FIELDS
-**/
-
-
-
-/**
  ** CHECKBOX & RADIO & SELECT
 **/
 
@@ -35,7 +29,7 @@
     &-bg {
         label {
             &::before {
-                background: currentColor;
+                background-color: currentColor;
             }
 
             svg {

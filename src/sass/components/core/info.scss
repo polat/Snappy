@@ -36,31 +36,31 @@ $border-percent: 25%;
         &.s-info {
             &-success {
                 border-color: lighten($success, $border-percent);
-                background: lighten($success,$lighten-percent);
+                background-color: lighten($success,$lighten-percent);
                 color: darken($success,$darken-percent);
             }
 
             &-danger {
                 border-color: darken(#f2dede,5%);
-                background: #f2dede;
+                background-color: #f2dede;
                 color: #A94449;
             }
 
             &-warning {
                 border-color: lighten($warning, $border-percent);
-                background: lighten($warning,$lighten-percent);
+                background-color: lighten($warning,$lighten-percent);
                 color: darken($warning,$darken-percent);
             }
 
             &-main {
                 border-color: lighten($mainColor, $border-percent);
-                background: lighten($mainColor,$lighten-percent);
+                background-color: lighten($mainColor,$lighten-percent);
                 color: darken($mainColor,$darken-percent);
             }
 
             &-secondary {
                 border-color: lighten($secondColor, $border-percent);
-                background: lighten($secondColor,$lighten-percent);
+                background-color: lighten($secondColor,$lighten-percent);
                 color: darken($secondColor,$darken-percent);
             }
         }

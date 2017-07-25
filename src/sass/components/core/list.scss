@@ -37,7 +37,7 @@ $list-heading-color: #fff;
             padding-left: ($gutter / 2);
 
             &:first-child {
-                background: $list-heading-bg !important;
+                background-color: $list-heading-bg !important;
                 font-family: $titleFontFamily;
                 color: $list-heading-color;
             }
@@ -55,7 +55,7 @@ $list-heading-color: #fff;
                 width: 5px;
                 height: 5px;
                 border-radius: 50%;
-                background: currentColor;
+                background-color: currentColor;
                 content: "";
                 position: absolute;
                 left: 5px;
@@ -103,7 +103,7 @@ $list-heading-color: #fff;
                     padding-right: $gutter / 2;
 
                     &:nth-child(2n - 1){
-                        background: $list-zebra-color;
+                        background-color: $list-zebra-color;
                     }
                 }
             }
@@ -126,14 +126,14 @@ $list-heading-color: #fff;
         &.s-list-zebra {
             > li {
                 &:hover {
-                    background: darken($list-zebra-color,7.5%) !important;
+                    background-color: darken($list-zebra-color,7.5%) !important;
                 }
             }
         }
 
         > li {
             &:hover {
-                background: $list-zebra-color;
+                background-color: $list-zebra-color;
             }
         }
     }
@@ -164,7 +164,7 @@ $list-heading-color: #fff;
                     > li {
                         @for $j from 1 through $i {
                             &:nth-child(#{$i * 2}n + #{$j}){
-                                background: $list-zebra-color;
+                                background-color: $list-zebra-color;
                             }
                         }
                     }

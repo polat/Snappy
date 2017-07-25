@@ -32,7 +32,7 @@ $table-breakpoint: 768;
         tbody {
             tr {
                 &:nth-child(2n - 1){
-                    background: $table-row-background;
+                    background-color: $table-row-background;
                 }
             }
         }
@@ -44,7 +44,7 @@ $table-breakpoint: 768;
 
             tr {
                 border-bottom-width: 2px;
-                background: $table-zebra;
+                background-color: $table-zebra;
             }
         }
 
@@ -52,7 +52,7 @@ $table-breakpoint: 768;
             &.s-table-hover {
                 tr {
                     &:hover {
-                        background: $table-zebra;
+                        background-color: $table-zebra;
                     }
                 }
             }
@@ -60,11 +60,11 @@ $table-breakpoint: 768;
             tbody {
                 tr {
                     &:nth-child(2n - 1){
-                        background: initial;
+                        background-color: initial;
                     }
 
                     &:nth-child(2n){
-                        background: $table-row-background;
+                        background-color: $table-row-background;
                     }
                 }
             }
@@ -92,7 +92,7 @@ $table-breakpoint: 768;
             tbody {
                 tr {
                     &:hover {
-                        background: $table-zebra !important;
+                        background-color: $table-zebra !important;
                     }
                 }
             }
@@ -101,7 +101,7 @@ $table-breakpoint: 768;
         &:not(.s-table-head){
             tr {
                 &:hover {
-                    background: $table-zebra !important;
+                    background-color: $table-zebra !important;
                 }
             }
         }
@@ -173,7 +173,7 @@ $table-breakpoint: 768;
                 tbody tr {
                     &:nth-child(2n - 1),
                     &:nth-child(2n) {
-                        background: $table-background;
+                        background-color: $table-background;
                     }
                 }
 
@@ -182,7 +182,7 @@ $table-breakpoint: 768;
                         border-bottom: 1px solid $table-border-color;
 
                         &:nth-of-type(2n - 1){
-                            background: $table-row-background;
+                            background-color: $table-row-background;
                         }
                     }
                 }
@@ -192,7 +192,7 @@ $table-breakpoint: 768;
                 tbody {
                     tr {
                         &:hover {
-                            background: inherit !important;
+                            background-color: inherit !important;
                         }
                     }
                 }

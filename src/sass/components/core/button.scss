@@ -59,10 +59,10 @@ $colors: (
 
         &-#{$colors-key}{
             border-color: darken($colors-val,12.5%);
-            background: $colors-val;
+            background-color: $colors-val;
 
             &:hover {
-                background: darken($colors-val,7.5%);
+                background-color: darken($colors-val,7.5%);
             }
         }
     }

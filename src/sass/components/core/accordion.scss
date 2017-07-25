@@ -52,7 +52,7 @@ $accordion-border-color: #d6d6d6;
             &::before, &::after {
                 width: 10px;
                 height: 2px;
-                background: $baseColor;
+                background-color: $baseColor;
                 content: "";
                 box-sizing: border-box;
                 position: absolute;

@@ -28,7 +28,7 @@ $search-zebra-color: #f0f0f0;
                 &::before {
                     width: 4px;
                     height: 4px;
-                    background: $baseColor;
+                    background-color: $baseColor;
                     border-radius: 50%;
                     content: "";
                     left: 5px;
