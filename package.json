@@ -1,6 +1,6 @@
 {
   "name": "Snappy",
-  "version": "1.9.7",
+  "version": "1.9.8",
   "main": "index.html",
   "repository": {
     "type": "git",
@@ -22,9 +22,6 @@
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-svgmin": "^4.0.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "description": ""

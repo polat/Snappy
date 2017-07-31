@@ -25,7 +25,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 src: ['src/js/vendor/*.js', 'src/js/base/*.js', 'src/js/components/*.js'],
-                dest: 'dist/js/script.js'
+                dest: 'dist/js/script.min.js'
             }
         },
         uglify: {
