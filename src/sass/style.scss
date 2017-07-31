@@ -12,19 +12,20 @@
 // @import 'vendors/slidebars';
 
 // Components
-@import 'components/accordion';
-@import 'components/alignment';
-@import 'components/button';
-@import 'components/form';
-@import 'components/helpers';
-@import 'components/info';
-@import 'components/content';
-@import 'components/list';
-@import 'components/popup';
-@import 'components/tab';
-@import 'components/table';
-@import 'components/visibility';
-@import 'components/pagination';
+@import 'components/core/accordion';
+@import 'components/core/alignment';
+@import 'components/core/button';
+@import 'components/core/form';
+@import 'components/core/helpers';
+@import 'components/core/info';
+@import 'components/core/content';
+@import 'components/core/list';
+@import 'components/core/popup';
+@import 'components/core/tab';
+@import 'components/core/table';
+@import 'components/core/visibility';
+@import 'components/core/pagination';
+@import 'components/custom';
 
 // Pages
 @import 'pages/career';
