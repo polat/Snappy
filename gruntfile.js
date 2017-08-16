@@ -114,12 +114,12 @@ module.exports = function(grunt) {
             },
             options: {
               replacements: [{
-                pattern: '../../dist/',
-                replacement: '/cms-content/themes/default/view/dist/'
+                pattern: /\..\/\..\/dist\//g,
+                replacement: 'cms-content/themes/default/view/dist/'
               },
               {
-                pattern: '../font/',
-                replacement: '/cms-content/themes/default/view/dist/font/'
+                pattern: /\..\/font\//g,
+                replacement: 'cms-content/themes/default/view/dist/font/'
               }]
             }
           }
