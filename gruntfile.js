@@ -1,6 +1,44 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        browserSync: {
+            files: {
+                src : [
+                    'dist/css/*.css',
+                    'dist/js/*.js',
+                    '*.html'
+                ]
+            },
+            options: {
+                watchTask: true,
+                server: {
+                    baseDir: "./",
+                    directory: true
+                }
+            }
+        },
+        watch: {
+            css: {
+                options: {
+                    spawn: false
+                },
+
+                files: 'src/sass/**/*.scss',
+                tasks: ['sass', 'string-replace']
+            },
+            js: {
+                options: {
+                    spawn: false
+                },
+
+                files: '<%= concat.dist.src %>',
+                tasks: ['concat', 'uglify']
+            },
+            img: {
+                files: ["dist/images/icons/*.svg"],
+                tasks: ['svgmin']
+            }
+        },
         svgmin: {
             options: {
                 plugins: [
@@ -17,6 +55,36 @@ module.exports = function(grunt) {
                 src: ['*.svg'],
                 dest: 'dist/images/inline-svg',
                 ext: '.svg'
+            }
+        },
+        sass: {
+            dist: {
+                options: {
+                    sourcemap: 'none',
+                    style: 'compressed'
+                },
+                files: {
+                    'dist/css/style.min.css': 'src/sass/style.scss'
+                }
+            }
+        },
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'dist/css',
+                    src: ['*.css'],
+                    dest: 'dist/css',
+                    ext: '.min.css'
+                }]
+            }
+        },
+        combine_mq: {
+            default_options: {
+                expand: true,
+                cwd: 'dist/css',
+                src: '*.css',
+                dest: 'dist/css'
             }
         },
         concat: {
@@ -39,74 +107,23 @@ module.exports = function(grunt) {
                 }
             }
         },
-        combine_mq: {
-            default_options: {
-                expand: true,
-                cwd: 'dist/css',
-                src: '*.css',
-                dest: 'dist/css'
-            }
-        },
-        cssmin: {
-            target: {
-                files: [{
-                    expand: true,
-                    cwd: 'dist/css',
-                    src: ['*.css'],
-                    dest: 'dist/css',
-                    ext: '.min.css'
-                }]
-            }
-        },
-        sass: {
-            dist: {
-                options: {
-                    sourcemap: 'none',
-                    style: 'compressed'
-                },
-                files: {
-                    'dist/css/style.min.css': 'src/sass/style.scss'
-                }
-            }
-        },
-        watch: {
-            css: {
-                options: {
-                    spawn: false
-                },
-
-                files: 'src/sass/**/*.scss',
-                tasks: ['sass']
-            },
-            js: {
-                options: {
-                    spawn: false
-                },
-
-                files: '<%= concat.dist.src %>',
-                tasks: ['concat', 'uglify']
-            },
-            img: {
-                files: ["dist/images/icons/*.svg"],
-                tasks: ['svgmin']
-            }
-        },
-        browserSync: {
+        'string-replace': {
+          dist: {
             files: {
-                src : [
-                    'dist/css/*.css',
-                    'dist/js/*.js',
-                    '*.html'
-                ]
+              'dist/css/style-replaced.min.css': 'dist/css/style.min.css'
             },
             options: {
-                watchTask: true,
-                server: {
-                    baseDir: "./",
-                    directory: true
-                }
+              replacements: [{
+                pattern: '../../dist/',
+                replacement: '/cms-content/themes/default/view/dist/'
+              },
+              {
+                pattern: '../font/',
+                replacement: '/cms-content/themes/default/view/dist/font/'
+              }]
             }
-        },
+          }
+        }
     });
 
 
@@ -118,6 +135,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-combine-mq');
+    grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-svgmin');
 
     // Register tasks
