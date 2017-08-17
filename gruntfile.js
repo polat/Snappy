@@ -24,7 +24,7 @@ module.exports = function(grunt) {
                 },
 
                 files: 'src/sass/**/*.scss',
-                tasks: ['sass', 'string-replace']
+                tasks: ['sass']
             },
             js: {
                 options: {
@@ -106,23 +106,6 @@ module.exports = function(grunt) {
                     'dist/js/script.min.js': ['<%= concat.dist.dest %>']
                 }
             }
-        },
-        'string-replace': {
-          dist: {
-            files: {
-              'dist/css/style-replaced.min.css': 'dist/css/style.min.css'
-            },
-            options: {
-              replacements: [{
-                pattern: /\..\/\..\/dist\//g,
-                replacement: 'cms-content/themes/default/view/dist/'
-              },
-              {
-                pattern: /\..\/font\//g,
-                replacement: 'cms-content/themes/default/view/dist/font/'
-              }]
-            }
-          }
         }
     });
 
@@ -135,7 +118,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-combine-mq');
-    grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-svgmin');
 
     // Register tasks
