@@ -2,27 +2,20 @@
     VARIABLES
 \*------------------------------------------*/
 
-// Main
+// Main Options
 $mainWidth: 1200;
 $gutter: 15px;
 $gap: 20px;
 $contactMargin: 12px;
 
-// Colors
-$success: #5cb85c;
-$danger: #d43f3a;
-$warning: #f0ad4e;
-$info: #337ab7;
-$success-transparent: #dff0d8;
-$danger-transparent: #f2dede;
-$warning-transparent: #fcf8e3;
-$info-transparent: #d9edf7;
-$scrollColor: darkgrey;
-
-// Text
+// Font Familys
 $baseFontFamily: 'tahoma-regular';
 $titleFontFamily: 'tahoma-medium';
+
+// Font Sizes
 $baseFontSize: 15;
+
+// Font Colors
 $baseColor: #333;
 $mainColor: #359ebd;
 $secondColor: #758695;
@@ -38,6 +31,17 @@ $pinterest: #cb2027;
 $instagram: #125688;
 $instagramBrown: #9b6954;
 $instagramNew: linear-gradient(#400080, transparent), linear-gradient(200deg, #d047d1, #ff0000, #ffff00);
+
+// Other Colors
+$success: #5cb85c;
+$danger: #d43f3a;
+$warning: #f0ad4e;
+$info: #337ab7;
+$success-transparent: #dff0d8;
+$danger-transparent: #f2dede;
+$warning-transparent: #fcf8e3;
+$info-transparent: #d9edf7;
+$scrollColor: darkgrey;
 
 // Easing Functions
 $easing: (
