@@ -3,7 +3,7 @@
 \*------------------------------------------*/
 
 // Mobile Variables
-$mobileColor: $mainColor;
+$mobileColor: #3D3D3D;
 
 // 320 - Main Width
 @include media(320, $mainWidth) {
@@ -22,7 +22,7 @@ $mobileColor: $mainColor;
 
     // Slidebars
     [off-canvas] {
-        background-color: $mainColor;
+        background-color: $mobileColor;
     }
 
     // Mobile
@@ -63,7 +63,7 @@ $mobileColor: $mainColor;
                     &:before {
                         width: 1em;
                         height: 1em;
-                        background: $mobileColor;
+                        background: transparent;
                         font-size: 50px;
                         opacity: 1;
                     }
@@ -71,7 +71,7 @@ $mobileColor: $mainColor;
                     span {
                         &::before,
                         &::after {
-                            background-color: #fff;
+                            background-color: $mobileColor;
                         }
                     }
                 }
@@ -119,119 +119,166 @@ $mobileColor: $mainColor;
             }
         }
 
-        &_top {
-            @include flex(flex);
+        &_settings {
+            width: 50%;
+            background-color: #2F2F2F;
 
-            li {
-                width: 100%;
-                border-bottom: 1px solid #fff;
-                box-sizing: border-box;
-                @include flex-grow(1);
+            &_title {
+                margin-bottom: 10px;
+                border-bottom: 1px solid #E8E8E8;
+                padding-bottom: 10px;
+                @include font(20,20,$titleFontFamily,#E8E8E8);
+            }
 
-                &:not(:last-of-type){
-                    border-right: 1px solid #fff;
-                }
+            &_list {
+                li {
+                    &:not(:last-child) {
+                        margin-bottom: 10px;
+                    }
 
-                a {
-                    width: 100%;
-                    height: 50px;
-                    background-color: $secondColor;
-                    display: block;
-                    position: relative;
-                    @include font(15,19,null,#fff);
-                    @include flex(flex);
-                    @include justify-content(center);
-                    @include align-items(center);
-
-                    &.mobileHome {
-                        &::after {
-                            width: 22px;
-                            height: 22px;
-                            background: url("../../dist/images/icons/home.svg") no-repeat center / 22px 22px;
-                            content: "";
-                            @include centerer(center);
+                    &.active {
+                        a {
+                            &::after {
+                                display: block;
+                            }
                         }
+                    }
+
+                    a {
+                        padding-left: 45px;
+                        background-repeat: no-repeat;
+                        background-position: left 10px center;
+                        background-size: 25px 25px;
+                        display: block;
+                        position: relative;
+                        @include font(22,26,$titleFontFamily,#E8E8E8);
+
+                        &::after {
+                            width: 3px;
+                            height: 6px;
+                            border: solid #fff;
+                            border-width: 0 2px 2px 0;
+                            display: block;
+                            content: "";
+                            position: absolute;
+                            right: 10px;
+                            top: calc(50% - 3px);
+                            @include rotate(45deg);
+                            display: none;
+                        }
+
+                        &.tr {
+                            background-image: url('../../dist/images/icons/tr.svg');
+                        }
+
+                        &.en {
+                            background-image: url('../../dist/images/icons/en.svg');
+                        }
+                    }
+                }
+            }
+
+            &_button {
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 13px;
+                right: 10px;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+
+                    * {
+                        fill: #fff;
                     }
                 }
             }
         }
 
+        &_title {
+            background-color: $mobileColor;
+            padding: 10px;
+            @include font(17,25,$titleFontFamily,#E8E8E8,center);
+        }
+
         &_list {
             li {
-                border-bottom: 1px solid #fff;
-                display: block;
-
                 &.active {
-                    background-color: $secondColor;
-
-                    & > a {
-                        color: #fff;
+                    a {
+                        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+                        border-left: 4px solid $mainColor;
+                        background-color: #2F2F2F;
                     }
                 }
 
-                a {
-                    padding: 13px 10px;
-                    display: block;
-                    position: relative;
-                    @include font(15,19,$baseFontFamily,#fff,center);
-                }
-
-                &.active {
-                    & > ul {
-                        display: block;
-                    }
-                }
-            }
-
-            ul {
-                display: none;
-
-                li {
-                    border: none;
-
-                    &.active {
+                &:last-child {
                         a {
-                            background-color: $mainColor;
+                            border-bottom: 1px solid #323232;
                         }
                     }
 
-                    a {
-                        padding: 10px;
-                        @include font(14,18);
+                a {
+                    border-top: 1px solid #323232;
+                    padding: 10px 10px 10px 50px;
+                    background: no-repeat $mobileColor left 15px center / 25px 25px;
+                    display: block;
+                    position: relative;
+                    @include font(17,25,$baseFontFamily,#E8E8E8);
+
+                    &::after {
+                        width: 10px;
+                        height: 10px;
+                        border-top: 2px solid #E8E8E8;
+                        border-right: 2px solid #E8E8E8;
+                        content: "";
+                        position: absolute;
+                        top: calc(50% - 5px);
+                        right: 20px;
+                        @include rotate(45deg);
                     }
                 }
             }
         }
 
         &_social {
-            @include flex(flex);
+            @extend .mobile_list;
 
             li {
-                width: 100%;
-                border-bottom: 1px solid #fff;
-                box-sizing: border-box;
-                @include flex-grow(1);
-
-                &:not(:last-of-type){
-                    border-right: 1px solid #fff;
-                }
-
                 a {
-                    padding: 10px;
-                    box-sizing: border-box;
-                    @include flex(flex);
-                    @include justify-content(center);
-                    @include align-items(center);
-                    svg {
-                        width: 30px;
-                        height: 30px;
-                        margin: 0 auto;
-
-                        * {
-                            fill: #fff;
-                        }
+                    &::after {
+                        display: none;
                     }
                 }
+            }
+        }
+
+        &_search {
+            background-color: darken($mobileColor, 10%);
+            border-top: 1px solid #323232;
+            padding: 20px;
+            position: relative;
+
+            input {
+                width: 100%;
+                height: 30px;
+                padding: 0 10px;
+                box-sizing: border-box;
+                background-color: $mobileColor;
+                color: #E8E8E8;
+            }
+
+            button {
+                width: 20px;
+                height: 20px;
+                background-image: url('../../dist/images/icons/search.svg');
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 20px 20px;
+                background-color: transparent;
+                position: absolute;
+                top: 25px;
+                right: 35px;
             }
         }
     }
