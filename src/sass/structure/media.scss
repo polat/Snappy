@@ -205,7 +205,7 @@ $mobileColor: #3D3D3D;
         &_list {
             li {
                 &.active {
-                    a {
+                    & > a {
                         box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
                         border-left: 4px solid $mainColor;
                         background-color: #2F2F2F;
@@ -213,14 +213,20 @@ $mobileColor: #3D3D3D;
                 }
 
                 &:last-child {
-                        a {
-                            border-bottom: 1px solid #323232;
-                        }
+                    a {
+                        border-bottom: 1px solid #323232;
                     }
+                }
+
+                &:not(.active) {
+                    ul {
+                        display: none;
+                    }
+                }
 
                 a {
                     border-top: 1px solid #323232;
-                    padding: 10px 10px 10px 50px;
+                    padding: 10px 35px 10px 50px;
                     background: no-repeat $mobileColor left 15px center / 25px 25px;
                     display: block;
                     position: relative;
