@@ -1,28 +1,32 @@
 {
   "name": "Snappy",
-  "version": "1.9.18.2",
+  "description": "Infomedya Bilişim Teknolojileri tarafından geliştirilen front-end alt yapısıdır.",
+  "version": "1.9.20",
+  "keywords": [],
   "main": "index.html",
+  "homepage": "https://github.com/polat/Snappy#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/polat/Snappy.git"
   },
-  "author": "Polat İnceler",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/polat/Snappy/issues"
   },
-  "homepage": "https://github.com/polat/Snappy#readme",
+  "license": "",
+  "author": "Polat İnceler",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-browser-sync": "^2.2.0",
     "grunt-combine-mq": "^0.9.0",
     "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.9.0",
     "grunt-svgmin": "^4.0.0"
   },
-  "keywords": [],
-  "description": ""
+  "dependencies": {
+    "autoprefixer": "^7.1.6"
+  }
 }

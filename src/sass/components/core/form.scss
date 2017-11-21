@@ -66,7 +66,7 @@
                 @include centerer(vertical);
 
                 * {
-                    @include transition(stroke-dashoffset .4s);
+                    transition: stroke-dashoffset .4s;
                 }
             }
         }
@@ -125,7 +125,7 @@
             position: absolute;
             top: 50%;
             content: '';
-            @include transform(translate(0,-50%) rotate(45deg));
+            transform: translate(0,-50%) rotate(45deg);
         }
     }
 }

@@ -21,11 +21,6 @@ $(document).ready(function () {
     // ---- SCROLL TOP BUTTON ---->
 
 
-    // <---- SVG ELEMENTS FOR IE ----
-    svg4everybody();
-    // ---- SVG ELEMENTS FOR IE ---->
-
-
     // Basic Popup
     $(".s-popup").magnificPopup({
         type: 'image',

@@ -44,12 +44,12 @@ $mobileColor: #3D3D3D;
 
                     &:before {
                         top: 0;
-                        @include rotate(225deg);
+                        transform: rotate(225deg);
                     }
 
                     &:after {
                         bottom: 0;
-                        @include rotate(-225deg);
+                        transform: rotate(-225deg);
                     }
                 }
 
@@ -83,8 +83,9 @@ $mobileColor: #3D3D3D;
                     border-radius: 50%;
                     background-color: transparent;
                     content: '';
+                    transition: 0.5s ease;
                     @include centerer(center);
-                    @include transition(0.5s ease);
+
                 }
             }
 
@@ -115,7 +116,7 @@ $mobileColor: #3D3D3D;
                 height: 4px;
                 background-color: $mobileColor;
                 border-radius: 5px;
-                @include transition(0.5s ease);
+                transition: 0.5s ease;
             }
         }
 
@@ -163,7 +164,7 @@ $mobileColor: #3D3D3D;
                             position: absolute;
                             right: 10px;
                             top: calc(50% - 3px);
-                            @include rotate(45deg);
+                            transform: rotate(45deg);
                             display: none;
                         }
 
@@ -241,7 +242,7 @@ $mobileColor: #3D3D3D;
                         position: absolute;
                         top: calc(50% - 5px);
                         right: 20px;
-                        @include rotate(45deg);
+                        transform: rotate(45deg);
                     }
                 }
             }

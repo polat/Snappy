@@ -6,7 +6,7 @@ $imagesPerRow: 3;
 
 .gallery {
     overflow: hidden;
-    @include flex(flex);
+    display: flex;
     @include flex-wrap(wrap);
 
     li {
@@ -39,8 +39,8 @@ $imagesPerRow: 3;
 
                 &::after {
                     opacity: 1;
-                    @include transform(translate(-50%,-50%) scale(1));
-                    @include prefix(transition-delay,0.3s);
+                    transition-delay: 0.3s;
+                    transform: translate(-50%,-50%) scale(1);
                 }
             }
 
@@ -48,13 +48,13 @@ $imagesPerRow: 3;
                 width: 100%;
                 height: 100%;
                 border: 0px solid rgba(0,0,0,0.7);
+                box-sizing: border-box;
                 content: "";
                 position: absolute;
                 left: 0;
                 top: 0;
                 opacity: 0;
-                @include prefix(box-sizing, border-box);
-                @include transition(0.4s ease-in-out);
+                transition: 0.4s ease-in-out;
             }
 
             &::after {
@@ -66,8 +66,8 @@ $imagesPerRow: 3;
                 left: 50%;
                 top: 50%;
                 opacity: 0;
-                @include transform(translate(-50%,-50%) scale(0));
-                @include transition(transform 0.2s 0.1s ease-in, opacity 0.1s ease-in-out);
+                transform: translate(-50%,-50%) scale(0);
+                transition: transform 0.2s 0.1s ease-in, opacity 0.1s ease-in-out;
             }
 
             img {

@@ -3,37 +3,6 @@
 \*------------------------------------------*/
 @import "functions";
 
-// Browser Prefixes
-@mixin prefix($property, $value){
-    -webkit-#{$property}: #{$value};
-    -moz-#{$property}: #{$value};
-    -ms-#{$property}: #{$value};
-    #{$property}: #{$value};
-}
-
-// Appearance
-@mixin appearance {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-// Display Flex
-@mixin flex($display){
-    @if $display == flex {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-    } @else if $display == inline-flex {
-        display: -webkit-inline-box;
-        display: -webkit-inline-flex;
-        display: -ms-inline-flexbox;
-        display: inline-flex;
-    }
-}
-
 // Flex Direction
 @mixin flex-direction($direction){
     @if $direction == row {
@@ -212,115 +181,21 @@
     flex-basis: $value;
 }
 
-// Transition
-@mixin transition($transition...) {
-    -webkit-transition: $transition;
-    transition: $transition;
-}
-
-// Transition Delay
-@mixin transition-delay($string...){
-    -webkit-transition-delay: $string;
-    transition-delay: $string;
-}
-
-// Transition Duration
-@mixin transition-duration($string...) {
-    -webkit-transition-duration: $string;
-    transition-duration: $string;
-}
-
-// Transition Property
-@mixin transition-property($string...) {
-    -webkit-transition-property: $string;
-    transition-property: $string;
-}
-
-// Transition Timing Function
-@mixin transition-timing-function($timing) {
-    -webkit-transition-timing-function: easing($timing);
-    transition-timing-function:         easing($timing);
-}
-
 // Vertical Centering With Transform
 @mixin centerer($type){
     position: absolute;
 
     @if ($type == vertical){
         top: 50%;
-        @include translate(0,-50%);
+        transform: translate(0, -50%);
     } @if ($type == horizontal) {
         left: 50%;
-        @include translate(-50%,0);
+        transform: translate(-50%,0);
     } @if ($type == center) {
         top: 50%;
         left: 50%;
-        @include translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     }
-}
-
-// Transform Rotate
-@mixin rotate($degree){
-    -webkit-transform: rotate($degree);
-    transform: rotate($degree);
-}
-
-// Transform Rotate X
-@mixin rotateX($degree){
-    -webkit-transform: rotateX($degree);
-    transform: rotateX($degree);
-}
-
-// Transform Rotate Y
-@mixin rotateY($degree){
-    -webkit-transform: rotateY($degree);
-    transform: rotateY($degree);
-}
-
-// Transform Scale
-@mixin scale($string...){
-    -webkit-transform: scale($string);
-    transform: scale($string);
-}
-
-@mixin scaleX($int){
-    -webkit-transform: scaleX($int);
-    transform: scaleX($int);
-}
-
-@mixin scaleY($int){
-    -webkit-transform: scaleY($int);
-    transform: scaleY($int);
-}
-
-// Transform Translate
-@mixin translate($value1, $value2){
-    -webkit-transform: translate($value1,$value2);
-        transform: translate($value1,$value2);
-}
-
-// Transform SkewX
-@mixin skewX($degree){
-    -webkit-transform: skewX($degree);
-    transform: skewX($degree);
-}
-
-// Transform SkewY
-@mixin skewY($degree){
-    -webkit-transform: skewY($degree);
-    transform: skewY($degree);
-}
-
-// Transform With More Than 1 Property
-@mixin transform ($string...){
-    -webkit-transform: $string;
-    transform: $string;
-}
-
-// Transform Origin
-@mixin origin($string...){
-    -webkit-transform-origin: $string;
-    transform-origin: $string;
 }
 
 // Covered Background
@@ -387,11 +262,7 @@
 
 // Column
 @mixin column($numberOfColumns, $columnMargin){
-    -webkit-column-count: $numberOfColumns;
-    -moz-column-count: $numberOfColumns;
     column-count: $numberOfColumns;
-    -webkit-column-gap: $columnMargin;
-    -moz-column-gap: $columnMargin;
     column-gap: $columnMargin;
 }
 
@@ -404,11 +275,6 @@
     @keyframes #{$animation-name} {
         @content;
     }
-}
-
-@mixin animation($string...) {
-    -webkit-animation: $string;
-     animation: $string;
 }
 
 // Hide & Show
@@ -429,8 +295,6 @@
 
 // Radial Gradient
 @mixin radial-gradient($from,$to){
-    background: -webkit-radial-gradient(center, circle cover, $from, $to);
-    background: -ms-radial-gradient(center, circle cover, $from, $to);
     background: radial-gradient(center, circle cover, $from, $to);
 }
 
@@ -441,7 +305,6 @@
 
 // Filters
 @mixin filter($type,$value){
-    -webkit-filter: $type + "(#{$value})";
     filter: $type + "(#{$value})";
 }
 

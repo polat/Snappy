@@ -6,12 +6,12 @@
 	width: calc(100% - 60px);
 	max-width: 400px;
 	z-index: 9999;
-    @include translate(-150%,0);
-	@include transition(transform .5s);
+	transform: translate(-150%, 0);
+	transition: transform .5s;
 }
 
 .toastjs-container[aria-hidden="false"] {
-    @include translate(0%,0);
+	transform: translate(0%, 0);
 }
 
 .toastjs {

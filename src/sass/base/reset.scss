@@ -80,7 +80,7 @@ img {
 
 input, select, textarea, button, label {
     border-radius: 0;
-    @include appearance();
+    appearance: none;
 
     &::-ms-clear {
         display: none;

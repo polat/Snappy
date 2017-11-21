@@ -24,7 +24,7 @@ module.exports = function(grunt) {
                 },
 
                 files: 'src/sass/**/*.scss',
-                tasks: ['sass']
+                tasks: ['sass', 'postcss:dist']
             },
             js: {
                 options: {
@@ -79,6 +79,17 @@ module.exports = function(grunt) {
                 }]
             }
         },
+        postcss: {
+            options: {
+                map: false,
+                processors: [
+                    require('autoprefixer')
+                ]
+            },
+            dist: {
+                src: 'dist/css/*.css'
+            }
+        },
         combine_mq: {
             default_options: {
                 expand: true,
@@ -118,11 +129,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-combine-mq');
+    grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-svgmin');
 
     // Register tasks
-    grunt.registerTask('default', ['svgmin','browserSync','watch']);
-    grunt.registerTask('css', ['sass']);
+    grunt.registerTask('default', ['browserSync','watch', 'svgmin']);
+    grunt.registerTask('css', ['sass', 'postcss:dist']);
     grunt.registerTask('js', ['concat', 'uglify']);
     grunt.registerTask('svg', ['svgmin']);
     grunt.registerTask('build', ['combine_mq', 'cssmin']);

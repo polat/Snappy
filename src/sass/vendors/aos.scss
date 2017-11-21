@@ -269,8 +269,8 @@
 			top: 0;
 			left: 0;
 			z-index: 2;
-			@include transition(2.5s);
-			@include translate(0,-100%);
+			transition: 2.5s;
+			transform: translate(0, -100%);
 		}
 
 		&::after {
@@ -282,22 +282,22 @@
 			top: 0;
 			left: 0;
 			z-index: 1;
-			@include transition(.5s .2s);
+			transition: .5s .2s;
 		}
 
 		&.aos-animate {
 			&::before,
 			&::after {
-				@include translate(0,100%);
+				transform: translate(0, 100%);
 			}
 		}
 	}
 	
 	[data-aos='draw-line'] {
-		@include scaleX(0);
+		transform: scaleX(0);
 
 		&.aos-animate {
-			@include scaleX(1);
+			transform: scaleX(1);
 		}
 	}
 
@@ -310,25 +310,25 @@
 	}
 
 	[data-aos='get-wide'] {
-		@include scaleY(0);
+		transform: scaleY(0);
 
 		&::before {
 			opacity: 0;
 		}
 
 		&::after {
-			@include scaleY(0);
+			transform: scaleY(0);
 		}
 
 		&.aos-animate {
-			@include scaleY(1);
+			transform: scaleY(1);
 
 			&::before {
 				opacity: 1;
 			}
 
 			&::after {
-				@include scaleY(1);
+				transform: scaleY(1);
 			}
 		}
 	}

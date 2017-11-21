@@ -44,7 +44,7 @@ $tab-border-width: 1px;
     &_list {
         margin-bottom: $gutter;
         border-bottom: 1px solid $tab-border-color;
-        @include flex(flex);
+        display: flex;
 
         &:not(&-fill){
             @include flex-wrap(wrap);

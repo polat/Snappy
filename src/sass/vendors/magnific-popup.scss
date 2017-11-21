@@ -146,7 +146,7 @@ button.mfp-arrow {
     padding: 0;
     z-index: 1046;
     box-shadow: none;
-    @include transition(.15s);
+    transition: .15s;
     touch-action: manipulation;
 }
 
@@ -218,7 +218,7 @@ button::-moz-focus-inner {
 
 .mfp-arrow-right {
     right: 20px;
-    @include transform(translate(0, -50%) scaleX(-1));
+    transform: translate(0, -50%) scaleX(-1);
 }
 
 .mfp-iframe-holder .mfp-content {
@@ -365,7 +365,7 @@ img.mfp-img {
 /* overlay at start */
 .mfp-fade.mfp-bg {
     opacity: 0;
-    @include transition(.35s);
+    transition: .35s;
 }
 
 /* overlay animate in */
@@ -381,7 +381,7 @@ img.mfp-img {
 /* content at start */
 .mfp-fade.mfp-wrap .mfp-content {
     opacity: 0;
-    @include transition(.35s);
+    transition: .35s;
 }
 
 /* content animate it */
@@ -399,10 +399,10 @@ img.mfp-img {
 
     }
     .mfp-arrow-left {
-        @include transform(scale(.75) translate(0, -50%));
+        transform: scale(.75) translate(0, -50%);
     }
     .mfp-arrow-right {
-        @include transform(scale(.75) translate(0, -50%) scaleX(-1));
+        transform: scale(.75) translate(0, -50%) scaleX(-1);
     }
     .mfp-container {
         padding-left: 6px;

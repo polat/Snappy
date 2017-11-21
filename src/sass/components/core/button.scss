@@ -26,7 +26,7 @@ $colors: (
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    @include transition(.15s);
+    transition: .15s;
 
     $font-counter: 12;
 

@@ -10,7 +10,7 @@ $accordion-border-color: #d6d6d6;
 .s-accordion {
     > li {
         border: 1px solid $accordion-border-color;
-        @include transition(box-shadow .25s);
+        transition: box-shadow .25s;
 
         &.active {
             > div {
@@ -35,11 +35,11 @@ $accordion-border-color: #d6d6d6;
 
             &.active {
                 &::before {
-                    @include rotate(-45deg);
+                    transform: rotate(-45deg);
                 }
 
                 &::after {
-                    @include rotate(45deg);
+                    transform: rotate(45deg);
                 }
             }
 
@@ -57,17 +57,17 @@ $accordion-border-color: #d6d6d6;
                 box-sizing: border-box;
                 position: absolute;
                 top: 50%;
-                @include transition(transform,0.3s);
+                transition: transform,0.3s;
             }
 
             &::before {
                 right: 21px;
-                @include rotate(45deg);
+                transform: rotate(45deg);
             }
 
             &::after {
                 right: 15px;
-                @include rotate(-45deg);
+                transform: rotate(-45deg);
             }
         }
     }

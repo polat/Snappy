@@ -134,7 +134,7 @@ $table-breakpoint: 768;
 
     tr {
         border-bottom: 1px solid $table-border-color;
-        @include transition(.25s);
+        transition: .25s;
     }
 
     th,

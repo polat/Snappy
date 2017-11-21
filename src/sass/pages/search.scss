@@ -5,7 +5,7 @@ $search-zebra-color: #f0f0f0;
 .search {
     &_list {
         > li {
-            @include transition(.15s);
+            transition: .15s;
 
             &:nth-child(2n - 1){
                 background-color: $search-zebra-color;

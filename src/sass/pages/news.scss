@@ -89,7 +89,7 @@ $news-img-height: 160;
                 bottom: -10px;
                 left: 0;
                 @include hide();
-                @include transition(0.25s);
+                transition: 0.25s;
             }
 
             &:hover {
@@ -141,13 +141,13 @@ $news-img-height: 160;
                     display: block;
                     position: relative;
                     @include font($baseFontSize + 2,$baseFontSize + 8,$baseFontFamily,$mainColor);
-                    @include transition(0.2s);
+                    transition: 0.2s;
 
                     &::before {
                         content: "+";
                         left: 0;
                         @include centerer(vertical);
-                        @include transition(0.2s);
+                        transition: 0.2s;
                         @include font($baseFontSize + 2,$baseFontSize + 8,$baseFontFamily,$mainColor);
                     }
 

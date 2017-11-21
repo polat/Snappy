@@ -1,6 +1,6 @@
 .s-pagination {
     margin-top: 15px;
-    @include flex(flex);
+    display: flex;
     @include justify-content(center);
     @include flex-wrap(wrap);
 

@@ -103,7 +103,7 @@
                     left: 0;
                     top: 50%;
                     display: block;
-                    @include prefix(transform,translate(0,-50%));
+                    transform: translate(0,-50%);
 
                     * {
                         fill: $mainColor;
@@ -203,7 +203,7 @@
                 left: 20px;
                 top: 50%;
                 content: "";
-                @include prefix(transform, translate(0, -50%));
+                transform: translate(0, -50%);
 
                 * {
                     fill: $mainColor;
@@ -238,7 +238,7 @@
                 border: 1px solid $borderColor;
                 display: block;
                 @include font(15);
-                @include transition(0.2s);
+                transition: 0.2s;
             }
 
             textarea {
@@ -251,7 +251,7 @@
                 resize: none;
                 overflow: auto;
                 @include font(15,21);
-                @include transition(0.2s);
+                transition: 0.2s;
             }
 
             &.contactText {
@@ -259,7 +259,7 @@
                     border-right: none;
                     padding-right: 0;
                     top: 7px;
-                    @include prefix(transform, translate(0,0));
+                    transform: translate(0,0);
                 }
             }
 
@@ -311,7 +311,7 @@
                 color: #fff;
                 cursor: pointer;
                 @include font(16);
-                @include transition(0.2s);
+                transition: 0.2s;
 
                 &:hover {
                     border-color: $secondColor;
