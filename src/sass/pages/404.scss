@@ -22,46 +22,6 @@
 		width: 70%;
 		margin: 0 auto;
 		display: block;
-
-		#wheels {
-			.cls-2, .cls-4 {
-				path {
-					animation: rotate infinite 15s cubic-bezier(.25, .25, .75, .75);
-					-moz-animation: none !important;
-					-ms-animation: none !important;
-					transform-origin: center;
-				}
-			}
-			.cls-2 {
-				g {
-					path {
-						@include keyframes(rotate) {
-						    from { 
-						    	transform: rotate(0deg);
-						    }
-						    to {
-						    	transform: rotate(360deg);
-						    }
-						}
-					}
-				}
-			}
-
-			.cls-4 {
-				g {
-					path {
-						@include keyframes(rotate-back) {
-						    from { 
-						        transform: rotate(360deg);
-						    }
-						    to {
-						        transform: rotate(0deg);
-						    }
-						}
-					}
-				}
-			}
-		}
 	}
 
 	@include media(320,768) {
