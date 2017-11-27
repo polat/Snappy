@@ -7,17 +7,11 @@ $mobileColor: #3D3D3D;
 
 // 320 - Main Width
 @include media(320, $mainWidth) {
-    // Full Width Elements
-    .class {
-        width: 100%;
-    }
-
     // Full Width Elements With Padding 20
     .globalWidth {
         width: 100%;
         padding-right: 20px;
         padding-left: 20px;
-        box-sizing: border-box;
     }
 
     // Slidebars
@@ -270,7 +264,6 @@ $mobileColor: #3D3D3D;
                 width: 100%;
                 height: 30px;
                 padding: 0 10px;
-                box-sizing: border-box;
                 background-color: $mobileColor;
                 color: #E8E8E8;
             }
@@ -296,7 +289,6 @@ $mobileColor: #3D3D3D;
             a {
                 width: 100%;
                 height: auto;
-                box-sizing: border-box;
 
                 &::before, &::after {
                     display: none;

@@ -15,7 +15,6 @@ $list-heading-color: #fff;
 
     > li {
         padding: $list-padding-vertical 0;
-        box-sizing: border-box;
         @include font($list-font-size,($list-font-size + 6),$baseFontFamily,$baseColor);
 
         a {

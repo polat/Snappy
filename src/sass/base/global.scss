@@ -38,18 +38,17 @@ body {
     background-color: $mainColor;
     position: fixed;
     border-radius: 50%;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
     bottom: -50px;
-    right: calc((100% - #{$mainWidth * 1px}) / 2 - 60px);
+    right: calc(((100% - #{$mainWidth * 1px}) / 4) - 27px);
     z-index: 999;
-    @include hide();
     transition: .5s;
+    @include hide();
 
     &.visible {
         bottom: 20px;
         @include show();
     }
-
+    
     &:hover {
         background-color: $secondColor;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,.4);
@@ -66,6 +65,10 @@ body {
         top: calc(50% - 2px);
         left: calc(50% - 7px);
         transform: rotate(-45deg);
+    }
+
+    @include media-max($mainWidth + 120) {
+        display: none !important;
     }
 }
 
