@@ -23,7 +23,8 @@
 		margin: 0 auto;
 		display: block;
 	}
-
+	
+	// Media 320 - 768
 	@include media(320,768) {
 		&_title {
 			border-bottom-width: 4px;

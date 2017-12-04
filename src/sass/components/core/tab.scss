@@ -47,32 +47,32 @@ $tab-border-width: 1px;
         display: flex;
 
         &:not(&-fill){
-            @include flex-wrap(wrap);
+            flex-wrap: wrap;
         }
 
         &-fill {
-            @include flex-wrap(nowrap);
+            flex-wrap: nowrap;
 
             > li {
-                @include flex-grow(1);
-                @include flex-basis(0);
+                flex-grow: 1;
+                flex-basis: 0;
             }
         }
 
         &-spaceBetween {
-            @include justify-content(space-between);
+            justify-content: space-between;
         }
 
         &-spaceAround {
-            @include justify-content(space-around);
+            justify-content: space-between;
         }
 
         &-center {
-            @include justify-content(center);
+            justify-content: center;
         }
 
         &-right {
-            @include justify-content(flex-end);
+            justify-content: flex-end;
         }
 
         > li {

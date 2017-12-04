@@ -43,7 +43,10 @@ $warning-transparent: #fcf8e3;
 $info-transparent: #d9edf7;
 $scrollColor: darkgrey;
 
-// Easing Functions
+// Mobile Variables
+$mobileColor: #3D3D3D;
+
+// Easing Values
 $easing: (
     linear: cubic-bezier(0.250, 0.250, 0.750, 0.750),
 

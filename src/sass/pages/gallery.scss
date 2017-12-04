@@ -7,19 +7,17 @@ $imagesPerRow: 3;
 .gallery {
     overflow: hidden;
     display: flex;
-    @include flex-wrap(wrap);
+    flex-wrap: wrap;
 
     li {
-        @media screen and (min-width: $mainWidth * 1px){
-            margin: $galleryMargin;
-            
-            &:nth-child(-n + #{$imagesPerRow}){
-                margin-top: 0;
-            }
+        margin: $galleryMargin;
+        
+        &:nth-child(-n + #{$imagesPerRow}){
+            margin-top: 0;
+        }
 
-            &:nth-child(#{$imagesPerRow}n){
-                margin-right: 0;
-            }
+        &:nth-child(#{$imagesPerRow}n){
+            margin-right: 0;
         }
 
         a {
@@ -75,6 +73,87 @@ $imagesPerRow: 3;
                 height: 100%;
                 object-fit: cover;
                 display: block;
+            }
+        }
+    }
+    
+    // Media 320 - Main Width
+    @include media(320, $mainWidth) {
+        li {
+            a {
+                width: 100%;
+                height: auto;
+
+                &::before, &::after {
+                    display: none;
+                }
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+            }
+        }
+    }
+    
+    // Media 320 - 480
+    @include media(320, 480) {
+        li {
+            width: calc(50% - 7.5px);
+
+            &:not(:nth-child(2n)){
+                margin-right: 15px;
+            }
+
+            &:not(:nth-child(-n + 2)){
+                margin-top: 15px;
+            }
+        }
+    }
+
+    // Media 480 - 768
+    @include media(480, 768) {
+        li {
+            width: calc(33.3333% - 10px);
+
+            &:not(:nth-child(3n)){
+                margin-right: 15px;
+            }
+
+            &:not(:nth-child(-n + 3)){
+                margin-top: 15px;
+            }
+        }
+    }
+
+    // Media 568 - 768
+    @include media(568, 768) {
+        li {
+            width: calc(100% / 3 - 10px);
+            margin: 15px 15px 0 0;
+
+            &:nth-child(3n){
+                margin-right: 0;
+            }
+
+            &:nth-child(-n + 3){
+                margin-top: 0;
+            }
+        }
+    }
+
+    // Media 768 - Main Width
+    @include media(768, $mainWidth) {
+        li {
+            width: calc(25% - 9px);
+
+            &:not(:nth-child(4n)){
+                margin-right: 12px;
+            }
+
+            &:not(:nth-child(-n + 4)){
+                margin-top: 12px;
             }
         }
     }

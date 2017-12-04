@@ -162,4 +162,53 @@ $news-img-height: 160;
             }
         }
     }
+
+    // Media 320 - 568
+    @include media(320, 568) {
+        &List {
+            &_img {
+                margin: 0 auto;
+                float: none;
+
+                img {
+                    margin: 0 auto;
+                }
+            }
+
+            &_right {
+                width: 100%;
+                text-align: center;
+                float: none;
+            }
+
+            &_title, &_date {
+                float: none;
+            }
+
+            &_date {
+                margin-top: 14px;
+            }
+
+            &_title {
+                width: 100%;
+            }
+        }
+
+        &_inner {
+            &_title,
+            &_date {
+                width: 100%;
+                float: none;
+                text-align: center;
+            }
+
+            &_date {
+                margin-top: 8px;
+            }
+
+            &_content {
+                text-align: center;
+            }
+        }
+    }
 }

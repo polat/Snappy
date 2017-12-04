@@ -2,7 +2,6 @@ $(document).ready(function () {
     // <---- SCROLL TOP BUTTON ----
     var scroll = $(window).scrollTop();
 
-    // Scroll Top Button
     if (scroll > 500) {
         $(".scrollTop").addClass("visible");
     } else {
@@ -21,6 +20,7 @@ $(document).ready(function () {
     // ---- SCROLL TOP BUTTON ---->
 
 
+    // <---- POPUPS ----
     // Basic Popup
     $(".s-popup").magnificPopup({
         type: 'image',
@@ -46,6 +46,7 @@ $(document).ready(function () {
             titleSrc: 'title'
         });
     });
+    // ---- POPUPS ---->
 
     /*/ <---- SLIDEBARS ----
     var controller = new slidebars();

@@ -140,7 +140,7 @@ $list-heading-color: #fff;
     &[class^="s-list-column"],
     &[class*="s-list-column"] {
         display: flex;
-        @include flex-wrap(wrap);
+        flex-wrap: wrap;
 
         > li {
             padding-left: $gutter / 2;

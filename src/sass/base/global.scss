@@ -5,6 +5,16 @@
 html {
     font-size: $baseFontSize * 1px;
     text-size-adjust: 100%;
+    
+    // Media 320 - 480
+    @include media(320, 480) {
+        font-size: px-to-rem($baseFontSize - 2);
+    }
+    
+    // Media 480, 768
+    @include media(480, 768) {
+        font-size: px-to-rem($baseFontSize - 1);
+    }
 }
 
 body {
@@ -23,6 +33,13 @@ body {
     }
 }
 
+[off-canvas] {
+    // Media 320 - Main Width
+    @include media(320, $mainWidth) {
+        background-color: $mobileColor;
+    }
+}
+
 .gap {
     margin-top: $gap;
 }
@@ -30,6 +47,279 @@ body {
 .globalWidth {
     width: $mainWidth * 1px;
     margin: 0 auto;
+    
+    // Media 320 - Main Width
+    @include media(320, $mainWidth) {
+        width: 100%;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+.mobile {
+    // Media 320 - Main Width
+    @include media(320, $mainWidth) {
+        &_btn {
+            width: 1em;
+            height: 1em;
+            padding: 10px;
+            background-color: transparent;
+            font-size: 50px;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+
+            &.is-active {
+                span {
+                    background-color: transparent;
+
+                    &:before {
+                        top: 0;
+                        transform: rotate(225deg);
+                    }
+
+                    &:after {
+                        bottom: 0;
+                        transform: rotate(-225deg);
+                    }
+                }
+
+                &::before {
+                    background-color: $mobileColor;
+                }
+            }
+
+            &.withBg {
+                &.is-active {
+                    &:before {
+                        width: 1em;
+                        height: 1em;
+                        background: transparent;
+                        font-size: 50px;
+                        opacity: 1;
+                    }
+
+                    span {
+                        &::before,
+                        &::after {
+                            background-color: $mobileColor;
+                        }
+                    }
+                }
+
+                &:before {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                    border-radius: 50%;
+                    background-color: transparent;
+                    content: '';
+                    transition: 0.5s ease;
+                    @include centerer(center);
+
+                }
+            }
+
+            span {
+                display: block;
+                position: relative;
+
+                &:before,
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                }
+
+                &:before {
+                    top: -8px;
+                }
+
+                &:after {
+                    bottom: -8px;
+                }
+            }
+
+            span,
+            span:before,
+            span:after {
+                width: 100%;
+                height: 4px;
+                background-color: $mobileColor;
+                border-radius: 5px;
+                transition: 0.5s ease;
+            }
+        }
+
+        &_settings {
+            width: 50%;
+            background-color: #2F2F2F;
+
+            &_title {
+                margin-bottom: 10px;
+                border-bottom: 1px solid #E8E8E8;
+                padding-bottom: 10px;
+                @include font(20,20,$titleFontFamily,#E8E8E8);
+            }
+
+            &_list {
+                li {
+                    &:not(:last-child) {
+                        margin-bottom: 10px;
+                    }
+
+                    &.active {
+                        a {
+                            &::after {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    a {
+                        padding-left: 45px;
+                        background-repeat: no-repeat;
+                        background-position: left 10px center;
+                        background-size: 25px 25px;
+                        display: block;
+                        position: relative;
+                        @include font(22,26,$titleFontFamily,#E8E8E8);
+
+                        &::after {
+                            width: 3px;
+                            height: 6px;
+                            border: solid #fff;
+                            border-width: 0 2px 2px 0;
+                            display: block;
+                            content: "";
+                            position: absolute;
+                            right: 10px;
+                            top: calc(50% - 3px);
+                            transform: rotate(45deg);
+                            display: none;
+                        }
+
+                        &.tr {
+                            background-image: url('../../dist/images/icons/tr.svg');
+                        }
+
+                        &.en {
+                            background-image: url('../../dist/images/icons/en.svg');
+                        }
+                    }
+                }
+            }
+
+            &_button {
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 13px;
+                right: 10px;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+
+                    * {
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+
+        &_title {
+            background-color: $mobileColor;
+            padding: 10px;
+            @include font(17,25,$titleFontFamily,#E8E8E8,center);
+        }
+
+        &_list {
+            li {
+                &.active {
+                    & > a {
+                        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+                        border-left: 4px solid $mainColor;
+                        background-color: #2F2F2F;
+                    }
+                }
+
+                &:last-child {
+                    a {
+                        border-bottom: 1px solid #323232;
+                    }
+                }
+
+                &:not(.active) {
+                    ul {
+                        display: none;
+                    }
+                }
+
+                a {
+                    border-top: 1px solid #323232;
+                    padding: 10px 35px 10px 50px;
+                    background: no-repeat $mobileColor left 15px center / 25px 25px;
+                    display: block;
+                    position: relative;
+                    @include font(17,25,$baseFontFamily,#E8E8E8);
+
+                    &::after {
+                        width: 10px;
+                        height: 10px;
+                        border-top: 2px solid #E8E8E8;
+                        border-right: 2px solid #E8E8E8;
+                        content: "";
+                        position: absolute;
+                        top: calc(50% - 5px);
+                        right: 20px;
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+
+        &_social {
+            @extend .mobile_list;
+
+            li {
+                a {
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &_search {
+            background-color: darken($mobileColor, 10%);
+            border-top: 1px solid #323232;
+            padding: 20px;
+            position: relative;
+
+            input {
+                width: 100%;
+                height: 30px;
+                padding: 0 10px;
+                background-color: $mobileColor;
+                color: #E8E8E8;
+            }
+
+            button {
+                width: 20px;
+                height: 20px;
+                background-image: url('../../dist/images/icons/search.svg');
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 20px 20px;
+                background-color: transparent;
+                position: absolute;
+                top: 25px;
+                right: 35px;
+            }
+        }
+    }
 }
 
 .scrollTop {

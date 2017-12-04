@@ -27,6 +27,14 @@
 @import 'components/core/pagination';
 @import 'components/custom';
 
+// Layouts
+@import 'layouts/banner.scss';
+@import 'layouts/content.scss';
+@import 'layouts/footer.scss';
+@import 'layouts/header.scss';
+@import 'layouts/showcase.scss';
+@import 'layouts/subContent.scss';
+
 // Pages
 @import 'pages/career';
 @import 'pages/contact';
@@ -34,8 +42,3 @@
 @import 'pages/news';
 @import 'pages/search';
 @import 'pages/404';
-
-// Structure
-@import 'structure/layouts';
-@import 'structure/media';
-
