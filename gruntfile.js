@@ -26,7 +26,7 @@ module.exports = function(grunt) {
                 },
 
                 files: 'src/sass/**/*.scss',
-                tasks: ['newer:sass', 'combine_mq', 'postcss:dist', 'cssmin']
+                tasks: ['sass', 'combine_mq', 'postcss:dist', 'cssmin']
             },
             js: {
                 options: {
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                 },
 
                 files: '<%= concat.dist.src %>',
-                tasks: ['newer:concat', 'uglify']
+                tasks: ['concat', 'uglify']
             },
             img: {
                 files: ["dist/images/icons/*.svg"],
@@ -131,13 +131,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-combine-mq');
-    grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-svgmin');
 
     // Register tasks
     grunt.registerTask('default', ['browserSync','watch']);
-    grunt.registerTask('css', ['newer:sass', 'combine_mq', 'postcss:dist', 'cssmin']);
+    grunt.registerTask('css', ['sass', 'combine_mq', 'postcss:dist', 'cssmin']);
     grunt.registerTask('js', ['concat', 'uglify']);
     grunt.registerTask('svg', ['svgmin']);
 };

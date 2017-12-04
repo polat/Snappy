@@ -1,7 +1,7 @@
 {
   "name": "Snappy",
   "description": "Infomedya Bilişim Teknolojileri tarafından geliştirilen front-end alt yapısıdır.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "keywords": [],
   "main": "index.html",
   "homepage": "https://github.com/polat/Snappy#readme",
@@ -23,7 +23,6 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-newer": "^1.3.0",
     "grunt-postcss": "^0.9.0",
     "grunt-svgmin": "^4.0.0",
     "time-grunt": "^1.4.0"
