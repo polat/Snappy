@@ -25,7 +25,7 @@ body {
     }
      
     &::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     }
      
     &::-webkit-scrollbar-thumb {
@@ -368,28 +368,15 @@ body {
     }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     font-family: $titleFontFamily;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.s-list,
-p {
+h1, h2, h3, h4, h5, h6, .s-list, p {
     margin-bottom: $gutter;
     color: $baseColor;
 }
 
-.s-list li,
-p {
+.s-list li, p {
     @include font($baseFontSize, $baseFontSize + 8);
 }

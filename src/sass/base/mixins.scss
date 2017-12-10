@@ -12,7 +12,7 @@
         transform: translate(0, -50%);
     } @if ($type == horizontal) {
         left: 50%;
-        transform: translate(-50%,0);
+        transform: translate(-50%, 0);
     } @if ($type == center) {
         top: 50%;
         left: 50%;
@@ -35,7 +35,7 @@
 }
 
 // Triangle - Direction is
-@mixin triangle($direction,$width,$height,$color,$pseudo:true){
+@mixin triangle($direction, $width, $height, $color, $pseudo:true){
     border-style: solid;
     position: absolute;
 
@@ -94,26 +94,6 @@
     opacity: 1;
 }
 
-// Covered Background
-@mixin cover($cover: cover){
-    background: no-repeat center / $cover;
-}
-
-// Linear Gradient
-@mixin linear-gradient($string...) {
-    background: linear-gradient($string);
-}
-
-// Radial Gradient
-@mixin radial-gradient($from,$to){
-    background: radial-gradient(center, circle cover, $from, $to);
-}
-
-// Repeating Gradient
-@mixin repeating-gradient($deg,$color1,$width1,$color2,$width2){
-    background-image: repeating-linear-gradient($deg, $color1, $color1 $width1, $color2 1px, $color2 ($width1 + $width2));
-}
-
 // Stripes
 @mixin stripes($direction, $stripeColors) {
     $length: length($stripeColors);
@@ -136,7 +116,7 @@
 }
 
 // Font
-@mixin font($size:null,$height:null,$family:null,$color:null,$align:null) {
+@mixin font($size:null, $height:null, $family:null, $color:null, $align:null) {
     @if (($size != null)){
         font-size: px-to-rem($size);
     }

@@ -26,7 +26,7 @@ $imagesPerRow: 3;
             position: relative;
             display: block;
             overflow: hidden;
-            @include cover();
+            background: no-repeat center / cover;
 
             &:hover {
                 &::before {
