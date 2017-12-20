@@ -60,96 +60,48 @@ body {
     // Media 320 - Main Width
     @include media(320, $mainWidth) {
         &_btn {
-            width: 1em;
-            height: 1em;
-            padding: 10px;
             background-color: transparent;
-            font-size: 50px;
-            cursor: pointer;
             position: absolute;
             right: 20px;
             top: 20px;
-
-            &.is-active {
-                span {
-                    background-color: transparent;
-
-                    &:before {
-                        top: 0;
-                        transform: rotate(225deg);
-                    }
-
-                    &:after {
-                        bottom: 0;
-                        transform: rotate(-225deg);
-                    }
-                }
-
-                &::before {
-                    background-color: $mobileColor;
-                }
-            }
-
-            &.withBg {
-                &.is-active {
-                    &:before {
-                        width: 1em;
-                        height: 1em;
-                        background: transparent;
-                        font-size: 50px;
-                        opacity: 1;
-                    }
-
-                    span {
-                        &::before,
-                        &::after {
-                            background-color: $mobileColor;
-                        }
-                    }
-                }
-
-                &:before {
-                    opacity: 0;
-                    width: 0;
-                    height: 0;
-                    border-radius: 50%;
-                    background-color: transparent;
-                    content: '';
-                    transition: 0.5s ease;
-                    @include centerer(center);
-
-                }
-            }
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            transition-delay: .4s;
 
             span {
-                display: block;
-                position: relative;
-
-                &:before,
-                &:after {
-                    content: '';
-                    position: absolute;
-                    left: 0;
-                }
-
-                &:before {
-                    top: -8px;
-                }
-
-                &:after {
-                    bottom: -8px;
-                }
-            }
-
-            span,
-            span:before,
-            span:after {
-                width: 100%;
+                width: $fingerSize;
                 height: 4px;
-                background-color: $mobileColor;
-                border-radius: 5px;
-                transition: 0.5s ease;
+                margin: 7px auto;
+                background-color: #333;
+                display: block;
+                transition: 1s;
             }
+
+            &.is-active {   
+                transition: all .2s ease-in-out;
+                transition-delay: 1s;
+                transform: rotate(45deg);
+
+                span {
+                    &:nth-child(1) {
+                        transform: translateY(9px);
+                    }
+
+                    &:nth-child(2) {
+                        width: 0px;
+                        transition: .2s;
+                    }
+
+                    &:nth-child(3) {
+                        transform: translateY(-13.5px) rotate(89deg);
+                    }
+
+                    &:nth-child(1),
+                    &:nth-child(3) {
+                        transition-delay: .3s;
+                    }
+                }
+            }            
         }
 
         &_settings {
@@ -179,9 +131,7 @@ body {
 
                     a {
                         padding-left: 45px;
-                        background-repeat: no-repeat;
-                        background-position: left 10px center;
-                        background-size: 25px 25px;
+                        background: no-repeat left 10px center / 25px 25px;
                         display: block;
                         position: relative;
                         @include font(22,26,$titleFontFamily,#E8E8E8);
@@ -212,20 +162,12 @@ body {
             }
 
             &_button {
-                width: 20px;
-                height: 20px;
+                width: 25px;
+                height: 25px;
+                background: url('../../dist/images/icons/whell.svg') no-repeat center / 25px 25px;
                 position: absolute;
-                top: 13px;
+                top: 10px;
                 right: 10px;
-
-                svg {
-                    width: 20px;
-                    height: 20px;
-
-                    * {
-                        fill: #fff;
-                    }
-                }
             }
         }
 
@@ -309,11 +251,7 @@ body {
             button {
                 width: 20px;
                 height: 20px;
-                background-image: url('../../dist/images/icons/search.svg');
-                background-repeat: no-repeat;
-                background-position: center center;
-                background-size: 20px 20px;
-                background-color: transparent;
+                background: url('../../dist/images/icons/search.svg') transparent no-repeat center / 20px 20px;
                 position: absolute;
                 top: 25px;
                 right: 35px;
