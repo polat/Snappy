@@ -9,7 +9,7 @@
 // Vendors
 @import 'vendors/aos';
 @import 'vendors/magnific-popup';
-@import 'vendors/toast';
+@import 'vendors/toasttr';
 //@import 'vendors/slidebars';
 
 // Components
@@ -28,12 +28,12 @@
 @import 'components/custom';
 
 // Layouts
-@import 'layouts/banner.scss';
-@import 'layouts/content.scss';
-@import 'layouts/footer.scss';
-@import 'layouts/header.scss';
-@import 'layouts/showcase.scss';
-@import 'layouts/subContent.scss';
+@import 'layouts/banner';
+@import 'layouts/content';
+@import 'layouts/footer';
+@import 'layouts/header';
+@import 'layouts/showcase';
+@import 'layouts/subContent';
 
 // Pages
 @import 'pages/career';
